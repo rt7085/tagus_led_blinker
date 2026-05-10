@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+         <top_modules>
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0"></ZoomStartTime>
+      <ZoomEndTime time="16"></ZoomEndTime>
+      <Cursor1Time time="11"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="177"></NameColumnWidth>
+      <ValueColumnWidth column_width="168"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="1" />
+   <wave_markers>
+      <marker label="" time="7" />
+      <marker label="" time="513" />
+      <marker label="" time="11" />
+   </wave_markers>
+   <wvobject type="array" fp_name="led_blinker_i/system_ila_0/inst/probe0">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">led_blinker_i/system_ila_0/inst/probe0[0:0]</obj_property>
+      <obj_property name="ObjectShortName">probe0[0:0]</obj_property>
+      <obj_property name="label">util_ds_buf_0_BUFG_O</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>
