@@ -56,9 +56,7 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "led_blinker_mdm_0_0_synth_1" START { ROLLUP_AUTO }
-set_param tcl.collectionResultDisplayLimit 0
-set_param xicom.use_bs_reader 1
-set_param chipscope.maxJobs 2
+set_param bd.open.in_stealth_mode 2
 set_param general.usePosixSpawnForFork 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
@@ -82,6 +80,7 @@ OPTRACE "Adding files" START { }
 read_ip -quiet /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.srcs/sources_1/bd/led_blinker/ip/led_blinker_mdm_0_0/led_blinker_mdm_0_0.xci
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_mdm_0_0/led_blinker_mdm_0_0.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_mdm_0_0/led_blinker_mdm_0_0_ooc_trace.xdc]
+set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_mdm_0_0/led_blinker_mdm_0_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

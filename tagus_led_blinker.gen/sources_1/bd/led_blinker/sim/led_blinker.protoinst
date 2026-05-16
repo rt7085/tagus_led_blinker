@@ -52,6 +52,31 @@
 						"WVALID": { "actual": "M00_AXI_wvalid"}
 					}
 				},
+				"/axi_smc/M01_AXI": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "aclk"},
+						"ARADDR": { "actual": "M01_AXI_araddr[3:0]"},
+						"ARPROT": { "actual": "M01_AXI_arprot[2:0]"},
+						"ARREADY": { "actual": "M01_AXI_arready"},
+						"ARVALID": { "actual": "M01_AXI_arvalid"},
+						"AWADDR": { "actual": "M01_AXI_awaddr[3:0]"},
+						"AWPROT": { "actual": "M01_AXI_awprot[2:0]"},
+						"AWREADY": { "actual": "M01_AXI_awready"},
+						"AWVALID": { "actual": "M01_AXI_awvalid"},
+						"BREADY": { "actual": "M01_AXI_bready"},
+						"BRESP": { "actual": "M01_AXI_bresp[1:0]"},
+						"BVALID": { "actual": "M01_AXI_bvalid"},
+						"RDATA": { "actual": "M01_AXI_rdata[31:0]"},
+						"RREADY": { "actual": "M01_AXI_rready"},
+						"RRESP": { "actual": "M01_AXI_rresp[1:0]"},
+						"RVALID": { "actual": "M01_AXI_rvalid"},
+						"WDATA": { "actual": "M01_AXI_wdata[31:0]"},
+						"WREADY": { "actual": "M01_AXI_wready"},
+						"WSTRB": { "actual": "M01_AXI_wstrb[3:0]"},
+						"WVALID": { "actual": "M01_AXI_wvalid"}
+					}
+				},
 				"/axi_smc/S00_AXI": {
 					"interface": "xilinx.com:interface:aximm:1.0",
 					"ports": {
@@ -75,6 +100,30 @@
 						"WREADY": { "actual": "S00_AXI_wready"},
 						"WSTRB": { "actual": "S00_AXI_wstrb[3:0]"},
 						"WVALID": { "actual": "S00_AXI_wvalid"}
+					}
+				},
+				"/mdm_0/S_AXI": {
+					"interface": "xilinx.com:interface:aximm:1.0",
+					"ports": {
+						"ACLK": { "actual": "S_AXI_ACLK"},
+						"ARADDR": { "actual": "S_AXI_ARADDR[3:0]"},
+						"ARESETN": { "actual": "S_AXI_ARESETN"},
+						"ARREADY": { "actual": "S_AXI_ARREADY"},
+						"ARVALID": { "actual": "S_AXI_ARVALID"},
+						"AWADDR": { "actual": "S_AXI_AWADDR[3:0]"},
+						"AWREADY": { "actual": "S_AXI_AWREADY"},
+						"AWVALID": { "actual": "S_AXI_AWVALID"},
+						"BREADY": { "actual": "S_AXI_BREADY"},
+						"BRESP": { "actual": "S_AXI_BRESP[1:0]"},
+						"BVALID": { "actual": "S_AXI_BVALID"},
+						"RDATA": { "actual": "S_AXI_RDATA[31:0]"},
+						"RREADY": { "actual": "S_AXI_RREADY"},
+						"RRESP": { "actual": "S_AXI_RRESP[1:0]"},
+						"RVALID": { "actual": "S_AXI_RVALID"},
+						"WDATA": { "actual": "S_AXI_WDATA[31:0]"},
+						"WREADY": { "actual": "S_AXI_WREADY"},
+						"WSTRB": { "actual": "S_AXI_WSTRB[3:0]"},
+						"WVALID": { "actual": "S_AXI_WVALID"}
 					}
 				},
 				"/microblaze_0/M_AXI_DP": {

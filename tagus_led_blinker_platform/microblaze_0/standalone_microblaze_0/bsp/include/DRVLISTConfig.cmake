@@ -1,1 +1,1 @@
-set(DRIVER_LIST bram;common;gpio)
+set(DRIVER_LIST bram;common;gpio;uartlite)

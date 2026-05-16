@@ -1,3 +1,4 @@
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xuartlite_l.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/sleep.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_testcache.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/mb_interface.h
@@ -7,6 +8,7 @@
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_types.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xpm_init.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xgpio_i.h
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xuartlite_i.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xcommon_drv_config.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xenv_standalone.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/bspconfig.h
@@ -38,6 +40,7 @@
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xstatus.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_hal.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xinterrupt_wrap.h
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xuartlite.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xgpio_l.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_assert.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xmicroblaze.h
@@ -45,6 +48,7 @@
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_sutil.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/microblaze_exceptions_g.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/lib/libxilstandalone.a
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xuartlite_l.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/sleep.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_testcache.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/mb_interface.h
@@ -54,6 +58,7 @@
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_types.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xpm_init.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xgpio_i.h
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xuartlite_i.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xcommon_drv_config.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xenv_standalone.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/bspconfig.h
@@ -85,6 +90,7 @@
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xstatus.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_hal.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xinterrupt_wrap.h
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xuartlite.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xgpio_l.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_assert.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xmicroblaze.h
@@ -92,6 +98,7 @@
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_sutil.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/microblaze_exceptions_g.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/lib/libxiltimer.a
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xuartlite_l.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/sleep.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_testcache.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/mb_interface.h
@@ -101,6 +108,7 @@
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_types.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xpm_init.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xgpio_i.h
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xuartlite_i.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xcommon_drv_config.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xenv_standalone.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/bspconfig.h
@@ -132,6 +140,7 @@
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xstatus.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_hal.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xinterrupt_wrap.h
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xuartlite.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xgpio_l.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xil_assert.h
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include/xmicroblaze.h

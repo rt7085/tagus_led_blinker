@@ -52,6 +52,11 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/gpio/src/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/cmake_install.cmake")
+endif()
+
 if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/include/../include")

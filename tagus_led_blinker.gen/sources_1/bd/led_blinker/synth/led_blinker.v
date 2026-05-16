@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Sun May 10 15:45:18 2026
+//Date        : Sat May 16 06:17:40 2026
 //Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
 //Command     : generate_target led_blinker.bd
 //Design      : led_blinker
@@ -14,7 +14,7 @@
 The sys_clock is samples at 400 MHz while the clock itself runs at 100MHz. We should see 4 ticks per 100 Mhz cycle (which is true)
 Sensing an input MUST be buffered. 
 Must use a clock wizard on sys_clock */
-(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=18,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=4,da_clkrst_cnt=4,da_mb_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
+(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=18,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"da_axi4_cnt\"=1,\"da_board_cnt\"=4,\"da_clkrst_cnt\"=4,\"da_mb_cnt\"=1,da_axi4_cnt=1,da_mb_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
 module led_blinker
    (led_blue,
     led_green,
@@ -44,6 +44,23 @@ module led_blinker
   wire axi_smc_M00_AXI_WREADY;
   wire [3:0]axi_smc_M00_AXI_WSTRB;
   wire axi_smc_M00_AXI_WVALID;
+  wire [3:0]axi_smc_M01_AXI_ARADDR;
+  wire axi_smc_M01_AXI_ARREADY;
+  wire axi_smc_M01_AXI_ARVALID;
+  wire [3:0]axi_smc_M01_AXI_AWADDR;
+  wire axi_smc_M01_AXI_AWREADY;
+  wire axi_smc_M01_AXI_AWVALID;
+  wire axi_smc_M01_AXI_BREADY;
+  wire [1:0]axi_smc_M01_AXI_BRESP;
+  wire axi_smc_M01_AXI_BVALID;
+  wire [31:0]axi_smc_M01_AXI_RDATA;
+  wire axi_smc_M01_AXI_RREADY;
+  wire [1:0]axi_smc_M01_AXI_RRESP;
+  wire axi_smc_M01_AXI_RVALID;
+  wire [31:0]axi_smc_M01_AXI_WDATA;
+  wire axi_smc_M01_AXI_WREADY;
+  wire [3:0]axi_smc_M01_AXI_WSTRB;
+  wire axi_smc_M01_AXI_WVALID;
   wire [26:0]c_counter_binary_0_Q;
   wire clk_wiz_clk_out2;
   wire clk_wiz_locked;
@@ -146,6 +163,23 @@ module led_blinker
         .M00_AXI_wready(axi_smc_M00_AXI_WREADY),
         .M00_AXI_wstrb(axi_smc_M00_AXI_WSTRB),
         .M00_AXI_wvalid(axi_smc_M00_AXI_WVALID),
+        .M01_AXI_araddr(axi_smc_M01_AXI_ARADDR),
+        .M01_AXI_arready(axi_smc_M01_AXI_ARREADY),
+        .M01_AXI_arvalid(axi_smc_M01_AXI_ARVALID),
+        .M01_AXI_awaddr(axi_smc_M01_AXI_AWADDR),
+        .M01_AXI_awready(axi_smc_M01_AXI_AWREADY),
+        .M01_AXI_awvalid(axi_smc_M01_AXI_AWVALID),
+        .M01_AXI_bready(axi_smc_M01_AXI_BREADY),
+        .M01_AXI_bresp(axi_smc_M01_AXI_BRESP),
+        .M01_AXI_bvalid(axi_smc_M01_AXI_BVALID),
+        .M01_AXI_rdata(axi_smc_M01_AXI_RDATA),
+        .M01_AXI_rready(axi_smc_M01_AXI_RREADY),
+        .M01_AXI_rresp(axi_smc_M01_AXI_RRESP),
+        .M01_AXI_rvalid(axi_smc_M01_AXI_RVALID),
+        .M01_AXI_wdata(axi_smc_M01_AXI_WDATA),
+        .M01_AXI_wready(axi_smc_M01_AXI_WREADY),
+        .M01_AXI_wstrb(axi_smc_M01_AXI_WSTRB),
+        .M01_AXI_wvalid(axi_smc_M01_AXI_WVALID),
         .S00_AXI_araddr(microblaze_0_M_AXI_DP_ARADDR),
         .S00_AXI_arprot(microblaze_0_M_AXI_DP_ARPROT),
         .S00_AXI_arready(microblaze_0_M_AXI_DP_ARREADY),
@@ -188,7 +222,26 @@ module led_blinker
         .Dbg_TDI_0(microblaze_0_debug_TDI),
         .Dbg_TDO_0(microblaze_0_debug_TDO),
         .Dbg_Update_0(microblaze_0_debug_UPDATE),
-        .Debug_SYS_Rst(mdm_1_debug_sys_rst));
+        .Debug_SYS_Rst(mdm_1_debug_sys_rst),
+        .S_AXI_ACLK(microblaze_0_Clk),
+        .S_AXI_ARADDR(axi_smc_M01_AXI_ARADDR),
+        .S_AXI_ARESETN(rst_clk_wiz_100M_peripheral_aresetn),
+        .S_AXI_ARREADY(axi_smc_M01_AXI_ARREADY),
+        .S_AXI_ARVALID(axi_smc_M01_AXI_ARVALID),
+        .S_AXI_AWADDR(axi_smc_M01_AXI_AWADDR),
+        .S_AXI_AWREADY(axi_smc_M01_AXI_AWREADY),
+        .S_AXI_AWVALID(axi_smc_M01_AXI_AWVALID),
+        .S_AXI_BREADY(axi_smc_M01_AXI_BREADY),
+        .S_AXI_BRESP(axi_smc_M01_AXI_BRESP),
+        .S_AXI_BVALID(axi_smc_M01_AXI_BVALID),
+        .S_AXI_RDATA(axi_smc_M01_AXI_RDATA),
+        .S_AXI_RREADY(axi_smc_M01_AXI_RREADY),
+        .S_AXI_RRESP(axi_smc_M01_AXI_RRESP),
+        .S_AXI_RVALID(axi_smc_M01_AXI_RVALID),
+        .S_AXI_WDATA(axi_smc_M01_AXI_WDATA),
+        .S_AXI_WREADY(axi_smc_M01_AXI_WREADY),
+        .S_AXI_WSTRB(axi_smc_M01_AXI_WSTRB),
+        .S_AXI_WVALID(axi_smc_M01_AXI_WVALID));
   (* BMM_INFO_PROCESSOR = "microblaze-le > led_blinker microblaze_0_local_memory/dlmb_bram_if_cntlr" *) 
   (* KEEP_HIERARCHY = "YES" *) 
   led_blinker_microblaze_0_0 microblaze_0

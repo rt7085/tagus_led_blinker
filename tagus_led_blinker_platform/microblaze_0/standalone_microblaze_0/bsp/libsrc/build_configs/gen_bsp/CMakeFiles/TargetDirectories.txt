@@ -32,6 +32,13 @@
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/gpio/src/CMakeFiles/install.dir
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/gpio/src/CMakeFiles/install/local.dir
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/gpio/src/CMakeFiles/install/strip.dir
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/uartlite.dir
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/edit_cache.dir
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/rebuild_cache.dir
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/list_install_components.dir
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/install.dir
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/install/local.dir
+/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/CMakeFiles/install/strip.dir
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/standalone/src/CMakeFiles/xilstandalone.dir
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/standalone/src/CMakeFiles/edit_cache.dir
 /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/standalone/src/CMakeFiles/rebuild_cache.dir

@@ -12,6 +12,10 @@ set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet
 # XDC: The top module name and the constraint reference have the same name: 'led_blinker_mdm_0_0'. Do not add the DONT_TOUCH constraint.
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet
 
+# XDC: /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_mdm_0_0/led_blinker_mdm_0_0_ooc.xdc
+# XDC: The top module name and the constraint reference have the same name: 'led_blinker_mdm_0_0'. Do not add the DONT_TOUCH constraint.
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet
+
 # IP: /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.srcs/sources_1/bd/led_blinker/ip/led_blinker_mdm_0_0/led_blinker_mdm_0_0.xci
 # IP: The module: 'led_blinker_mdm_0_0' is the root of the design. Do not add the DONT_TOUCH constraint.
 
@@ -20,5 +24,9 @@ set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet
 
 # XDC: /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_mdm_0_0/led_blinker_mdm_0_0_ooc_trace.xdc
+# XDC: The top module name and the constraint reference have the same name: 'led_blinker_mdm_0_0'. Do not add the DONT_TOUCH constraint.
+#dup# set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet
+
+# XDC: /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_mdm_0_0/led_blinker_mdm_0_0_ooc.xdc
 # XDC: The top module name and the constraint reference have the same name: 'led_blinker_mdm_0_0'. Do not add the DONT_TOUCH constraint.
 #dup# set_property KEEP_HIERARCHY SOFT [get_cells U0 -quiet] -quiet

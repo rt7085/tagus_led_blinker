@@ -47,6 +47,18 @@
 #define XPAR_XGPIO_0_INTERRUPT_PRESENT 0x1
 #define XPAR_XGPIO_0_IS_DUAL 0x0
 
+#define XPAR_XUARTLITE_NUM_INSTANCES 1
+
+/* Definitions for peripheral MDM_0 */
+#define XPAR_MDM_0_COMPATIBLE "xlnx,mdm-3.2"
+#define XPAR_MDM_0_BASEADDR 0x41400000
+#define XPAR_MDM_0_HIGHADDR 0x41400fff
+
+/* Canonical definitions for peripheral MDM_0 */
+#define XPAR_XUARTLITE_0_BASEADDR 0x41400000
+#define XPAR_XUARTLITE_0_HIGHADDR 0x41400fff
+#define XPAR_XUARTLITE_0_COMPATIBLE "xlnx,mdm-3.2"
+
 /*  BOARD definition */
 #define XPS_BOARD_TAGUS
 

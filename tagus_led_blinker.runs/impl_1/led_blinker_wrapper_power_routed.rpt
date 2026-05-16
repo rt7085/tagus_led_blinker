@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-| Date             : Sun May 10 15:50:21 2026
+| Date             : Sat May 16 06:20:49 2026
 | Host             : capybara running 64-bit Ubuntu 24.04.3 LTS
 | Command          : report_power -file led_blinker_wrapper_power_routed.rpt -pb led_blinker_wrapper_power_summary_routed.pb -rpx led_blinker_wrapper_power_routed.rpx
 | Design           : led_blinker_wrapper
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.291        |
+| Total On-Chip Power (W)  | 0.294        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.151        |
+| Dynamic (W)              | 0.154        |
 | Device Static (W)        | 0.140        |
 | Effective TJA (C/W)      | 2.5          |
 | Max Ambient (C)          | 84.3         |
@@ -53,21 +53,21 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.057 |        9 |       --- |             --- |
-| Slice Logic              |     0.008 |     8796 |       --- |             --- |
-|   LUT as Logic           |     0.006 |     2777 |    133800 |            2.08 |
-|   Register               |    <0.001 |     4038 |    267600 |            1.51 |
+| Slice Logic              |     0.009 |     9565 |       --- |             --- |
+|   LUT as Logic           |     0.007 |     3055 |    133800 |            2.28 |
+|   Register               |    <0.001 |     4310 |    267600 |            1.61 |
 |   LUT as Distributed RAM |    <0.001 |       88 |     46200 |            0.19 |
-|   CARRY4                 |    <0.001 |       83 |     33450 |            0.25 |
+|   CARRY4                 |    <0.001 |       85 |     33450 |            0.25 |
 |   F7/F8 Muxes            |    <0.001 |      114 |    133800 |            0.09 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
-|   LUT as Shift Register  |    <0.001 |      187 |     46200 |            0.40 |
-|   Others                 |    <0.001 |      853 |       --- |             --- |
-| Signals                  |     0.012 |     6269 |       --- |             --- |
+|   LUT as Shift Register  |    <0.001 |      203 |     46200 |            0.44 |
+|   Others                 |    <0.001 |      967 |       --- |             --- |
+| Signals                  |     0.014 |     6730 |       --- |             --- |
 | Block RAM                |     0.007 |       17 |       365 |            4.66 |
 | MMCM                     |     0.065 |        1 |        10 |           10.00 |
 | I/O                      |     0.002 |        5 |       285 |            1.75 |
 | Static Power             |     0.140 |          |           |                 |
-| Total                    |     0.291 |          |           |                 |
+| Total                    |     0.294 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -77,9 +77,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.116 |       0.085 |      0.031 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.119 |       0.088 |      0.031 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.066 |       0.036 |      0.031 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     0.005 |       0.000 |      0.005 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.006 |       0.001 |      0.005 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -151,17 +151,19 @@ Table of Contents
 +-------------------------------+-----------+
 | Name                          | Power (W) |
 +-------------------------------+-----------+
-| led_blinker_wrapper           |     0.151 |
-|   dbg_hub                     |     0.009 |
-|     inst                      |     0.009 |
-|       BSCANID.u_xsdbm_id      |     0.009 |
-|   led_blinker_i               |     0.140 |
-|     axi_smc                   |     0.001 |
-|       inst                    |     0.001 |
+| led_blinker_wrapper           |     0.154 |
+|   dbg_hub                     |     0.010 |
+|     inst                      |     0.010 |
+|       BSCANID.u_xsdbm_id      |     0.010 |
+|   led_blinker_i               |     0.142 |
+|     axi_smc                   |     0.004 |
+|       inst                    |     0.004 |
 |     clk_wiz                   |     0.066 |
 |       inst                    |     0.066 |
-|     microblaze_0              |     0.012 |
-|       U0                      |     0.012 |
+|     mdm_0                     |     0.001 |
+|       U0                      |     0.001 |
+|     microblaze_0              |     0.013 |
+|       U0                      |     0.013 |
 |     microblaze_0_local_memory |     0.004 |
 |       lmb_bram                |     0.004 |
 |     system_ila_0              |     0.027 |

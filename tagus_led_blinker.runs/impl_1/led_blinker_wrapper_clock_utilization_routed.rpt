@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-| Date         : Sun May 10 15:50:22 2026
+| Date         : Sat May 16 06:20:50 2026
 | Host         : capybara running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_clock_utilization -file led_blinker_wrapper_clock_utilization_routed.rpt
 | Design       : led_blinker_wrapper
@@ -52,11 +52,11 @@ Table of Contents
 +-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+--------------------------------------------------------------------------------------------+------------------------------------------------------------------------+---------------------------------------------------------------+
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site          | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock                                                                                      | Driver Pin                                                             | Net                                                           |
 +-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+--------------------------------------------------------------------------------------------+------------------------------------------------------------------------+---------------------------------------------------------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y0 | n/a          |                 3 |        2390 |               0 |        2.500 | clk_out2_led_blinker_clk_wiz_0                                                             | led_blinker_i/clk_wiz/inst/clkout2_buf/O                               | led_blinker_i/clk_wiz/inst/clk_out2                           |
-| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y1 | n/a          |                 2 |        1176 |               0 |       10.000 | clk_out1_led_blinker_clk_wiz_0                                                             | led_blinker_i/clk_wiz/inst/clkout1_buf/O                               | led_blinker_i/clk_wiz/inst/clk_out1                           |
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y0 | n/a          |                 2 |        2389 |               0 |        2.500 | clk_out2_led_blinker_clk_wiz_0                                                             | led_blinker_i/clk_wiz/inst/clkout2_buf/O                               | led_blinker_i/clk_wiz/inst/clk_out2                           |
+| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y1 | n/a          |                 2 |        1447 |               0 |       10.000 | clk_out1_led_blinker_clk_wiz_0                                                             | led_blinker_i/clk_wiz/inst/clkout1_buf/O                               | led_blinker_i/clk_wiz/inst/clk_out1                           |
 | g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y2 | n/a          |                 2 |         465 |               0 |       33.000 | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.bscan_inst/SERIES7_BSCAN.bscan_inst/TCK | dbg_hub/inst/BSCANID.u_xsdbm_id/SWITCH_N_EXT_BSCAN.u_bufg_icon_tck/O   | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                        |
-| g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y3 | n/a          |                 2 |         232 |               0 |       33.333 | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/DRCK                                | led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Using_FPGA.Native/O | led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0  |
-| g4        | src4      | BUFG/O          | None       | BUFGCTRL_X0Y4 | n/a          |                 1 |          38 |               1 |       33.333 | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/UPDATE                              | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG_inst/O         | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG       |
+| g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y3 | n/a          |                 2 |         248 |               0 |       33.333 | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/DRCK                                | led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Using_FPGA.Native/O | led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0  |
+| g4        | src4      | BUFG/O          | None       | BUFGCTRL_X0Y4 | n/a          |                 2 |          40 |               1 |       33.333 | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/UPDATE                              | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG_inst/O         | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG       |
 | g5        | src5      | BUFG/O          | None       | BUFGCTRL_X0Y6 | n/a          |                 1 |           1 |               0 |       10.000 | clkfbout_led_blinker_clk_wiz_0                                                             | led_blinker_i/clk_wiz/inst/clkf_buf/O                                  | led_blinker_i/clk_wiz/inst/clkfbout_buf_led_blinker_clk_wiz_0 |
 | g6        | src6      | BUFG/O          | None       | BUFGCTRL_X0Y5 | n/a          |                 1 |           0 |               2 |          n/a | n/a                                                                                        | led_blinker_i/util_ds_buf_0/U0/USE_BUFG.GEN_BUFG[0].BUFG_U/O           | led_blinker_i/util_ds_buf_0/U0/BUFG_O[0]                      |
 +-----------+-----------+-----------------+------------+---------------+--------------+-------------------+-------------+-----------------+--------------+--------------------------------------------------------------------------------------------+------------------------------------------------------------------------+---------------------------------------------------------------+
@@ -92,11 +92,11 @@ Table of Contents
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | X0Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  2700 |    0 |   800 |    0 |    60 |    0 |    30 |    0 |    60 |
 | X1Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  2500 |    0 |   800 |    0 |    40 |    0 |    20 |    0 |    40 |
-| X0Y1              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  814 |  4200 |  420 |  1400 |    0 |   100 |   13 |    50 |    0 |   100 |
+| X0Y1              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 1352 |  4200 |  484 |  1400 |    0 |   100 |   16 |    50 |    0 |   100 |
 | X1Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  4000 |    0 |  1400 |    0 |    80 |    0 |    40 |    0 |    80 |
-| X0Y2              |    7 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 2937 |  3600 | 1217 |  1400 |    0 |   100 |    3 |    50 |    0 |   100 |
+| X0Y2              |    7 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 | 2421 |  3600 | 1023 |  1400 |    0 |   100 |    0 |    50 |    0 |   100 |
 | X1Y2              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  4000 |    0 |  1400 |    0 |    80 |    0 |    40 |    0 |    80 |
-| X0Y3              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  287 |  3600 |   95 |  1400 |    0 |   100 |    0 |    50 |    0 |   100 |
+| X0Y3              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  537 |  3600 |  186 |  1400 |    0 |   100 |    0 |    50 |    0 |   100 |
 | X1Y3              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  4000 |    0 |  1400 |    0 |    80 |    0 |    40 |    0 |    80 |
 | X0Y4              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     1 |    0 |    50 |    0 |    50 |    0 |  2550 |    0 |   750 |    0 |    50 |    0 |    25 |    0 |    60 |
 | X1Y4              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     4 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  2500 |    0 |   800 |    0 |    40 |    0 |    20 |    0 |    40 |
@@ -125,7 +125,7 @@ All Modules
 +-----------+-----------------+-------------------+--------------------------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                          | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                 |
 +-----------+-----------------+-------------------+--------------------------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------+
-| g0        | BUFG/O          | n/a               | clk_out2_led_blinker_clk_wiz_0 |       2.500 | {0.000 1.250} |        2323 |        0 |              0 |        0 | led_blinker_i/clk_wiz/inst/clk_out2 |
+| g0        | BUFG/O          | n/a               | clk_out2_led_blinker_clk_wiz_0 |       2.500 | {0.000 1.250} |        2322 |        0 |              0 |        0 | led_blinker_i/clk_wiz/inst/clk_out2 |
 +-----------+-----------------+-------------------+--------------------------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -137,9 +137,9 @@ All Modules
 |    | X0    | X1 | HORIZONTAL PROG DELAY |
 +----+-------+----+-----------------------+
 | Y4 |     0 |  0 |                     - |
-| Y3 |    56 |  0 |                     0 |
-| Y2 |  2261 |  0 |                     0 |
-| Y1 |     6 |  0 |                     0 |
+| Y3 |   254 |  0 |                     0 |
+| Y2 |  2068 |  0 |                     0 |
+| Y1 |     0 |  0 |                     - |
 | Y0 |     0 |  0 |                     - |
 +----+-------+----+-----------------------+
 
@@ -150,7 +150,7 @@ All Modules
 +-----------+-----------------+-------------------+--------------------------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                          | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                 |
 +-----------+-----------------+-------------------+--------------------------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------+
-| g1        | BUFG/O          | n/a               | clk_out1_led_blinker_clk_wiz_0 |      10.000 | {0.000 5.000} |        1160 |        0 |              0 |        0 | led_blinker_i/clk_wiz/inst/clk_out1 |
+| g1        | BUFG/O          | n/a               | clk_out1_led_blinker_clk_wiz_0 |      10.000 | {0.000 5.000} |        1431 |        0 |              0 |        0 | led_blinker_i/clk_wiz/inst/clk_out1 |
 +-----------+-----------------+-------------------+--------------------------------+-------------+---------------+-------------+----------+----------------+----------+-------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -158,15 +158,15 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+------+----+-----------------------+
-|    | X0   | X1 | HORIZONTAL PROG DELAY |
-+----+------+----+-----------------------+
-| Y4 |    0 |  0 |                     - |
-| Y3 |    0 |  0 |                     - |
-| Y2 |  350 |  0 |                     0 |
-| Y1 |  810 |  0 |                     0 |
-| Y0 |    0 |  0 |                     - |
-+----+------+----+-----------------------+
++----+-------+----+-----------------------+
+|    | X0    | X1 | HORIZONTAL PROG DELAY |
++----+-------+----+-----------------------+
+| Y4 |     0 |  0 |                     - |
+| Y3 |     0 |  0 |                     - |
+| Y2 |   108 |  0 |                     0 |
+| Y1 |  1323 |  0 |                     0 |
+| Y0 |     0 |  0 |                     - |
++----+-------+----+-----------------------+
 
 
 8. Device Cell Placement Summary for Global Clock g2
@@ -187,8 +187,8 @@ All Modules
 |    | X0   | X1 | HORIZONTAL PROG DELAY |
 +----+------+----+-----------------------+
 | Y4 |    0 |  0 |                     - |
-| Y3 |  231 |  0 |                     0 |
-| Y2 |  231 |  0 |                     0 |
+| Y3 |  283 |  0 |                     0 |
+| Y2 |  179 |  0 |                     0 |
 | Y1 |    0 |  0 |                     - |
 | Y0 |    0 |  0 |                     - |
 +----+------+----+-----------------------+
@@ -200,7 +200,7 @@ All Modules
 +-----------+-----------------+-------------------+-------------------------------------------------------------+-------------+----------------+-------------+----------+----------------+----------+--------------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                                                       | Period (ns) | Waveform (ns)  | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                          |
 +-----------+-----------------+-------------------+-------------------------------------------------------------+-------------+----------------+-------------+----------+----------------+----------+--------------------------------------------------------------+
-| g3        | BUFG/O          | n/a               | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/DRCK |      33.333 | {0.000 16.667} |         232 |        0 |              0 |        0 | led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0 |
+| g3        | BUFG/O          | n/a               | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/DRCK |      33.333 | {0.000 16.667} |         248 |        0 |              0 |        0 | led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0 |
 +-----------+-----------------+-------------------+-------------------------------------------------------------+-------------+----------------+-------------+----------+----------------+----------+--------------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -213,8 +213,8 @@ All Modules
 +----+------+----+-----------------------+
 | Y4 |    0 |  0 |                     - |
 | Y3 |    0 |  0 |                     - |
-| Y2 |  156 |  0 |                     0 |
-| Y1 |   76 |  0 |                     0 |
+| Y2 |  108 |  0 |                     0 |
+| Y1 |  140 |  0 |                     0 |
 | Y0 |    0 |  0 |                     - |
 +----+------+----+-----------------------+
 
@@ -225,7 +225,7 @@ All Modules
 +-----------+-----------------+-------------------+---------------------------------------------------------------+-------------+----------------+-------------+----------+----------------+----------+---------------------------------------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock                                                         | Period (ns) | Waveform (ns)  | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                                                     |
 +-----------+-----------------+-------------------+---------------------------------------------------------------+-------------+----------------+-------------+----------+----------------+----------+---------------------------------------------------------+
-| g4        | BUFG/O          | n/a               | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/UPDATE |      33.333 | {0.000 16.667} |          39 |        0 |              0 |        0 | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG |
+| g4        | BUFG/O          | n/a               | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Use_E2.BSCANE2_I/UPDATE |      33.333 | {0.000 16.667} |          41 |        0 |              0 |        0 | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG |
 +-----------+-----------------+-------------------+---------------------------------------------------------------+-------------+----------------+-------------+----------+----------------+----------+---------------------------------------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -238,8 +238,8 @@ All Modules
 +----+-----+----+-----------------------+
 | Y4 |   0 |  0 |                     - |
 | Y3 |   0 |  0 |                     - |
-| Y2 |  39 |  0 |                     0 |
-| Y1 |   0 |  0 |                     - |
+| Y2 |  31 |  0 |                     0 |
+| Y1 |  10 |  0 |                     0 |
 | Y0 |   0 |  0 |                     - |
 +----+-----+----+-----------------------+
 
@@ -297,13 +297,13 @@ All Modules
 13. Clock Region Cell Placement per Global Clock: Region X0Y1
 -------------------------------------------------------------
 
-+-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+--------------------------------------------------------------+
-| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                          |
-+-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+--------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |           6 |               0 |   6 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/clk_wiz/inst/clk_out2                          |
-| g1        | n/a   | BUFG/O          | None       |         810 |               0 | 738 |          59 |   13 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/clk_wiz/inst/clk_out1                          |
-| g3        | n/a   | BUFG/O          | None       |          76 |               0 |  70 |           6 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0 |
-+-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+--------------------------------------------------------------+
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+--------------------------------------------------------------+
+| Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                          |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+--------------------------------------------------------------+
+| g1        | n/a   | BUFG/O          | None       |        1323 |               0 | 1214 |          93 |   16 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/clk_wiz/inst/clk_out1                          |
+| g3        | n/a   | BUFG/O          | None       |         140 |               0 |  128 |          12 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0 |
+| g4        | n/a   | BUFG/O          | None       |          10 |               0 |   10 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG      |
++-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+--------------------------------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
 *** Columns FF, LUTRAM, RAMB through 'Hard IP' represents load cell counts
@@ -315,11 +315,11 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF   | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                                           |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |        2261 |               0 | 2201 |          58 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/clk_wiz/inst/clk_out2                           |
-| g1        | n/a   | BUFG/O          | None       |         350 |               0 |  327 |          20 |    3 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/clk_wiz/inst/clk_out1                           |
-| g2        | n/a   | BUFG/O          | None       |         231 |               0 |  231 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                        |
-| g3        | n/a   | BUFG/O          | None       |         156 |               0 |  140 |          16 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0  |
-| g4        | n/a   | BUFG/O          | None       |          38 |               1 |   38 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG       |
+| g0        | n/a   | BUFG/O          | None       |        2068 |               0 | 2008 |          58 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/clk_wiz/inst/clk_out2                           |
+| g1        | n/a   | BUFG/O          | None       |         108 |               0 |  106 |           2 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/clk_wiz/inst/clk_out1                           |
+| g2        | n/a   | BUFG/O          | None       |         179 |               0 |  179 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i                        |
+| g3        | n/a   | BUFG/O          | None       |         108 |               0 |   98 |          10 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0  |
+| g4        | n/a   | BUFG/O          | None       |          30 |               1 |   30 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG       |
 | g5        | n/a   | BUFG/O          | None       |           1 |               0 |    0 |           0 |    0 |   0 |  0 |    1 |   0 |       0 | led_blinker_i/clk_wiz/inst/clkfbout_buf_led_blinker_clk_wiz_0 |
 | g6        | n/a   | BUFG/O          | None       |           0 |               2 |    0 |           1 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/util_ds_buf_0/U0/BUFG_O[0]                      |
 +-----------+-------+-----------------+------------+-------------+-----------------+------+-------------+------+-----+----+------+-----+---------+---------------------------------------------------------------+
@@ -334,8 +334,8 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+----------------------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                                    |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+----------------------------------------+
-| g0        | n/a   | BUFG/O          | None       |          56 |               0 |  56 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/clk_wiz/inst/clk_out2    |
-| g2        | n/a   | BUFG/O          | None       |         231 |               0 | 231 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i |
+| g0        | n/a   | BUFG/O          | None       |         254 |               0 | 254 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | led_blinker_i/clk_wiz/inst/clk_out2    |
+| g2        | n/a   | BUFG/O          | None       |         283 |               0 | 283 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | dbg_hub/inst/BSCANID.u_xsdbm_id/itck_i |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+----------------------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
 ** Non-Clock Loads column represents cell count of non-clock pin loads
@@ -368,7 +368,7 @@ resize_pblock [get_pblocks {CLKAG_led_blinker_i/util_ds_buf_0/U0/BUFG_O[0]}] -ad
 #startgroup
 create_pblock {CLKAG_led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG}
 add_cells_to_pblock [get_pblocks  {CLKAG_led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG"}]]]
-resize_pblock [get_pblocks {CLKAG_led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG}] -add {CLOCKREGION_X0Y2:CLOCKREGION_X0Y2}
+resize_pblock [get_pblocks {CLKAG_led_blinker_i/mdm_0/U0/Use_E2.BSCAN_I/Dbg_Update_0_BUFG}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2}
 #endgroup
 
 # Clock net "led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Dbg_Clk_0" driven by instance "led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_DRCK/Using_FPGA.Native" located at site "BUFGCTRL_X0Y3"
@@ -382,7 +382,7 @@ resize_pblock [get_pblocks {CLKAG_led_blinker_i/mdm_0/U0/No_Dbg_Reg_Access.BUFG_
 #startgroup
 create_pblock {CLKAG_led_blinker_i/clk_wiz/inst/clk_out2}
 add_cells_to_pblock [get_pblocks  {CLKAG_led_blinker_i/clk_wiz/inst/clk_out2}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="led_blinker_i/clk_wiz/inst/clk_out2"}]]]
-resize_pblock [get_pblocks {CLKAG_led_blinker_i/clk_wiz/inst/clk_out2}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X0Y3:CLOCKREGION_X0Y3}
+resize_pblock [get_pblocks {CLKAG_led_blinker_i/clk_wiz/inst/clk_out2}] -add {CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X0Y3:CLOCKREGION_X0Y3}
 #endgroup
 
 # Clock net "led_blinker_i/clk_wiz/inst/clk_out1" driven by instance "led_blinker_i/clk_wiz/inst/clkout1_buf" located at site "BUFGCTRL_X0Y1"
