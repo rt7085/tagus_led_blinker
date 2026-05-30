@@ -60,9 +60,10 @@ os_config:
       permission: read_write
       type: string
       value: None;
-      default: mdm_0
+      default: axi_uartlite_0
       options:
       - None
+      - axi_uartlite_0
       - mdm_0
       description: stdin peripheral
     standalone_stdout:
@@ -70,9 +71,10 @@ os_config:
       permission: read_write
       type: string
       value: None;
-      default: mdm_0
+      default: axi_uartlite_0
       options:
       - None
+      - axi_uartlite_0
       - mdm_0
       description: stdout peripheral
     standalone_ttc_select_cntr:
@@ -154,6 +156,10 @@ drv_info:
     driver: gpio
     ip_name: axi_gpio
     path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/gpio_v4_12
+  axi_uartlite_0:
+    driver: uartlite
+    ip_name: axi_uartlite
+    path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/uartlite_v3_12
   mdm_0:
     driver: uartlite
     ip_name: mdm

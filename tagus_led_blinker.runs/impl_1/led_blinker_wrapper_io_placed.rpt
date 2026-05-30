@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-| Date                      : Sat May 16 06:19:50 2026
+| Date                      : Sat May 30 09:06:36 2026
 | Host                      : capybara running 64-bit Ubuntu 24.04.3 LTS
 | Command                   : report_io -file led_blinker_wrapper_io_placed.rpt
 | Design                    : led_blinker_wrapper
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|             5 |
+|             7 |
 +---------------+
 
 
@@ -378,7 +378,7 @@ Table of Contents
 | P11        |              |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | P12        |              |            | VCCAUX                       | VCCAUX        |             |         |            |      |                     |                      |    1.80 |            |           |          |      |                  |              |                   |              |
 | P13        |              |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
-| P14        |              | High Range | IO_L19P_T3_A10_D26_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| P14        | usb_uart_rxd | High Range | IO_L19P_T3_A10_D26_14        | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | P15        |              | High Range | IO_L22P_T3_A05_D21_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | P16        |              | High Range | IO_L24P_T3_A01_D17_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | P17        | reset        | High Range | IO_L21N_T3_DQS_A06_D22_14    | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      | PULLDOWN  |          |      | NONE             |              |                   |              |
@@ -400,7 +400,7 @@ Table of Contents
 | R11        |              |            | VCCAUX                       | VCCAUX        |             |         |            |      |                     |                      |    1.80 |            |           |          |      |                  |              |                   |              |
 | R12        |              |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | R13        |              | Dedicated  | TDI_0                        | Config        |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
-| R14        |              | High Range | IO_L19N_T3_A09_D25_VREF_14   | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
+| R14        | usb_uart_txd | High Range | IO_L19N_T3_A09_D25_VREF_14   | OUTPUT        | LVCMOS33    |      14 |         12 | SLOW |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | R15        |              | High Range | VCCO_14                      | VCCO          |             |      14 |            |      |                     |                      |    3.30 |            |           |          |      |                  |              |                   |              |
 | R16        |              | High Range | IO_L22N_T3_A04_D20_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | R17        |              | High Range | IO_L24N_T3_A00_D16_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
@@ -493,7 +493,7 @@ Table of Contents
 | W16        |              | High Range | IO_L16N_T2_13                | User IO       |             |      13 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | W17        |              | High Range | IO_L16N_T2_A15_D31_14        | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | W18        |              |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
-| W19        | sys_clock    | High Range | IO_L12P_T1_MRCC_14           | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| W19        | clk          | High Range | IO_L12P_T1_MRCC_14           | INPUT         | LVCMOS33    |      14 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | W20        |              | High Range | IO_L12N_T1_MRCC_14           | User IO       |             |      14 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | W21        | led_red[0]   | High Range | IO_L7P_T1_D09_14             | OUTPUT        | LVCMOS33    |      14 |         12 | SLOW |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | W22        | led_green[0] | High Range | IO_L7N_T1_D10_14             | OUTPUT        | LVCMOS33    |      14 |         12 | SLOW |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |

@@ -7,7 +7,7 @@
   **** SW Build 6299465 on Fri Nov 14 12:34:56 MST 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Sun May 10 15:45:28 2026
+  **** Start of session at: Sat May 30 07:59:30 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -19,11 +19,11 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200
 INFO: [Device 21-403] Loading part xc7a200tfbg484-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 942207
+INFO: [Synth 8-7075] Helper process launched with PID 8206
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2265.059 ; gain = 480.875 ; free physical = 289 ; free virtual = 2451
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2265.773 ; gain = 481.594 ; free physical = 4061 ; free virtual = 11750
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'led_blinker_axi_gpio_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_gpio_0_0/synth/led_blinker_axi_gpio_0_0.vhd:85]
+INFO: [Synth 8-638] synthesizing module 'led_blinker_axi_gpio_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_gpio_0_0/synth/led_blinker_axi_gpio_0_0.vhd:84]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
@@ -33,13 +33,13 @@ INFO: [Synth 8-638] synthesizing module 'led_blinker_axi_gpio_0_0' [/home/rt7085
 	Parameter C_ALL_INPUTS_2 bound to: 0 - type: integer 
 	Parameter C_ALL_OUTPUTS bound to: 1 - type: integer 
 	Parameter C_ALL_OUTPUTS_2 bound to: 0 - type: integer 
-	Parameter C_INTERRUPT_PRESENT bound to: 1 - type: integer 
+	Parameter C_INTERRUPT_PRESENT bound to: 0 - type: integer 
 	Parameter C_DOUT_DEFAULT bound to: 32'b00000000000000000000000000000000 
 	Parameter C_TRI_DEFAULT bound to: 32'b11111111111111111111111111111111 
 	Parameter C_IS_DUAL bound to: 0 - type: integer 
 	Parameter C_DOUT_DEFAULT_2 bound to: 32'b00000000000000000000000000000000 
 	Parameter C_TRI_DEFAULT_2 bound to: 32'b11111111111111111111111111111111 
-INFO: [Synth 8-3491] module 'axi_gpio' declared at '/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/0271/hdl/axi_gpio_v2_0_vh_rfs.vhd:1255' bound to instance 'U0' of component 'axi_gpio' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_gpio_0_0/synth/led_blinker_axi_gpio_0_0.vhd:177]
+INFO: [Synth 8-3491] module 'axi_gpio' declared at '/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/0271/hdl/axi_gpio_v2_0_vh_rfs.vhd:1255' bound to instance 'U0' of component 'axi_gpio' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_gpio_0_0/synth/led_blinker_axi_gpio_0_0.vhd:173]
 INFO: [Synth 8-638] synthesizing module 'axi_gpio' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/0271/hdl/axi_gpio_v2_0_vh_rfs.vhd:1341]
 INFO: [Synth 8-638] synthesizing module 'axi_lite_ipif' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
 INFO: [Synth 8-638] synthesizing module 'slave_attachment' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
@@ -52,48 +52,10 @@ INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized1' [/home/rt708
 INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized1' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
 INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized2' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
 INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized2' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized3' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized3' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized4' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized4' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized5' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized5' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized6' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized6' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized7' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized7' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized8' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized8' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized9' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized9' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized10' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized10' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized11' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized11' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized12' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized12' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized13' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized13' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized14' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized14' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized15' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized15' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized16' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized16' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized17' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized17' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized18' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized18' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized19' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized19' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-638] synthesizing module 'pselect_f__parameterized20' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
-INFO: [Synth 8-256] done synthesizing module 'pselect_f__parameterized20' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1534]
 INFO: [Synth 8-256] done synthesizing module 'address_decoder' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:1775]
 INFO: [Synth 8-226] default block is never used [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2550]
 INFO: [Synth 8-256] done synthesizing module 'slave_attachment' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2341]
 INFO: [Synth 8-256] done synthesizing module 'axi_lite_ipif' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
-INFO: [Synth 8-638] synthesizing module 'interrupt_control' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/d8cc/hdl/interrupt_control_v3_1_vh_rfs.vhd:257]
-INFO: [Synth 8-256] done synthesizing module 'interrupt_control' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/d8cc/hdl/interrupt_control_v3_1_vh_rfs.vhd:257]
 INFO: [Synth 8-638] synthesizing module 'GPIO_Core' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/0271/hdl/axi_gpio_v2_0_vh_rfs.vhd:182]
 INFO: [Synth 8-226] default block is never used [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/0271/hdl/axi_gpio_v2_0_vh_rfs.vhd:447]
 	Parameter DEST_SYNC_FF bound to: 4 - type: integer 
@@ -106,8 +68,9 @@ INFO: [Synth 8-6157] synthesizing module 'xpm_cdc_array_single' [/home/rt7085/to
 INFO: [Synth 8-6155] done synthesizing module 'xpm_cdc_array_single' (0#1) [/home/rt7085/tools/xilinx/2025.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv:903]
 INFO: [Synth 8-256] done synthesizing module 'GPIO_Core' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/0271/hdl/axi_gpio_v2_0_vh_rfs.vhd:182]
 INFO: [Synth 8-256] done synthesizing module 'axi_gpio' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/0271/hdl/axi_gpio_v2_0_vh_rfs.vhd:1341]
-INFO: [Synth 8-256] done synthesizing module 'led_blinker_axi_gpio_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_gpio_0_0/synth/led_blinker_axi_gpio_0_0.vhd:85]
+INFO: [Synth 8-256] done synthesizing module 'led_blinker_axi_gpio_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_gpio_0_0/synth/led_blinker_axi_gpio_0_0.vhd:84]
 INFO: [Synth 8-6014] Unused sequential element Not_Dual.ALLOUT_ND.READ_REG_GEN[0].GPIO_DBus_i_reg was removed.  [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/0271/hdl/axi_gpio_v2_0_vh_rfs.vhd:323]
+INFO: [Synth 8-6014] Unused sequential element Not_Dual.gpio_Data_In_reg was removed.  [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/0271/hdl/axi_gpio_v2_0_vh_rfs.vhd:485]
 INFO: [Synth 8-7129] Port src_clk in module xpm_cdc_array_single is either unconnected or has no load
 INFO: [Synth 8-7129] Port ABus_Reg[1] in module GPIO_Core is either unconnected or has no load
 INFO: [Synth 8-7129] Port ABus_Reg[2] in module GPIO_Core is either unconnected or has no load
@@ -151,77 +114,31 @@ INFO: [Synth 8-7129] Port GPIO2_IO_I[28] in module GPIO_Core is either unconnect
 INFO: [Synth 8-7129] Port GPIO2_IO_I[29] in module GPIO_Core is either unconnected or has no load
 INFO: [Synth 8-7129] Port GPIO2_IO_I[30] in module GPIO_Core is either unconnected or has no load
 INFO: [Synth 8-7129] Port GPIO2_IO_I[31] in module GPIO_Core is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[1] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[2] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[3] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[4] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[5] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[6] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[7] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[8] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[9] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[10] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[11] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[12] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[13] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[14] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[15] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[16] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[17] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[18] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[19] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[20] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[21] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[22] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[23] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[24] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[25] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[26] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[27] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[28] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[29] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_data[30] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_be[1] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_be[2] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port bus2ip_be[3] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[0] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[1] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[2] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[3] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[4] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[5] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[6] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[9] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[11] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[12] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[13] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[14] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_rdce[15] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_wrce[0] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_wrce[1] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_wrce[2] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_wrce[3] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_wrce[4] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_wrce[5] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_wrce[6] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_wrce[9] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_wrce[11] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_wrce[12] in module interrupt_control is either unconnected or has no load
-INFO: [Synth 8-7129] Port interrupt_wrce[13] in module interrupt_control is either unconnected or has no load
-INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-7129] Port Address_In_Erly[0] in module address_decoder is either unconnected or has no load
+INFO: [Synth 8-7129] Port Address_In_Erly[1] in module address_decoder is either unconnected or has no load
+INFO: [Synth 8-7129] Port Address_In_Erly[2] in module address_decoder is either unconnected or has no load
+INFO: [Synth 8-7129] Port Address_In_Erly[3] in module address_decoder is either unconnected or has no load
+INFO: [Synth 8-7129] Port Address_In_Erly[4] in module address_decoder is either unconnected or has no load
+INFO: [Synth 8-7129] Port Address_In_Erly[7] in module address_decoder is either unconnected or has no load
+INFO: [Synth 8-7129] Port Address_In_Erly[8] in module address_decoder is either unconnected or has no load
+INFO: [Synth 8-7129] Port Bus_RNW in module address_decoder is either unconnected or has no load
+INFO: [Synth 8-7129] Port S_AXI_WSTRB[3] in module slave_attachment is either unconnected or has no load
+INFO: [Synth 8-7129] Port S_AXI_WSTRB[2] in module slave_attachment is either unconnected or has no load
+INFO: [Synth 8-7129] Port S_AXI_WSTRB[1] in module slave_attachment is either unconnected or has no load
+INFO: [Synth 8-7129] Port S_AXI_WSTRB[0] in module slave_attachment is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2360.996 ; gain = 576.812 ; free physical = 243 ; free virtual = 2039
+Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2358.711 ; gain = 574.531 ; free physical = 3952 ; free virtual = 11642
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2372.871 ; gain = 588.688 ; free physical = 242 ; free virtual = 2038
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2364.648 ; gain = 580.469 ; free physical = 3952 ; free virtual = 11642
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2372.871 ; gain = 588.688 ; free physical = 242 ; free virtual = 2038
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2364.648 ; gain = 580.469 ; free physical = 3952 ; free virtual = 11642
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2372.871 ; gain = 0.000 ; free physical = 241 ; free virtual = 2038
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2364.648 ; gain = 0.000 ; free physical = 3952 ; free virtual = 11642
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -237,27 +154,27 @@ Resolution: To avoid this warning, move constraints listed in [.Xil/led_blinker_
 INFO: [Project 1-1714] 1 XPM XDC files have been applied to the design.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2488.609 ; gain = 0.000 ; free physical = 184 ; free virtual = 1981
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2473.418 ; gain = 0.000 ; free physical = 3957 ; free virtual = 11647
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2488.645 ; gain = 0.000 ; free physical = 184 ; free virtual = 1980
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2473.453 ; gain = 0.000 ; free physical = 3957 ; free virtual = 11647
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2488.645 ; gain = 704.461 ; free physical = 210 ; free virtual = 2010
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2473.453 ; gain = 689.273 ; free physical = 3980 ; free virtual = 11670
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tfbg484-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2496.613 ; gain = 712.430 ; free physical = 210 ; free virtual = 2010
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2481.422 ; gain = 697.242 ; free physical = 3980 ; free virtual = 11670
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2496.613 ; gain = 712.430 ; free physical = 208 ; free virtual = 2009
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2481.422 ; gain = 697.242 ; free physical = 3980 ; free virtual = 11670
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'slave_attachment'
 ---------------------------------------------------------------------------------------------------
@@ -270,7 +187,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'slave
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'slave_attachment'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2496.613 ; gain = 712.430 ; free physical = 213 ; free virtual = 2013
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2481.422 ; gain = 697.242 ; free physical = 3980 ; free virtual = 11671
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -278,24 +195,22 @@ Start RTL Component Statistics
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input    4 Bit       Adders := 1     
-+---XORs : 
-	   2 Input      1 Bit         XORs := 2     
 +---Registers : 
 	               32 Bit    Registers := 2     
 	                9 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 59    
+	                1 Bit    Registers := 25    
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 4     
 	   5 Input   32 Bit        Muxes := 1     
+	   2 Input   32 Bit        Muxes := 1     
 	   2 Input    9 Bit        Muxes := 1     
 	   4 Input    4 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 5     
 	   2 Input    2 Bit        Muxes := 3     
 	   3 Input    2 Bit        Muxes := 1     
 	   4 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 29    
+	   2 Input    1 Bit        Muxes := 9     
 	   4 Input    1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -312,26 +227,63 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-7129] Port src_clk in module xpm_cdc_array_single is either unconnected or has no load
+INFO: [Synth 8-7129] Port s_axi_wstrb[3] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port s_axi_wstrb[2] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port s_axi_wstrb[1] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port s_axi_wstrb[0] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[31] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[30] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[29] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[28] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[27] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[26] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[25] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[24] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[23] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[22] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[21] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[20] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[19] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[18] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[17] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[16] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[15] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[14] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[13] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[12] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[11] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[10] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[9] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[8] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[7] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[6] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[5] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[4] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[3] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[2] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[1] in module axi_gpio is either unconnected or has no load
+INFO: [Synth 8-7129] Port gpio2_io_i[0] in module axi_gpio is either unconnected or has no load
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2496.613 ; gain = 712.430 ; free physical = 206 ; free virtual = 1964
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2481.422 ; gain = 697.242 ; free physical = 3989 ; free virtual = 11682
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2537.613 ; gain = 753.430 ; free physical = 171 ; free virtual = 1549
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2535.422 ; gain = 751.242 ; free physical = 3968 ; free virtual = 11661
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2567.668 ; gain = 783.484 ; free physical = 160 ; free virtual = 1486
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2565.469 ; gain = 781.289 ; free physical = 3937 ; free virtual = 11629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2567.668 ; gain = 783.484 ; free physical = 153 ; free virtual = 1464
+Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2565.469 ; gain = 781.289 ; free physical = 3937 ; free virtual = 11629
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -349,37 +301,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2734.480 ; gain = 950.297 ; free physical = 374 ; free virtual = 1202
+Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2733.281 ; gain = 949.102 ; free physical = 3781 ; free virtual = 11474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2734.480 ; gain = 950.297 ; free physical = 374 ; free virtual = 1202
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2733.281 ; gain = 949.102 ; free physical = 3781 ; free virtual = 11474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2734.480 ; gain = 950.297 ; free physical = 374 ; free virtual = 1202
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2733.281 ; gain = 949.102 ; free physical = 3781 ; free virtual = 11474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2734.480 ; gain = 950.297 ; free physical = 374 ; free virtual = 1202
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2733.281 ; gain = 949.102 ; free physical = 3781 ; free virtual = 11474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2734.480 ; gain = 950.297 ; free physical = 374 ; free virtual = 1202
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2733.281 ; gain = 949.102 ; free physical = 3781 ; free virtual = 11474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2734.480 ; gain = 950.297 ; free physical = 374 ; free virtual = 1202
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2733.281 ; gain = 949.102 ; free physical = 3781 ; free virtual = 11474
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -395,41 +347,41 @@ Report Cell Usage:
 +------+-----+------+
 |      |Cell |Count |
 +------+-----+------+
-|1     |LUT1 |     3|
-|2     |LUT2 |     5|
-|3     |LUT3 |    19|
-|4     |LUT4 |    13|
-|5     |LUT5 |    30|
-|6     |LUT6 |    14|
-|7     |FDRE |    76|
-|8     |FDSE |     3|
+|1     |LUT1 |     2|
+|2     |LUT2 |     9|
+|3     |LUT3 |     9|
+|4     |LUT4 |     3|
+|5     |LUT5 |    10|
+|6     |LUT6 |    10|
+|7     |FDRE |    39|
+|8     |FDSE |     1|
 +------+-----+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2734.480 ; gain = 950.297 ; free physical = 374 ; free virtual = 1202
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2733.281 ; gain = 949.102 ; free physical = 3781 ; free virtual = 11474
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2734.480 ; gain = 834.523 ; free physical = 374 ; free virtual = 1203
-Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2734.488 ; gain = 950.297 ; free physical = 374 ; free virtual = 1203
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2733.281 ; gain = 840.297 ; free physical = 3781 ; free virtual = 11474
+Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2733.289 ; gain = 949.102 ; free physical = 3781 ; free virtual = 11474
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2734.488 ; gain = 0.000 ; free physical = 374 ; free virtual = 1203
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2733.289 ; gain = 0.000 ; free physical = 3781 ; free virtual = 11474
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2790.508 ; gain = 0.000 ; free physical = 377 ; free virtual = 1234
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2789.309 ; gain = 0.000 ; free physical = 3939 ; free virtual = 11631
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: ec013b70
+Synth Design complete | Checksum: ba344aa9
 INFO: [Common 17-83] Releasing license: Synthesis
-183 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+137 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:18 . Memory (MB): peak = 2790.543 ; gain = 1162.539 ; free physical = 372 ; free virtual = 1230
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1665.140; main = 1665.140; forked = 205.910
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3490.828; main = 2790.512; forked = 994.211
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2814.520 ; gain = 0.000 ; free physical = 373 ; free virtual = 1232
+synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:18 . Memory (MB): peak = 2789.344 ; gain = 1161.344 ; free physical = 3939 ; free virtual = 11631
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1866.143; main = 1866.143; forked = 280.961
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3475.645; main = 2789.312; forked = 994.219
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2813.320 ; gain = 0.000 ; free physical = 3939 ; free virtual = 11631
 INFO: [Common 17-1381] The checkpoint '/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_axi_gpio_0_0_synth_1/led_blinker_axi_gpio_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP led_blinker_axi_gpio_0_0, cache-ID = 5adbf00289ba6c71
-INFO: [Coretcl 2-1174] Renamed 7 cell refs.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2814.520 ; gain = 0.000 ; free physical = 968 ; free virtual = 1866
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP led_blinker_axi_gpio_0_0, cache-ID = 15e7194d4d135cbc
+INFO: [Coretcl 2-1174] Renamed 8 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2813.320 ; gain = 0.000 ; free physical = 3932 ; free virtual = 11625
 INFO: [Common 17-1381] The checkpoint '/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_axi_gpio_0_0_synth_1/led_blinker_axi_gpio_0_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file led_blinker_axi_gpio_0_0_utilization_synth.rpt -pb led_blinker_axi_gpio_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May 10 15:45:51 2026...
+INFO: [Common 17-206] Exiting Vivado at Sat May 30 07:59:51 2026...

@@ -53,8 +53,10 @@
 -- COMP_TAG     ------ Begin cut for COMPONENT Declaration ------
 COMPONENT led_blinker
   PORT (
+    usb_uart_rxd : IN STD_LOGIC;
+    usb_uart_txd : OUT STD_LOGIC;
     led_green : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-    sys_clock : IN STD_LOGIC;
+    clk : IN STD_LOGIC;
     reset : IN STD_LOGIC;
     led_red : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     led_blue : OUT STD_LOGIC_VECTOR(0 DOWNTO 0)
@@ -68,8 +70,10 @@ END COMPONENT;
 -- INST_TAG     ------ Begin cut for INSTANTIATION Template ------
 your_instance_name : led_blinker
   PORT MAP (
+    usb_uart_rxd => usb_uart_rxd,
+    usb_uart_txd => usb_uart_txd,
     led_green => led_green,
-    sys_clock => sys_clock,
+    clk => clk,
     reset => reset,
     led_red => led_red,
     led_blue => led_blue

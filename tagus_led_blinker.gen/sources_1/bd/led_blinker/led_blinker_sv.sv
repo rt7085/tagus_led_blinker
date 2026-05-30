@@ -54,9 +54,13 @@
 
 module led_blinker_sv (
   (* X_INTERFACE_IGNORE = "true" *)
+  input wire usb_uart_rxd,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire usb_uart_txd,
+  (* X_INTERFACE_IGNORE = "true" *)
   output wire [0:0] led_green,
   (* X_INTERFACE_IGNORE = "true" *)
-  input wire sys_clock,
+  input wire clk,
   (* X_INTERFACE_IGNORE = "true" *)
   input wire reset,
   (* X_INTERFACE_IGNORE = "true" *)
@@ -66,8 +70,10 @@ module led_blinker_sv (
 );
 
   led_blinker inst (
+    .usb_uart_rxd(usb_uart_rxd),
+    .usb_uart_txd(usb_uart_txd),
     .led_green(led_green),
-    .sys_clock(sys_clock),
+    .clk(clk),
     .reset(reset),
     .led_red(led_red),
     .led_blue(led_blue)

@@ -30,7 +30,7 @@
         "C_M_AXIS_ID_WIDTH": [ { "value": "7", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_MB_DBG_PORTS": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_USE_UART": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "C_DBG_REG_ACCESS": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "C_DBG_REG_ACCESS": [ { "value": "0", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_DBG_MEM_ACCESS": [ { "value": "0", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_USE_CROSS_TRIGGER": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_TRIG_IN_PORTS": [ { "value": "1", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
@@ -419,5 +419,5 @@
       }
     }
   },
-  "checksum": "a8be2f7e"
+  "checksum": "fe551355"
 }
