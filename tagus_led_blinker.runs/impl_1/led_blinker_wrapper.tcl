@@ -105,8 +105,6 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_param bd.open.in_stealth_mode 1
-  set_param xicom.use_bs_reader 1
   set_param chipscope.maxJobs 2
   set_param general.usePosixSpawnForFork 1
   set_param runs.launchOptions { -jobs 4  }

@@ -14,9 +14,9 @@ set_property PULLTYPE PULLDOWN [get_ports reset]
 ####################################################################################################################
 #                                              RGB LED                                                             #
 ####################################################################################################################
-set_property -dict {PACKAGE_PIN W21 IOSTANDARD LVCMOS33 SLEW SLOW} [get_ports {led_red[0]}]
-set_property -dict {PACKAGE_PIN W22 IOSTANDARD LVCMOS33 SLEW SLOW} [get_ports {led_green[0]}]
-set_property -dict {PACKAGE_PIN AA20 IOSTANDARD LVCMOS33 SLEW SLOW} [get_ports {led_blue[0]}]
+#set_property -dict {PACKAGE_PIN W21 IOSTANDARD LVCMOS33 SLEW SLOW} [get_ports {rgb_led_0}]; #RED
+#set_property -dict {PACKAGE_PIN W22 IOSTANDARD LVCMOS33 SLEW SLOW} [get_ports {rgb_led_1}]; # GREEN
+#set_property -dict {PACKAGE_PIN AA20 IOSTANDARD LVCMOS33 SLEW SLOW} [get_ports {rgb_led_2}]; # BLUE
 
 ####################################################################################################################
 #                                              FT234 Signals                                                       #
@@ -41,7 +41,12 @@ set_property -dict {PACKAGE_PIN AA20 IOSTANDARD LVCMOS33 SLEW SLOW} [get_ports {
 #set_property PACKAGE_PIN R14 [get_ports UART_0_rxd]
 #set_property PACKAGE_PIN P14 [get_ports UART_0_txd]
 
+
+#set_property OFFCHIP_TERM NONE [get_ports rgb_led_0]
+#set_property OFFCHIP_TERM NONE [get_ports rgb_led_1]
+#set_property OFFCHIP_TERM NONE [get_ports rgb_led_2]
+
 set_property OFFCHIP_TERM NONE [get_ports usb_uart_txd]
-set_property OFFCHIP_TERM NONE [get_ports led_blue[0]]
-set_property OFFCHIP_TERM NONE [get_ports led_green[0]]
-set_property OFFCHIP_TERM NONE [get_ports led_red[0]]
+set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[2]]
+set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[1]]
+set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[0]]

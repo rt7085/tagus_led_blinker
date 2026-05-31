@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-| Date         : Sat May 30 09:07:09 2026
+| Date         : Sun May 31 07:20:32 2026
 | Host         : capybara running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_methodology -file led_blinker_wrapper_methodology_drc_routed.rpt -pb led_blinker_wrapper_methodology_drc_routed.pb -rpx led_blinker_wrapper_methodology_drc_routed.rpx
 | Design       : led_blinker_wrapper
@@ -20,16 +20,16 @@ Table of Contents
 1. REPORT SUMMARY
 -----------------
             Netlist: netlist
-          Floorplan: checkpoint_led_blinker_wrapper
+          Floorplan: design_1
       Design limits: <entire design considered>
              Max checks: <unlimited>
-             Checks found: 8
+             Checks found: 9
 +-----------+----------+-------------------------------+--------+
 | Rule      | Severity | Description                   | Checks |
 +-----------+----------+-------------------------------+--------+
 | LUTAR-1   | Warning  | LUT drives async reset alert  | 2      |
 | TIMING-9  | Warning  | Unknown CDC Logic             | 1      |
-| TIMING-18 | Warning  | Missing input or output delay | 5      |
+| TIMING-18 | Warning  | Missing input or output delay | 6      |
 +-----------+----------+-------------------------------+--------+
 
 2. REPORT DETAILS
@@ -61,15 +61,20 @@ Related violations: <none>
 
 TIMING-18#3 Warning
 Missing input or output delay  
-An output delay is missing on led_green[0] relative to the rising and/or falling clock edge(s) of clk.
+An output delay is missing on rgb_led_tri_o[0] relative to the rising and/or falling clock edge(s) of clk.
 Related violations: <none>
 
 TIMING-18#4 Warning
 Missing input or output delay  
-An output delay is missing on led_red[0] relative to the rising and/or falling clock edge(s) of clk.
+An output delay is missing on rgb_led_tri_o[1] relative to the rising and/or falling clock edge(s) of clk.
 Related violations: <none>
 
 TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on rgb_led_tri_o[2] relative to the rising and/or falling clock edge(s) of clk.
+Related violations: <none>
+
+TIMING-18#6 Warning
 Missing input or output delay  
 An output delay is missing on usb_uart_txd relative to the rising and/or falling clock edge(s) of clk.
 Related violations: <none>

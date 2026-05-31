@@ -3,8 +3,8 @@
 # SW Build 6299465 on Fri Nov 14 12:34:56 MST 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Sat May 30 09:08:15 2026
-# Process ID         : 41328
+# Start of session at: Sun May 31 07:39:48 2026
+# Process ID         : 134257
 # Current directory  : /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/impl_1
 # Command line       : vivado -log led_blinker_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source led_blinker_wrapper.tcl -notrace
 # Log file           : /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/impl_1/led_blinker_wrapper.vdi
@@ -13,45 +13,45 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : AMD Ryzen 7 7800X3D 8-Core Processor
-# CPU Frequency      : 4159.653 MHz
+# CPU Frequency      : 4183.366 MHz
 # CPU Physical cores : 8
 # CPU Logical cores  : 8
 # Host memory        : 15878 MB
 # Swap memory        : 4294 MB
 # Total Virtual      : 20173 MB
-# Available Virtual  : 10028 MB
+# Available Virtual  : 9493 MB
 #-----------------------------------------------------------
 source led_blinker_wrapper.tcl -notrace
 Command: open_checkpoint led_blinker_wrapper_routed.dcp
 
 Starting open_checkpoint Task
 
-Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1563.430 ; gain = 0.000 ; free physical = 1878 ; free virtual = 9141
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1562.336 ; gain = 0.000 ; free physical = 857 ; free virtual = 8665
 INFO: [Device 21-403] Loading part xc7a200tfbg484-2
-Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.09 . Memory (MB): peak = 1814.363 ; gain = 0.000 ; free physical = 1682 ; free virtual = 8953
-INFO: [Netlist 29-17] Analyzing 268 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.11 . Memory (MB): peak = 1817.246 ; gain = 0.000 ; free physical = 593 ; free virtual = 8405
+INFO: [Netlist 29-17] Analyzing 263 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-479] Netlist was created with Vivado 2025.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
-Read ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1906.020 ; gain = 1.000 ; free physical = 1572 ; free virtual = 8844
+Read ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1909.934 ; gain = 1.000 ; free physical = 485 ; free virtual = 8297
 INFO: [Timing 38-478] Restoring timing data from binary archive.
 INFO: [Timing 38-479] Binary timing data restore complete.
 INFO: [Project 1-856] Restoring constraints from binary archive.
 INFO: [Project 1-853] Binary constraint restore complete.
 INFO: [Designutils 20-5722] Start Reading Physical Databases.
 Reading placement.
-Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2529.004 ; gain = 0.000 ; free physical = 1001 ; free virtual = 8287
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2537.918 ; gain = 0.000 ; free physical = 212 ; free virtual = 7821
 Reading placer database...
-Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2529.004 ; gain = 0.000 ; free physical = 1001 ; free virtual = 8287
-Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2529.004 ; gain = 0.000 ; free physical = 1001 ; free virtual = 8287
-Read placeStorage: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2529.004 ; gain = 0.000 ; free physical = 1001 ; free virtual = 8287
-Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2529.004 ; gain = 0.000 ; free physical = 1001 ; free virtual = 8287
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2537.918 ; gain = 0.000 ; free physical = 212 ; free virtual = 7821
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2537.918 ; gain = 0.000 ; free physical = 212 ; free virtual = 7821
+Read placeStorage: Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2537.918 ; gain = 0.000 ; free physical = 212 ; free virtual = 7821
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2537.918 ; gain = 0.000 ; free physical = 212 ; free virtual = 7821
 Reading routing.
-Read RouteStorage: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2529.004 ; gain = 0.000 ; free physical = 1000 ; free virtual = 8287
-Read Physdb Files: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.07 . Memory (MB): peak = 2529.004 ; gain = 0.000 ; free physical = 1000 ; free virtual = 8287
-Restored from archive | CPU: 0.110000 secs | Memory: 4.240479 MB |
-Finished XDEF File Restore: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2529.004 ; gain = 2.969 ; free physical = 1000 ; free virtual = 8287
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2529.004 ; gain = 0.000 ; free physical = 1000 ; free virtual = 8287
+Read RouteStorage: Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2537.918 ; gain = 0.000 ; free physical = 212 ; free virtual = 7821
+Read Physdb Files: Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.08 . Memory (MB): peak = 2537.918 ; gain = 0.000 ; free physical = 212 ; free virtual = 7821
+Restored from archive | CPU: 0.130000 secs | Memory: 4.772034 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.1 . Memory (MB): peak = 2537.918 ; gain = 0.000 ; free physical = 212 ; free virtual = 7821
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2537.918 ; gain = 0.000 ; free physical = 212 ; free virtual = 7821
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 96 instances were transformed.
   LUT6_2 => LUT6_2 (LUT5, LUT6): 79 instances
@@ -59,7 +59,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   SRLC16E => SRL16E: 1 instance 
 
 INFO: [Project 1-604] Checkpoint was created with Vivado v2025.2 (64-bit) build 6299465
-open_checkpoint: Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 2529.039 ; gain = 965.609 ; free physical = 1002 ; free virtual = 8288
+open_checkpoint: Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 2537.953 ; gain = 975.617 ; free physical = 211 ; free virtual = 7819
 Command: write_bitstream -force led_blinker_wrapper.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
@@ -83,5 +83,5 @@ INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Common 17-83] Releasing license: Implementation
 22 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 3054.004 ; gain = 524.965 ; free physical = 442 ; free virtual = 7737
-INFO: [Common 17-206] Exiting Vivado at Sat May 30 09:08:33 2026...
+write_bitstream: Time (s): cpu = 00:00:11 ; elapsed = 00:00:26 . Memory (MB): peak = 3064.949 ; gain = 526.996 ; free physical = 246 ; free virtual = 7396
+INFO: [Common 17-206] Exiting Vivado at Sun May 31 07:40:23 2026...

@@ -13,12 +13,14 @@
         pruned-sdt = <0x1>;
 
         cpus_microblaze_0: cpus_microblaze@0 {
-                phandle = <0x8>;
+                phandle = <0xa>;
                 #cpu-mask-cells = <0x1>;
                 compatible = "cpus,cluster";
                 #address-cells = <0x1>;
                 #size-cells = <0x0>;
-                address-map = <0x0 &microblaze_0_local_memory_dlmb_bram_if_cntlr_memory 0x0 0x10000>,
+                address-map = <0xc0000000 &axi_bram_ctrl_0_memory 0xc0000000 0x2000>,
+                 <0xc0000000 &axi_bram_ctrl_0 0xc0000000 0x2000>,
+                 <0x0 &microblaze_0_local_memory_dlmb_bram_if_cntlr_memory 0x0 0x10000>,
                  <0x0 &microblaze_0_local_memory_dlmb_bram_if_cntlr 0x0 0x10000>,
                  <0x40000000 &axi_gpio_0 0x40000000 0x10000>,
                  <0x40600000 &axi_uartlite_0 0x40600000 0x10000>,
@@ -27,7 +29,7 @@
                 #ranges-size-cells = <0x1>;
 
                 microblaze_0: cpu@0 {
-                        phandle = <0x9>;
+                        phandle = <0xb>;
                         xlnx,reset-msr-dce = <0x0>;
                         model = "microblaze,11.0";
                         xlnx,addr-tag-bits = <0x0>;
@@ -177,12 +179,12 @@
         };
 
         clock: clocks {
-                phandle = <0xa>;
+                phandle = <0xc>;
                 #address-cells = <0x1>;
                 #size-cells = <0x0>;
 
                 clk_cpu_0: clk_cpu@0 {
-                        phandle = <0xb>;
+                        phandle = <0xd>;
                         compatible = "fixed-clock";
                         reg = <0x0>;
                         clock-frequency = <0x5f5e100>;
@@ -191,7 +193,7 @@
                 };
 
                 clk_bus_0: clk_bus_0@1 {
-                        phandle = <0x7>;
+                        phandle = <0x9>;
                         compatible = "fixed-clock";
                         reg = <0x1>;
                         clock-frequency = <0x5f5e100>;
@@ -201,21 +203,53 @@
         };
 
         amba_pl: amba_pl {
-                phandle = <0x6>;
+                phandle = <0x8>;
                 ranges;
                 compatible = "simple-bus";
                 #address-cells = <0x1>;
                 #size-cells = <0x1>;
 
+                axi_bram_ctrl_0: axi_bram_ctrl_0@c0000000 {
+                        phandle = <0x2>;
+                        xlnx,protocol = "AXI4";
+                        xlnx,edk-special = "BRAM_CTRL";
+                        compatible = "xlnx,axi-bram-ctrl-4.1", "xlnx,axi-bram-ctrl";
+                        xlnx,ecc-onoff-reset-value = <0x0>;
+                        xlnx,ecc-type = <0x0>;
+                        xlnx,rd-cmd-optimization = <0x0>;
+                        xlnx,memory-depth = <0x800>;
+                        xlnx,use-ecc = <0x0>;
+                        xlnx,fault-inject = <0x0>;
+                        xlnx,ip-name = "axi_bram_ctrl";
+                        reg = <0xc0000000 0x2000>;
+                        xlnx,bmg-instance = "EXTERNAL";
+                        xlnx,s-axi-ctrl-addr-width = <0x20>;
+                        xlnx,read-latency = <0x1>;
+                        xlnx,id-width = <0x0>;
+                        xlnx,s-axi-supports-narrow-burst = <0x0>;
+                        xlnx,supports-narrow-burst = <0x0>;
+                        xlnx,single-port-bram = <0x0>;
+                        xlnx,ecc = <0x0>;
+                        xlnx,edk-iptype = "PERIPHERAL";
+                        status = "okay";
+                        xlnx,data-width = <0x20>;
+                        xlnx,bram-addr-width = <0xb>;
+                        xlnx,bram-inst-mode = "EXTERNAL";
+                        xlnx,s-axi-ctrl-data-width = <0x20>;
+                        xlnx,mem-depth = <0x800>;
+                        xlnx,s-axi-id-width = <0x1>;
+                        xlnx,name = "axi_bram_ctrl_0";
+                };
+
                 axi_gpio_0: gpio@40000000 {
-                        phandle = <0x3>;
-                        xlnx,gpio-board-interface = "Custom";
+                        phandle = <0x5>;
+                        xlnx,gpio-board-interface = "rgb_led";
                         compatible = "xlnx,axi-gpio-2.0", "xlnx,xps-gpio-1.00.a";
                         xlnx,all-outputs = <0x1>;
                         #gpio-cells = <0x2>;
-                        xlnx,gpio-width = <0x1>;
+                        xlnx,gpio-width = <0x3>;
                         clock-frequency = <0x5f5e100>;
-                        xlnx,dout-default = <0x0>;
+                        xlnx,dout-default = <0xffffffff>;
                         xlnx,is-dual = <0x0>;
                         xlnx,ip-name = "axi_gpio";
                         xlnx,tri-default-2 = <0xffffffff>;
@@ -238,7 +272,7 @@
                 };
 
                 axi_uartlite_0: serial@40600000 {
-                        phandle = <0x4>;
+                        phandle = <0x6>;
                         compatible = "xlnx,axi-uartlite-2.0", "xlnx,xps-uartlite-1.00.a";
                         clock-frequency = <0x5f5e100>;
                         xlnx,uartlite-board-interface = "usb_uart";
@@ -259,7 +293,7 @@
                 };
 
                 mdm_0: serial@41400000 {
-                        phandle = <0x5>;
+                        phandle = <0x7>;
                         xlnx,trace-async-reset = <0x0>;
                         compatible = "xlnx,mdm-3.2", "xlnx,xps-uartlite-1.00.a";
                         xlnx,data-size = <0x20>;
@@ -298,7 +332,7 @@
                 };
 
                 microblaze_0_local_memory_dlmb_bram_if_cntlr: lmb_bram_if_cntlr@0 {
-                        phandle = <0x2>;
+                        phandle = <0x4>;
                         xlnx,edk-special = "BRAM_CTRL";
                         xlnx,write-access = <0x2>;
                         compatible = "xlnx,lmb-bram-if-cntlr-4.0", "xlnx,axi-bram-ctrl";
@@ -346,8 +380,17 @@
                 };
         };
 
-        microblaze_0_local_memory_dlmb_bram_if_cntlr_memory: memory@0 {
+        axi_bram_ctrl_0_memory: memory@c0000000 {
                 phandle = <0x1>;
+                compatible = "xlnx,axi-bram-ctrl-4.1";
+                xlnx,ip-name = "axi_bram_ctrl";
+                device_type = "memory";
+                memory_type = "memory";
+                reg = <0xc0000000 0x2000>;
+        };
+
+        microblaze_0_local_memory_dlmb_bram_if_cntlr_memory: memory@0 {
+                phandle = <0x3>;
                 compatible = "xlnx,lmb-bram-if-cntlr-4.0";
                 xlnx,ip-name = "lmb_bram_if_cntlr";
                 device_type = "memory";
@@ -371,10 +414,12 @@
                 clk_cpu_0 = "/clocks/clk_cpu@0";
                 clk_bus_0 = "/clocks/clk_bus_0@1";
                 amba_pl = "/amba_pl";
+                axi_bram_ctrl_0 = "/amba_pl/axi_bram_ctrl_0@c0000000";
                 axi_gpio_0 = "/amba_pl/gpio@40000000";
                 axi_uartlite_0 = "/amba_pl/serial@40600000";
                 mdm_0 = "/amba_pl/serial@41400000";
                 microblaze_0_local_memory_dlmb_bram_if_cntlr = "/amba_pl/lmb_bram_if_cntlr@0";
+                axi_bram_ctrl_0_memory = "/memory@c0000000";
                 microblaze_0_local_memory_dlmb_bram_if_cntlr_memory = "/memory@0";
         };
 };

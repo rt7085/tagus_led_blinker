@@ -56,8 +56,6 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param bd.open.in_stealth_mode 1
-set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 2
 set_param general.usePosixSpawnForFork 1
 OPTRACE "Creating in-memory project" START { }
@@ -79,7 +77,6 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/hdl/led_blinker_wrapper.v
 add_files /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.srcs/sources_1/bd/led_blinker/led_blinker.bd
-set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_c_counter_binary_0_0/led_blinker_c_counter_binary_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_clk_wiz_0/led_blinker_clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_clk_wiz_0/led_blinker_clk_wiz_0.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_clk_wiz_0/led_blinker_clk_wiz_0_ooc.xdc]
@@ -138,10 +135,18 @@ set_property used_in_implementation false [get_files -all /home/rt7085/repos/tag
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_smc_0/bd_0/ip/ip_43/bd_f1cc_m02awn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_smc_0/bd_0/ip/ip_44/bd_f1cc_m02wn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_smc_0/bd_0/ip/ip_45/bd_f1cc_m02bn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_smc_0/bd_0/ip/ip_47/bd_f1cc_m03s2a_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_smc_0/bd_0/ip/ip_48/bd_f1cc_m03arn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_smc_0/bd_0/ip/ip_49/bd_f1cc_m03rn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_smc_0/bd_0/ip/ip_50/bd_f1cc_m03awn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_smc_0/bd_0/ip/ip_51/bd_f1cc_m03wn_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_smc_0/bd_0/ip/ip_52/bd_f1cc_m03bn_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_smc_0/ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_smc_0/smartconnect.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_uartlite_0_0/led_blinker_axi_uartlite_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_uartlite_0_0/led_blinker_axi_uartlite_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_bram_ctrl_0_0/led_blinker_axi_bram_ctrl_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_bram_ctrl_0_bram_0/led_blinker_axi_bram_ctrl_0_bram_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/led_blinker_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_microblaze_0_0/data/mb_bootloop_le.elf]
 

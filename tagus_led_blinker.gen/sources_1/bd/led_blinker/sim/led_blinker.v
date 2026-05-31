@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Sat May 30 09:02:58 2026
+//Date        : Sun May 31 07:18:39 2026
 //Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
 //Command     : generate_target led_blinker.bd
 //Design      : led_blinker
@@ -13,23 +13,33 @@
 /* Sensing reset is problematic as the edge cannot be detected (as it would reset the design). Only state of reset can be confirmed!
 The sys_clock is samples at 400 MHz while the clock itself runs at 100MHz. We should see 4 ticks per 100 Mhz cycle (which is true)
 Must use a clock wizard on sys_clock */
-(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=16,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"da_axi4_cnt\"\"\"\"=1,\"\"\"\"da_board_cnt\"\"\"\"=4,\"\"\"\"da_clkrst_cnt\"\"\"\"=4,\"\"\"\"da_mb_cnt\"\"\"\"=1,\"\"\"da_axi4_cnt\"\"\"=2,\"\"\"da_board_cnt\"\"\"=1,\"\"\"da_mb_cnt\"\"\"=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
+(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=15,numReposBlks=14,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"da_axi4_cnt\"\"\"\"\"=1,\"\"\"\"\"da_board_cnt\"\"\"\"\"=4,\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"=4,\"\"\"\"\"da_mb_cnt\"\"\"\"\"=1,\"\"\"\"da_axi4_cnt\"\"\"\"=2,\"\"\"\"da_board_cnt\"\"\"\"=1,\"\"\"\"da_mb_cnt\"\"\"\"=1,da_axi4_cnt=1,da_board_cnt=1,da_bram_cntlr_cnt=2,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
 module led_blinker
    (clk,
-    led_blue,
-    led_green,
-    led_red,
     reset,
+    rgb_led_tri_o,
     usb_uart_rxd,
     usb_uart_txd);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, CLK_DOMAIN led_blinker_sys_clock, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk;
-  output [0:0]led_blue;
-  output [0:0]led_green;
-  output [0:0]led_red;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 rgb_led TRI_O" *) (* X_INTERFACE_MODE = "Master" *) output [2:0]rgb_led_tri_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 usb_uart RxD" *) (* X_INTERFACE_MODE = "Master" *) input usb_uart_rxd;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 usb_uart TxD" *) output usb_uart_txd;
 
+  wire [12:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
+  wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
+  wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DIN;
+  wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DOUT;
+  wire axi_bram_ctrl_0_BRAM_PORTA_EN;
+  wire axi_bram_ctrl_0_BRAM_PORTA_RST;
+  wire [3:0]axi_bram_ctrl_0_BRAM_PORTA_WE;
+  wire [12:0]axi_bram_ctrl_0_BRAM_PORTB_ADDR;
+  wire axi_bram_ctrl_0_BRAM_PORTB_CLK;
+  wire [31:0]axi_bram_ctrl_0_BRAM_PORTB_DIN;
+  wire [31:0]axi_bram_ctrl_0_BRAM_PORTB_DOUT;
+  wire axi_bram_ctrl_0_BRAM_PORTB_EN;
+  wire axi_bram_ctrl_0_BRAM_PORTB_RST;
+  wire [3:0]axi_bram_ctrl_0_BRAM_PORTB_WE;
   wire [8:0]axi_smc_M00_AXI_ARADDR;
   wire axi_smc_M00_AXI_ARREADY;
   wire axi_smc_M00_AXI_ARVALID;
@@ -81,12 +91,39 @@ module led_blinker
   wire axi_smc_M02_AXI_WREADY;
   wire [3:0]axi_smc_M02_AXI_WSTRB;
   wire axi_smc_M02_AXI_WVALID;
-  wire [26:0]c_counter_binary_0_Q;
+  wire [12:0]axi_smc_M03_AXI_ARADDR;
+  wire [1:0]axi_smc_M03_AXI_ARBURST;
+  wire [3:0]axi_smc_M03_AXI_ARCACHE;
+  wire [7:0]axi_smc_M03_AXI_ARLEN;
+  wire [0:0]axi_smc_M03_AXI_ARLOCK;
+  wire [2:0]axi_smc_M03_AXI_ARPROT;
+  wire axi_smc_M03_AXI_ARREADY;
+  wire [2:0]axi_smc_M03_AXI_ARSIZE;
+  wire axi_smc_M03_AXI_ARVALID;
+  wire [12:0]axi_smc_M03_AXI_AWADDR;
+  wire [1:0]axi_smc_M03_AXI_AWBURST;
+  wire [3:0]axi_smc_M03_AXI_AWCACHE;
+  wire [7:0]axi_smc_M03_AXI_AWLEN;
+  wire [0:0]axi_smc_M03_AXI_AWLOCK;
+  wire [2:0]axi_smc_M03_AXI_AWPROT;
+  wire axi_smc_M03_AXI_AWREADY;
+  wire [2:0]axi_smc_M03_AXI_AWSIZE;
+  wire axi_smc_M03_AXI_AWVALID;
+  wire axi_smc_M03_AXI_BREADY;
+  wire [1:0]axi_smc_M03_AXI_BRESP;
+  wire axi_smc_M03_AXI_BVALID;
+  wire [31:0]axi_smc_M03_AXI_RDATA;
+  wire axi_smc_M03_AXI_RLAST;
+  wire axi_smc_M03_AXI_RREADY;
+  wire [1:0]axi_smc_M03_AXI_RRESP;
+  wire axi_smc_M03_AXI_RVALID;
+  wire [31:0]axi_smc_M03_AXI_WDATA;
+  wire axi_smc_M03_AXI_WLAST;
+  wire axi_smc_M03_AXI_WREADY;
+  wire [3:0]axi_smc_M03_AXI_WSTRB;
+  wire axi_smc_M03_AXI_WVALID;
   wire clk;
   wire clk_wiz_locked;
-  wire [0:0]led_blue;
-  wire [0:0]led_green;
-  wire [0:0]led_red;
   wire mdm_1_debug_sys_rst;
   wire microblaze_0_Clk;
   wire [31:0]microblaze_0_M_AXI_DP_ARADDR;
@@ -137,14 +174,80 @@ module led_blinker
   wire microblaze_0_ilmb_1_UE;
   wire microblaze_0_ilmb_1_WAIT;
   wire reset;
+  wire [2:0]rgb_led_tri_o;
   wire [0:0]rst_clk_wiz_100M_bus_struct_reset;
   wire rst_clk_wiz_100M_mb_reset;
   wire [0:0]rst_clk_wiz_100M_peripheral_aresetn;
   wire usb_uart_rxd;
   wire usb_uart_txd;
 
+  (* BMM_INFO_ADDRESS_SPACE = "byte  0xC0000000 32 > led_blinker axi_bram_ctrl_0_bram" *) 
+  (* KEEP_HIERARCHY = "YES" *) 
+  led_blinker_axi_bram_ctrl_0_0 axi_bram_ctrl_0
+       (.bram_addr_a(axi_bram_ctrl_0_BRAM_PORTA_ADDR),
+        .bram_addr_b(axi_bram_ctrl_0_BRAM_PORTB_ADDR),
+        .bram_clk_a(axi_bram_ctrl_0_BRAM_PORTA_CLK),
+        .bram_clk_b(axi_bram_ctrl_0_BRAM_PORTB_CLK),
+        .bram_en_a(axi_bram_ctrl_0_BRAM_PORTA_EN),
+        .bram_en_b(axi_bram_ctrl_0_BRAM_PORTB_EN),
+        .bram_rddata_a(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
+        .bram_rddata_b(axi_bram_ctrl_0_BRAM_PORTB_DOUT),
+        .bram_rst_a(axi_bram_ctrl_0_BRAM_PORTA_RST),
+        .bram_rst_b(axi_bram_ctrl_0_BRAM_PORTB_RST),
+        .bram_we_a(axi_bram_ctrl_0_BRAM_PORTA_WE),
+        .bram_we_b(axi_bram_ctrl_0_BRAM_PORTB_WE),
+        .bram_wrdata_a(axi_bram_ctrl_0_BRAM_PORTA_DIN),
+        .bram_wrdata_b(axi_bram_ctrl_0_BRAM_PORTB_DIN),
+        .s_axi_aclk(microblaze_0_Clk),
+        .s_axi_araddr(axi_smc_M03_AXI_ARADDR),
+        .s_axi_arburst(axi_smc_M03_AXI_ARBURST),
+        .s_axi_arcache(axi_smc_M03_AXI_ARCACHE),
+        .s_axi_aresetn(rst_clk_wiz_100M_peripheral_aresetn),
+        .s_axi_arlen(axi_smc_M03_AXI_ARLEN),
+        .s_axi_arlock(axi_smc_M03_AXI_ARLOCK),
+        .s_axi_arprot(axi_smc_M03_AXI_ARPROT),
+        .s_axi_arready(axi_smc_M03_AXI_ARREADY),
+        .s_axi_arsize(axi_smc_M03_AXI_ARSIZE),
+        .s_axi_arvalid(axi_smc_M03_AXI_ARVALID),
+        .s_axi_awaddr(axi_smc_M03_AXI_AWADDR),
+        .s_axi_awburst(axi_smc_M03_AXI_AWBURST),
+        .s_axi_awcache(axi_smc_M03_AXI_AWCACHE),
+        .s_axi_awlen(axi_smc_M03_AXI_AWLEN),
+        .s_axi_awlock(axi_smc_M03_AXI_AWLOCK),
+        .s_axi_awprot(axi_smc_M03_AXI_AWPROT),
+        .s_axi_awready(axi_smc_M03_AXI_AWREADY),
+        .s_axi_awsize(axi_smc_M03_AXI_AWSIZE),
+        .s_axi_awvalid(axi_smc_M03_AXI_AWVALID),
+        .s_axi_bready(axi_smc_M03_AXI_BREADY),
+        .s_axi_bresp(axi_smc_M03_AXI_BRESP),
+        .s_axi_bvalid(axi_smc_M03_AXI_BVALID),
+        .s_axi_rdata(axi_smc_M03_AXI_RDATA),
+        .s_axi_rlast(axi_smc_M03_AXI_RLAST),
+        .s_axi_rready(axi_smc_M03_AXI_RREADY),
+        .s_axi_rresp(axi_smc_M03_AXI_RRESP),
+        .s_axi_rvalid(axi_smc_M03_AXI_RVALID),
+        .s_axi_wdata(axi_smc_M03_AXI_WDATA),
+        .s_axi_wlast(axi_smc_M03_AXI_WLAST),
+        .s_axi_wready(axi_smc_M03_AXI_WREADY),
+        .s_axi_wstrb(axi_smc_M03_AXI_WSTRB),
+        .s_axi_wvalid(axi_smc_M03_AXI_WVALID));
+  led_blinker_axi_bram_ctrl_0_bram_0 axi_bram_ctrl_0_bram
+       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
+        .addrb({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTB_ADDR}),
+        .clka(axi_bram_ctrl_0_BRAM_PORTA_CLK),
+        .clkb(axi_bram_ctrl_0_BRAM_PORTB_CLK),
+        .dina(axi_bram_ctrl_0_BRAM_PORTA_DIN),
+        .dinb(axi_bram_ctrl_0_BRAM_PORTB_DIN),
+        .douta(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
+        .doutb(axi_bram_ctrl_0_BRAM_PORTB_DOUT),
+        .ena(axi_bram_ctrl_0_BRAM_PORTA_EN),
+        .enb(axi_bram_ctrl_0_BRAM_PORTB_EN),
+        .rsta(axi_bram_ctrl_0_BRAM_PORTA_RST),
+        .rstb(axi_bram_ctrl_0_BRAM_PORTB_RST),
+        .wea(axi_bram_ctrl_0_BRAM_PORTA_WE),
+        .web(axi_bram_ctrl_0_BRAM_PORTB_WE));
   led_blinker_axi_gpio_0_0 axi_gpio_0
-       (.gpio_io_o(led_red),
+       (.gpio_io_o(rgb_led_tri_o),
         .s_axi_aclk(microblaze_0_Clk),
         .s_axi_araddr(axi_smc_M00_AXI_ARADDR),
         .s_axi_aresetn(rst_clk_wiz_100M_peripheral_aresetn),
@@ -216,6 +319,37 @@ module led_blinker
         .M02_AXI_wready(axi_smc_M02_AXI_WREADY),
         .M02_AXI_wstrb(axi_smc_M02_AXI_WSTRB),
         .M02_AXI_wvalid(axi_smc_M02_AXI_WVALID),
+        .M03_AXI_araddr(axi_smc_M03_AXI_ARADDR),
+        .M03_AXI_arburst(axi_smc_M03_AXI_ARBURST),
+        .M03_AXI_arcache(axi_smc_M03_AXI_ARCACHE),
+        .M03_AXI_arlen(axi_smc_M03_AXI_ARLEN),
+        .M03_AXI_arlock(axi_smc_M03_AXI_ARLOCK),
+        .M03_AXI_arprot(axi_smc_M03_AXI_ARPROT),
+        .M03_AXI_arready(axi_smc_M03_AXI_ARREADY),
+        .M03_AXI_arsize(axi_smc_M03_AXI_ARSIZE),
+        .M03_AXI_arvalid(axi_smc_M03_AXI_ARVALID),
+        .M03_AXI_awaddr(axi_smc_M03_AXI_AWADDR),
+        .M03_AXI_awburst(axi_smc_M03_AXI_AWBURST),
+        .M03_AXI_awcache(axi_smc_M03_AXI_AWCACHE),
+        .M03_AXI_awlen(axi_smc_M03_AXI_AWLEN),
+        .M03_AXI_awlock(axi_smc_M03_AXI_AWLOCK),
+        .M03_AXI_awprot(axi_smc_M03_AXI_AWPROT),
+        .M03_AXI_awready(axi_smc_M03_AXI_AWREADY),
+        .M03_AXI_awsize(axi_smc_M03_AXI_AWSIZE),
+        .M03_AXI_awvalid(axi_smc_M03_AXI_AWVALID),
+        .M03_AXI_bready(axi_smc_M03_AXI_BREADY),
+        .M03_AXI_bresp(axi_smc_M03_AXI_BRESP),
+        .M03_AXI_bvalid(axi_smc_M03_AXI_BVALID),
+        .M03_AXI_rdata(axi_smc_M03_AXI_RDATA),
+        .M03_AXI_rlast(axi_smc_M03_AXI_RLAST),
+        .M03_AXI_rready(axi_smc_M03_AXI_RREADY),
+        .M03_AXI_rresp(axi_smc_M03_AXI_RRESP),
+        .M03_AXI_rvalid(axi_smc_M03_AXI_RVALID),
+        .M03_AXI_wdata(axi_smc_M03_AXI_WDATA),
+        .M03_AXI_wlast(axi_smc_M03_AXI_WLAST),
+        .M03_AXI_wready(axi_smc_M03_AXI_WREADY),
+        .M03_AXI_wstrb(axi_smc_M03_AXI_WSTRB),
+        .M03_AXI_wvalid(axi_smc_M03_AXI_WVALID),
         .S00_AXI_araddr(microblaze_0_M_AXI_DP_ARADDR),
         .S00_AXI_arprot(microblaze_0_M_AXI_DP_ARPROT),
         .S00_AXI_arready(microblaze_0_M_AXI_DP_ARREADY),
@@ -259,16 +393,11 @@ module led_blinker
         .s_axi_wstrb(axi_smc_M02_AXI_WSTRB),
         .s_axi_wvalid(axi_smc_M02_AXI_WVALID),
         .tx(usb_uart_txd));
-  led_blinker_c_counter_binary_0_0 c_counter_binary_0
-       (.CLK(microblaze_0_Clk),
-        .Q(c_counter_binary_0_Q));
   led_blinker_clk_wiz_0 clk_wiz
        (.clk_in1(clk),
         .clk_out1(microblaze_0_Clk),
         .locked(clk_wiz_locked),
         .reset(reset));
-  assign led_blue = 1'h1;
-  assign led_green = c_counter_binary_0_Q[26:26];
   led_blinker_mdm_0_0 mdm_0
        (.Dbg_Capture_0(microblaze_0_debug_CAPTURE),
         .Dbg_Clk_0(microblaze_0_debug_CLK),
@@ -299,7 +428,7 @@ module led_blinker
         .S_AXI_WREADY(axi_smc_M01_AXI_WREADY),
         .S_AXI_WSTRB(axi_smc_M01_AXI_WSTRB),
         .S_AXI_WVALID(axi_smc_M01_AXI_WVALID));
-  (* BMM_INFO_PROCESSOR = "microblaze-le > led_blinker microblaze_0_local_memory/dlmb_bram_if_cntlr" *) 
+  (* BMM_INFO_PROCESSOR = "microblaze-le > led_blinker microblaze_0_local_memory/dlmb_bram_if_cntlr led_blinker axi_bram_ctrl_0" *) 
   (* KEEP_HIERARCHY = "YES" *) 
   led_blinker_microblaze_0_0 microblaze_0
        (.Byte_Enable(microblaze_0_dlmb_1_BE),

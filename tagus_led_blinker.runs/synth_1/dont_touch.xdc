@@ -6,9 +6,6 @@
 # Block Designs: bd/led_blinker/led_blinker.bd
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==led_blinker || ORIG_REF_NAME==led_blinker} -quiet] -quiet
 
-# IP: bd/led_blinker/ip/led_blinker_c_counter_binary_0_0/led_blinker_c_counter_binary_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==led_blinker_c_counter_binary_0_0 || ORIG_REF_NAME==led_blinker_c_counter_binary_0_0} -quiet] -quiet
-
 # IP: bd/led_blinker/ip/led_blinker_clk_wiz_0/led_blinker_clk_wiz_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==led_blinker_clk_wiz_0 || ORIG_REF_NAME==led_blinker_clk_wiz_0} -quiet] -quiet
 
@@ -44,5 +41,11 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==led_blinker
 
 # IP: bd/led_blinker/ip/led_blinker_axi_uartlite_0_0/led_blinker_axi_uartlite_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==led_blinker_axi_uartlite_0_0 || ORIG_REF_NAME==led_blinker_axi_uartlite_0_0} -quiet] -quiet
+
+# IP: bd/led_blinker/ip/led_blinker_axi_bram_ctrl_0_0/led_blinker_axi_bram_ctrl_0_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==led_blinker_axi_bram_ctrl_0_0 || ORIG_REF_NAME==led_blinker_axi_bram_ctrl_0_0} -quiet] -quiet
+
+# IP: bd/led_blinker/ip/led_blinker_axi_bram_ctrl_0_bram_0/led_blinker_axi_bram_ctrl_0_bram_0.xci
+set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==led_blinker_axi_bram_ctrl_0_bram_0 || ORIG_REF_NAME==led_blinker_axi_bram_ctrl_0_bram_0} -quiet] -quiet
 
 # XDC: /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/led_blinker_ooc.xdc

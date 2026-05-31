@@ -55,11 +55,9 @@ COMPONENT led_blinker
   PORT (
     usb_uart_rxd : IN STD_LOGIC;
     usb_uart_txd : OUT STD_LOGIC;
-    led_green : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     clk : IN STD_LOGIC;
     reset : IN STD_LOGIC;
-    led_red : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
-    led_blue : OUT STD_LOGIC_VECTOR(0 DOWNTO 0)
+    rgb_led_tri_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------  End cut for COMPONENT Declaration  ------
@@ -72,11 +70,9 @@ your_instance_name : led_blinker
   PORT MAP (
     usb_uart_rxd => usb_uart_rxd,
     usb_uart_txd => usb_uart_txd,
-    led_green => led_green,
     clk => clk,
     reset => reset,
-    led_red => led_red,
-    led_blue => led_blue
+    rgb_led_tri_o => rgb_led_tri_o
   );
 -- INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

@@ -56,11 +56,9 @@
 led_blinker your_instance_name (
   .usb_uart_rxd(usb_uart_rxd), // input wire usb_uart_rxd
   .usb_uart_txd(usb_uart_txd), // output wire usb_uart_txd
-  .led_green(led_green), // output wire [0:0] led_green
   .clk(clk), // input wire clk
   .reset(reset), // input wire reset
-  .led_red(led_red), // output wire [0:0] led_red
-  .led_blue(led_blue) // output wire [0:0] led_blue
+  .rgb_led_tri_o(rgb_led_tri_o) // output wire [2:0] rgb_led_tri_o
 );
 // INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

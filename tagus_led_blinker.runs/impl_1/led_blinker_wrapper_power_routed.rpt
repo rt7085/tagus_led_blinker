@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-| Date             : Sat May 30 09:07:10 2026
+| Date             : Sun May 31 07:20:33 2026
 | Host             : capybara running 64-bit Ubuntu 24.04.3 LTS
 | Command          : report_power -file led_blinker_wrapper_power_routed.rpt -pb led_blinker_wrapper_power_summary_routed.pb -rpx led_blinker_wrapper_power_routed.rpx
 | Design           : led_blinker_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.260        |
+| Total On-Chip Power (W)  | 0.268        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.120        |
-| Device Static (W)        | 0.139        |
+| Dynamic (W)              | 0.129        |
+| Device Static (W)        | 0.140        |
 | Effective TJA (C/W)      | 2.5          |
-| Max Ambient (C)          | 84.4         |
-| Junction Temperature (C) | 25.6         |
+| Max Ambient (C)          | 84.3         |
+| Junction Temperature (C) | 25.7         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,21 +52,21 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.011 |        7 |       --- |             --- |
-| Slice Logic              |     0.004 |     4780 |       --- |             --- |
-|   LUT as Logic           |     0.003 |     1608 |    133800 |            1.20 |
+| Clocks                   |     0.013 |        7 |       --- |             --- |
+| Slice Logic              |     0.005 |     5525 |       --- |             --- |
+|   LUT as Logic           |     0.004 |     1881 |    133800 |            1.41 |
 |   LUT as Distributed RAM |    <0.001 |       64 |     46200 |            0.14 |
-|   CARRY4                 |    <0.001 |       47 |     33450 |            0.14 |
-|   Register               |    <0.001 |     1676 |    267600 |            0.63 |
+|   Register               |    <0.001 |     2038 |    267600 |            0.76 |
+|   CARRY4                 |    <0.001 |       40 |     33450 |            0.12 |
 |   F7/F8 Muxes            |    <0.001 |      109 |    133800 |            0.08 |
 |   LUT as Shift Register  |    <0.001 |       91 |     46200 |            0.20 |
-|   Others                 |    <0.001 |      694 |       --- |             --- |
-| Signals                  |     0.005 |     3118 |       --- |             --- |
-| Block RAM                |     0.003 |       16 |       365 |            4.38 |
+|   Others                 |    <0.001 |      724 |       --- |             --- |
+| Signals                  |     0.007 |     3723 |       --- |             --- |
+| Block RAM                |     0.005 |       18 |       365 |            4.93 |
 | MMCM                     |     0.095 |        1 |        10 |           10.00 |
-| I/O                      |     0.002 |        7 |       285 |            2.46 |
-| Static Power             |     0.139 |          |           |                 |
-| Total                    |     0.260 |          |           |                 |
+| I/O                      |     0.004 |        7 |       285 |            2.46 |
+| Static Power             |     0.140 |          |           |                 |
+| Total                    |     0.268 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -76,7 +76,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.054 |       0.023 |      0.031 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.061 |       0.030 |      0.031 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.083 |       0.053 |      0.031 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.006 |       0.001 |      0.005 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -85,7 +85,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.002 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
@@ -149,20 +149,24 @@ Table of Contents
 +-------------------------------+-----------+
 | Name                          | Power (W) |
 +-------------------------------+-----------+
-| led_blinker_wrapper           |     0.120 |
-|   led_blinker_i               |     0.118 |
-|     axi_smc                   |     0.004 |
-|       inst                    |     0.004 |
+| led_blinker_wrapper           |     0.129 |
+|   led_blinker_i               |     0.125 |
+|     axi_bram_ctrl_0           |     0.002 |
+|       U0                      |     0.002 |
+|     axi_bram_ctrl_0_bram      |     0.002 |
+|       U0                      |     0.002 |
+|     axi_smc                   |     0.005 |
+|       inst                    |     0.005 |
 |     axi_uartlite_0            |     0.001 |
 |       U0                      |     0.001 |
 |     clk_wiz                   |     0.096 |
 |       inst                    |     0.096 |
 |     mdm_0                     |     0.001 |
 |       U0                      |     0.001 |
-|     microblaze_0              |     0.012 |
-|       U0                      |     0.012 |
-|     microblaze_0_local_memory |     0.003 |
-|       lmb_bram                |     0.003 |
+|     microblaze_0              |     0.013 |
+|       U0                      |     0.013 |
+|     microblaze_0_local_memory |     0.004 |
+|       lmb_bram                |     0.004 |
 +-------------------------------+-----------+
 
 

@@ -152,6 +152,10 @@ include_folder: include
 lib_folder: lib
 libsrc_folder: libsrc
 drv_info:
+  axi_bram_ctrl_0:
+    driver: bram
+    ip_name: axi_bram_ctrl
+    path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/bram_v4_13
   axi_gpio_0:
     driver: gpio
     ip_name: axi_gpio

@@ -7,6 +7,11 @@
 #include "xgpio.h"
 #include "sleep.h"
 
+#define ALL_LEDS_OFF 0x7
+#define RED_LED_ON 0x6
+#define GREEN_LED_ON 0x5
+#define BLUE_LED_ON 0x3
+
 XGpio Gpio; // Instance of the GPIO Driver
 
 int main()
@@ -17,17 +22,20 @@ int main()
 
     init_platform();
 
-    print("Led Blinker Applications Started\n\r");
+    print("Led Blinker Applications Started...\n\r");
 
     // Set Channel 1 as output (0 mask = output)
     XGpio_SetDataDirection(&Gpio, 1, 0x0);
+    XGpio_DiscreteWrite(&Gpio, 1, 0x7); // each bit is an LED
+
 
     while (1) {
-        XGpio_DiscreteWrite(&Gpio, 1, 0x1); // LED ON
+        XGpio_DiscreteWrite(&Gpio, 1, BLUE_LED_ON); // LED ON
         usleep(1000000);                     // 500ms delay
-        XGpio_DiscreteWrite(&Gpio, 1, 0x0); // LED OFF
+        XGpio_DiscreteWrite(&Gpio, 1, ALL_LEDS_OFF); // LED OFF
         usleep(1000000);
     }
+
 
     cleanup_platform();
     
