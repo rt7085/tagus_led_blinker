@@ -2,7 +2,7 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-// Date        : Sun May 10 15:46:21 2026
+// Date        : Sat May 16 06:18:14 2026
 // Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_mdm_0_0/led_blinker_mdm_0_0_sim_netlist.v
@@ -16,7 +16,27 @@
 (* CHECK_LICENSE_TYPE = "led_blinker_mdm_0_0,MDM,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "MDM,Vivado 2025.2" *) 
 (* NotValidForBitStream *)
 module led_blinker_mdm_0_0
-   (Debug_SYS_Rst,
+   (S_AXI_ACLK,
+    S_AXI_ARESETN,
+    Interrupt,
+    Debug_SYS_Rst,
+    S_AXI_AWADDR,
+    S_AXI_AWVALID,
+    S_AXI_AWREADY,
+    S_AXI_WDATA,
+    S_AXI_WSTRB,
+    S_AXI_WVALID,
+    S_AXI_WREADY,
+    S_AXI_BRESP,
+    S_AXI_BVALID,
+    S_AXI_BREADY,
+    S_AXI_ARADDR,
+    S_AXI_ARVALID,
+    S_AXI_ARREADY,
+    S_AXI_RDATA,
+    S_AXI_RRESP,
+    S_AXI_RVALID,
+    S_AXI_RREADY,
     Dbg_Clk_0,
     Dbg_TDI_0,
     Dbg_TDO_0,
@@ -26,7 +46,27 @@ module led_blinker_mdm_0_0
     Dbg_Update_0,
     Dbg_Rst_0,
     Dbg_Disable_0);
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 CLK.S_AXI_ACLK CLK" *) (* x_interface_mode = "slave CLK.S_AXI_ACLK" *) (* x_interface_parameter = "XIL_INTERFACENAME CLK.S_AXI_ACLK, ASSOCIATED_BUSIF S_AXI:MBDEBUG_AXI_0:MBDEBUG_AXI_1:MBDEBUG_AXI_2:MBDEBUG_AXI_3:MBDEBUG_AXI_4:MBDEBUG_AXI_5:MBDEBUG_AXI_6:MBDEBUG_AXI_7:MBDEBUG_AXI_8:MBDEBUG_AXI_9:MBDEBUG_AXI_10:MBDEBUG_AXI_11:MBDEBUG_AXI_12:MBDEBUG_AXI_13:MBDEBUG_AXI_14:MBDEBUG_AXI_15:MBDEBUG_AXI_16:MBDEBUG_AXI_17:MBDEBUG_AXI_18:MBDEBUG_AXI_19:MBDEBUG_AXI_20:MBDEBUG_AXI_21:MBDEBUG_AXI_22:MBDEBUG_AXI_23:MBDEBUG_AXI_24:MBDEBUG_AXI_25:MBDEBUG_AXI_26:MBDEBUG_AXI_27:MBDEBUG_AXI_28:MBDEBUG_AXI_29:MBDEBUG_AXI_30:MBDEBUG_AXI_31, ASSOCIATED_RESET S_AXI_ARESETN, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_clk_out1, INSERT_VIP 0" *) input S_AXI_ACLK;
+  (* x_interface_info = "xilinx.com:signal:reset:1.0 RST.S_AXI_ARESETN RST" *) (* x_interface_mode = "slave RST.S_AXI_ARESETN" *) (* x_interface_parameter = "XIL_INTERFACENAME RST.S_AXI_ARESETN, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input S_AXI_ARESETN;
+  (* x_interface_info = "xilinx.com:signal:interrupt:1.0 INTERRUPT.INTERRUPT INTERRUPT" *) (* x_interface_mode = "master INTERRUPT.INTERRUPT" *) (* x_interface_parameter = "XIL_INTERFACENAME INTERRUPT.INTERRUPT, SENSITIVITY EDGE_RISING, SUGGESTED_PRIORITY HIGH, PortWidth 1" *) output Interrupt;
   (* x_interface_info = "xilinx.com:signal:reset:1.0 RST.Debug_SYS_Rst RST" *) (* x_interface_mode = "master RST.Debug_SYS_Rst" *) (* x_interface_parameter = "XIL_INTERFACENAME RST.Debug_SYS_Rst, POLARITY ACTIVE_HIGH, INSERT_VIP 0" *) output Debug_SYS_Rst;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWADDR" *) (* x_interface_mode = "slave S_AXI" *) (* x_interface_parameter = "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [3:0]S_AXI_AWADDR;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWVALID" *) input S_AXI_AWVALID;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI AWREADY" *) output S_AXI_AWREADY;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WDATA" *) input [31:0]S_AXI_WDATA;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WSTRB" *) input [3:0]S_AXI_WSTRB;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WVALID" *) input S_AXI_WVALID;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI WREADY" *) output S_AXI_WREADY;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BRESP" *) output [1:0]S_AXI_BRESP;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BVALID" *) output S_AXI_BVALID;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI BREADY" *) input S_AXI_BREADY;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARADDR" *) input [3:0]S_AXI_ARADDR;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARVALID" *) input S_AXI_ARVALID;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI ARREADY" *) output S_AXI_ARREADY;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RDATA" *) output [31:0]S_AXI_RDATA;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RRESP" *) output [1:0]S_AXI_RRESP;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RVALID" *) output S_AXI_RVALID;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S_AXI RREADY" *) input S_AXI_RREADY;
   (* x_interface_info = "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 CLK" *) (* x_interface_mode = "master MBDEBUG_0" *) output Dbg_Clk_0;
   (* x_interface_info = "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 TDI" *) output Dbg_TDI_0;
   (* x_interface_info = "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 TDO" *) input Dbg_TDO_0;
@@ -37,6 +77,7 @@ module led_blinker_mdm_0_0
   (* x_interface_info = "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 RST" *) output Dbg_Rst_0;
   (* x_interface_info = "xilinx.com:interface:mbdebug:3.0 MBDEBUG_0 DISABLE" *) output Dbg_Disable_0;
 
+  wire \<const0> ;
   wire Dbg_Capture_0;
   wire Dbg_Clk_0;
   wire Dbg_Disable_0;
@@ -47,6 +88,25 @@ module led_blinker_mdm_0_0
   wire Dbg_TDO_0;
   wire Dbg_Update_0;
   wire Debug_SYS_Rst;
+  wire Interrupt;
+  wire S_AXI_ACLK;
+  wire [3:0]S_AXI_ARADDR;
+  wire S_AXI_ARESETN;
+  wire S_AXI_ARREADY;
+  wire S_AXI_ARVALID;
+  wire [3:0]S_AXI_AWADDR;
+  wire S_AXI_AWREADY;
+  wire S_AXI_AWVALID;
+  wire S_AXI_BREADY;
+  wire [1:1]\^S_AXI_BRESP ;
+  wire S_AXI_BVALID;
+  wire [7:0]\^S_AXI_RDATA ;
+  wire S_AXI_RREADY;
+  wire [1:1]\^S_AXI_RRESP ;
+  wire S_AXI_RVALID;
+  wire [31:0]S_AXI_WDATA;
+  wire S_AXI_WREADY;
+  wire S_AXI_WVALID;
   wire NLW_U0_Dbg_ARVALID_0_UNCONNECTED;
   wire NLW_U0_Dbg_ARVALID_1_UNCONNECTED;
   wire NLW_U0_Dbg_ARVALID_10_UNCONNECTED;
@@ -497,7 +557,6 @@ module led_blinker_mdm_0_0
   wire NLW_U0_Ext_JTAG_TDI_UNCONNECTED;
   wire NLW_U0_Ext_JTAG_UPDATE_UNCONNECTED;
   wire NLW_U0_Ext_NM_BRK_UNCONNECTED;
-  wire NLW_U0_Interrupt_UNCONNECTED;
   wire NLW_U0_LMB_Addr_Strobe_0_UNCONNECTED;
   wire NLW_U0_LMB_Addr_Strobe_1_UNCONNECTED;
   wire NLW_U0_LMB_Addr_Strobe_10_UNCONNECTED;
@@ -603,11 +662,6 @@ module led_blinker_mdm_0_0
   wire NLW_U0_M_AXI_RREADY_UNCONNECTED;
   wire NLW_U0_M_AXI_WLAST_UNCONNECTED;
   wire NLW_U0_M_AXI_WVALID_UNCONNECTED;
-  wire NLW_U0_S_AXI_ARREADY_UNCONNECTED;
-  wire NLW_U0_S_AXI_AWREADY_UNCONNECTED;
-  wire NLW_U0_S_AXI_BVALID_UNCONNECTED;
-  wire NLW_U0_S_AXI_RVALID_UNCONNECTED;
-  wire NLW_U0_S_AXI_WREADY_UNCONNECTED;
   wire NLW_U0_TRACE_CLK_OUT_UNCONNECTED;
   wire NLW_U0_TRACE_CTL_UNCONNECTED;
   wire NLW_U0_Trig_Ack_In_0_UNCONNECTED;
@@ -926,11 +980,42 @@ module led_blinker_mdm_0_0
   wire [2:0]NLW_U0_M_AXI_AWSIZE_UNCONNECTED;
   wire [31:0]NLW_U0_M_AXI_WDATA_UNCONNECTED;
   wire [3:0]NLW_U0_M_AXI_WSTRB_UNCONNECTED;
-  wire [1:0]NLW_U0_S_AXI_BRESP_UNCONNECTED;
-  wire [31:0]NLW_U0_S_AXI_RDATA_UNCONNECTED;
-  wire [1:0]NLW_U0_S_AXI_RRESP_UNCONNECTED;
+  wire [0:0]NLW_U0_S_AXI_BRESP_UNCONNECTED;
+  wire [31:8]NLW_U0_S_AXI_RDATA_UNCONNECTED;
+  wire [0:0]NLW_U0_S_AXI_RRESP_UNCONNECTED;
   wire [31:0]NLW_U0_TRACE_DATA_UNCONNECTED;
 
+  assign S_AXI_BRESP[1] = \^S_AXI_BRESP [1];
+  assign S_AXI_BRESP[0] = \<const0> ;
+  assign S_AXI_RDATA[31] = \<const0> ;
+  assign S_AXI_RDATA[30] = \<const0> ;
+  assign S_AXI_RDATA[29] = \<const0> ;
+  assign S_AXI_RDATA[28] = \<const0> ;
+  assign S_AXI_RDATA[27] = \<const0> ;
+  assign S_AXI_RDATA[26] = \<const0> ;
+  assign S_AXI_RDATA[25] = \<const0> ;
+  assign S_AXI_RDATA[24] = \<const0> ;
+  assign S_AXI_RDATA[23] = \<const0> ;
+  assign S_AXI_RDATA[22] = \<const0> ;
+  assign S_AXI_RDATA[21] = \<const0> ;
+  assign S_AXI_RDATA[20] = \<const0> ;
+  assign S_AXI_RDATA[19] = \<const0> ;
+  assign S_AXI_RDATA[18] = \<const0> ;
+  assign S_AXI_RDATA[17] = \<const0> ;
+  assign S_AXI_RDATA[16] = \<const0> ;
+  assign S_AXI_RDATA[15] = \<const0> ;
+  assign S_AXI_RDATA[14] = \<const0> ;
+  assign S_AXI_RDATA[13] = \<const0> ;
+  assign S_AXI_RDATA[12] = \<const0> ;
+  assign S_AXI_RDATA[11] = \<const0> ;
+  assign S_AXI_RDATA[10] = \<const0> ;
+  assign S_AXI_RDATA[9] = \<const0> ;
+  assign S_AXI_RDATA[8] = \<const0> ;
+  assign S_AXI_RDATA[7:0] = \^S_AXI_RDATA [7:0];
+  assign S_AXI_RRESP[1] = \^S_AXI_RRESP [1];
+  assign S_AXI_RRESP[0] = \<const0> ;
+  GND GND
+       (.G(\<const0> ));
   (* C_ADDR_SIZE = "32" *) 
   (* C_AVOID_PRIMITIVES = "0" *) 
   (* C_BSCANID = "76547328" *) 
@@ -963,7 +1048,7 @@ module led_blinker_mdm_0_0
   (* C_USE_BSCAN = "0" *) 
   (* C_USE_CONFIG_RESET = "0" *) 
   (* C_USE_CROSS_TRIGGER = "0" *) 
-  (* C_USE_UART = "0" *) 
+  (* C_USE_UART = "1" *) 
   (* DONT_TOUCH = 0 *) 
   (* bscan_debug_core = "FALSE" *) 
   led_blinker_mdm_0_0_MDM U0
@@ -2035,7 +2120,7 @@ module led_blinker_mdm_0_0
         .Ext_JTAG_TDO(1'b0),
         .Ext_JTAG_UPDATE(NLW_U0_Ext_JTAG_UPDATE_UNCONNECTED),
         .Ext_NM_BRK(NLW_U0_Ext_NM_BRK_UNCONNECTED),
-        .Interrupt(NLW_U0_Interrupt_UNCONNECTED),
+        .Interrupt(Interrupt),
         .LMB_Addr_Strobe_0(NLW_U0_LMB_Addr_Strobe_0_UNCONNECTED),
         .LMB_Addr_Strobe_1(NLW_U0_LMB_Addr_Strobe_1_UNCONNECTED),
         .LMB_Addr_Strobe_10(NLW_U0_LMB_Addr_Strobe_10_UNCONNECTED),
@@ -2433,25 +2518,25 @@ module led_blinker_mdm_0_0
         .M_AXI_WREADY(1'b0),
         .M_AXI_WSTRB(NLW_U0_M_AXI_WSTRB_UNCONNECTED[3:0]),
         .M_AXI_WVALID(NLW_U0_M_AXI_WVALID_UNCONNECTED),
-        .S_AXI_ACLK(1'b0),
-        .S_AXI_ARADDR({1'b0,1'b0,1'b0,1'b0}),
-        .S_AXI_ARESETN(1'b0),
-        .S_AXI_ARREADY(NLW_U0_S_AXI_ARREADY_UNCONNECTED),
-        .S_AXI_ARVALID(1'b0),
-        .S_AXI_AWADDR({1'b0,1'b0,1'b0,1'b0}),
-        .S_AXI_AWREADY(NLW_U0_S_AXI_AWREADY_UNCONNECTED),
-        .S_AXI_AWVALID(1'b0),
-        .S_AXI_BREADY(1'b0),
-        .S_AXI_BRESP(NLW_U0_S_AXI_BRESP_UNCONNECTED[1:0]),
-        .S_AXI_BVALID(NLW_U0_S_AXI_BVALID_UNCONNECTED),
-        .S_AXI_RDATA(NLW_U0_S_AXI_RDATA_UNCONNECTED[31:0]),
-        .S_AXI_RREADY(1'b0),
-        .S_AXI_RRESP(NLW_U0_S_AXI_RRESP_UNCONNECTED[1:0]),
-        .S_AXI_RVALID(NLW_U0_S_AXI_RVALID_UNCONNECTED),
-        .S_AXI_WDATA({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
-        .S_AXI_WREADY(NLW_U0_S_AXI_WREADY_UNCONNECTED),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_ARADDR({S_AXI_ARADDR[3:2],1'b0,1'b0}),
+        .S_AXI_ARESETN(S_AXI_ARESETN),
+        .S_AXI_ARREADY(S_AXI_ARREADY),
+        .S_AXI_ARVALID(S_AXI_ARVALID),
+        .S_AXI_AWADDR({S_AXI_AWADDR[3:2],1'b0,1'b0}),
+        .S_AXI_AWREADY(S_AXI_AWREADY),
+        .S_AXI_AWVALID(S_AXI_AWVALID),
+        .S_AXI_BREADY(S_AXI_BREADY),
+        .S_AXI_BRESP({\^S_AXI_BRESP ,NLW_U0_S_AXI_BRESP_UNCONNECTED[0]}),
+        .S_AXI_BVALID(S_AXI_BVALID),
+        .S_AXI_RDATA({NLW_U0_S_AXI_RDATA_UNCONNECTED[31:8],\^S_AXI_RDATA }),
+        .S_AXI_RREADY(S_AXI_RREADY),
+        .S_AXI_RRESP({\^S_AXI_RRESP ,NLW_U0_S_AXI_RRESP_UNCONNECTED[0]}),
+        .S_AXI_RVALID(S_AXI_RVALID),
+        .S_AXI_WDATA({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,S_AXI_WDATA[7:0]}),
+        .S_AXI_WREADY(S_AXI_WREADY),
         .S_AXI_WSTRB({1'b0,1'b0,1'b0,1'b0}),
-        .S_AXI_WVALID(1'b0),
+        .S_AXI_WVALID(S_AXI_WVALID),
         .Scan_En(1'b0),
         .Scan_Reset(1'b0),
         .Scan_Reset_Sel(1'b0),
@@ -2491,100 +2576,159 @@ endmodule
 (* ORIG_REF_NAME = "JTAG_CONTROL" *) 
 module led_blinker_mdm_0_0_JTAG_CONTROL
    (\shift_Count_reg[0]_0 ,
+    data_Exists_I_reg,
+    RX_Data,
+    data_Exists_I_reg_0,
+    out,
     Debug_SYS_Rst,
     Dbg_Rst_0,
     Dbg_Reg_En_0,
-    \Use_BSCAN.command_reg[6]_0 ,
     \Use_Serial_Unified_Completion.mb_data_overrun1__0 ,
-    Dbg_Shift_0,
+    \Using_FPGA.Native ,
+    \Using_FPGA.Native_0 ,
     tdo,
+    tx_Buffer_Full,
+    RX_Buffer_Full,
     \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[15]_0 ,
+    tx_Buffer_Empty,
     \Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5]_0 ,
+    Interrupt,
     CLK,
     \Use_unisim.MB_SRL16E_I1 ,
+    \Using_FPGA.Native_1 ,
+    S_AXI_ACLK,
+    \Using_FPGA.Native_2 ,
+    S_AXI_WDATA,
     sel_n_reg_0,
-    Dbg_Shift_0_0,
+    \Use_UART.fifo_Din_reg[7]_0 ,
     Q,
     SEL,
     \Use_E2.BSCANE2_I ,
     Dbg_TDO_0,
-    \Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 ,
-    Ext_JTAG_TDI,
+    FIFO_Write,
+    Bus_RNW_reg,
+    \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ,
+    bus2ip_rdce,
+    Interrupt_0,
+    enable_interrupts,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ,
+    Dbg_TDI_0,
     \Use_Serial_Unified_Completion.Data_Read_Status.count ,
     \Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5]_1 ,
     \shift_Count_reg[0]_1 ,
+    \Use_UART.tdo_reg_reg[7]_0 ,
     \Use_Serial_Unified_Completion.completion_status_reg[10]_0 ,
     \Use_Serial_Unified_Completion.completion_status_reg[15]_0 );
   output \shift_Count_reg[0]_0 ;
+  output data_Exists_I_reg;
+  output [0:7]RX_Data;
+  output data_Exists_I_reg_0;
+  output out;
   output Debug_SYS_Rst;
   output Dbg_Rst_0;
   output [0:7]Dbg_Reg_En_0;
-  output \Use_BSCAN.command_reg[6]_0 ;
   output \Use_Serial_Unified_Completion.mb_data_overrun1__0 ;
-  output Dbg_Shift_0;
+  output \Using_FPGA.Native ;
+  output \Using_FPGA.Native_0 ;
   output tdo;
+  output tx_Buffer_Full;
+  output RX_Buffer_Full;
   output \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[15]_0 ;
+  output tx_Buffer_Empty;
   output \Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5]_0 ;
+  output Interrupt;
   input CLK;
   input \Use_unisim.MB_SRL16E_I1 ;
+  input \Using_FPGA.Native_1 ;
+  input S_AXI_ACLK;
+  input \Using_FPGA.Native_2 ;
+  input [7:0]S_AXI_WDATA;
   input sel_n_reg_0;
-  input Dbg_Shift_0_0;
+  input \Use_UART.fifo_Din_reg[7]_0 ;
   input [3:0]Q;
   input SEL;
   input \Use_E2.BSCANE2_I ;
   input Dbg_TDO_0;
-  input \Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 ;
-  input Ext_JTAG_TDI;
+  input FIFO_Write;
+  input Bus_RNW_reg;
+  input \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
+  input [0:0]bus2ip_rdce;
+  input Interrupt_0;
+  input enable_interrupts;
+  input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
+  input Dbg_TDI_0;
   input \Use_Serial_Unified_Completion.Data_Read_Status.count ;
   input \Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5]_1 ;
   input \shift_Count_reg[0]_1 ;
+  input \Use_UART.tdo_reg_reg[7]_0 ;
   input \Use_Serial_Unified_Completion.completion_status_reg[10]_0 ;
-  input [0:0]\Use_Serial_Unified_Completion.completion_status_reg[15]_0 ;
+  input \Use_Serial_Unified_Completion.completion_status_reg[15]_0 ;
 
   wire A1;
   wire A2;
   wire A3;
+  wire Bus_RNW_reg;
   wire CE;
   wire CLK;
   wire D;
+  wire [4:5]Data_Out;
   wire [0:7]Dbg_Reg_En_0;
   wire Dbg_Rst_0;
-  wire Dbg_Shift_0;
-  wire Dbg_Shift_0_0;
   wire Dbg_Shift_0_INST_0_i_1_n_0;
   wire Dbg_Shift_0_INST_0_i_3_n_0;
-  wire Dbg_Shift_0_INST_0_i_4_n_0;
+  wire Dbg_TDI_0;
   wire Dbg_TDO_0;
   wire Debug_SYS_Rst;
   wire Debug_SYS_Rst_i_i_2_n_0;
-  wire Ext_JTAG_TDI;
+  wire FIFO_Write;
   wire Functional_Reset;
-  wire ID_TDO_2;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
+  wire \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
+  wire ID_TDO_1;
+  wire Interrupt;
+  wire Interrupt_0;
   wire [3:0]Q;
+  wire RX_Buffer_Full;
+  wire [0:7]RX_Data;
   wire SEL;
-  wire \Use_BSCAN.FDC_I_n_13 ;
+  wire S_AXI_ACLK;
+  wire [7:0]S_AXI_WDATA;
+  wire \Use_BSCAN.FDC_I_n_10 ;
+  wire \Use_BSCAN.FDC_I_n_11 ;
+  wire \Use_BSCAN.FDC_I_n_15 ;
+  wire \Use_BSCAN.FDC_I_n_18 ;
+  wire \Use_BSCAN.FDC_I_n_19 ;
+  wire \Use_BSCAN.FDC_I_n_20 ;
+  wire \Use_BSCAN.FDC_I_n_21 ;
+  wire \Use_BSCAN.FDC_I_n_22 ;
+  wire \Use_BSCAN.FDC_I_n_23 ;
+  wire \Use_BSCAN.FDC_I_n_24 ;
+  wire \Use_BSCAN.FDC_I_n_25 ;
   wire \Use_BSCAN.FDC_I_n_26 ;
   wire \Use_BSCAN.FDC_I_n_27 ;
   wire \Use_BSCAN.FDC_I_n_28 ;
+  wire \Use_BSCAN.FDC_I_n_29 ;
   wire \Use_BSCAN.FDC_I_n_30 ;
-  wire \Use_BSCAN.FDC_I_n_31 ;
   wire \Use_BSCAN.FDC_I_n_32 ;
   wire \Use_BSCAN.FDC_I_n_33 ;
   wire \Use_BSCAN.FDC_I_n_34 ;
   wire \Use_BSCAN.FDC_I_n_35 ;
   wire \Use_BSCAN.FDC_I_n_36 ;
-  wire \Use_BSCAN.FDC_I_n_9 ;
+  wire \Use_BSCAN.FDC_I_n_37 ;
+  wire \Use_BSCAN.FDC_I_n_38 ;
+  wire \Use_BSCAN.FDC_I_n_39 ;
+  wire \Use_BSCAN.SYNC_FDRE_n_1 ;
+  wire \Use_BSCAN.SYNC_FDRE_n_2 ;
   wire \Use_BSCAN.command[0]_i_1_n_0 ;
-  wire \Use_BSCAN.command_reg[6]_0 ;
   wire \Use_E2.BSCANE2_I ;
-  wire \Use_E2.BSCANE2_I_i_10_n_0 ;
-  wire \Use_E2.BSCANE2_I_i_11_n_0 ;
   wire \Use_E2.BSCANE2_I_i_3_n_0 ;
+  wire \Use_E2.BSCANE2_I_i_4_n_0 ;
   wire \Use_E2.BSCANE2_I_i_6_n_0 ;
   wire \Use_E2.BSCANE2_I_i_7_n_0 ;
-  wire \Use_ID_SRL16E.SRL16E_ID_1_n_0 ;
+  wire \Use_E2.BSCANE2_I_i_9_n_0 ;
   (* async_reg = "true" *) wire [15:13]\Use_Serial_Unified_Completion.Completion_Status_Register.sample ;
   wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1 ;
+  wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_3_n_0 ;
   wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[15]_0 ;
   wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg_n_0_[10] ;
   wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg_n_0_[11] ;
@@ -2607,31 +2751,73 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
   wire \Use_Serial_Unified_Completion.completion_block_i_3_n_0 ;
   wire \Use_Serial_Unified_Completion.completion_block_i_4_n_0 ;
   wire \Use_Serial_Unified_Completion.completion_block_reg_n_0 ;
+  wire \Use_Serial_Unified_Completion.completion_status[10]_i_1_n_0 ;
+  wire \Use_Serial_Unified_Completion.completion_status[11]_i_1_n_0 ;
+  wire \Use_Serial_Unified_Completion.completion_status[12]_i_1_n_0 ;
+  wire \Use_Serial_Unified_Completion.completion_status[13]_i_1_n_0 ;
+  wire \Use_Serial_Unified_Completion.completion_status[14]_i_1_n_0 ;
   wire \Use_Serial_Unified_Completion.completion_status[3]_i_2_n_0 ;
   wire \Use_Serial_Unified_Completion.completion_status[4]_i_2_n_0 ;
   wire \Use_Serial_Unified_Completion.completion_status[5]_i_2_n_0 ;
   wire \Use_Serial_Unified_Completion.completion_status[7]_i_2_n_0 ;
   wire \Use_Serial_Unified_Completion.completion_status[9]_i_4_n_0 ;
   wire \Use_Serial_Unified_Completion.completion_status_reg[10]_0 ;
-  wire [0:0]\Use_Serial_Unified_Completion.completion_status_reg[15]_0 ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[15]_0 ;
   wire \Use_Serial_Unified_Completion.mb_data_overrun1__0 ;
   wire \Use_Serial_Unified_Completion.mb_data_overrun_i_2_n_0 ;
   wire \Use_Serial_Unified_Completion.mb_data_overrun_i_3_n_0 ;
   wire \Use_Serial_Unified_Completion.mb_data_overrun_reg_n_0 ;
   wire \Use_Serial_Unified_Completion.mb_instr_error_reg_n_0 ;
   wire \Use_Serial_Unified_Completion.mb_instr_overrun ;
-  wire \Use_Serial_Unified_Completion.mb_instr_overrun136_out ;
-  wire \Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 ;
+  wire \Use_Serial_Unified_Completion.mb_instr_overrun142_out ;
+  wire \Use_UART.RX_FIFO_I_n_10 ;
+  wire \Use_UART.RX_FIFO_I_n_9 ;
+  wire \Use_UART.TX_FIFO_I_n_3 ;
+  wire \Use_UART.TX_FIFO_I_n_4 ;
+  wire \Use_UART.TX_FIFO_I_n_6 ;
+  wire \Use_UART.TX_FIFO_I_n_7 ;
+  wire \Use_UART.TX_FIFO_I_n_8 ;
+  wire \Use_UART.TX_FIFO_I_n_9 ;
+  wire \Use_UART.execute ;
+  wire \Use_UART.execute0 ;
+  (* async_reg = "true" *) wire \Use_UART.execute_1 ;
+  (* async_reg = "true" *) wire \Use_UART.execute_2 ;
+  wire \Use_UART.execute_3 ;
+  wire \Use_UART.execute_i_3_n_0 ;
+  wire [0:7]\Use_UART.fifo_Din ;
+  wire \Use_UART.fifo_Din_reg[7]_0 ;
+  wire \Use_UART.fifo_Read2_out ;
+  wire \Use_UART.fifo_Read_reg_n_0 ;
+  wire \Use_UART.fifo_Write4_out ;
+  wire \Use_UART.fifo_Write_i_2_n_0 ;
+  wire \Use_UART.fifo_Write_reg_n_0 ;
+  wire [0:7]\Use_UART.tdo_reg ;
+  wire \Use_UART.tdo_reg[0]_i_3_n_0 ;
+  wire \Use_UART.tdo_reg[0]_i_4_n_0 ;
+  wire \Use_UART.tdo_reg[4]_i_2_n_0 ;
+  wire \Use_UART.tdo_reg_reg[7]_0 ;
+  wire \Use_UART.tx_buffered ;
+  (* async_reg = "true" *) wire \Use_UART.tx_buffered_1 ;
+  (* async_reg = "true" *) wire \Use_UART.tx_buffered_2 ;
   wire \Use_unisim.MB_SRL16E_I1 ;
+  wire \Using_FPGA.Native ;
+  wire \Using_FPGA.Native_0 ;
+  wire \Using_FPGA.Native_1 ;
+  wire \Using_FPGA.Native_2 ;
+  wire [0:0]bus2ip_rdce;
   wire [0:7]command;
   wire [0:7]command_1;
   wire command_10;
+  wire command_11;
   wire completion_block0__10;
   wire [0:0]completion_ctrl;
   wire [15:0]completion_status;
+  wire config_TDO_1;
   wire config_TDO_2;
+  wire data_Exists_I_reg;
+  wire data_Exists_I_reg_0;
+  wire enable_interrupts;
   wire p_0_in;
-  wire [14:0]p_1_in;
   wire sel_n;
   wire sel_n0;
   wire sel_n_reg_0;
@@ -2646,51 +2832,51 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
   wire [0:7]tdi_shifter;
   wire tdi_shifter0;
   wire tdo;
+  wire tx_Buffer_Empty;
+  wire tx_Buffer_Full;
 
+  assign out = \Use_UART.tx_buffered_2 ;
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT3 #(
-    .INIT(8'h04)) 
+    .INIT(8'hFD)) 
     Dbg_Shift_0_INST_0_i_1
-       (.I0(command[6]),
-        .I1(command[5]),
-        .I2(command[7]),
+       (.I0(command[5]),
+        .I1(command[7]),
+        .I2(command[4]),
         .O(Dbg_Shift_0_INST_0_i_1_n_0));
-  LUT2 #(
-    .INIT(4'hE)) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT4 #(
+    .INIT(16'h0001)) 
     Dbg_Shift_0_INST_0_i_3
-       (.I0(command[2]),
-        .I1(command[4]),
-        .O(Dbg_Shift_0_INST_0_i_3_n_0));
-  LUT3 #(
-    .INIT(8'h01)) 
-    Dbg_Shift_0_INST_0_i_4
        (.I0(command[0]),
         .I1(command[1]),
         .I2(command[3]),
-        .O(Dbg_Shift_0_INST_0_i_4_n_0));
+        .I3(command[2]),
+        .O(Dbg_Shift_0_INST_0_i_3_n_0));
   FDRE #(
     .INIT(1'b0)) 
     Debug_Rst_i_reg
        (.C(CLK),
         .CE(1'b1),
-        .D(\Use_BSCAN.FDC_I_n_34 ),
+        .D(\Use_BSCAN.FDC_I_n_37 ),
         .Q(Dbg_Rst_0),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'h0000000000000004)) 
+    .INIT(64'h0000000000010000)) 
     Debug_SYS_Rst_i_i_2
-       (.I0(command[7]),
-        .I1(command[4]),
-        .I2(command[5]),
-        .I3(command[3]),
-        .I4(command[1]),
-        .I5(command[0]),
+       (.I0(command[2]),
+        .I1(command[3]),
+        .I2(command[1]),
+        .I3(command[0]),
+        .I4(command[4]),
+        .I5(command[5]),
         .O(Debug_SYS_Rst_i_i_2_n_0));
   FDRE #(
     .INIT(1'b0)) 
     Debug_SYS_Rst_i_reg
        (.C(CLK),
         .CE(1'b1),
-        .D(\Use_BSCAN.FDC_I_n_35 ),
+        .D(\Use_BSCAN.FDC_I_n_38 ),
         .Q(Debug_SYS_Rst),
         .R(1'b0));
   led_blinker_mdm_0_0_MB_FDC_1 \Use_BSCAN.FDC_I 
@@ -2701,63 +2887,78 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
         .Dbg_Rst_0(Dbg_Rst_0),
         .Dbg_TDO_0(Dbg_TDO_0),
         .Dbg_TDO_0_0(\Use_BSCAN.FDC_I_n_32 ),
+        .Dbg_TDO_0_1(\Use_BSCAN.FDC_I_n_33 ),
+        .Dbg_TDO_0_2(\Use_BSCAN.FDC_I_n_34 ),
         .Debug_Rst_i_reg(Debug_SYS_Rst_i_i_2_n_0),
         .Debug_SYS_Rst(Debug_SYS_Rst),
         .Q(Q),
         .SEL(SEL),
-        .\Use_BSCAN.command_reg[6] (\Use_BSCAN.command_reg[6]_0 ),
-        .\Use_E2.BSCANE2_I (\Use_BSCAN.FDC_I_n_33 ),
+        .\Use_BSCAN.command_reg[6] (\Use_BSCAN.FDC_I_n_15 ),
+        .\Use_E2.BSCANE2_I (\Use_BSCAN.FDC_I_n_35 ),
         .\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1 (\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1 ),
-        .\Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[13] (\Use_BSCAN.FDC_I_n_26 ),
-        .\Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[14] (\Use_BSCAN.FDC_I_n_27 ),
-        .\Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[15] (\Use_BSCAN.FDC_I_n_28 ),
-        .\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1] (\Use_BSCAN.FDC_I_n_30 ),
-        .\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1]_0 (\Use_BSCAN.FDC_I_n_31 ),
-        .\Use_Serial_Unified_Completion.completion_block_reg (\Use_BSCAN.FDC_I_n_9 ),
+        .\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[10] (\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_3_n_0 ),
+        .\Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[13] (\Use_BSCAN.FDC_I_n_28 ),
+        .\Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[14] (\Use_BSCAN.FDC_I_n_29 ),
+        .\Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[15] (\Use_BSCAN.FDC_I_n_30 ),
+        .\Use_Serial_Unified_Completion.completion_block_reg (\Use_BSCAN.FDC_I_n_11 ),
         .\Use_Serial_Unified_Completion.completion_block_reg_0 (\Use_Serial_Unified_Completion.completion_block_reg_n_0 ),
-        .\Use_Serial_Unified_Completion.completion_status_reg[0] (Dbg_Shift_0_0),
-        .\Use_Serial_Unified_Completion.completion_status_reg[3] (\Use_Serial_Unified_Completion.completion_status[3]_i_2_n_0 ),
-        .\Use_Serial_Unified_Completion.completion_status_reg[4] (\Use_Serial_Unified_Completion.completion_status[4]_i_2_n_0 ),
-        .\Use_Serial_Unified_Completion.completion_status_reg[5] (\Use_Serial_Unified_Completion.completion_status[5]_i_2_n_0 ),
-        .\Use_Serial_Unified_Completion.completion_status_reg[6] (\Use_Serial_Unified_Completion.completion_status[7]_i_2_n_0 ),
-        .\Use_Serial_Unified_Completion.completion_status_reg[8] (\Use_Serial_Unified_Completion.completion_status[9]_i_4_n_0 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[0] (\Use_UART.fifo_Din_reg[7]_0 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[1] (\Use_BSCAN.FDC_I_n_18 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[1]_0 (\Use_BSCAN.FDC_I_n_19 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[2] (\Use_BSCAN.FDC_I_n_20 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[3] (\Use_BSCAN.FDC_I_n_21 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[3]_0 (\Use_Serial_Unified_Completion.completion_status[3]_i_2_n_0 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[4] (\Use_BSCAN.FDC_I_n_22 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[4]_0 (\Use_Serial_Unified_Completion.completion_status[4]_i_2_n_0 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[5] (\Use_BSCAN.FDC_I_n_23 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[5]_0 (\Use_Serial_Unified_Completion.completion_status[5]_i_2_n_0 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[6] (\Use_BSCAN.FDC_I_n_24 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[6]_0 (\Use_Serial_Unified_Completion.completion_status[7]_i_2_n_0 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[7] (\Use_BSCAN.FDC_I_n_25 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[8] (\Use_BSCAN.FDC_I_n_26 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[8]_0 (\Use_Serial_Unified_Completion.completion_status[9]_i_4_n_0 ),
+        .\Use_Serial_Unified_Completion.completion_status_reg[9] (\Use_BSCAN.FDC_I_n_27 ),
         .\Use_Serial_Unified_Completion.mb_data_overrun1__0 (\Use_Serial_Unified_Completion.mb_data_overrun1__0 ),
-        .\Use_Serial_Unified_Completion.mb_data_overrun_reg (sel_n_reg_0),
-        .\Use_Serial_Unified_Completion.mb_data_overrun_reg_0 (Dbg_Shift_0_INST_0_i_3_n_0),
-        .\Use_Serial_Unified_Completion.mb_data_overrun_reg_1 (Dbg_Shift_0_INST_0_i_4_n_0),
-        .\Use_Serial_Unified_Completion.mb_data_overrun_reg_2 (\Use_Serial_Unified_Completion.mb_data_overrun_i_2_n_0 ),
-        .\Use_Serial_Unified_Completion.mb_data_overrun_reg_3 (\Use_Serial_Unified_Completion.mb_data_overrun_reg_n_0 ),
-        .\Use_Serial_Unified_Completion.mb_instr_error_reg (Dbg_Shift_0_INST_0_i_1_n_0),
+        .\Use_Serial_Unified_Completion.mb_data_overrun_reg (\Use_Serial_Unified_Completion.mb_data_overrun_i_2_n_0 ),
+        .\Use_Serial_Unified_Completion.mb_data_overrun_reg_0 (\Use_Serial_Unified_Completion.mb_data_overrun_reg_n_0 ),
+        .\Use_Serial_Unified_Completion.mb_instr_error_reg (\Use_BSCAN.SYNC_FDRE_n_1 ),
         .\Use_Serial_Unified_Completion.mb_instr_error_reg_0 (\Use_Serial_Unified_Completion.mb_instr_error_reg_n_0 ),
         .\Use_Serial_Unified_Completion.mb_instr_overrun (\Use_Serial_Unified_Completion.mb_instr_overrun ),
-        .\Use_Serial_Unified_Completion.mb_instr_overrun136_out (\Use_Serial_Unified_Completion.mb_instr_overrun136_out ),
-        .\Use_Serial_Unified_Completion.mb_instr_overrun_reg (\Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 ),
-        .\Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 (\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg_n_0_[1] ),
-        .\Using_FPGA.Native_0 (\Use_BSCAN.FDC_I_n_13 ),
+        .\Use_Serial_Unified_Completion.mb_instr_overrun142_out (\Use_Serial_Unified_Completion.mb_instr_overrun142_out ),
+        .\Use_Serial_Unified_Completion.mb_instr_overrun_reg (sel_n_reg_0),
+        .\Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 (\Use_BSCAN.SYNC_FDRE_n_2 ),
+        .\Use_UART.tx_buffered (\Use_UART.tx_buffered ),
+        .\Use_UART.tx_buffered_reg (Dbg_Shift_0_INST_0_i_3_n_0),
+        .\Using_FPGA.Native_0 (\Use_BSCAN.FDC_I_n_10 ),
+        .\Using_FPGA.Native_1 (\Using_FPGA.Native ),
         .command(command),
         .command_10(command_10),
+        .command_11(command_11),
         .completion_block0__10(completion_block0__10),
         .completion_ctrl(completion_ctrl),
         .completion_status(completion_status[10:0]),
         .out(\Use_Serial_Unified_Completion.Completion_Status_Register.sample ),
-        .p_0_in(p_0_in),
-        .p_1_in(p_1_in[9:0]),
         .sel_n(sel_n),
-        .sync(sync),
         .tdi_shifter(tdi_shifter),
-        .\tdi_shifter_reg[0] (\Use_BSCAN.FDC_I_n_34 ),
-        .\tdi_shifter_reg[0]_0 (\Use_BSCAN.FDC_I_n_36 ),
-        .\tdi_shifter_reg[1] (\Use_BSCAN.FDC_I_n_35 ));
+        .\tdi_shifter_reg[0] (\Use_BSCAN.FDC_I_n_36 ),
+        .\tdi_shifter_reg[0]_0 (\Use_BSCAN.FDC_I_n_37 ),
+        .\tdi_shifter_reg[0]_1 (\Use_BSCAN.FDC_I_n_39 ),
+        .\tdi_shifter_reg[1] (\Use_BSCAN.FDC_I_n_38 ));
   led_blinker_mdm_0_0_MB_FDRE_1 \Use_BSCAN.SYNC_FDRE 
        (.CE(CE),
         .D(D),
-        .Dbg_Shift_0(Dbg_Shift_0),
-        .Dbg_Shift_0_0(Dbg_Shift_0_INST_0_i_1_n_0),
-        .Dbg_Shift_0_1(\Use_BSCAN.FDC_I_n_13 ),
-        .Dbg_Shift_0_2(Dbg_Shift_0_INST_0_i_3_n_0),
-        .Dbg_Shift_0_3(Dbg_Shift_0_INST_0_i_4_n_0),
-        .Dbg_Shift_0_4(Dbg_Shift_0_0),
-        .\Using_FPGA.Native_0 (\Use_unisim.MB_SRL16E_I1 ),
+        .\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1] (\Use_BSCAN.SYNC_FDRE_n_1 ),
+        .\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1]_0 (\Use_BSCAN.SYNC_FDRE_n_2 ),
+        .\Use_Serial_Unified_Completion.mb_instr_error_reg (\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg_n_0_[1] ),
+        .\Use_Serial_Unified_Completion.mb_instr_error_reg_0 (\Use_BSCAN.FDC_I_n_15 ),
+        .\Use_UART.fifo_Din_reg[7] (Dbg_Shift_0_INST_0_i_3_n_0),
+        .\Use_UART.fifo_Din_reg[7]_0 (\Use_UART.fifo_Din_reg[7]_0 ),
+        .\Use_UART.fifo_Din_reg[7]_1 (Dbg_Shift_0_INST_0_i_1_n_0),
+        .\Use_UART.fifo_Din_reg[7]_2 (\Use_BSCAN.FDC_I_n_10 ),
+        .\Using_FPGA.Native_0 (\Using_FPGA.Native_0 ),
+        .\Using_FPGA.Native_1 (\Use_unisim.MB_SRL16E_I1 ),
+        .command(command[6]),
+        .p_0_in(p_0_in),
         .sync(sync));
   LUT5 #(
     .INIT(32'h00000008)) 
@@ -2844,20 +3045,9 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
        (.A1(A1),
         .A2(A2),
         .A3(A3),
-        .Dbg_TDO_0(Dbg_TDO_0),
-        .Q(Q[0]),
-        .\Use_E2.BSCANE2_I (\Use_E2.BSCANE2_I ),
-        .\Use_E2.BSCANE2_I_0 (\Use_E2.BSCANE2_I_i_3_n_0 ),
-        .\Use_E2.BSCANE2_I_1 (\Use_ID_SRL16E.SRL16E_ID_1_n_0 ),
-        .\Use_E2.BSCANE2_I_2 (\Use_E2.BSCANE2_I_i_6_n_0 ),
-        .\Use_E2.BSCANE2_I_3 (\Use_E2.BSCANE2_I_i_7_n_0 ),
-        .\Use_E2.BSCANE2_I_i_4_0 (\shift_Count_reg_n_0_[4] ),
         .\Use_unisim.MB_SRL16E_I1_0 (\shift_Count_reg[0]_0 ),
         .\Use_unisim.MB_SRL16E_I1_1 (\Use_unisim.MB_SRL16E_I1 ),
-        .command({command[4],command[5],command[7]}),
-        .completion_status(completion_status[0]),
-        .config_TDO_2(config_TDO_2),
-        .tdo(tdo));
+        .config_TDO_1(config_TDO_1));
   led_blinker_mdm_0_0_MB_SRL16E__parameterized1 \Use_Config_SRL16E.SRL16E_2 
        (.A1(A1),
         .A2(A2),
@@ -2865,27 +3055,6 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
         .\Use_unisim.MB_SRL16E_I1_0 (\shift_Count_reg[0]_0 ),
         .\Use_unisim.MB_SRL16E_I1_1 (\Use_unisim.MB_SRL16E_I1 ),
         .config_TDO_2(config_TDO_2));
-  LUT6 #(
-    .INIT(64'hFEFCFEFFFFFFFFFF)) 
-    \Use_E2.BSCANE2_I_i_10 
-       (.I0(command[1]),
-        .I1(command[3]),
-        .I2(command[5]),
-        .I3(command[2]),
-        .I4(command[4]),
-        .I5(command[6]),
-        .O(\Use_E2.BSCANE2_I_i_10_n_0 ));
-  LUT6 #(
-    .INIT(64'h0001000010000001)) 
-    \Use_E2.BSCANE2_I_i_11 
-       (.I0(command[1]),
-        .I1(command[3]),
-        .I2(command[2]),
-        .I3(command[6]),
-        .I4(command[4]),
-        .I5(command[5]),
-        .O(\Use_E2.BSCANE2_I_i_11_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hF8)) 
     \Use_E2.BSCANE2_I_i_3 
@@ -2893,42 +3062,81 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
         .I1(Dbg_TDO_0),
         .I2(Q[1]),
         .O(\Use_E2.BSCANE2_I_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT4 #(
-    .INIT(16'h00F8)) 
+  LUT6 #(
+    .INIT(64'hC000C00000008080)) 
+    \Use_E2.BSCANE2_I_i_4 
+       (.I0(\Use_E2.BSCANE2_I_i_6_n_0 ),
+        .I1(command[6]),
+        .I2(\Use_E2.BSCANE2_I_i_7_n_0 ),
+        .I3(Dbg_TDO_0),
+        .I4(command[1]),
+        .I5(command[5]),
+        .O(\Use_E2.BSCANE2_I_i_4_n_0 ));
+  LUT5 #(
+    .INIT(32'hF0CA00CA)) 
     \Use_E2.BSCANE2_I_i_6 
-       (.I0(\Use_E2.BSCANE2_I_i_10_n_0 ),
-        .I1(Dbg_TDO_0),
-        .I2(\Use_E2.BSCANE2_I_i_11_n_0 ),
-        .I3(command[0]),
+       (.I0(Dbg_TDO_0),
+        .I1(\Use_UART.tdo_reg [7]),
+        .I2(command[4]),
+        .I3(command[2]),
+        .I4(completion_status[0]),
         .O(\Use_E2.BSCANE2_I_i_6_n_0 ));
   LUT6 #(
-    .INIT(64'h88BC88FFAABEAABE)) 
+    .INIT(64'h00001104AAAEBFBF)) 
     \Use_E2.BSCANE2_I_i_7 
-       (.I0(command[3]),
-        .I1(command[4]),
-        .I2(command[5]),
-        .I3(command[6]),
-        .I4(command[1]),
-        .I5(command[2]),
+       (.I0(command[5]),
+        .I1(command[2]),
+        .I2(command[1]),
+        .I3(command[4]),
+        .I4(command[3]),
+        .I5(command[7]),
         .O(\Use_E2.BSCANE2_I_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFF6)) 
+    \Use_E2.BSCANE2_I_i_9 
+       (.I0(command[5]),
+        .I1(command[4]),
+        .I2(command[3]),
+        .I3(command[1]),
+        .I4(command[7]),
+        .I5(command[2]),
+        .O(\Use_E2.BSCANE2_I_i_9_n_0 ));
   led_blinker_mdm_0_0_MB_SRL16E__parameterized3 \Use_ID_SRL16E.SRL16E_ID_1 
        (.A1(A1),
         .A2(A2),
         .A3(A3),
-        .ID_TDO_2(ID_TDO_2),
-        .\Use_BSCAN.command_reg[5] (\Use_ID_SRL16E.SRL16E_ID_1_n_0 ),
-        .\Use_E2.BSCANE2_I_i_5_0 (\shift_Count_reg_n_0_[4] ),
+        .ID_TDO_1(ID_TDO_1),
         .\Use_unisim.MB_SRL16E_I1_0 (\shift_Count_reg[0]_0 ),
-        .\Use_unisim.MB_SRL16E_I1_1 (\Use_unisim.MB_SRL16E_I1 ),
-        .command({command[1],command[2],command[4],command[5],command[6],command[7]}));
+        .\Use_unisim.MB_SRL16E_I1_1 (\Use_unisim.MB_SRL16E_I1 ));
   led_blinker_mdm_0_0_MB_SRL16E__parameterized5 \Use_ID_SRL16E.SRL16E_ID_2 
        (.A1(A1),
         .A2(A2),
         .A3(A3),
-        .ID_TDO_2(ID_TDO_2),
+        .Dbg_TDO_0(Dbg_TDO_0),
+        .ID_TDO_1(ID_TDO_1),
+        .Q(Q[0]),
+        .\Use_E2.BSCANE2_I (\Use_E2.BSCANE2_I ),
+        .\Use_E2.BSCANE2_I_0 (\Use_E2.BSCANE2_I_i_3_n_0 ),
+        .\Use_E2.BSCANE2_I_1 (\Use_E2.BSCANE2_I_i_4_n_0 ),
+        .\Use_E2.BSCANE2_I_2 (\Use_E2.BSCANE2_I_i_7_n_0 ),
+        .\Use_E2.BSCANE2_I_3 (\Use_E2.BSCANE2_I_i_9_n_0 ),
+        .\Use_E2.BSCANE2_I_i_5_0 (\shift_Count_reg_n_0_[4] ),
         .\Use_unisim.MB_SRL16E_I1_0 (\shift_Count_reg[0]_0 ),
-        .\Use_unisim.MB_SRL16E_I1_1 (\Use_unisim.MB_SRL16E_I1 ));
+        .\Use_unisim.MB_SRL16E_I1_1 (\Use_unisim.MB_SRL16E_I1 ),
+        .command({command[0],command[5],command[6]}),
+        .config_TDO_1(config_TDO_1),
+        .config_TDO_2(config_TDO_2),
+        .tdo(tdo));
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  LUT5 #(
+    .INIT(32'h00000008)) 
+    \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_3 
+       (.I0(command[2]),
+        .I1(command[4]),
+        .I2(command[0]),
+        .I3(command[1]),
+        .I4(command[3]),
+        .O(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_3_n_0 ));
   FDRE \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[10] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1 ),
@@ -2970,7 +3178,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
   FDRE \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[13] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(1'b1),
-        .D(\Use_BSCAN.FDC_I_n_26 ),
+        .D(\Use_BSCAN.FDC_I_n_28 ),
         .Q(\Use_Serial_Unified_Completion.Completion_Status_Register.sample [13]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -2978,7 +3186,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
   FDRE \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[14] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(1'b1),
-        .D(\Use_BSCAN.FDC_I_n_27 ),
+        .D(\Use_BSCAN.FDC_I_n_29 ),
         .Q(\Use_Serial_Unified_Completion.Completion_Status_Register.sample [14]),
         .R(1'b0));
   (* ASYNC_REG *) 
@@ -2986,7 +3194,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
   FDRE \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[15] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(1'b1),
-        .D(\Use_BSCAN.FDC_I_n_28 ),
+        .D(\Use_BSCAN.FDC_I_n_30 ),
         .Q(\Use_Serial_Unified_Completion.Completion_Status_Register.sample [15]),
         .R(1'b0));
   LUT4 #(
@@ -2997,7 +3205,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
         .I2(\Use_Serial_Unified_Completion.Data_Read_Status.count__0 [0]),
         .I3(sel_n_reg_0),
         .O(\Use_Serial_Unified_Completion.Data_Read_Status.count[0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT4 #(
     .INIT(16'h8000)) 
     \Use_Serial_Unified_Completion.Data_Read_Status.count[0]_i_4 
@@ -3016,7 +3224,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
         .I4(\Use_Serial_Unified_Completion.Data_Read_Status.count__0 [1]),
         .I5(sel_n_reg_0),
         .O(\Use_Serial_Unified_Completion.Data_Read_Status.count[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT5 #(
     .INIT(32'h00007F80)) 
     \Use_Serial_Unified_Completion.Data_Read_Status.count[2]_i_1 
@@ -3026,7 +3234,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
         .I3(\Use_Serial_Unified_Completion.Data_Read_Status.count__0 [2]),
         .I4(sel_n_reg_0),
         .O(\Use_Serial_Unified_Completion.Data_Read_Status.count[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT4 #(
     .INIT(16'h0078)) 
     \Use_Serial_Unified_Completion.Data_Read_Status.count[3]_i_1 
@@ -3094,20 +3302,20 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     .INIT(64'h0000FF80FF00FF00)) 
     \Use_Serial_Unified_Completion.Write_Instr_Status.count[0]_i_1 
        (.I0(\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg_n_0_[1] ),
-        .I1(Dbg_Shift_0_0),
+        .I1(\Use_UART.fifo_Din_reg[7]_0 ),
         .I2(sync),
         .I3(p_0_in),
         .I4(sel_n_reg_0),
-        .I5(\Use_Serial_Unified_Completion.mb_instr_overrun136_out ),
+        .I5(\Use_Serial_Unified_Completion.mb_instr_overrun142_out ),
         .O(\Use_Serial_Unified_Completion.Write_Instr_Status.count[0]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h00F7FFFF00080000)) 
     \Use_Serial_Unified_Completion.Write_Instr_Status.count[1]_i_1 
-       (.I0(Dbg_Shift_0_0),
+       (.I0(\Use_UART.fifo_Din_reg[7]_0 ),
         .I1(sync),
         .I2(p_0_in),
         .I3(sel_n_reg_0),
-        .I4(\Use_Serial_Unified_Completion.mb_instr_overrun136_out ),
+        .I4(\Use_Serial_Unified_Completion.mb_instr_overrun142_out ),
         .I5(\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg_n_0_[1] ),
         .O(\Use_Serial_Unified_Completion.Write_Instr_Status.count[1]_i_1_n_0 ));
   FDRE #(
@@ -3157,7 +3365,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     \Use_Serial_Unified_Completion.completion_block_reg 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(1'b1),
-        .D(\Use_BSCAN.FDC_I_n_33 ),
+        .D(\Use_BSCAN.FDC_I_n_35 ),
         .Q(\Use_Serial_Unified_Completion.completion_block_reg_n_0 ),
         .R(1'b0));
   LUT3 #(
@@ -3166,39 +3374,39 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
        (.I0(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg_n_0_[10] ),
         .I1(sel_n_reg_0),
         .I2(completion_status[11]),
-        .O(p_1_in[10]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+        .O(\Use_Serial_Unified_Completion.completion_status[10]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \Use_Serial_Unified_Completion.completion_status[11]_i_1 
        (.I0(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg_n_0_[11] ),
         .I1(sel_n_reg_0),
         .I2(completion_status[12]),
-        .O(p_1_in[11]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+        .O(\Use_Serial_Unified_Completion.completion_status[11]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \Use_Serial_Unified_Completion.completion_status[12]_i_1 
        (.I0(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg_n_0_[12] ),
         .I1(sel_n_reg_0),
         .I2(completion_status[13]),
-        .O(p_1_in[12]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+        .O(\Use_Serial_Unified_Completion.completion_status[12]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \Use_Serial_Unified_Completion.completion_status[13]_i_1 
        (.I0(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg_n_0_[13] ),
         .I1(sel_n_reg_0),
         .I2(completion_status[14]),
-        .O(p_1_in[13]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+        .O(\Use_Serial_Unified_Completion.completion_status[13]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \Use_Serial_Unified_Completion.completion_status[14]_i_1 
        (.I0(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg_n_0_[14] ),
         .I1(sel_n_reg_0),
         .I2(completion_status[15]),
-        .O(p_1_in[14]));
+        .O(\Use_Serial_Unified_Completion.completion_status[14]_i_1_n_0 ));
   LUT3 #(
     .INIT(8'h80)) 
     \Use_Serial_Unified_Completion.completion_status[3]_i_2 
@@ -3206,7 +3414,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
         .I1(completion_status[0]),
         .I2(completion_status[1]),
         .O(\Use_Serial_Unified_Completion.completion_status[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT4 #(
     .INIT(16'h8000)) 
     \Use_Serial_Unified_Completion.completion_status[4]_i_2 
@@ -3215,7 +3423,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
         .I2(completion_status[0]),
         .I3(completion_status[2]),
         .O(\Use_Serial_Unified_Completion.completion_status[4]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT5 #(
     .INIT(32'h80000000)) 
     \Use_Serial_Unified_Completion.completion_status[5]_i_2 
@@ -3246,8 +3454,8 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     .INIT(1'b0)) 
     \Use_Serial_Unified_Completion.completion_status_reg[0] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
-        .CE(\Use_BSCAN.FDC_I_n_9 ),
-        .D(p_1_in[0]),
+        .CE(\Use_BSCAN.FDC_I_n_11 ),
+        .D(\Use_BSCAN.FDC_I_n_18 ),
         .Q(completion_status[0]),
         .R(1'b0));
   FDRE #(
@@ -3255,7 +3463,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     \Use_Serial_Unified_Completion.completion_status_reg[10] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(\Use_Serial_Unified_Completion.completion_status_reg[10]_0 ),
-        .D(p_1_in[10]),
+        .D(\Use_Serial_Unified_Completion.completion_status[10]_i_1_n_0 ),
         .Q(completion_status[10]),
         .R(1'b0));
   FDRE #(
@@ -3263,7 +3471,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     \Use_Serial_Unified_Completion.completion_status_reg[11] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(\Use_Serial_Unified_Completion.completion_status_reg[10]_0 ),
-        .D(p_1_in[11]),
+        .D(\Use_Serial_Unified_Completion.completion_status[11]_i_1_n_0 ),
         .Q(completion_status[11]),
         .R(1'b0));
   FDRE #(
@@ -3271,7 +3479,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     \Use_Serial_Unified_Completion.completion_status_reg[12] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(\Use_Serial_Unified_Completion.completion_status_reg[10]_0 ),
-        .D(p_1_in[12]),
+        .D(\Use_Serial_Unified_Completion.completion_status[12]_i_1_n_0 ),
         .Q(completion_status[12]),
         .R(1'b0));
   FDRE #(
@@ -3279,7 +3487,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     \Use_Serial_Unified_Completion.completion_status_reg[13] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(\Use_Serial_Unified_Completion.completion_status_reg[10]_0 ),
-        .D(p_1_in[13]),
+        .D(\Use_Serial_Unified_Completion.completion_status[13]_i_1_n_0 ),
         .Q(completion_status[13]),
         .R(1'b0));
   FDRE #(
@@ -3287,7 +3495,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     \Use_Serial_Unified_Completion.completion_status_reg[14] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(\Use_Serial_Unified_Completion.completion_status_reg[10]_0 ),
-        .D(p_1_in[14]),
+        .D(\Use_Serial_Unified_Completion.completion_status[14]_i_1_n_0 ),
         .Q(completion_status[14]),
         .R(1'b0));
   FDRE #(
@@ -3302,75 +3510,75 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     .INIT(1'b0)) 
     \Use_Serial_Unified_Completion.completion_status_reg[1] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
-        .CE(\Use_BSCAN.FDC_I_n_9 ),
-        .D(p_1_in[1]),
+        .CE(\Use_BSCAN.FDC_I_n_11 ),
+        .D(\Use_BSCAN.FDC_I_n_19 ),
         .Q(completion_status[1]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Use_Serial_Unified_Completion.completion_status_reg[2] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
-        .CE(\Use_BSCAN.FDC_I_n_9 ),
-        .D(p_1_in[2]),
+        .CE(\Use_BSCAN.FDC_I_n_11 ),
+        .D(\Use_BSCAN.FDC_I_n_20 ),
         .Q(completion_status[2]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Use_Serial_Unified_Completion.completion_status_reg[3] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
-        .CE(\Use_BSCAN.FDC_I_n_9 ),
-        .D(p_1_in[3]),
+        .CE(\Use_BSCAN.FDC_I_n_11 ),
+        .D(\Use_BSCAN.FDC_I_n_21 ),
         .Q(completion_status[3]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Use_Serial_Unified_Completion.completion_status_reg[4] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
-        .CE(\Use_BSCAN.FDC_I_n_9 ),
-        .D(p_1_in[4]),
+        .CE(\Use_BSCAN.FDC_I_n_11 ),
+        .D(\Use_BSCAN.FDC_I_n_22 ),
         .Q(completion_status[4]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Use_Serial_Unified_Completion.completion_status_reg[5] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
-        .CE(\Use_BSCAN.FDC_I_n_9 ),
-        .D(p_1_in[5]),
+        .CE(\Use_BSCAN.FDC_I_n_11 ),
+        .D(\Use_BSCAN.FDC_I_n_23 ),
         .Q(completion_status[5]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Use_Serial_Unified_Completion.completion_status_reg[6] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
-        .CE(\Use_BSCAN.FDC_I_n_9 ),
-        .D(p_1_in[6]),
+        .CE(\Use_BSCAN.FDC_I_n_11 ),
+        .D(\Use_BSCAN.FDC_I_n_24 ),
         .Q(completion_status[6]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Use_Serial_Unified_Completion.completion_status_reg[7] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
-        .CE(\Use_BSCAN.FDC_I_n_9 ),
-        .D(p_1_in[7]),
+        .CE(\Use_BSCAN.FDC_I_n_11 ),
+        .D(\Use_BSCAN.FDC_I_n_25 ),
         .Q(completion_status[7]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Use_Serial_Unified_Completion.completion_status_reg[8] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
-        .CE(\Use_BSCAN.FDC_I_n_9 ),
-        .D(p_1_in[8]),
+        .CE(\Use_BSCAN.FDC_I_n_11 ),
+        .D(\Use_BSCAN.FDC_I_n_26 ),
         .Q(completion_status[8]),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \Use_Serial_Unified_Completion.completion_status_reg[9] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
-        .CE(\Use_BSCAN.FDC_I_n_9 ),
-        .D(p_1_in[9]),
+        .CE(\Use_BSCAN.FDC_I_n_11 ),
+        .D(\Use_BSCAN.FDC_I_n_27 ),
         .Q(completion_status[9]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT4 #(
     .INIT(16'h0002)) 
     \Use_Serial_Unified_Completion.mb_data_overrun_i_2 
@@ -3382,7 +3590,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
   LUT4 #(
     .INIT(16'h0008)) 
     \Use_Serial_Unified_Completion.mb_data_overrun_i_3 
-       (.I0(Dbg_Shift_0_0),
+       (.I0(\Use_UART.fifo_Din_reg[7]_0 ),
         .I1(\Use_Serial_Unified_Completion.Data_Read_Status.count__0 [0]),
         .I2(\Use_Serial_Unified_Completion.Data_Read_Status.count__0 [1]),
         .I3(\Use_Serial_Unified_Completion.Data_Read_Status.count__0 [2]),
@@ -3392,7 +3600,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     \Use_Serial_Unified_Completion.mb_data_overrun_reg 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(1'b1),
-        .D(\Use_BSCAN.FDC_I_n_32 ),
+        .D(\Use_BSCAN.FDC_I_n_34 ),
         .Q(\Use_Serial_Unified_Completion.mb_data_overrun_reg_n_0 ),
         .R(1'b0));
   FDRE #(
@@ -3400,7 +3608,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     \Use_Serial_Unified_Completion.mb_instr_error_reg 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(1'b1),
-        .D(\Use_BSCAN.FDC_I_n_31 ),
+        .D(\Use_BSCAN.FDC_I_n_33 ),
         .Q(\Use_Serial_Unified_Completion.mb_instr_error_reg_n_0 ),
         .R(1'b0));
   FDRE #(
@@ -3408,8 +3616,319 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     \Use_Serial_Unified_Completion.mb_instr_overrun_reg 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(1'b1),
-        .D(\Use_BSCAN.FDC_I_n_30 ),
+        .D(\Use_BSCAN.FDC_I_n_32 ),
         .Q(\Use_Serial_Unified_Completion.mb_instr_overrun ),
+        .R(1'b0));
+  led_blinker_mdm_0_0_SRL_FIFO \Use_UART.RX_FIFO_I 
+       (.Bus_RNW_reg(Bus_RNW_reg),
+        .Data_Out({Data_Out[4],Data_Out[5]}),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
+        .RX_Buffer_Full(RX_Buffer_Full),
+        .RX_Data(RX_Data),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Use_UART.fifo_Din (\Use_UART.fifo_Din ),
+        .\Use_UART.tdo_reg ({\Use_UART.tdo_reg [3],\Use_UART.tdo_reg [4]}),
+        .\Use_UART.tdo_reg_reg[3] (\Use_UART.RX_FIFO_I_n_10 ),
+        .\Use_UART.tdo_reg_reg[4] (\Use_UART.RX_FIFO_I_n_9 ),
+        .\Use_UART.tdo_reg_reg[4]_0 (sel_n_reg_0),
+        .\Use_UART.tdo_reg_reg[4]_1 (\Use_UART.tdo_reg[4]_i_2_n_0 ),
+        .\Use_UART.tdo_reg_reg[4]_2 (\Use_UART.tdo_reg[0]_i_3_n_0 ),
+        .\Using_FPGA.Native (\Using_FPGA.Native_1 ),
+        .\Using_FPGA.Native_0 (\Use_UART.fifo_Write_reg_n_0 ),
+        .bus2ip_rdce(bus2ip_rdce),
+        .data_Exists_I_reg_0(data_Exists_I_reg));
+  led_blinker_mdm_0_0_SRL_FIFO_0 \Use_UART.TX_FIFO_I 
+       (.Bus_RNW_reg(Bus_RNW_reg),
+        .FIFO_Write(FIFO_Write),
+        .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
+        .Interrupt(Interrupt),
+        .Interrupt_0(Interrupt_0),
+        .Interrupt_1(data_Exists_I_reg),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_WDATA(S_AXI_WDATA),
+        .\Use_UART.tdo_reg ({\Use_UART.tdo_reg [0],\Use_UART.tdo_reg [1],\Use_UART.tdo_reg [2],\Use_UART.tdo_reg [5],\Use_UART.tdo_reg [6]}),
+        .\Use_UART.tdo_reg_reg[5] (\Use_UART.TX_FIFO_I_n_4 ),
+        .\Use_UART.tdo_reg_reg[6] (\Use_UART.TX_FIFO_I_n_3 ),
+        .\Use_UART.tdo_reg_reg[7] (sel_n_reg_0),
+        .\Use_UART.tdo_reg_reg[7]_0 (\Use_UART.tdo_reg[4]_i_2_n_0 ),
+        .\Use_UART.tdo_reg_reg[7]_1 (\Use_UART.tdo_reg[0]_i_3_n_0 ),
+        .\Use_unisim.MB_SRL16E_I1 ({Data_Out[4],Data_Out[5]}),
+        .\Use_unisim.MB_SRL16E_I1_0 (\Use_UART.TX_FIFO_I_n_6 ),
+        .\Use_unisim.MB_SRL16E_I1_1 (\Use_UART.TX_FIFO_I_n_7 ),
+        .\Use_unisim.MB_SRL16E_I1_2 (\Use_UART.TX_FIFO_I_n_8 ),
+        .\Use_unisim.MB_SRL16E_I1_3 (\Use_UART.TX_FIFO_I_n_9 ),
+        .\Using_FPGA.Native (\Using_FPGA.Native_2 ),
+        .\Using_FPGA.Native_0 (\Use_UART.fifo_Read_reg_n_0 ),
+        .data_Exists_I_reg_0(data_Exists_I_reg_0),
+        .enable_interrupts(enable_interrupts),
+        .out(\Use_UART.tx_buffered_2 ),
+        .tx_Buffer_Empty(tx_Buffer_Empty),
+        .tx_Buffer_Full(tx_Buffer_Full));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.execute_1_reg 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Use_UART.execute ),
+        .Q(\Use_UART.execute_1 ),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.execute_2_reg 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Use_UART.execute_1 ),
+        .Q(\Use_UART.execute_2 ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.execute_3_reg 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Use_UART.execute_2 ),
+        .Q(\Use_UART.execute_3 ),
+        .R(1'b0));
+  LUT6 #(
+    .INIT(64'h0000000000000002)) 
+    \Use_UART.execute_i_1 
+       (.I0(command[7]),
+        .I1(\Use_UART.execute_i_3_n_0 ),
+        .I2(command[0]),
+        .I3(command[1]),
+        .I4(command[3]),
+        .I5(command[2]),
+        .O(\Use_UART.execute0 ));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  LUT2 #(
+    .INIT(4'hB)) 
+    \Use_UART.execute_i_3 
+       (.I0(command[5]),
+        .I1(command[4]),
+        .O(\Use_UART.execute_i_3_n_0 ));
+  FDCE #(
+    .INIT(1'b0)) 
+    \Use_UART.execute_reg 
+       (.C(CLK),
+        .CE(1'b1),
+        .CLR(command_11),
+        .D(\Use_UART.execute0 ),
+        .Q(\Use_UART.execute ));
+  FDRE \Use_UART.fifo_Din_reg[0] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Using_FPGA.Native_0 ),
+        .D(Dbg_TDI_0),
+        .Q(\Use_UART.fifo_Din [0]),
+        .R(1'b0));
+  FDRE \Use_UART.fifo_Din_reg[1] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Using_FPGA.Native_0 ),
+        .D(\Use_UART.fifo_Din [0]),
+        .Q(\Use_UART.fifo_Din [1]),
+        .R(1'b0));
+  FDRE \Use_UART.fifo_Din_reg[2] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Using_FPGA.Native_0 ),
+        .D(\Use_UART.fifo_Din [1]),
+        .Q(\Use_UART.fifo_Din [2]),
+        .R(1'b0));
+  FDRE \Use_UART.fifo_Din_reg[3] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Using_FPGA.Native_0 ),
+        .D(\Use_UART.fifo_Din [2]),
+        .Q(\Use_UART.fifo_Din [3]),
+        .R(1'b0));
+  FDRE \Use_UART.fifo_Din_reg[4] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Using_FPGA.Native_0 ),
+        .D(\Use_UART.fifo_Din [3]),
+        .Q(\Use_UART.fifo_Din [4]),
+        .R(1'b0));
+  FDRE \Use_UART.fifo_Din_reg[5] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Using_FPGA.Native_0 ),
+        .D(\Use_UART.fifo_Din [4]),
+        .Q(\Use_UART.fifo_Din [5]),
+        .R(1'b0));
+  FDRE \Use_UART.fifo_Din_reg[6] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Using_FPGA.Native_0 ),
+        .D(\Use_UART.fifo_Din [5]),
+        .Q(\Use_UART.fifo_Din [6]),
+        .R(1'b0));
+  FDRE \Use_UART.fifo_Din_reg[7] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Using_FPGA.Native_0 ),
+        .D(\Use_UART.fifo_Din [6]),
+        .Q(\Use_UART.fifo_Din [7]),
+        .R(1'b0));
+  LUT6 #(
+    .INIT(64'h0000000010000000)) 
+    \Use_UART.fifo_Read_i_1 
+       (.I0(\Use_UART.execute_i_3_n_0 ),
+        .I1(\Use_UART.execute_3 ),
+        .I2(\Use_UART.execute_2 ),
+        .I3(command[6]),
+        .I4(command[7]),
+        .I5(\Use_UART.fifo_Write_i_2_n_0 ),
+        .O(\Use_UART.fifo_Read2_out ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.fifo_Read_reg 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Use_UART.fifo_Read2_out ),
+        .Q(\Use_UART.fifo_Read_reg_n_0 ),
+        .R(1'b0));
+  LUT6 #(
+    .INIT(64'h0000000000100000)) 
+    \Use_UART.fifo_Write_i_1 
+       (.I0(\Use_UART.execute_i_3_n_0 ),
+        .I1(\Use_UART.execute_3 ),
+        .I2(\Use_UART.execute_2 ),
+        .I3(command[6]),
+        .I4(command[7]),
+        .I5(\Use_UART.fifo_Write_i_2_n_0 ),
+        .O(\Use_UART.fifo_Write4_out ));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \Use_UART.fifo_Write_i_2 
+       (.I0(command[0]),
+        .I1(command[2]),
+        .I2(command[3]),
+        .I3(command[1]),
+        .O(\Use_UART.fifo_Write_i_2_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.fifo_Write_reg 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Use_UART.fifo_Write4_out ),
+        .Q(\Use_UART.fifo_Write_reg_n_0 ),
+        .R(1'b0));
+  LUT6 #(
+    .INIT(64'hFFFFFFEF00000000)) 
+    \Use_UART.tdo_reg[0]_i_3 
+       (.I0(command[0]),
+        .I1(\Use_UART.execute_i_3_n_0 ),
+        .I2(command[6]),
+        .I3(command[2]),
+        .I4(\Use_UART.tdo_reg[0]_i_4_n_0 ),
+        .I5(sel_n_reg_0),
+        .O(\Use_UART.tdo_reg[0]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  LUT3 #(
+    .INIT(8'hFE)) 
+    \Use_UART.tdo_reg[0]_i_4 
+       (.I0(command[3]),
+        .I1(command[1]),
+        .I2(command[7]),
+        .O(\Use_UART.tdo_reg[0]_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000000200)) 
+    \Use_UART.tdo_reg[4]_i_2 
+       (.I0(sel_n_reg_0),
+        .I1(command[0]),
+        .I2(\Use_UART.execute_i_3_n_0 ),
+        .I3(command[6]),
+        .I4(command[2]),
+        .I5(\Use_UART.tdo_reg[0]_i_4_n_0 ),
+        .O(\Use_UART.tdo_reg[4]_i_2_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.tdo_reg_reg[0] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Use_UART.tdo_reg_reg[7]_0 ),
+        .D(\Use_UART.TX_FIFO_I_n_9 ),
+        .Q(\Use_UART.tdo_reg [0]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.tdo_reg_reg[1] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Use_UART.tdo_reg_reg[7]_0 ),
+        .D(\Use_UART.TX_FIFO_I_n_8 ),
+        .Q(\Use_UART.tdo_reg [1]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.tdo_reg_reg[2] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Use_UART.tdo_reg_reg[7]_0 ),
+        .D(\Use_UART.TX_FIFO_I_n_7 ),
+        .Q(\Use_UART.tdo_reg [2]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.tdo_reg_reg[3] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Use_UART.tdo_reg_reg[7]_0 ),
+        .D(\Use_UART.TX_FIFO_I_n_6 ),
+        .Q(\Use_UART.tdo_reg [3]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.tdo_reg_reg[4] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Use_UART.tdo_reg_reg[7]_0 ),
+        .D(\Use_UART.RX_FIFO_I_n_10 ),
+        .Q(\Use_UART.tdo_reg [4]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.tdo_reg_reg[5] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Use_UART.tdo_reg_reg[7]_0 ),
+        .D(\Use_UART.RX_FIFO_I_n_9 ),
+        .Q(\Use_UART.tdo_reg [5]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.tdo_reg_reg[6] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Use_UART.tdo_reg_reg[7]_0 ),
+        .D(\Use_UART.TX_FIFO_I_n_4 ),
+        .Q(\Use_UART.tdo_reg [6]),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.tdo_reg_reg[7] 
+       (.C(\Use_unisim.MB_SRL16E_I1 ),
+        .CE(\Use_UART.tdo_reg_reg[7]_0 ),
+        .D(\Use_UART.TX_FIFO_I_n_3 ),
+        .Q(\Use_UART.tdo_reg [7]),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.tx_buffered_1_reg 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Use_UART.tx_buffered ),
+        .Q(\Use_UART.tx_buffered_1 ),
+        .R(1'b0));
+  (* ASYNC_REG *) 
+  (* KEEP = "yes" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.tx_buffered_2_reg 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Use_UART.tx_buffered_1 ),
+        .Q(\Use_UART.tx_buffered_2 ),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    \Use_UART.tx_buffered_reg 
+       (.C(CLK),
+        .CE(1'b1),
+        .D(\Use_BSCAN.FDC_I_n_36 ),
+        .Q(\Use_UART.tx_buffered ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
@@ -3480,7 +3999,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     \completion_ctrl_reg[0] 
        (.C(CLK),
         .CE(1'b1),
-        .D(\Use_BSCAN.FDC_I_n_36 ),
+        .D(\Use_BSCAN.FDC_I_n_39 ),
         .Q(completion_ctrl),
         .R(1'b0));
   LUT5 #(
@@ -3514,26 +4033,26 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
     .INIT(8'h48)) 
     \shift_Count[1]_i_1 
        (.I0(\shift_Count_reg[0]_0 ),
-        .I1(Dbg_Shift_0_0),
+        .I1(\Use_UART.fifo_Din_reg[7]_0 ),
         .I2(A1),
         .O(\shift_Count[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT4 #(
     .INIT(16'h7080)) 
     \shift_Count[2]_i_1 
        (.I0(A1),
         .I1(\shift_Count_reg[0]_0 ),
-        .I2(Dbg_Shift_0_0),
+        .I2(\Use_UART.fifo_Din_reg[7]_0 ),
         .I3(A2),
         .O(\shift_Count[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT5 #(
     .INIT(32'h7F008000)) 
     \shift_Count[3]_i_1 
        (.I0(A2),
         .I1(\shift_Count_reg[0]_0 ),
         .I2(A1),
-        .I3(Dbg_Shift_0_0),
+        .I3(\Use_UART.fifo_Din_reg[7]_0 ),
         .I4(A3),
         .O(\shift_Count[3]_i_1_n_0 ));
   LUT6 #(
@@ -3543,7 +4062,7 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
         .I1(A1),
         .I2(\shift_Count_reg[0]_0 ),
         .I3(A2),
-        .I4(Dbg_Shift_0_0),
+        .I4(\Use_UART.fifo_Din_reg[7]_0 ),
         .I5(\shift_Count_reg_n_0_[4] ),
         .O(\shift_Count[4]_i_1_n_0 ));
   FDRE #(
@@ -3594,14 +4113,14 @@ module led_blinker_mdm_0_0_JTAG_CONTROL
         .I2(Q[1]),
         .I3(Q[0]),
         .I4(SEL),
-        .I5(Dbg_Shift_0_0),
+        .I5(\Use_UART.fifo_Din_reg[7]_0 ),
         .O(tdi_shifter0));
   FDRE #(
     .INIT(1'b0)) 
     \tdi_shifter_reg[0] 
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(tdi_shifter0),
-        .D(Ext_JTAG_TDI),
+        .D(Dbg_TDI_0),
         .Q(tdi_shifter[0]),
         .R(1'b0));
   FDRE #(
@@ -3673,15 +4192,14 @@ module led_blinker_mdm_0_0_MB_BSCANE2
     \Use_Serial_Unified_Completion.Data_Read_Status.count ,
     \Use_E2.BSCANE2_I_2 ,
     \Use_E2.BSCANE2_I_3 ,
-    AR,
-    Dbg_TDO_0_0,
     \Use_E2.BSCANE2_I_4 ,
+    AR,
     \Use_E2.BSCANE2_I_5 ,
     \Use_E2.BSCANE2_I_6 ,
+    \Use_E2.BSCANE2_I_7 ,
     tdo,
     \Use_Serial_Unified_Completion.mb_data_overrun1__0 ,
-    completion_status130_out,
-    Dbg_TDO_0,
+    completion_status136_out,
     \Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5] ,
     \shift_Count_reg[0] ,
     \Use_Serial_Unified_Completion.completion_status_reg[15] );
@@ -3694,23 +4212,20 @@ module led_blinker_mdm_0_0_MB_BSCANE2
   output \Use_Serial_Unified_Completion.Data_Read_Status.count ;
   output \Use_E2.BSCANE2_I_2 ;
   output \Use_E2.BSCANE2_I_3 ;
-  output [0:0]AR;
-  output Dbg_TDO_0_0;
   output \Use_E2.BSCANE2_I_4 ;
+  output [0:0]AR;
   output \Use_E2.BSCANE2_I_5 ;
-  output [0:0]\Use_E2.BSCANE2_I_6 ;
+  output \Use_E2.BSCANE2_I_6 ;
+  output \Use_E2.BSCANE2_I_7 ;
   input tdo;
   input \Use_Serial_Unified_Completion.mb_data_overrun1__0 ;
-  input completion_status130_out;
-  input Dbg_TDO_0;
+  input completion_status136_out;
   input [0:0]\Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5] ;
   input \shift_Count_reg[0] ;
   input \Use_Serial_Unified_Completion.completion_status_reg[15] ;
 
   wire [0:0]AR;
   wire DRCK;
-  wire Dbg_TDO_0;
-  wire Dbg_TDO_0_0;
   wire Dbg_Update_0;
   wire I0;
   wire SEL;
@@ -3720,7 +4235,8 @@ module led_blinker_mdm_0_0_MB_BSCANE2
   wire \Use_E2.BSCANE2_I_3 ;
   wire \Use_E2.BSCANE2_I_4 ;
   wire \Use_E2.BSCANE2_I_5 ;
-  wire [0:0]\Use_E2.BSCANE2_I_6 ;
+  wire \Use_E2.BSCANE2_I_6 ;
+  wire \Use_E2.BSCANE2_I_7 ;
   wire \Use_E2.BSCANE2_I_n_2 ;
   wire \Use_E2.BSCANE2_I_n_3 ;
   wire \Use_E2.BSCANE2_I_n_6 ;
@@ -3729,16 +4245,15 @@ module led_blinker_mdm_0_0_MB_BSCANE2
   wire [0:0]\Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5] ;
   wire \Use_Serial_Unified_Completion.completion_status_reg[15] ;
   wire \Use_Serial_Unified_Completion.mb_data_overrun1__0 ;
-  wire completion_status130_out;
+  wire completion_status136_out;
   wire \shift_Count_reg[0] ;
   wire tdo;
 
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \Use_BSCAN.Config_Reg[30]_i_1 
        (.I0(\Use_E2.BSCANE2_I_1 ),
-        .O(\Use_E2.BSCANE2_I_3 ));
+        .O(\Use_E2.BSCANE2_I_4 ));
   LUT1 #(
     .INIT(2'h1)) 
     \Use_BSCAN.TDI_Shifter[3]_i_2 
@@ -3760,49 +4275,50 @@ module led_blinker_mdm_0_0_MB_BSCANE2
         .TDO(tdo),
         .TMS(\Use_E2.BSCANE2_I_n_8 ),
         .UPDATE(Dbg_Update_0));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
-    .INIT(8'hE0)) 
+    .INIT(8'hA8)) 
     \Use_Serial_Unified_Completion.Data_Read_Status.count[0]_i_1 
-       (.I0(\Use_E2.BSCANE2_I_1 ),
-        .I1(\Use_E2.BSCANE2_I_0 ),
-        .I2(\Use_Serial_Unified_Completion.mb_data_overrun1__0 ),
+       (.I0(\Use_Serial_Unified_Completion.mb_data_overrun1__0 ),
+        .I1(\Use_E2.BSCANE2_I_1 ),
+        .I2(\Use_E2.BSCANE2_I_0 ),
         .O(\Use_Serial_Unified_Completion.Data_Read_Status.count ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \Use_Serial_Unified_Completion.Data_Read_Status.count[5]_i_1 
        (.I0(\Use_E2.BSCANE2_I_0 ),
         .I1(\Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5] ),
-        .O(\Use_E2.BSCANE2_I_4 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+        .O(\Use_E2.BSCANE2_I_5 ));
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
     .INIT(8'hE0)) 
     \Use_Serial_Unified_Completion.completion_status[15]_i_1 
        (.I0(\Use_E2.BSCANE2_I_1 ),
         .I1(\Use_E2.BSCANE2_I_0 ),
-        .I2(completion_status130_out),
+        .I2(completion_status136_out),
         .O(\Use_E2.BSCANE2_I_2 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Use_Serial_Unified_Completion.completion_status[15]_i_2 
        (.I0(\Use_E2.BSCANE2_I_0 ),
         .I1(\Use_Serial_Unified_Completion.completion_status_reg[15] ),
-        .O(\Use_E2.BSCANE2_I_6 ));
+        .O(\Use_E2.BSCANE2_I_7 ));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT2 #(
-    .INIT(4'h2)) 
-    \Use_Serial_Unified_Completion.mb_instr_overrun_i_2 
-       (.I0(Dbg_TDO_0),
-        .I1(\Use_E2.BSCANE2_I_0 ),
-        .O(Dbg_TDO_0_0));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+    .INIT(4'hE)) 
+    \Use_UART.tdo_reg[0]_i_1 
+       (.I0(\Use_E2.BSCANE2_I_0 ),
+        .I1(\Use_E2.BSCANE2_I_1 ),
+        .O(\Use_E2.BSCANE2_I_3 ));
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \shift_Count[0]_i_1 
        (.I0(\Use_E2.BSCANE2_I_1 ),
         .I1(\shift_Count_reg[0] ),
-        .O(\Use_E2.BSCANE2_I_5 ));
+        .O(\Use_E2.BSCANE2_I_6 ));
 endmodule
 
 (* ORIG_REF_NAME = "MB_BUFG" *) 
@@ -3825,110 +4341,130 @@ endmodule
 module led_blinker_mdm_0_0_MB_FDC_1
    (D,
     Dbg_Reg_En_0,
-    \Use_Serial_Unified_Completion.completion_block_reg ,
-    \Use_BSCAN.command_reg[6] ,
-    CE,
     \Use_Serial_Unified_Completion.mb_data_overrun1__0 ,
     \Using_FPGA.Native_0 ,
-    \Use_Serial_Unified_Completion.mb_instr_overrun136_out ,
+    \Use_Serial_Unified_Completion.completion_block_reg ,
+    \Using_FPGA.Native_1 ,
+    CE,
+    \Use_Serial_Unified_Completion.mb_instr_overrun142_out ,
+    \Use_BSCAN.command_reg[6] ,
+    command_11,
     command_10,
-    p_1_in,
-    \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[13] ,
-    \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[14] ,
-    \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[15] ,
-    \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1 ,
-    \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1] ,
-    \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1]_0 ,
-    Dbg_TDO_0_0,
-    \Use_E2.BSCANE2_I ,
-    \tdi_shifter_reg[0] ,
-    \tdi_shifter_reg[1] ,
-    \tdi_shifter_reg[0]_0 ,
-    CLK,
-    sel_n,
-    \Use_Serial_Unified_Completion.completion_block_reg_0 ,
-    command,
-    \Use_Serial_Unified_Completion.completion_status_reg[0] ,
-    \Use_Serial_Unified_Completion.mb_data_overrun_reg ,
-    tdi_shifter,
-    \Use_Serial_Unified_Completion.mb_data_overrun_reg_0 ,
-    \Use_Serial_Unified_Completion.mb_data_overrun_reg_1 ,
-    \Use_Serial_Unified_Completion.mb_instr_error_reg ,
-    sync,
-    p_0_in,
-    Q,
-    SEL,
-    completion_status,
+    \Use_Serial_Unified_Completion.completion_status_reg[1] ,
+    \Use_Serial_Unified_Completion.completion_status_reg[1]_0 ,
+    \Use_Serial_Unified_Completion.completion_status_reg[2] ,
     \Use_Serial_Unified_Completion.completion_status_reg[3] ,
     \Use_Serial_Unified_Completion.completion_status_reg[4] ,
     \Use_Serial_Unified_Completion.completion_status_reg[5] ,
     \Use_Serial_Unified_Completion.completion_status_reg[6] ,
+    \Use_Serial_Unified_Completion.completion_status_reg[7] ,
     \Use_Serial_Unified_Completion.completion_status_reg[8] ,
-    out,
-    Debug_Rst_i_reg,
+    \Use_Serial_Unified_Completion.completion_status_reg[9] ,
+    \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[13] ,
+    \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[14] ,
+    \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[15] ,
+    \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1 ,
+    Dbg_TDO_0_0,
+    Dbg_TDO_0_1,
+    Dbg_TDO_0_2,
+    \Use_E2.BSCANE2_I ,
+    \tdi_shifter_reg[0] ,
+    \tdi_shifter_reg[0]_0 ,
+    \tdi_shifter_reg[1] ,
+    \tdi_shifter_reg[0]_1 ,
+    CLK,
+    sel_n,
+    \Use_Serial_Unified_Completion.completion_block_reg_0 ,
+    command,
+    \Use_UART.tx_buffered_reg ,
+    \Use_Serial_Unified_Completion.completion_status_reg[0] ,
     \Use_Serial_Unified_Completion.mb_instr_overrun_reg ,
+    tdi_shifter,
+    Q,
+    SEL,
+    completion_status,
+    \Use_Serial_Unified_Completion.completion_status_reg[3]_0 ,
+    \Use_Serial_Unified_Completion.completion_status_reg[4]_0 ,
+    \Use_Serial_Unified_Completion.completion_status_reg[5]_0 ,
+    \Use_Serial_Unified_Completion.completion_status_reg[6]_0 ,
+    \Use_Serial_Unified_Completion.completion_status_reg[8]_0 ,
+    out,
+    \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[10] ,
+    Dbg_TDO_0,
     \Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 ,
     \Use_Serial_Unified_Completion.mb_instr_overrun ,
+    \Use_Serial_Unified_Completion.mb_instr_error_reg ,
     \Use_Serial_Unified_Completion.mb_instr_error_reg_0 ,
-    Dbg_TDO_0,
-    \Use_Serial_Unified_Completion.mb_data_overrun_reg_2 ,
-    \Use_Serial_Unified_Completion.mb_data_overrun_reg_3 ,
+    \Use_Serial_Unified_Completion.mb_data_overrun_reg ,
+    \Use_Serial_Unified_Completion.mb_data_overrun_reg_0 ,
     completion_block0__10,
     completion_ctrl,
+    \Use_UART.tx_buffered ,
+    Debug_Rst_i_reg,
     Dbg_Rst_0,
     Debug_SYS_Rst);
   output D;
   output [0:7]Dbg_Reg_En_0;
-  output \Use_Serial_Unified_Completion.completion_block_reg ;
-  output \Use_BSCAN.command_reg[6] ;
-  output CE;
   output \Use_Serial_Unified_Completion.mb_data_overrun1__0 ;
   output \Using_FPGA.Native_0 ;
-  output \Use_Serial_Unified_Completion.mb_instr_overrun136_out ;
+  output \Use_Serial_Unified_Completion.completion_block_reg ;
+  output \Using_FPGA.Native_1 ;
+  output CE;
+  output \Use_Serial_Unified_Completion.mb_instr_overrun142_out ;
+  output \Use_BSCAN.command_reg[6] ;
+  output command_11;
   output command_10;
-  output [9:0]p_1_in;
+  output \Use_Serial_Unified_Completion.completion_status_reg[1] ;
+  output \Use_Serial_Unified_Completion.completion_status_reg[1]_0 ;
+  output \Use_Serial_Unified_Completion.completion_status_reg[2] ;
+  output \Use_Serial_Unified_Completion.completion_status_reg[3] ;
+  output \Use_Serial_Unified_Completion.completion_status_reg[4] ;
+  output \Use_Serial_Unified_Completion.completion_status_reg[5] ;
+  output \Use_Serial_Unified_Completion.completion_status_reg[6] ;
+  output \Use_Serial_Unified_Completion.completion_status_reg[7] ;
+  output \Use_Serial_Unified_Completion.completion_status_reg[8] ;
+  output \Use_Serial_Unified_Completion.completion_status_reg[9] ;
   output \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[13] ;
   output \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[14] ;
   output \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[15] ;
   output \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1 ;
-  output \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1] ;
-  output \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1]_0 ;
   output Dbg_TDO_0_0;
+  output Dbg_TDO_0_1;
+  output Dbg_TDO_0_2;
   output \Use_E2.BSCANE2_I ;
   output \tdi_shifter_reg[0] ;
-  output \tdi_shifter_reg[1] ;
   output \tdi_shifter_reg[0]_0 ;
+  output \tdi_shifter_reg[1] ;
+  output \tdi_shifter_reg[0]_1 ;
   input CLK;
   input sel_n;
   input \Use_Serial_Unified_Completion.completion_block_reg_0 ;
   input [0:7]command;
+  input \Use_UART.tx_buffered_reg ;
   input \Use_Serial_Unified_Completion.completion_status_reg[0] ;
-  input \Use_Serial_Unified_Completion.mb_data_overrun_reg ;
+  input \Use_Serial_Unified_Completion.mb_instr_overrun_reg ;
   input [0:7]tdi_shifter;
-  input \Use_Serial_Unified_Completion.mb_data_overrun_reg_0 ;
-  input \Use_Serial_Unified_Completion.mb_data_overrun_reg_1 ;
-  input \Use_Serial_Unified_Completion.mb_instr_error_reg ;
-  input sync;
-  input p_0_in;
   input [3:0]Q;
   input SEL;
   input [10:0]completion_status;
-  input \Use_Serial_Unified_Completion.completion_status_reg[3] ;
-  input \Use_Serial_Unified_Completion.completion_status_reg[4] ;
-  input \Use_Serial_Unified_Completion.completion_status_reg[5] ;
-  input \Use_Serial_Unified_Completion.completion_status_reg[6] ;
-  input \Use_Serial_Unified_Completion.completion_status_reg[8] ;
+  input \Use_Serial_Unified_Completion.completion_status_reg[3]_0 ;
+  input \Use_Serial_Unified_Completion.completion_status_reg[4]_0 ;
+  input \Use_Serial_Unified_Completion.completion_status_reg[5]_0 ;
+  input \Use_Serial_Unified_Completion.completion_status_reg[6]_0 ;
+  input \Use_Serial_Unified_Completion.completion_status_reg[8]_0 ;
   input [2:0]out;
-  input Debug_Rst_i_reg;
-  input \Use_Serial_Unified_Completion.mb_instr_overrun_reg ;
+  input \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[10] ;
+  input Dbg_TDO_0;
   input \Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 ;
   input \Use_Serial_Unified_Completion.mb_instr_overrun ;
+  input \Use_Serial_Unified_Completion.mb_instr_error_reg ;
   input \Use_Serial_Unified_Completion.mb_instr_error_reg_0 ;
-  input Dbg_TDO_0;
-  input \Use_Serial_Unified_Completion.mb_data_overrun_reg_2 ;
-  input \Use_Serial_Unified_Completion.mb_data_overrun_reg_3 ;
+  input \Use_Serial_Unified_Completion.mb_data_overrun_reg ;
+  input \Use_Serial_Unified_Completion.mb_data_overrun_reg_0 ;
   input completion_block0__10;
   input [0:0]completion_ctrl;
+  input \Use_UART.tx_buffered ;
+  input Debug_Rst_i_reg;
   input Dbg_Rst_0;
   input Debug_SYS_Rst;
 
@@ -3939,6 +4475,8 @@ module led_blinker_mdm_0_0_MB_FDC_1
   wire Dbg_Rst_0;
   wire Dbg_TDO_0;
   wire Dbg_TDO_0_0;
+  wire Dbg_TDO_0_1;
+  wire Dbg_TDO_0_2;
   wire Debug_Rst_i_reg;
   wire Debug_SYS_Rst;
   wire [3:0]Q;
@@ -3948,55 +4486,59 @@ module led_blinker_mdm_0_0_MB_FDC_1
   wire \Use_E2.BSCANE2_I ;
   wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1 ;
   wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ;
-  wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_3_n_0 ;
+  wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[10] ;
   wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[13] ;
   wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[14] ;
   wire \Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[15] ;
-  wire \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1] ;
-  wire \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1]_0 ;
   wire \Use_Serial_Unified_Completion.completion_block_reg ;
   wire \Use_Serial_Unified_Completion.completion_block_reg_0 ;
   wire \Use_Serial_Unified_Completion.completion_status_reg[0] ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[1] ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[1]_0 ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[2] ;
   wire \Use_Serial_Unified_Completion.completion_status_reg[3] ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[3]_0 ;
   wire \Use_Serial_Unified_Completion.completion_status_reg[4] ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[4]_0 ;
   wire \Use_Serial_Unified_Completion.completion_status_reg[5] ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[5]_0 ;
   wire \Use_Serial_Unified_Completion.completion_status_reg[6] ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[6]_0 ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[7] ;
   wire \Use_Serial_Unified_Completion.completion_status_reg[8] ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[8]_0 ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[9] ;
   wire \Use_Serial_Unified_Completion.mb_data_overrun1__0 ;
   wire \Use_Serial_Unified_Completion.mb_data_overrun_reg ;
   wire \Use_Serial_Unified_Completion.mb_data_overrun_reg_0 ;
-  wire \Use_Serial_Unified_Completion.mb_data_overrun_reg_1 ;
-  wire \Use_Serial_Unified_Completion.mb_data_overrun_reg_2 ;
-  wire \Use_Serial_Unified_Completion.mb_data_overrun_reg_3 ;
   wire \Use_Serial_Unified_Completion.mb_instr_error_reg ;
   wire \Use_Serial_Unified_Completion.mb_instr_error_reg_0 ;
   wire \Use_Serial_Unified_Completion.mb_instr_overrun ;
-  wire \Use_Serial_Unified_Completion.mb_instr_overrun136_out ;
-  wire \Use_Serial_Unified_Completion.mb_instr_overrun1__0 ;
-  wire \Use_Serial_Unified_Completion.mb_instr_overrun_i_4_n_0 ;
-  wire \Use_Serial_Unified_Completion.mb_instr_overrun_i_5_n_0 ;
-  wire \Use_Serial_Unified_Completion.mb_instr_overrun_i_6_n_0 ;
+  wire \Use_Serial_Unified_Completion.mb_instr_overrun142_out ;
   wire \Use_Serial_Unified_Completion.mb_instr_overrun_reg ;
   wire \Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 ;
+  wire \Use_UART.tx_buffered ;
+  wire \Use_UART.tx_buffered_i_2_n_0 ;
+  wire \Use_UART.tx_buffered_reg ;
   wire \Using_FPGA.Native_0 ;
+  wire \Using_FPGA.Native_1 ;
   wire \Using_FPGA.Native_i_2_n_0 ;
   wire [0:7]command;
   wire command_10;
+  wire command_11;
   wire completion_block0__10;
   wire [0:0]completion_ctrl;
   wire completion_ctrl0;
   wire [10:0]completion_status;
   wire [2:0]out;
-  wire p_0_in;
-  wire [9:0]p_1_in;
   wire sel_n;
-  wire sync;
   wire [0:7]tdi_shifter;
   wire \tdi_shifter_reg[0] ;
   wire \tdi_shifter_reg[0]_0 ;
+  wire \tdi_shifter_reg[0]_1 ;
   wire \tdi_shifter_reg[1] ;
 
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT3 #(
     .INIT(8'h40)) 
     \Dbg_Reg_En_0[0]_INST_0 
@@ -4012,7 +4554,7 @@ module led_blinker_mdm_0_0_MB_FDC_1
         .I1(Q_0),
         .I2(command[1]),
         .O(Dbg_Reg_En_0[1]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT3 #(
     .INIT(8'h40)) 
     \Dbg_Reg_En_0[2]_INST_0 
@@ -4028,7 +4570,7 @@ module led_blinker_mdm_0_0_MB_FDC_1
         .I1(Q_0),
         .I2(command[3]),
         .O(Dbg_Reg_En_0[3]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT3 #(
     .INIT(8'h40)) 
     \Dbg_Reg_En_0[4]_INST_0 
@@ -4072,29 +4614,29 @@ module led_blinker_mdm_0_0_MB_FDC_1
     Debug_Rst_i_i_1
        (.I0(tdi_shifter[0]),
         .I1(\Using_FPGA.Native_0 ),
-        .I2(command[6]),
-        .I3(command[2]),
+        .I2(command[7]),
+        .I3(command[6]),
         .I4(Debug_Rst_i_reg),
         .I5(Dbg_Rst_0),
-        .O(\tdi_shifter_reg[0] ));
+        .O(\tdi_shifter_reg[0]_0 ));
   LUT6 #(
     .INIT(64'hFFFBFFFF00080000)) 
     Debug_SYS_Rst_i_i_1
        (.I0(tdi_shifter[1]),
         .I1(\Using_FPGA.Native_0 ),
-        .I2(command[6]),
-        .I3(command[2]),
+        .I2(command[7]),
+        .I3(command[6]),
         .I4(Debug_Rst_i_reg),
         .I5(Debug_SYS_Rst),
         .O(\tdi_shifter_reg[1] ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Use_Serial_Unified_Completion.Completion_Status_Register.sample[13]_i_1 
        (.I0(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
         .I1(out[0]),
         .O(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[13] ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \Use_Serial_Unified_Completion.Completion_Status_Register.sample[14]_i_1 
@@ -4107,87 +4649,81 @@ module led_blinker_mdm_0_0_MB_FDC_1
        (.I0(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
         .I1(out[2]),
         .O(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_reg[15] ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_1 
        (.I0(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
         .O(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1 ));
-  LUT6 #(
-    .INIT(64'h0020800000000000)) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'h20000800)) 
     \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2 
-       (.I0(\Use_Serial_Unified_Completion.mb_data_overrun_reg_1 ),
-        .I1(command[5]),
-        .I2(command[4]),
-        .I3(command[7]),
-        .I4(command[6]),
-        .I5(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_3_n_0 ),
-        .O(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_3 
-       (.I0(command[2]),
-        .I1(Q_0),
-        .O(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000080000000000)) 
-    \Use_Serial_Unified_Completion.Data_Read_Status.count[0]_i_3 
-       (.I0(command[5]),
+       (.I0(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[10] ),
         .I1(command[6]),
         .I2(command[7]),
+        .I3(Q_0),
+        .I4(command[5]),
+        .O(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0200000000000000)) 
+    \Use_Serial_Unified_Completion.Data_Read_Status.count[0]_i_3 
+       (.I0(command[5]),
+        .I1(command[7]),
+        .I2(command[4]),
         .I3(\Using_FPGA.Native_0 ),
-        .I4(\Use_Serial_Unified_Completion.mb_data_overrun_reg_0 ),
-        .I5(\Use_Serial_Unified_Completion.mb_data_overrun_reg_1 ),
+        .I4(command[6]),
+        .I5(\Use_UART.tx_buffered_reg ),
         .O(\Use_Serial_Unified_Completion.mb_data_overrun1__0 ));
   LUT6 #(
-    .INIT(64'h0000040000000000)) 
+    .INIT(64'h0000020000000000)) 
     \Use_Serial_Unified_Completion.Write_Instr_Status.count[0]_i_2 
-       (.I0(command[6]),
-        .I1(command[5]),
-        .I2(command[7]),
+       (.I0(command[5]),
+        .I1(command[7]),
+        .I2(command[4]),
         .I3(\Using_FPGA.Native_0 ),
-        .I4(\Use_Serial_Unified_Completion.mb_data_overrun_reg_0 ),
-        .I5(\Use_Serial_Unified_Completion.mb_data_overrun_reg_1 ),
-        .O(\Use_Serial_Unified_Completion.mb_instr_overrun136_out ));
+        .I4(command[6]),
+        .I5(\Use_UART.tx_buffered_reg ),
+        .O(\Use_Serial_Unified_Completion.mb_instr_overrun142_out ));
   LUT6 #(
-    .INIT(64'hFFFF55FF000000C0)) 
+    .INIT(64'hDFDFDFDF03000000)) 
     \Use_Serial_Unified_Completion.completion_block_i_1 
-       (.I0(\Use_Serial_Unified_Completion.mb_data_overrun_reg ),
-        .I1(completion_block0__10),
-        .I2(completion_ctrl),
-        .I3(completion_ctrl0),
-        .I4(\Use_BSCAN.command_reg[6] ),
+       (.I0(\Use_Serial_Unified_Completion.mb_instr_overrun_reg ),
+        .I1(\Using_FPGA.Native_1 ),
+        .I2(completion_ctrl0),
+        .I3(completion_block0__10),
+        .I4(completion_ctrl),
         .I5(\Use_Serial_Unified_Completion.completion_block_reg_0 ),
         .O(\Use_E2.BSCANE2_I ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h888F)) 
     \Use_Serial_Unified_Completion.completion_status[0]_i_1 
-       (.I0(\Use_BSCAN.command_reg[6] ),
+       (.I0(\Using_FPGA.Native_1 ),
         .I1(completion_status[1]),
         .I2(completion_status[0]),
         .I3(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
-        .O(p_1_in[0]));
+        .O(\Use_Serial_Unified_Completion.completion_status_reg[1] ));
   (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT4 #(
-    .INIT(16'h8000)) 
+  LUT5 #(
+    .INIT(32'h00200000)) 
     \Use_Serial_Unified_Completion.completion_status[15]_i_3 
-       (.I0(command[6]),
-        .I1(command[2]),
-        .I2(Q_0),
-        .I3(Debug_Rst_i_reg),
-        .O(\Use_BSCAN.command_reg[6] ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+       (.I0(Q_0),
+        .I1(command[5]),
+        .I2(command[6]),
+        .I3(command[7]),
+        .I4(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[10] ),
+        .O(\Using_FPGA.Native_1 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'hFF060606)) 
     \Use_Serial_Unified_Completion.completion_status[1]_i_1 
        (.I0(completion_status[1]),
         .I1(completion_status[0]),
         .I2(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
-        .I3(\Use_BSCAN.command_reg[6] ),
+        .I3(\Using_FPGA.Native_1 ),
         .I4(completion_status[2]),
-        .O(p_1_in[1]));
+        .O(\Use_Serial_Unified_Completion.completion_status_reg[1]_0 ));
   LUT6 #(
     .INIT(64'hFFFF006A006A006A)) 
     \Use_Serial_Unified_Completion.completion_status[2]_i_1 
@@ -4195,164 +4731,160 @@ module led_blinker_mdm_0_0_MB_FDC_1
         .I1(completion_status[1]),
         .I2(completion_status[0]),
         .I3(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
-        .I4(\Use_BSCAN.command_reg[6] ),
+        .I4(\Using_FPGA.Native_1 ),
         .I5(completion_status[3]),
-        .O(p_1_in[2]));
+        .O(\Use_Serial_Unified_Completion.completion_status_reg[2] ));
   LUT5 #(
     .INIT(32'hFF060606)) 
     \Use_Serial_Unified_Completion.completion_status[3]_i_1 
        (.I0(completion_status[3]),
-        .I1(\Use_Serial_Unified_Completion.completion_status_reg[3] ),
+        .I1(\Use_Serial_Unified_Completion.completion_status_reg[3]_0 ),
         .I2(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
-        .I3(\Use_BSCAN.command_reg[6] ),
+        .I3(\Using_FPGA.Native_1 ),
         .I4(completion_status[4]),
-        .O(p_1_in[3]));
+        .O(\Use_Serial_Unified_Completion.completion_status_reg[3] ));
   LUT5 #(
     .INIT(32'hFF060606)) 
     \Use_Serial_Unified_Completion.completion_status[4]_i_1 
        (.I0(completion_status[4]),
-        .I1(\Use_Serial_Unified_Completion.completion_status_reg[4] ),
+        .I1(\Use_Serial_Unified_Completion.completion_status_reg[4]_0 ),
         .I2(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
-        .I3(\Use_BSCAN.command_reg[6] ),
+        .I3(\Using_FPGA.Native_1 ),
         .I4(completion_status[5]),
-        .O(p_1_in[4]));
+        .O(\Use_Serial_Unified_Completion.completion_status_reg[4] ));
   LUT5 #(
-    .INIT(32'hFF121212)) 
+    .INIT(32'hFF060606)) 
     \Use_Serial_Unified_Completion.completion_status[5]_i_1 
        (.I0(completion_status[5]),
-        .I1(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
-        .I2(\Use_Serial_Unified_Completion.completion_status_reg[5] ),
-        .I3(\Use_BSCAN.command_reg[6] ),
+        .I1(\Use_Serial_Unified_Completion.completion_status_reg[5]_0 ),
+        .I2(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
+        .I3(\Using_FPGA.Native_1 ),
         .I4(completion_status[6]),
-        .O(p_1_in[5]));
+        .O(\Use_Serial_Unified_Completion.completion_status_reg[5] ));
   LUT5 #(
     .INIT(32'hFF121212)) 
     \Use_Serial_Unified_Completion.completion_status[6]_i_1 
        (.I0(completion_status[6]),
         .I1(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
-        .I2(\Use_Serial_Unified_Completion.completion_status_reg[6] ),
-        .I3(\Use_BSCAN.command_reg[6] ),
+        .I2(\Use_Serial_Unified_Completion.completion_status_reg[6]_0 ),
+        .I3(\Using_FPGA.Native_1 ),
         .I4(completion_status[7]),
-        .O(p_1_in[6]));
+        .O(\Use_Serial_Unified_Completion.completion_status_reg[6] ));
   LUT6 #(
     .INIT(64'hFFFF122212221222)) 
     \Use_Serial_Unified_Completion.completion_status[7]_i_1 
        (.I0(completion_status[7]),
         .I1(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
-        .I2(\Use_Serial_Unified_Completion.completion_status_reg[6] ),
+        .I2(\Use_Serial_Unified_Completion.completion_status_reg[6]_0 ),
         .I3(completion_status[6]),
-        .I4(\Use_BSCAN.command_reg[6] ),
+        .I4(\Using_FPGA.Native_1 ),
         .I5(completion_status[8]),
-        .O(p_1_in[7]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+        .O(\Use_Serial_Unified_Completion.completion_status_reg[7] ));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'hFF121212)) 
     \Use_Serial_Unified_Completion.completion_status[8]_i_1 
        (.I0(completion_status[8]),
         .I1(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
-        .I2(\Use_Serial_Unified_Completion.completion_status_reg[8] ),
-        .I3(\Use_BSCAN.command_reg[6] ),
+        .I2(\Use_Serial_Unified_Completion.completion_status_reg[8]_0 ),
+        .I3(\Using_FPGA.Native_1 ),
         .I4(completion_status[9]),
-        .O(p_1_in[8]));
+        .O(\Use_Serial_Unified_Completion.completion_status_reg[8] ));
   LUT6 #(
     .INIT(64'h00F100F1FF000000)) 
     \Use_Serial_Unified_Completion.completion_status[9]_i_1 
        (.I0(\Use_Serial_Unified_Completion.completion_block_reg_0 ),
         .I1(Q_0),
         .I2(completion_ctrl0),
-        .I3(\Use_BSCAN.command_reg[6] ),
+        .I3(\Using_FPGA.Native_1 ),
         .I4(\Use_Serial_Unified_Completion.completion_status_reg[0] ),
-        .I5(\Use_Serial_Unified_Completion.mb_data_overrun_reg ),
+        .I5(\Use_Serial_Unified_Completion.mb_instr_overrun_reg ),
         .O(\Use_Serial_Unified_Completion.completion_block_reg ));
   LUT6 #(
     .INIT(64'hFFFF122212221222)) 
     \Use_Serial_Unified_Completion.completion_status[9]_i_2 
        (.I0(completion_status[9]),
         .I1(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_2_n_0 ),
-        .I2(\Use_Serial_Unified_Completion.completion_status_reg[8] ),
+        .I2(\Use_Serial_Unified_Completion.completion_status_reg[8]_0 ),
         .I3(completion_status[8]),
-        .I4(\Use_BSCAN.command_reg[6] ),
+        .I4(\Using_FPGA.Native_1 ),
         .I5(completion_status[10]),
-        .O(p_1_in[9]));
-  LUT6 #(
-    .INIT(64'h2000000000000000)) 
+        .O(\Use_Serial_Unified_Completion.completion_status_reg[9] ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'h00800000)) 
     \Use_Serial_Unified_Completion.completion_status[9]_i_3 
-       (.I0(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1[15]_i_3_n_0 ),
-        .I1(command[6]),
+       (.I0(command[5]),
+        .I1(Q_0),
         .I2(command[7]),
-        .I3(command[4]),
-        .I4(command[5]),
-        .I5(\Use_Serial_Unified_Completion.mb_data_overrun_reg_1 ),
+        .I3(command[6]),
+        .I4(\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[10] ),
         .O(completion_ctrl0));
   LUT6 #(
     .INIT(64'h053F0F3F05000000)) 
     \Use_Serial_Unified_Completion.mb_data_overrun_i_1 
        (.I0(Dbg_TDO_0),
         .I1(completion_ctrl0),
-        .I2(\Use_Serial_Unified_Completion.mb_data_overrun_reg ),
+        .I2(\Use_Serial_Unified_Completion.mb_instr_overrun_reg ),
         .I3(\Use_Serial_Unified_Completion.mb_data_overrun1__0 ),
-        .I4(\Use_Serial_Unified_Completion.mb_data_overrun_reg_2 ),
-        .I5(\Use_Serial_Unified_Completion.mb_data_overrun_reg_3 ),
+        .I4(\Use_Serial_Unified_Completion.mb_data_overrun_reg ),
+        .I5(\Use_Serial_Unified_Completion.mb_data_overrun_reg_0 ),
+        .O(Dbg_TDO_0_2));
+  LUT6 #(
+    .INIT(64'h00BB033300880000)) 
+    \Use_Serial_Unified_Completion.mb_instr_error_i_1 
+       (.I0(Dbg_TDO_0),
+        .I1(\Use_Serial_Unified_Completion.mb_instr_error_reg ),
+        .I2(completion_ctrl0),
+        .I3(\Use_Serial_Unified_Completion.mb_instr_overrun_reg ),
+        .I4(\Use_Serial_Unified_Completion.mb_instr_overrun142_out ),
+        .I5(\Use_Serial_Unified_Completion.mb_instr_error_reg_0 ),
+        .O(Dbg_TDO_0_1));
+  LUT6 #(
+    .INIT(64'h00BB033300880000)) 
+    \Use_Serial_Unified_Completion.mb_instr_overrun_i_1 
+       (.I0(Dbg_TDO_0),
+        .I1(\Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 ),
+        .I2(completion_ctrl0),
+        .I3(\Use_Serial_Unified_Completion.mb_instr_overrun_reg ),
+        .I4(\Use_Serial_Unified_Completion.mb_instr_overrun142_out ),
+        .I5(\Use_Serial_Unified_Completion.mb_instr_overrun ),
         .O(Dbg_TDO_0_0));
   LUT6 #(
-    .INIT(64'hA0A0BFFFA0A08000)) 
-    \Use_Serial_Unified_Completion.mb_instr_error_i_1 
-       (.I0(\Use_Serial_Unified_Completion.mb_instr_overrun_reg ),
-        .I1(\Use_Serial_Unified_Completion.mb_instr_overrun1__0 ),
-        .I2(\Use_Serial_Unified_Completion.mb_instr_overrun136_out ),
-        .I3(\Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 ),
-        .I4(\Use_Serial_Unified_Completion.mb_instr_overrun_i_4_n_0 ),
-        .I5(\Use_Serial_Unified_Completion.mb_instr_error_reg_0 ),
-        .O(\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1]_0 ));
-  LUT6 #(
-    .INIT(64'hA0A0FFBFA0A00080)) 
-    \Use_Serial_Unified_Completion.mb_instr_overrun_i_1 
-       (.I0(\Use_Serial_Unified_Completion.mb_instr_overrun_reg ),
-        .I1(\Use_Serial_Unified_Completion.mb_instr_overrun1__0 ),
-        .I2(\Use_Serial_Unified_Completion.mb_instr_overrun136_out ),
-        .I3(\Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 ),
-        .I4(\Use_Serial_Unified_Completion.mb_instr_overrun_i_4_n_0 ),
-        .I5(\Use_Serial_Unified_Completion.mb_instr_overrun ),
-        .O(\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1] ));
-  LUT6 #(
-    .INIT(64'h00000000AAAA2AAA)) 
+    .INIT(64'h0000000400000000)) 
     \Use_Serial_Unified_Completion.mb_instr_overrun_i_3 
-       (.I0(\Use_Serial_Unified_Completion.completion_status_reg[0] ),
-        .I1(\Use_Serial_Unified_Completion.mb_data_overrun_reg_1 ),
-        .I2(\Use_Serial_Unified_Completion.mb_instr_overrun_i_5_n_0 ),
-        .I3(\Use_Serial_Unified_Completion.mb_instr_error_reg ),
-        .I4(sync),
-        .I5(p_0_in),
-        .O(\Use_Serial_Unified_Completion.mb_instr_overrun1__0 ));
-  LUT6 #(
-    .INIT(64'hFF00000008000000)) 
-    \Use_Serial_Unified_Completion.mb_instr_overrun_i_4 
-       (.I0(\Use_Serial_Unified_Completion.mb_instr_error_reg ),
-        .I1(\Using_FPGA.Native_0 ),
-        .I2(\Use_Serial_Unified_Completion.mb_data_overrun_reg_0 ),
-        .I3(\Use_Serial_Unified_Completion.mb_data_overrun_reg_1 ),
-        .I4(\Use_Serial_Unified_Completion.mb_data_overrun_reg ),
-        .I5(\Use_Serial_Unified_Completion.mb_instr_overrun_i_6_n_0 ),
-        .O(\Use_Serial_Unified_Completion.mb_instr_overrun_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT4 #(
-    .INIT(16'h0004)) 
-    \Use_Serial_Unified_Completion.mb_instr_overrun_i_5 
+       (.I0(command[6]),
+        .I1(Q_0),
+        .I2(\Use_Serial_Unified_Completion.completion_block_reg_0 ),
+        .I3(command[4]),
+        .I4(command[7]),
+        .I5(command[5]),
+        .O(\Use_BSCAN.command_reg[6] ));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT2 #(
+    .INIT(4'hB)) 
+    \Use_UART.execute_i_2 
        (.I0(\Use_Serial_Unified_Completion.completion_block_reg_0 ),
         .I1(Q_0),
-        .I2(command[4]),
-        .I3(command[2]),
-        .O(\Use_Serial_Unified_Completion.mb_instr_overrun_i_5_n_0 ));
+        .O(command_11));
+  LUT4 #(
+    .INIT(16'hBF80)) 
+    \Use_UART.tx_buffered_i_1 
+       (.I0(tdi_shifter[0]),
+        .I1(\Use_UART.tx_buffered_i_2_n_0 ),
+        .I2(\Use_UART.tx_buffered_reg ),
+        .I3(\Use_UART.tx_buffered ),
+        .O(\tdi_shifter_reg[0] ));
   LUT6 #(
-    .INIT(64'h0080000000000000)) 
-    \Use_Serial_Unified_Completion.mb_instr_overrun_i_6 
-       (.I0(command[5]),
-        .I1(command[4]),
-        .I2(command[7]),
-        .I3(command[6]),
-        .I4(Q_0),
-        .I5(command[2]),
-        .O(\Use_Serial_Unified_Completion.mb_instr_overrun_i_6_n_0 ));
+    .INIT(64'h0000000020000000)) 
+    \Use_UART.tx_buffered_i_2 
+       (.I0(Q_0),
+        .I1(\Use_Serial_Unified_Completion.completion_block_reg_0 ),
+        .I2(command[6]),
+        .I3(command[4]),
+        .I4(command[5]),
+        .I5(command[7]),
+        .O(\Use_UART.tx_buffered_i_2_n_0 ));
   (* XILINX_LEGACY_PRIM = "FDC_1" *) 
   (* XILINX_TRANSFORM_PINMAP = "VCC:CE" *) 
   (* box_type = "PRIMITIVE" *) 
@@ -4374,9 +4906,10 @@ module led_blinker_mdm_0_0_MB_FDC_1
         .I3(tdi_shifter[7]),
         .I4(tdi_shifter[6]),
         .O(CE));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT1 #(
     .INIT(2'h1)) 
-    \Using_FPGA.Native_i_1__0 
+    \Using_FPGA.Native_i_1__3 
        (.I0(Q_0),
         .O(D));
   LUT6 #(
@@ -4405,77 +4938,795 @@ module led_blinker_mdm_0_0_MB_FDC_1
        (.I0(tdi_shifter[0]),
         .I1(completion_ctrl0),
         .I2(completion_ctrl),
-        .O(\tdi_shifter_reg[0]_0 ));
+        .O(\tdi_shifter_reg[0]_1 ));
+endmodule
+
+(* ORIG_REF_NAME = "MB_FDRE" *) 
+module led_blinker_mdm_0_0_MB_FDRE
+   (\Using_FPGA.Native_0 ,
+    bus2ip_wrce,
+    tx_Buffer_Empty,
+    S_AXI_ACLK);
+  output \Using_FPGA.Native_0 ;
+  input [0:0]bus2ip_wrce;
+  input tx_Buffer_Empty;
+  input S_AXI_ACLK;
+
+  wire S_AXI_ACLK;
+  wire \Using_FPGA.Native_0 ;
+  wire [0:0]bus2ip_wrce;
+  wire tx_Buffer_Empty;
+
+  (* box_type = "PRIMITIVE" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b0),
+    .IS_D_INVERTED(1'b0),
+    .IS_R_INVERTED(1'b0)) 
+    \Using_FPGA.Native 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(tx_Buffer_Empty),
+        .Q(\Using_FPGA.Native_0 ),
+        .R(bus2ip_wrce));
 endmodule
 
 (* ORIG_REF_NAME = "MB_FDRE_1" *) 
 module led_blinker_mdm_0_0_MB_FDRE_1
    (sync,
-    Dbg_Shift_0,
+    \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1] ,
+    \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1]_0 ,
+    \Using_FPGA.Native_0 ,
     D,
     CE,
-    \Using_FPGA.Native_0 ,
-    Dbg_Shift_0_0,
-    Dbg_Shift_0_1,
-    Dbg_Shift_0_2,
-    Dbg_Shift_0_3,
-    Dbg_Shift_0_4);
+    \Using_FPGA.Native_1 ,
+    \Use_Serial_Unified_Completion.mb_instr_error_reg ,
+    p_0_in,
+    \Use_Serial_Unified_Completion.mb_instr_error_reg_0 ,
+    \Use_UART.fifo_Din_reg[7] ,
+    \Use_UART.fifo_Din_reg[7]_0 ,
+    \Use_UART.fifo_Din_reg[7]_1 ,
+    \Use_UART.fifo_Din_reg[7]_2 ,
+    command);
   output sync;
-  output Dbg_Shift_0;
+  output \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1] ;
+  output \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1]_0 ;
+  output \Using_FPGA.Native_0 ;
   input D;
   input CE;
-  input \Using_FPGA.Native_0 ;
-  input Dbg_Shift_0_0;
-  input Dbg_Shift_0_1;
-  input Dbg_Shift_0_2;
-  input Dbg_Shift_0_3;
-  input Dbg_Shift_0_4;
+  input \Using_FPGA.Native_1 ;
+  input \Use_Serial_Unified_Completion.mb_instr_error_reg ;
+  input p_0_in;
+  input \Use_Serial_Unified_Completion.mb_instr_error_reg_0 ;
+  input \Use_UART.fifo_Din_reg[7] ;
+  input \Use_UART.fifo_Din_reg[7]_0 ;
+  input \Use_UART.fifo_Din_reg[7]_1 ;
+  input \Use_UART.fifo_Din_reg[7]_2 ;
+  input [0:0]command;
 
   wire CE;
   wire D;
-  wire Dbg_Shift_0;
-  wire Dbg_Shift_0_0;
-  wire Dbg_Shift_0_1;
-  wire Dbg_Shift_0_2;
-  wire Dbg_Shift_0_3;
-  wire Dbg_Shift_0_4;
+  wire \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1] ;
+  wire \Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1]_0 ;
+  wire \Use_Serial_Unified_Completion.mb_instr_error_reg ;
+  wire \Use_Serial_Unified_Completion.mb_instr_error_reg_0 ;
+  wire \Use_UART.fifo_Din_reg[7] ;
+  wire \Use_UART.fifo_Din_reg[7]_0 ;
+  wire \Use_UART.fifo_Din_reg[7]_1 ;
+  wire \Use_UART.fifo_Din_reg[7]_2 ;
   wire \Using_FPGA.Native_0 ;
+  wire \Using_FPGA.Native_1 ;
+  wire [0:0]command;
+  wire p_0_in;
   wire sync;
 
   LUT6 #(
-    .INIT(64'hFFBFFFFF00000000)) 
+    .INIT(64'hFFEFFFFF00000000)) 
     Dbg_Shift_0_INST_0
        (.I0(sync),
-        .I1(Dbg_Shift_0_0),
-        .I2(Dbg_Shift_0_1),
-        .I3(Dbg_Shift_0_2),
-        .I4(Dbg_Shift_0_3),
-        .I5(Dbg_Shift_0_4),
-        .O(Dbg_Shift_0));
+        .I1(\Use_UART.fifo_Din_reg[7]_1 ),
+        .I2(\Use_UART.fifo_Din_reg[7]_2 ),
+        .I3(command),
+        .I4(\Use_UART.fifo_Din_reg[7] ),
+        .I5(\Use_UART.fifo_Din_reg[7]_0 ),
+        .O(\Using_FPGA.Native_0 ));
+  LUT6 #(
+    .INIT(64'h2000000000000000)) 
+    \Use_Serial_Unified_Completion.mb_instr_error_i_2 
+       (.I0(\Use_Serial_Unified_Completion.mb_instr_error_reg ),
+        .I1(p_0_in),
+        .I2(sync),
+        .I3(\Use_Serial_Unified_Completion.mb_instr_error_reg_0 ),
+        .I4(\Use_UART.fifo_Din_reg[7] ),
+        .I5(\Use_UART.fifo_Din_reg[7]_0 ),
+        .O(\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1] ));
+  LUT6 #(
+    .INIT(64'h1000000000000000)) 
+    \Use_Serial_Unified_Completion.mb_instr_overrun_i_2 
+       (.I0(\Use_Serial_Unified_Completion.mb_instr_error_reg ),
+        .I1(p_0_in),
+        .I2(sync),
+        .I3(\Use_Serial_Unified_Completion.mb_instr_error_reg_0 ),
+        .I4(\Use_UART.fifo_Din_reg[7] ),
+        .I5(\Use_UART.fifo_Din_reg[7]_0 ),
+        .O(\Use_Serial_Unified_Completion.Write_Instr_Status.count_reg[1]_0 ));
   (* XILINX_LEGACY_PRIM = "FDRE_1" *) 
   (* box_type = "PRIMITIVE" *) 
   FDRE #(
     .INIT(1'b0),
     .IS_C_INVERTED(1'b1)) 
     \Using_FPGA.Native 
-       (.C(\Using_FPGA.Native_0 ),
+       (.C(\Using_FPGA.Native_1 ),
         .CE(CE),
         .D(1'b1),
         .Q(sync),
         .R(D));
 endmodule
 
+(* ORIG_REF_NAME = "MB_FDRE" *) 
+module led_blinker_mdm_0_0_MB_FDRE_15
+   (Addr_3,
+    S,
+    \Using_FPGA.Native_0 ,
+    \Using_FPGA.Native_1 ,
+    O,
+    S_AXI_ACLK,
+    Addr_1,
+    Addr_0,
+    Addr_2,
+    \Using_FPGA.Native_I1 ,
+    bus2ip_rdce);
+  output Addr_3;
+  output S;
+  input \Using_FPGA.Native_0 ;
+  input \Using_FPGA.Native_1 ;
+  input O;
+  input S_AXI_ACLK;
+  input Addr_1;
+  input Addr_0;
+  input Addr_2;
+  input \Using_FPGA.Native_I1 ;
+  input [0:0]bus2ip_rdce;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire O;
+  wire S;
+  wire S_AXI_ACLK;
+  wire \Using_FPGA.Native_0 ;
+  wire \Using_FPGA.Native_1 ;
+  wire \Using_FPGA.Native_I1 ;
+  wire [0:0]bus2ip_rdce;
+
+  (* box_type = "PRIMITIVE" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b0),
+    .IS_D_INVERTED(1'b0),
+    .IS_R_INVERTED(1'b0)) 
+    \Using_FPGA.Native 
+       (.C(S_AXI_ACLK),
+        .CE(\Using_FPGA.Native_1 ),
+        .D(O),
+        .Q(Addr_3),
+        .R(\Using_FPGA.Native_0 ));
+  LUT6 #(
+    .INIT(64'h55555554AAAAAAAA)) 
+    \Using_FPGA.Native_I1_i_1__2 
+       (.I0(Addr_3),
+        .I1(Addr_1),
+        .I2(Addr_0),
+        .I3(Addr_2),
+        .I4(\Using_FPGA.Native_I1 ),
+        .I5(bus2ip_rdce),
+        .O(S));
+endmodule
+
+(* ORIG_REF_NAME = "MB_FDRE" *) 
+module led_blinker_mdm_0_0_MB_FDRE_17
+   (Addr_2,
+    S,
+    \Using_FPGA.Native_0 ,
+    \Using_FPGA.Native_1 ,
+    O,
+    S_AXI_ACLK,
+    Addr_1,
+    Addr_0,
+    Addr_3,
+    \Using_FPGA.Native_I1 ,
+    bus2ip_rdce);
+  output Addr_2;
+  output S;
+  input \Using_FPGA.Native_0 ;
+  input \Using_FPGA.Native_1 ;
+  input O;
+  input S_AXI_ACLK;
+  input Addr_1;
+  input Addr_0;
+  input Addr_3;
+  input \Using_FPGA.Native_I1 ;
+  input [0:0]bus2ip_rdce;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire O;
+  wire S;
+  wire S_AXI_ACLK;
+  wire \Using_FPGA.Native_0 ;
+  wire \Using_FPGA.Native_1 ;
+  wire \Using_FPGA.Native_I1 ;
+  wire [0:0]bus2ip_rdce;
+
+  (* box_type = "PRIMITIVE" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b0),
+    .IS_D_INVERTED(1'b0),
+    .IS_R_INVERTED(1'b0)) 
+    \Using_FPGA.Native 
+       (.C(S_AXI_ACLK),
+        .CE(\Using_FPGA.Native_1 ),
+        .D(O),
+        .Q(Addr_2),
+        .R(\Using_FPGA.Native_0 ));
+  LUT6 #(
+    .INIT(64'h55555554AAAAAAAA)) 
+    \Using_FPGA.Native_I1_i_1__3 
+       (.I0(Addr_2),
+        .I1(Addr_1),
+        .I2(Addr_0),
+        .I3(Addr_3),
+        .I4(\Using_FPGA.Native_I1 ),
+        .I5(bus2ip_rdce),
+        .O(S));
+endmodule
+
+(* ORIG_REF_NAME = "MB_FDRE" *) 
+module led_blinker_mdm_0_0_MB_FDRE_19
+   (Addr_1,
+    \Use_UART.tdo_reg_reg[3] ,
+    RX_Buffer_Full,
+    S,
+    CI,
+    data_Exists_I_reg,
+    \Using_FPGA.Native_0 ,
+    \Using_FPGA.Native_1 ,
+    O,
+    S_AXI_ACLK,
+    \Use_UART.tdo_reg ,
+    \Use_UART.tdo_reg_reg[4] ,
+    \Use_UART.tdo_reg_reg[4]_0 ,
+    Data_Out,
+    \Use_UART.tdo_reg_reg[4]_1 ,
+    Addr_0,
+    Addr_3,
+    Addr_2,
+    data_Exists_I_reg_0,
+    bus2ip_rdce,
+    Bus_RNW_reg,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg );
+  output Addr_1;
+  output \Use_UART.tdo_reg_reg[3] ;
+  output RX_Buffer_Full;
+  output S;
+  output CI;
+  output data_Exists_I_reg;
+  input \Using_FPGA.Native_0 ;
+  input \Using_FPGA.Native_1 ;
+  input O;
+  input S_AXI_ACLK;
+  input [0:0]\Use_UART.tdo_reg ;
+  input \Use_UART.tdo_reg_reg[4] ;
+  input \Use_UART.tdo_reg_reg[4]_0 ;
+  input [0:0]Data_Out;
+  input \Use_UART.tdo_reg_reg[4]_1 ;
+  input Addr_0;
+  input Addr_3;
+  input Addr_2;
+  input data_Exists_I_reg_0;
+  input [0:0]bus2ip_rdce;
+  input Bus_RNW_reg;
+  input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire Bus_RNW_reg;
+  wire CI;
+  wire [0:0]Data_Out;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
+  wire O;
+  wire RX_Buffer_Full;
+  wire S;
+  wire S_AXI_ACLK;
+  wire [0:0]\Use_UART.tdo_reg ;
+  wire \Use_UART.tdo_reg_reg[3] ;
+  wire \Use_UART.tdo_reg_reg[4] ;
+  wire \Use_UART.tdo_reg_reg[4]_0 ;
+  wire \Use_UART.tdo_reg_reg[4]_1 ;
+  wire \Using_FPGA.Native_0 ;
+  wire \Using_FPGA.Native_1 ;
+  wire buffer_Empty__2;
+  wire [0:0]bus2ip_rdce;
+  wire data_Exists_I_reg;
+  wire data_Exists_I_reg_0;
+
+  LUT6 #(
+    .INIT(64'hFFFFF222F222F222)) 
+    \Use_UART.tdo_reg[4]_i_1 
+       (.I0(\Use_UART.tdo_reg ),
+        .I1(\Use_UART.tdo_reg_reg[4] ),
+        .I2(\Use_UART.tdo_reg_reg[4]_0 ),
+        .I3(RX_Buffer_Full),
+        .I4(Data_Out),
+        .I5(\Use_UART.tdo_reg_reg[4]_1 ),
+        .O(\Use_UART.tdo_reg_reg[3] ));
+  (* box_type = "PRIMITIVE" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b0),
+    .IS_D_INVERTED(1'b0),
+    .IS_R_INVERTED(1'b0)) 
+    \Using_FPGA.Native 
+       (.C(S_AXI_ACLK),
+        .CE(\Using_FPGA.Native_1 ),
+        .D(O),
+        .Q(Addr_1),
+        .R(\Using_FPGA.Native_0 ));
+  LUT6 #(
+    .INIT(64'h55555554AAAAAAAA)) 
+    \Using_FPGA.Native_I1_i_1__4 
+       (.I0(Addr_1),
+        .I1(Addr_0),
+        .I2(Addr_3),
+        .I3(Addr_2),
+        .I4(data_Exists_I_reg_0),
+        .I5(bus2ip_rdce),
+        .O(S));
+  LUT6 #(
+    .INIT(64'hBFFFFFFF00000000)) 
+    \Using_FPGA.Native_I1_i_2__0 
+       (.I0(bus2ip_rdce),
+        .I1(Addr_1),
+        .I2(Addr_0),
+        .I3(Addr_3),
+        .I4(Addr_2),
+        .I5(data_Exists_I_reg_0),
+        .O(CI));
+  LUT6 #(
+    .INIT(64'h00000000FF2AAAAA)) 
+    data_Exists_I_i_1__0
+       (.I0(\Using_FPGA.Native_1 ),
+        .I1(Bus_RNW_reg),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
+        .I3(data_Exists_I_reg_0),
+        .I4(buffer_Empty__2),
+        .I5(\Using_FPGA.Native_0 ),
+        .O(data_Exists_I_reg));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT4 #(
+    .INIT(16'h0001)) 
+    data_Exists_I_i_2
+       (.I0(Addr_1),
+        .I1(Addr_0),
+        .I2(Addr_3),
+        .I3(Addr_2),
+        .O(buffer_Empty__2));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \s_axi_rdata_i[1]_i_2 
+       (.I0(Addr_1),
+        .I1(Addr_0),
+        .I2(Addr_3),
+        .I3(Addr_2),
+        .O(RX_Buffer_Full));
+endmodule
+
+(* ORIG_REF_NAME = "MB_FDRE" *) 
+module led_blinker_mdm_0_0_MB_FDRE_2
+   (Addr_3,
+    S,
+    \Using_FPGA.Native_0 ,
+    \Using_FPGA.Native_1 ,
+    O,
+    S_AXI_ACLK,
+    Addr_1,
+    Addr_0,
+    Addr_2,
+    FIFO_Write,
+    \Using_FPGA.Native_I1 );
+  output Addr_3;
+  output S;
+  input \Using_FPGA.Native_0 ;
+  input \Using_FPGA.Native_1 ;
+  input O;
+  input S_AXI_ACLK;
+  input Addr_1;
+  input Addr_0;
+  input Addr_2;
+  input FIFO_Write;
+  input \Using_FPGA.Native_I1 ;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire FIFO_Write;
+  wire O;
+  wire S;
+  wire S_AXI_ACLK;
+  wire \Using_FPGA.Native_0 ;
+  wire \Using_FPGA.Native_1 ;
+  wire \Using_FPGA.Native_I1 ;
+
+  (* box_type = "PRIMITIVE" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b0),
+    .IS_D_INVERTED(1'b0),
+    .IS_R_INVERTED(1'b0)) 
+    \Using_FPGA.Native 
+       (.C(S_AXI_ACLK),
+        .CE(\Using_FPGA.Native_1 ),
+        .D(O),
+        .Q(Addr_3),
+        .R(\Using_FPGA.Native_0 ));
+  LUT6 #(
+    .INIT(64'h55555554AAAAAAAA)) 
+    \Using_FPGA.Native_I1_i_1 
+       (.I0(Addr_3),
+        .I1(Addr_1),
+        .I2(Addr_0),
+        .I3(Addr_2),
+        .I4(FIFO_Write),
+        .I5(\Using_FPGA.Native_I1 ),
+        .O(S));
+endmodule
+
+(* ORIG_REF_NAME = "MB_FDRE" *) 
+module led_blinker_mdm_0_0_MB_FDRE_21
+   (Addr_0,
+    LI,
+    \Using_FPGA.Native_0 ,
+    \Using_FPGA.Native_1 ,
+    sum_A_0,
+    S_AXI_ACLK,
+    Addr_1,
+    Addr_3,
+    Addr_2,
+    \Using_FPGA.Native_2 ,
+    bus2ip_rdce);
+  output Addr_0;
+  output LI;
+  input \Using_FPGA.Native_0 ;
+  input \Using_FPGA.Native_1 ;
+  input sum_A_0;
+  input S_AXI_ACLK;
+  input Addr_1;
+  input Addr_3;
+  input Addr_2;
+  input \Using_FPGA.Native_2 ;
+  input [0:0]bus2ip_rdce;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire LI;
+  wire S_AXI_ACLK;
+  wire \Using_FPGA.Native_0 ;
+  wire \Using_FPGA.Native_1 ;
+  wire \Using_FPGA.Native_2 ;
+  wire [0:0]bus2ip_rdce;
+  wire sum_A_0;
+
+  (* box_type = "PRIMITIVE" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b0),
+    .IS_D_INVERTED(1'b0),
+    .IS_R_INVERTED(1'b0)) 
+    \Using_FPGA.Native 
+       (.C(S_AXI_ACLK),
+        .CE(\Using_FPGA.Native_1 ),
+        .D(sum_A_0),
+        .Q(Addr_0),
+        .R(\Using_FPGA.Native_0 ));
+  LUT6 #(
+    .INIT(64'h55555554AAAAAAAA)) 
+    \Using_FPGA.Native_i_1__2 
+       (.I0(Addr_0),
+        .I1(Addr_1),
+        .I2(Addr_3),
+        .I3(Addr_2),
+        .I4(\Using_FPGA.Native_2 ),
+        .I5(bus2ip_rdce),
+        .O(LI));
+endmodule
+
+(* ORIG_REF_NAME = "MB_FDRE" *) 
+module led_blinker_mdm_0_0_MB_FDRE_3
+   (Addr_2,
+    S,
+    \Using_FPGA.Native_0 ,
+    \Using_FPGA.Native_1 ,
+    O,
+    S_AXI_ACLK,
+    Addr_1,
+    Addr_0,
+    Addr_3,
+    FIFO_Write,
+    \Using_FPGA.Native_I1 );
+  output Addr_2;
+  output S;
+  input \Using_FPGA.Native_0 ;
+  input \Using_FPGA.Native_1 ;
+  input O;
+  input S_AXI_ACLK;
+  input Addr_1;
+  input Addr_0;
+  input Addr_3;
+  input FIFO_Write;
+  input \Using_FPGA.Native_I1 ;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire FIFO_Write;
+  wire O;
+  wire S;
+  wire S_AXI_ACLK;
+  wire \Using_FPGA.Native_0 ;
+  wire \Using_FPGA.Native_1 ;
+  wire \Using_FPGA.Native_I1 ;
+
+  (* box_type = "PRIMITIVE" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b0),
+    .IS_D_INVERTED(1'b0),
+    .IS_R_INVERTED(1'b0)) 
+    \Using_FPGA.Native 
+       (.C(S_AXI_ACLK),
+        .CE(\Using_FPGA.Native_1 ),
+        .D(O),
+        .Q(Addr_2),
+        .R(\Using_FPGA.Native_0 ));
+  LUT6 #(
+    .INIT(64'h55555554AAAAAAAA)) 
+    \Using_FPGA.Native_I1_i_1__0 
+       (.I0(Addr_2),
+        .I1(Addr_1),
+        .I2(Addr_0),
+        .I3(Addr_3),
+        .I4(FIFO_Write),
+        .I5(\Using_FPGA.Native_I1 ),
+        .O(S));
+endmodule
+
+(* ORIG_REF_NAME = "MB_FDRE" *) 
+module led_blinker_mdm_0_0_MB_FDRE_5
+   (Addr_1,
+    \Use_UART.tdo_reg_reg[5] ,
+    tx_Buffer_Full,
+    S,
+    CI,
+    data_Exists_I_reg,
+    \Using_FPGA.Native_0 ,
+    \Using_FPGA.Native_1 ,
+    O,
+    S_AXI_ACLK,
+    \Use_UART.tdo_reg ,
+    \Use_UART.tdo_reg_reg[6] ,
+    \Use_UART.tdo_reg_reg[6]_0 ,
+    Data_Out,
+    \Use_UART.tdo_reg_reg[6]_1 ,
+    Addr_0,
+    Addr_3,
+    Addr_2,
+    FIFO_Write,
+    data_Exists_I_reg_0,
+    Bus_RNW_reg,
+    \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ,
+    out);
+  output Addr_1;
+  output \Use_UART.tdo_reg_reg[5] ;
+  output tx_Buffer_Full;
+  output S;
+  output CI;
+  output data_Exists_I_reg;
+  input \Using_FPGA.Native_0 ;
+  input \Using_FPGA.Native_1 ;
+  input O;
+  input S_AXI_ACLK;
+  input [0:0]\Use_UART.tdo_reg ;
+  input \Use_UART.tdo_reg_reg[6] ;
+  input \Use_UART.tdo_reg_reg[6]_0 ;
+  input [0:0]Data_Out;
+  input \Use_UART.tdo_reg_reg[6]_1 ;
+  input Addr_0;
+  input Addr_3;
+  input Addr_2;
+  input FIFO_Write;
+  input data_Exists_I_reg_0;
+  input Bus_RNW_reg;
+  input \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
+  input out;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire Bus_RNW_reg;
+  wire CI;
+  wire [0:0]Data_Out;
+  wire FIFO_Write;
+  wire \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
+  wire O;
+  wire S;
+  wire S_AXI_ACLK;
+  wire [0:0]\Use_UART.tdo_reg ;
+  wire \Use_UART.tdo_reg_reg[5] ;
+  wire \Use_UART.tdo_reg_reg[6] ;
+  wire \Use_UART.tdo_reg_reg[6]_0 ;
+  wire \Use_UART.tdo_reg_reg[6]_1 ;
+  wire \Using_FPGA.Native_0 ;
+  wire \Using_FPGA.Native_1 ;
+  wire buffer_Empty__2;
+  wire data_Exists_I_reg;
+  wire data_Exists_I_reg_0;
+  wire out;
+  wire tx_Buffer_Full;
+
+  LUT6 #(
+    .INIT(64'hFFFFF222F222F222)) 
+    \Use_UART.tdo_reg[6]_i_1 
+       (.I0(\Use_UART.tdo_reg ),
+        .I1(\Use_UART.tdo_reg_reg[6] ),
+        .I2(\Use_UART.tdo_reg_reg[6]_0 ),
+        .I3(tx_Buffer_Full),
+        .I4(Data_Out),
+        .I5(\Use_UART.tdo_reg_reg[6]_1 ),
+        .O(\Use_UART.tdo_reg_reg[5] ));
+  (* box_type = "PRIMITIVE" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b0),
+    .IS_D_INVERTED(1'b0),
+    .IS_R_INVERTED(1'b0)) 
+    \Using_FPGA.Native 
+       (.C(S_AXI_ACLK),
+        .CE(\Using_FPGA.Native_1 ),
+        .D(O),
+        .Q(Addr_1),
+        .R(\Using_FPGA.Native_0 ));
+  LUT6 #(
+    .INIT(64'h55555554AAAAAAAA)) 
+    \Using_FPGA.Native_I1_i_1__1 
+       (.I0(Addr_1),
+        .I1(Addr_0),
+        .I2(Addr_3),
+        .I3(Addr_2),
+        .I4(FIFO_Write),
+        .I5(data_Exists_I_reg_0),
+        .O(S));
+  LUT5 #(
+    .INIT(32'h0B000000)) 
+    \Using_FPGA.Native_I1_i_2 
+       (.I0(data_Exists_I_reg_0),
+        .I1(tx_Buffer_Full),
+        .I2(Bus_RNW_reg),
+        .I3(\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
+        .I4(out),
+        .O(CI));
+  LUT5 #(
+    .INIT(32'h0000F2AA)) 
+    data_Exists_I_i_1
+       (.I0(\Using_FPGA.Native_1 ),
+        .I1(data_Exists_I_reg_0),
+        .I2(FIFO_Write),
+        .I3(buffer_Empty__2),
+        .I4(\Using_FPGA.Native_0 ),
+        .O(data_Exists_I_reg));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT4 #(
+    .INIT(16'h0001)) 
+    data_Exists_I_i_2__0
+       (.I0(Addr_1),
+        .I1(Addr_0),
+        .I2(Addr_3),
+        .I3(Addr_2),
+        .O(buffer_Empty__2));
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  LUT4 #(
+    .INIT(16'h8000)) 
+    \s_axi_rdata_i[3]_i_2 
+       (.I0(Addr_1),
+        .I1(Addr_0),
+        .I2(Addr_3),
+        .I3(Addr_2),
+        .O(tx_Buffer_Full));
+endmodule
+
+(* ORIG_REF_NAME = "MB_FDRE" *) 
+module led_blinker_mdm_0_0_MB_FDRE_7
+   (Addr_0,
+    LI,
+    \Using_FPGA.Native_0 ,
+    \Using_FPGA.Native_1 ,
+    sum_A_0,
+    S_AXI_ACLK,
+    Addr_1,
+    Addr_3,
+    Addr_2,
+    FIFO_Write,
+    \Using_FPGA.Native_2 );
+  output Addr_0;
+  output LI;
+  input \Using_FPGA.Native_0 ;
+  input \Using_FPGA.Native_1 ;
+  input sum_A_0;
+  input S_AXI_ACLK;
+  input Addr_1;
+  input Addr_3;
+  input Addr_2;
+  input FIFO_Write;
+  input \Using_FPGA.Native_2 ;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire FIFO_Write;
+  wire LI;
+  wire S_AXI_ACLK;
+  wire \Using_FPGA.Native_0 ;
+  wire \Using_FPGA.Native_1 ;
+  wire \Using_FPGA.Native_2 ;
+  wire sum_A_0;
+
+  (* box_type = "PRIMITIVE" *) 
+  FDRE #(
+    .INIT(1'b0),
+    .IS_C_INVERTED(1'b0),
+    .IS_D_INVERTED(1'b0),
+    .IS_R_INVERTED(1'b0)) 
+    \Using_FPGA.Native 
+       (.C(S_AXI_ACLK),
+        .CE(\Using_FPGA.Native_1 ),
+        .D(sum_A_0),
+        .Q(Addr_0),
+        .R(\Using_FPGA.Native_0 ));
+  LUT6 #(
+    .INIT(64'h55555554AAAAAAAA)) 
+    \Using_FPGA.Native_i_1__0 
+       (.I0(Addr_0),
+        .I1(Addr_1),
+        .I2(Addr_3),
+        .I3(Addr_2),
+        .I4(FIFO_Write),
+        .I5(\Using_FPGA.Native_2 ),
+        .O(LI));
+endmodule
+
 (* ORIG_REF_NAME = "MB_LUT1" *) 
 module led_blinker_mdm_0_0_MB_LUT1
-   (Ext_JTAG_TDI,
+   (Dbg_TDI_0,
     I0);
-  output Ext_JTAG_TDI;
+  output Dbg_TDI_0;
   input I0;
 
   wire I0;
   (* DONT_TOUCH *) wire \Using_FPGA.lut1_o ;
 
-  assign Ext_JTAG_TDI = \Using_FPGA.lut1_o ;
+  assign Dbg_TDI_0 = \Using_FPGA.lut1_o ;
   (* box_type = "PRIMITIVE" *) 
   LUT1 #(
     .INIT(2'h2)) 
@@ -4484,92 +5735,284 @@ module led_blinker_mdm_0_0_MB_LUT1
         .O(\Using_FPGA.lut1_o ));
 endmodule
 
+(* ORIG_REF_NAME = "MB_MUXCY_XORCY" *) 
+module led_blinker_mdm_0_0_MB_MUXCY_XORCY
+   (LO,
+    O,
+    S,
+    Addr_3,
+    CI,
+    lopt,
+    lopt_1,
+    lopt_2,
+    lopt_3,
+    lopt_4,
+    lopt_5,
+    lopt_6,
+    lopt_7,
+    lopt_8,
+    lopt_9);
+  output LO;
+  output O;
+  input S;
+  input Addr_3;
+  input CI;
+  output lopt;
+  input lopt_1;
+  input lopt_2;
+  output lopt_3;
+  input lopt_4;
+  input lopt_5;
+  output lopt_6;
+  output lopt_7;
+  output lopt_8;
+  input lopt_9;
+
+  wire Addr_3;
+  wire CI;
+  wire LO;
+  wire O;
+  wire S;
+  wire \^lopt_1 ;
+  wire lopt_10;
+  wire \^lopt_2 ;
+  wire \^lopt_3 ;
+  wire \^lopt_4 ;
+  wire \^lopt_5 ;
+  wire \^lopt_6 ;
+  wire \^lopt_7 ;
+  wire \^lopt_8 ;
+  wire \^lopt_9 ;
+  wire [3:3]\NLW_Using_FPGA.Native_I1_CARRY4_CO_UNCONNECTED ;
+  wire [3:3]\NLW_Using_FPGA.Native_I1_CARRY4_DI_UNCONNECTED ;
+
+  assign \^lopt_2  = lopt_1;
+  assign \^lopt_3  = lopt_2;
+  assign \^lopt_5  = lopt_4;
+  assign \^lopt_6  = lopt_5;
+  assign lopt = \^lopt_1 ;
+  assign lopt_10 = lopt_9;
+  assign lopt_3 = \^lopt_4 ;
+  assign lopt_6 = \^lopt_7 ;
+  assign lopt_7 = \^lopt_8 ;
+  assign lopt_8 = \^lopt_9 ;
+  (* OPT_MODIFIED = "MLO" *) 
+  (* XILINX_LEGACY_PRIM = "(MUXCY,XORCY)" *) 
+  (* XILINX_TRANSFORM_PINMAP = "LO:O" *) 
+  (* box_type = "PRIMITIVE" *) 
+  CARRY4 \Using_FPGA.Native_I1_CARRY4 
+       (.CI(1'b0),
+        .CO({\NLW_Using_FPGA.Native_I1_CARRY4_CO_UNCONNECTED [3],\^lopt_4 ,\^lopt_1 ,LO}),
+        .CYINIT(CI),
+        .DI({\NLW_Using_FPGA.Native_I1_CARRY4_DI_UNCONNECTED [3],\^lopt_5 ,\^lopt_2 ,Addr_3}),
+        .O({\^lopt_9 ,\^lopt_8 ,\^lopt_7 ,O}),
+        .S({lopt_10,\^lopt_6 ,\^lopt_3 ,S}));
+endmodule
+
+(* ORIG_REF_NAME = "MB_MUXCY_XORCY" *) 
+module led_blinker_mdm_0_0_MB_MUXCY_XORCY_16
+   (LO,
+    O,
+    S,
+    Addr_3,
+    CI,
+    lopt,
+    lopt_1,
+    lopt_2,
+    lopt_3,
+    lopt_4,
+    lopt_5,
+    lopt_6,
+    lopt_7,
+    lopt_8,
+    lopt_9);
+  output LO;
+  output O;
+  input S;
+  input Addr_3;
+  input CI;
+  output lopt;
+  input lopt_1;
+  input lopt_2;
+  output lopt_3;
+  input lopt_4;
+  input lopt_5;
+  output lopt_6;
+  output lopt_7;
+  output lopt_8;
+  input lopt_9;
+
+  wire Addr_3;
+  wire CI;
+  wire LO;
+  wire O;
+  wire S;
+  wire \^lopt_1 ;
+  wire lopt_10;
+  wire \^lopt_2 ;
+  wire \^lopt_3 ;
+  wire \^lopt_4 ;
+  wire \^lopt_5 ;
+  wire \^lopt_6 ;
+  wire \^lopt_7 ;
+  wire \^lopt_8 ;
+  wire \^lopt_9 ;
+  wire [3:3]\NLW_Using_FPGA.Native_I1_CARRY4_CO_UNCONNECTED ;
+  wire [3:3]\NLW_Using_FPGA.Native_I1_CARRY4_DI_UNCONNECTED ;
+
+  assign \^lopt_2  = lopt_1;
+  assign \^lopt_3  = lopt_2;
+  assign \^lopt_5  = lopt_4;
+  assign \^lopt_6  = lopt_5;
+  assign lopt = \^lopt_1 ;
+  assign lopt_10 = lopt_9;
+  assign lopt_3 = \^lopt_4 ;
+  assign lopt_6 = \^lopt_7 ;
+  assign lopt_7 = \^lopt_8 ;
+  assign lopt_8 = \^lopt_9 ;
+  (* OPT_MODIFIED = "MLO" *) 
+  (* XILINX_LEGACY_PRIM = "(MUXCY,XORCY)" *) 
+  (* XILINX_TRANSFORM_PINMAP = "LO:O" *) 
+  (* box_type = "PRIMITIVE" *) 
+  CARRY4 \Using_FPGA.Native_I1_CARRY4 
+       (.CI(1'b0),
+        .CO({\NLW_Using_FPGA.Native_I1_CARRY4_CO_UNCONNECTED [3],\^lopt_4 ,\^lopt_1 ,LO}),
+        .CYINIT(CI),
+        .DI({\NLW_Using_FPGA.Native_I1_CARRY4_DI_UNCONNECTED [3],\^lopt_5 ,\^lopt_2 ,Addr_3}),
+        .O({\^lopt_9 ,\^lopt_8 ,\^lopt_7 ,O}),
+        .S({lopt_10,\^lopt_6 ,\^lopt_3 ,S}));
+endmodule
+
+(* ORIG_REF_NAME = "MB_MUXCY_XORCY" *) 
+module led_blinker_mdm_0_0_MB_MUXCY_XORCY_18
+   (LO,
+    O,
+    S,
+    Addr_2,
+    CI,
+    lopt,
+    lopt_1);
+  output LO;
+  output O;
+  input S;
+  input Addr_2;
+  input CI;
+  input lopt;
+  input lopt_1;
+
+  wire Addr_2;
+  wire CI;
+  wire LO;
+  wire O;
+  wire S;
+
+  assign LO = lopt;
+  assign O = lopt_1;
+endmodule
+
+(* ORIG_REF_NAME = "MB_MUXCY_XORCY" *) 
+module led_blinker_mdm_0_0_MB_MUXCY_XORCY_20
+   (LO,
+    O,
+    S,
+    Addr_1,
+    CI,
+    lopt,
+    lopt_1);
+  output LO;
+  output O;
+  input S;
+  input Addr_1;
+  input CI;
+  input lopt;
+  input lopt_1;
+
+  wire Addr_1;
+  wire CI;
+  wire LO;
+  wire O;
+  wire S;
+
+  assign LO = lopt;
+  assign O = lopt_1;
+endmodule
+
+(* ORIG_REF_NAME = "MB_MUXCY_XORCY" *) 
+module led_blinker_mdm_0_0_MB_MUXCY_XORCY_4
+   (LO,
+    O,
+    S,
+    Addr_2,
+    CI,
+    lopt,
+    lopt_1);
+  output LO;
+  output O;
+  input S;
+  input Addr_2;
+  input CI;
+  input lopt;
+  input lopt_1;
+
+  wire Addr_2;
+  wire CI;
+  wire LO;
+  wire O;
+  wire S;
+
+  assign LO = lopt;
+  assign O = lopt_1;
+endmodule
+
+(* ORIG_REF_NAME = "MB_MUXCY_XORCY" *) 
+module led_blinker_mdm_0_0_MB_MUXCY_XORCY_6
+   (LO,
+    O,
+    S,
+    Addr_1,
+    CI,
+    lopt,
+    lopt_1);
+  output LO;
+  output O;
+  input S;
+  input Addr_1;
+  input CI;
+  input lopt;
+  input lopt_1;
+
+  wire Addr_1;
+  wire CI;
+  wire LO;
+  wire O;
+  wire S;
+
+  assign LO = lopt;
+  assign O = lopt_1;
+endmodule
+
 (* ORIG_REF_NAME = "MB_SRL16E" *) 
 module led_blinker_mdm_0_0_MB_SRL16E
-   (tdo,
+   (config_TDO_1,
     \Use_unisim.MB_SRL16E_I1_0 ,
     A1,
     A2,
     A3,
-    \Use_unisim.MB_SRL16E_I1_1 ,
-    \Use_E2.BSCANE2_I ,
-    Q,
-    \Use_E2.BSCANE2_I_0 ,
-    \Use_E2.BSCANE2_I_1 ,
-    \Use_E2.BSCANE2_I_2 ,
-    \Use_E2.BSCANE2_I_3 ,
-    command,
-    Dbg_TDO_0,
-    completion_status,
-    \Use_E2.BSCANE2_I_i_4_0 ,
-    config_TDO_2);
-  output tdo;
+    \Use_unisim.MB_SRL16E_I1_1 );
+  output config_TDO_1;
   input \Use_unisim.MB_SRL16E_I1_0 ;
   input A1;
   input A2;
   input A3;
   input \Use_unisim.MB_SRL16E_I1_1 ;
-  input \Use_E2.BSCANE2_I ;
-  input [0:0]Q;
-  input \Use_E2.BSCANE2_I_0 ;
-  input \Use_E2.BSCANE2_I_1 ;
-  input \Use_E2.BSCANE2_I_2 ;
-  input \Use_E2.BSCANE2_I_3 ;
-  input [2:0]command;
-  input Dbg_TDO_0;
-  input [0:0]completion_status;
-  input \Use_E2.BSCANE2_I_i_4_0 ;
-  input config_TDO_2;
 
   wire A1;
   wire A2;
   wire A3;
-  wire Dbg_TDO_0;
-  wire [0:0]Q;
-  wire \Use_E2.BSCANE2_I ;
-  wire \Use_E2.BSCANE2_I_0 ;
-  wire \Use_E2.BSCANE2_I_1 ;
-  wire \Use_E2.BSCANE2_I_2 ;
-  wire \Use_E2.BSCANE2_I_3 ;
-  wire \Use_E2.BSCANE2_I_i_4_0 ;
-  wire \Use_E2.BSCANE2_I_i_4_n_0 ;
-  wire \Use_E2.BSCANE2_I_i_8_n_0 ;
   wire \Use_unisim.MB_SRL16E_I1_0 ;
   wire \Use_unisim.MB_SRL16E_I1_1 ;
-  wire [2:0]command;
-  wire [0:0]completion_status;
   wire config_TDO_1;
-  wire config_TDO_2;
-  wire tdo;
 
-  LUT6 #(
-    .INIT(64'hEEEEEEEAEAEAEAEA)) 
-    \Use_E2.BSCANE2_I_i_1 
-       (.I0(\Use_E2.BSCANE2_I ),
-        .I1(Q),
-        .I2(\Use_E2.BSCANE2_I_0 ),
-        .I3(\Use_E2.BSCANE2_I_i_4_n_0 ),
-        .I4(\Use_E2.BSCANE2_I_1 ),
-        .I5(\Use_E2.BSCANE2_I_2 ),
-        .O(tdo));
-  LUT5 #(
-    .INIT(32'hFEEEBAAA)) 
-    \Use_E2.BSCANE2_I_i_4 
-       (.I0(\Use_E2.BSCANE2_I_3 ),
-        .I1(command[0]),
-        .I2(command[2]),
-        .I3(\Use_E2.BSCANE2_I_i_8_n_0 ),
-        .I4(Dbg_TDO_0),
-        .O(\Use_E2.BSCANE2_I_i_4_n_0 ));
-  LUT5 #(
-    .INIT(32'hFACA0ACA)) 
-    \Use_E2.BSCANE2_I_i_8 
-       (.I0(completion_status),
-        .I1(config_TDO_1),
-        .I2(command[1]),
-        .I3(\Use_E2.BSCANE2_I_i_4_0 ),
-        .I4(config_TDO_2),
-        .O(\Use_E2.BSCANE2_I_i_8_n_0 ));
   (* box_type = "PRIMITIVE" *) 
   (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_Config_SRL16E.SRL16E_1/Use_unisim.MB_SRL16E_I1 " *) 
   SRL16E #(
@@ -4611,7 +6054,7 @@ module led_blinker_mdm_0_0_MB_SRL16E__parameterized1
   (* box_type = "PRIMITIVE" *) 
   (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_Config_SRL16E.SRL16E_2/Use_unisim.MB_SRL16E_I1 " *) 
   SRL16E #(
-    .INIT(16'h4287),
+    .INIT(16'h42A7),
     .IS_CLK_INVERTED(1'b0)) 
     \Use_unisim.MB_SRL16E_I1 
        (.A0(\Use_unisim.MB_SRL16E_I1_0 ),
@@ -4626,57 +6069,26 @@ endmodule
 
 (* ORIG_REF_NAME = "MB_SRL16E" *) 
 module led_blinker_mdm_0_0_MB_SRL16E__parameterized3
-   (\Use_BSCAN.command_reg[5] ,
+   (ID_TDO_1,
     \Use_unisim.MB_SRL16E_I1_0 ,
     A1,
     A2,
     A3,
-    \Use_unisim.MB_SRL16E_I1_1 ,
-    command,
-    \Use_E2.BSCANE2_I_i_5_0 ,
-    ID_TDO_2);
-  output \Use_BSCAN.command_reg[5] ;
+    \Use_unisim.MB_SRL16E_I1_1 );
+  output ID_TDO_1;
   input \Use_unisim.MB_SRL16E_I1_0 ;
   input A1;
   input A2;
   input A3;
   input \Use_unisim.MB_SRL16E_I1_1 ;
-  input [5:0]command;
-  input \Use_E2.BSCANE2_I_i_5_0 ;
-  input ID_TDO_2;
 
   wire A1;
   wire A2;
   wire A3;
   wire ID_TDO_1;
-  wire ID_TDO_2;
-  wire \Use_BSCAN.command_reg[5] ;
-  wire \Use_E2.BSCANE2_I_i_5_0 ;
-  wire \Use_E2.BSCANE2_I_i_9_n_0 ;
   wire \Use_unisim.MB_SRL16E_I1_0 ;
   wire \Use_unisim.MB_SRL16E_I1_1 ;
-  wire [5:0]command;
 
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFB8C8C)) 
-    \Use_E2.BSCANE2_I_i_5 
-       (.I0(command[2]),
-        .I1(command[1]),
-        .I2(command[4]),
-        .I3(command[3]),
-        .I4(command[5]),
-        .I5(\Use_E2.BSCANE2_I_i_9_n_0 ),
-        .O(\Use_BSCAN.command_reg[5] ));
-  LUT6 #(
-    .INIT(64'h0101010000000100)) 
-    \Use_E2.BSCANE2_I_i_9 
-       (.I0(command[1]),
-        .I1(command[0]),
-        .I2(command[2]),
-        .I3(ID_TDO_1),
-        .I4(\Use_E2.BSCANE2_I_i_5_0 ),
-        .I5(ID_TDO_2),
-        .O(\Use_E2.BSCANE2_I_i_9_n_0 ));
   (* box_type = "PRIMITIVE" *) 
   (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_ID_SRL16E.SRL16E_ID_1/Use_unisim.MB_SRL16E_I1 " *) 
   SRL16E #(
@@ -4695,26 +6107,94 @@ endmodule
 
 (* ORIG_REF_NAME = "MB_SRL16E" *) 
 module led_blinker_mdm_0_0_MB_SRL16E__parameterized5
-   (ID_TDO_2,
+   (tdo,
     \Use_unisim.MB_SRL16E_I1_0 ,
     A1,
     A2,
     A3,
-    \Use_unisim.MB_SRL16E_I1_1 );
-  output ID_TDO_2;
+    \Use_unisim.MB_SRL16E_I1_1 ,
+    \Use_E2.BSCANE2_I ,
+    Q,
+    \Use_E2.BSCANE2_I_0 ,
+    command,
+    \Use_E2.BSCANE2_I_1 ,
+    Dbg_TDO_0,
+    \Use_E2.BSCANE2_I_2 ,
+    \Use_E2.BSCANE2_I_3 ,
+    config_TDO_2,
+    ID_TDO_1,
+    \Use_E2.BSCANE2_I_i_5_0 ,
+    config_TDO_1);
+  output tdo;
   input \Use_unisim.MB_SRL16E_I1_0 ;
   input A1;
   input A2;
   input A3;
   input \Use_unisim.MB_SRL16E_I1_1 ;
+  input \Use_E2.BSCANE2_I ;
+  input [0:0]Q;
+  input \Use_E2.BSCANE2_I_0 ;
+  input [2:0]command;
+  input \Use_E2.BSCANE2_I_1 ;
+  input Dbg_TDO_0;
+  input \Use_E2.BSCANE2_I_2 ;
+  input \Use_E2.BSCANE2_I_3 ;
+  input config_TDO_2;
+  input ID_TDO_1;
+  input \Use_E2.BSCANE2_I_i_5_0 ;
+  input config_TDO_1;
 
   wire A1;
   wire A2;
   wire A3;
+  wire Dbg_TDO_0;
+  wire ID_TDO_1;
   wire ID_TDO_2;
+  wire [0:0]Q;
+  wire \Use_E2.BSCANE2_I ;
+  wire \Use_E2.BSCANE2_I_0 ;
+  wire \Use_E2.BSCANE2_I_1 ;
+  wire \Use_E2.BSCANE2_I_2 ;
+  wire \Use_E2.BSCANE2_I_3 ;
+  wire \Use_E2.BSCANE2_I_i_5_0 ;
+  wire \Use_E2.BSCANE2_I_i_5_n_0 ;
+  wire \Use_E2.BSCANE2_I_i_8_n_0 ;
   wire \Use_unisim.MB_SRL16E_I1_0 ;
   wire \Use_unisim.MB_SRL16E_I1_1 ;
+  wire [2:0]command;
+  wire config_TDO_1;
+  wire config_TDO_2;
+  wire tdo;
 
+  LUT6 #(
+    .INIT(64'hEAEEEAEEEAEEEAEA)) 
+    \Use_E2.BSCANE2_I_i_1 
+       (.I0(\Use_E2.BSCANE2_I ),
+        .I1(Q),
+        .I2(\Use_E2.BSCANE2_I_0 ),
+        .I3(command[2]),
+        .I4(\Use_E2.BSCANE2_I_1 ),
+        .I5(\Use_E2.BSCANE2_I_i_5_n_0 ),
+        .O(tdo));
+  LUT5 #(
+    .INIT(32'h2A2A3F00)) 
+    \Use_E2.BSCANE2_I_i_5 
+       (.I0(Dbg_TDO_0),
+        .I1(command[0]),
+        .I2(\Use_E2.BSCANE2_I_2 ),
+        .I3(\Use_E2.BSCANE2_I_i_8_n_0 ),
+        .I4(\Use_E2.BSCANE2_I_3 ),
+        .O(\Use_E2.BSCANE2_I_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'hCACAFFF0CACA0F00)) 
+    \Use_E2.BSCANE2_I_i_8 
+       (.I0(ID_TDO_2),
+        .I1(config_TDO_2),
+        .I2(command[1]),
+        .I3(ID_TDO_1),
+        .I4(\Use_E2.BSCANE2_I_i_5_0 ),
+        .I5(config_TDO_1),
+        .O(\Use_E2.BSCANE2_I_i_8_n_0 ));
   (* box_type = "PRIMITIVE" *) 
   (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_ID_SRL16E.SRL16E_ID_2/Use_unisim.MB_SRL16E_I1 " *) 
   SRL16E #(
@@ -4731,6 +6211,852 @@ module led_blinker_mdm_0_0_MB_SRL16E__parameterized5
         .Q(ID_TDO_2));
 endmodule
 
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7
+   (\Use_unisim.MB_SRL16E_I1_0 ,
+    CI,
+    S_AXI_WDATA,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK,
+    \Use_UART.tdo_reg_reg[0] );
+  output \Use_unisim.MB_SRL16E_I1_0 ;
+  input CI;
+  input [0:0]S_AXI_WDATA;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+  input \Use_UART.tdo_reg_reg[0] ;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [0:0]Data_Out;
+  wire S_AXI_ACLK;
+  wire [0:0]S_AXI_WDATA;
+  wire \Use_UART.tdo_reg_reg[0] ;
+  wire \Use_unisim.MB_SRL16E_I1_0 ;
+
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Use_UART.tdo_reg[0]_i_2 
+       (.I0(\Use_UART.tdo_reg_reg[0] ),
+        .I1(Data_Out),
+        .O(\Use_unisim.MB_SRL16E_I1_0 ));
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM[0].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(S_AXI_WDATA),
+        .Q(Data_Out));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_10
+   (\Use_unisim.MB_SRL16E_I1_0 ,
+    CI,
+    S_AXI_WDATA,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK,
+    \Use_UART.tdo_reg_reg[3] ,
+    \Use_UART.tdo_reg_reg[3]_0 ,
+    \Use_UART.tdo_reg );
+  output \Use_unisim.MB_SRL16E_I1_0 ;
+  input CI;
+  input [0:0]S_AXI_WDATA;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+  input \Use_UART.tdo_reg_reg[3] ;
+  input \Use_UART.tdo_reg_reg[3]_0 ;
+  input [0:0]\Use_UART.tdo_reg ;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [3:3]Data_Out;
+  wire S_AXI_ACLK;
+  wire [0:0]S_AXI_WDATA;
+  wire [0:0]\Use_UART.tdo_reg ;
+  wire \Use_UART.tdo_reg_reg[3] ;
+  wire \Use_UART.tdo_reg_reg[3]_0 ;
+  wire \Use_unisim.MB_SRL16E_I1_0 ;
+
+  LUT4 #(
+    .INIT(16'h8F88)) 
+    \Use_UART.tdo_reg[3]_i_1 
+       (.I0(Data_Out),
+        .I1(\Use_UART.tdo_reg_reg[3] ),
+        .I2(\Use_UART.tdo_reg_reg[3]_0 ),
+        .I3(\Use_UART.tdo_reg ),
+        .O(\Use_unisim.MB_SRL16E_I1_0 ));
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM[3].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(S_AXI_WDATA),
+        .Q(Data_Out));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_11
+   (\Use_unisim.MB_SRL16E_I1_0 ,
+    CI,
+    S_AXI_WDATA,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK);
+  output [0:0]\Use_unisim.MB_SRL16E_I1_0 ;
+  input CI;
+  input [0:0]S_AXI_WDATA;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire S_AXI_ACLK;
+  wire [0:0]S_AXI_WDATA;
+  wire [0:0]\Use_unisim.MB_SRL16E_I1_0 ;
+
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM[4].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(S_AXI_WDATA),
+        .Q(\Use_unisim.MB_SRL16E_I1_0 ));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_12
+   (\Use_unisim.MB_SRL16E_I1_0 ,
+    CI,
+    S_AXI_WDATA,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK);
+  output [0:0]\Use_unisim.MB_SRL16E_I1_0 ;
+  input CI;
+  input [0:0]S_AXI_WDATA;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire S_AXI_ACLK;
+  wire [0:0]S_AXI_WDATA;
+  wire [0:0]\Use_unisim.MB_SRL16E_I1_0 ;
+
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM[5].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(S_AXI_WDATA),
+        .Q(\Use_unisim.MB_SRL16E_I1_0 ));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_13
+   (Data_Out,
+    CI,
+    S_AXI_WDATA,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK);
+  output [0:0]Data_Out;
+  input CI;
+  input [0:0]S_AXI_WDATA;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [0:0]Data_Out;
+  wire S_AXI_ACLK;
+  wire [0:0]S_AXI_WDATA;
+
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM[6].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(S_AXI_WDATA),
+        .Q(Data_Out));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_14
+   (\Use_UART.tdo_reg_reg[6] ,
+    CI,
+    S_AXI_WDATA,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK,
+    \Use_UART.tdo_reg ,
+    \Use_UART.tdo_reg_reg[7] ,
+    \Use_UART.tdo_reg_reg[7]_0 ,
+    \Use_UART.tdo_reg_reg[7]_1 ,
+    \Use_UART.tdo_reg_reg[7]_2 );
+  output \Use_UART.tdo_reg_reg[6] ;
+  input CI;
+  input [0:0]S_AXI_WDATA;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+  input [0:0]\Use_UART.tdo_reg ;
+  input \Use_UART.tdo_reg_reg[7] ;
+  input \Use_UART.tdo_reg_reg[7]_0 ;
+  input \Use_UART.tdo_reg_reg[7]_1 ;
+  input \Use_UART.tdo_reg_reg[7]_2 ;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [7:7]Data_Out;
+  wire S_AXI_ACLK;
+  wire [0:0]S_AXI_WDATA;
+  wire [0:0]\Use_UART.tdo_reg ;
+  wire \Use_UART.tdo_reg_reg[6] ;
+  wire \Use_UART.tdo_reg_reg[7] ;
+  wire \Use_UART.tdo_reg_reg[7]_0 ;
+  wire \Use_UART.tdo_reg_reg[7]_1 ;
+  wire \Use_UART.tdo_reg_reg[7]_2 ;
+
+  LUT6 #(
+    .INIT(64'hFFFFF222F222F222)) 
+    \Use_UART.tdo_reg[7]_i_1 
+       (.I0(\Use_UART.tdo_reg ),
+        .I1(\Use_UART.tdo_reg_reg[7] ),
+        .I2(\Use_UART.tdo_reg_reg[7]_0 ),
+        .I3(\Use_UART.tdo_reg_reg[7]_1 ),
+        .I4(Data_Out),
+        .I5(\Use_UART.tdo_reg_reg[7]_2 ),
+        .O(\Use_UART.tdo_reg_reg[6] ));
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM[7].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(S_AXI_WDATA),
+        .Q(Data_Out));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_23
+   (RX_Data,
+    CI,
+    \Use_UART.fifo_Din ,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK);
+  output [0:0]RX_Data;
+  input CI;
+  input [0:0]\Use_UART.fifo_Din ;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [0:0]RX_Data;
+  wire S_AXI_ACLK;
+  wire [0:0]\Use_UART.fifo_Din ;
+
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM[0].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(\Use_UART.fifo_Din ),
+        .Q(RX_Data));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_24
+   (RX_Data,
+    CI,
+    \Use_UART.fifo_Din ,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK);
+  output [0:0]RX_Data;
+  input CI;
+  input [0:0]\Use_UART.fifo_Din ;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [0:0]RX_Data;
+  wire S_AXI_ACLK;
+  wire [0:0]\Use_UART.fifo_Din ;
+
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM[1].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(\Use_UART.fifo_Din ),
+        .Q(RX_Data));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_25
+   (RX_Data,
+    CI,
+    \Use_UART.fifo_Din ,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK);
+  output [0:0]RX_Data;
+  input CI;
+  input [0:0]\Use_UART.fifo_Din ;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [0:0]RX_Data;
+  wire S_AXI_ACLK;
+  wire [0:0]\Use_UART.fifo_Din ;
+
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM[2].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(\Use_UART.fifo_Din ),
+        .Q(RX_Data));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_26
+   (RX_Data,
+    CI,
+    \Use_UART.fifo_Din ,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK);
+  output [0:0]RX_Data;
+  input CI;
+  input [0:0]\Use_UART.fifo_Din ;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [0:0]RX_Data;
+  wire S_AXI_ACLK;
+  wire [0:0]\Use_UART.fifo_Din ;
+
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM[3].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(\Use_UART.fifo_Din ),
+        .Q(RX_Data));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_27
+   (RX_Data,
+    CI,
+    \Use_UART.fifo_Din ,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK);
+  output [0:0]RX_Data;
+  input CI;
+  input [0:0]\Use_UART.fifo_Din ;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [0:0]RX_Data;
+  wire S_AXI_ACLK;
+  wire [0:0]\Use_UART.fifo_Din ;
+
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM[4].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(\Use_UART.fifo_Din ),
+        .Q(RX_Data));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_28
+   (RX_Data,
+    CI,
+    \Use_UART.fifo_Din ,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK);
+  output [0:0]RX_Data;
+  input CI;
+  input [0:0]\Use_UART.fifo_Din ;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [0:0]RX_Data;
+  wire S_AXI_ACLK;
+  wire [0:0]\Use_UART.fifo_Din ;
+
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM[5].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(\Use_UART.fifo_Din ),
+        .Q(RX_Data));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_29
+   (RX_Data,
+    CI,
+    \Use_UART.fifo_Din ,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK);
+  output [0:0]RX_Data;
+  input CI;
+  input [0:0]\Use_UART.fifo_Din ;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [0:0]RX_Data;
+  wire S_AXI_ACLK;
+  wire [0:0]\Use_UART.fifo_Din ;
+
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM[6].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(\Use_UART.fifo_Din ),
+        .Q(RX_Data));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_30
+   (RX_Data,
+    CI,
+    \Use_UART.fifo_Din ,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK);
+  output [0:0]RX_Data;
+  input CI;
+  input [0:0]\Use_UART.fifo_Din ;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [0:0]RX_Data;
+  wire S_AXI_ACLK;
+  wire [0:0]\Use_UART.fifo_Din ;
+
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.RX_FIFO_I/FIFO_RAM[7].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(\Use_UART.fifo_Din ),
+        .Q(RX_Data));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_8
+   (\Use_unisim.MB_SRL16E_I1_0 ,
+    CI,
+    S_AXI_WDATA,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK,
+    \Use_UART.tdo_reg_reg[1] ,
+    \Use_UART.tdo_reg_reg[1]_0 ,
+    \Use_UART.tdo_reg );
+  output \Use_unisim.MB_SRL16E_I1_0 ;
+  input CI;
+  input [0:0]S_AXI_WDATA;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+  input \Use_UART.tdo_reg_reg[1] ;
+  input \Use_UART.tdo_reg_reg[1]_0 ;
+  input [0:0]\Use_UART.tdo_reg ;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [1:1]Data_Out;
+  wire S_AXI_ACLK;
+  wire [0:0]S_AXI_WDATA;
+  wire [0:0]\Use_UART.tdo_reg ;
+  wire \Use_UART.tdo_reg_reg[1] ;
+  wire \Use_UART.tdo_reg_reg[1]_0 ;
+  wire \Use_unisim.MB_SRL16E_I1_0 ;
+
+  LUT4 #(
+    .INIT(16'h8F88)) 
+    \Use_UART.tdo_reg[1]_i_1 
+       (.I0(Data_Out),
+        .I1(\Use_UART.tdo_reg_reg[1] ),
+        .I2(\Use_UART.tdo_reg_reg[1]_0 ),
+        .I3(\Use_UART.tdo_reg ),
+        .O(\Use_unisim.MB_SRL16E_I1_0 ));
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM[1].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(S_AXI_WDATA),
+        .Q(Data_Out));
+endmodule
+
+(* ORIG_REF_NAME = "MB_SRL16E" *) 
+module led_blinker_mdm_0_0_MB_SRL16E__parameterized7_9
+   (\Use_unisim.MB_SRL16E_I1_0 ,
+    CI,
+    S_AXI_WDATA,
+    Addr_3,
+    Addr_2,
+    Addr_1,
+    Addr_0,
+    S_AXI_ACLK,
+    \Use_UART.tdo_reg_reg[2] ,
+    \Use_UART.tdo_reg_reg[2]_0 ,
+    \Use_UART.tdo_reg );
+  output \Use_unisim.MB_SRL16E_I1_0 ;
+  input CI;
+  input [0:0]S_AXI_WDATA;
+  input Addr_3;
+  input Addr_2;
+  input Addr_1;
+  input Addr_0;
+  input S_AXI_ACLK;
+  input \Use_UART.tdo_reg_reg[2] ;
+  input \Use_UART.tdo_reg_reg[2]_0 ;
+  input [0:0]\Use_UART.tdo_reg ;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire CI;
+  wire [2:2]Data_Out;
+  wire S_AXI_ACLK;
+  wire [0:0]S_AXI_WDATA;
+  wire [0:0]\Use_UART.tdo_reg ;
+  wire \Use_UART.tdo_reg_reg[2] ;
+  wire \Use_UART.tdo_reg_reg[2]_0 ;
+  wire \Use_unisim.MB_SRL16E_I1_0 ;
+
+  LUT4 #(
+    .INIT(16'h8F88)) 
+    \Use_UART.tdo_reg[2]_i_1 
+       (.I0(Data_Out),
+        .I1(\Use_UART.tdo_reg_reg[2] ),
+        .I2(\Use_UART.tdo_reg_reg[2]_0 ),
+        .I3(\Use_UART.tdo_reg ),
+        .O(\Use_unisim.MB_SRL16E_I1_0 ));
+  (* box_type = "PRIMITIVE" *) 
+  (* srl_bus_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM " *) 
+  (* srl_name = "U0/\\MDM_Core_I1/JTAG_CONTROL_I/Use_UART.TX_FIFO_I/FIFO_RAM[2].D16.SRL16E_I/Use_unisim.MB_SRL16E_I1 " *) 
+  SRL16E #(
+    .INIT(16'h0000),
+    .IS_CLK_INVERTED(1'b0)) 
+    \Use_unisim.MB_SRL16E_I1 
+       (.A0(Addr_3),
+        .A1(Addr_2),
+        .A2(Addr_1),
+        .A3(Addr_0),
+        .CE(CI),
+        .CLK(S_AXI_ACLK),
+        .D(S_AXI_WDATA),
+        .Q(Data_Out));
+endmodule
+
+(* ORIG_REF_NAME = "MB_XORCY" *) 
+module led_blinker_mdm_0_0_MB_XORCY
+   (sum_A_0,
+    LI,
+    LO,
+    lopt);
+  output sum_A_0;
+  input LI;
+  input LO;
+  input lopt;
+
+  wire LI;
+  wire LO;
+  wire sum_A_0;
+
+  assign sum_A_0 = lopt;
+endmodule
+
+(* ORIG_REF_NAME = "MB_XORCY" *) 
+module led_blinker_mdm_0_0_MB_XORCY_22
+   (sum_A_0,
+    LI,
+    LO,
+    lopt);
+  output sum_A_0;
+  input LI;
+  input LO;
+  input lopt;
+
+  wire LI;
+  wire LO;
+  wire sum_A_0;
+
+  assign sum_A_0 = lopt;
+endmodule
+
 (* C_ADDR_SIZE = "32" *) (* C_AVOID_PRIMITIVES = "0" *) (* C_BSCANID = "76547328" *) 
 (* C_DATA_SIZE = "32" *) (* C_DBG_MEM_ACCESS = "0" *) (* C_DBG_REG_ACCESS = "0" *) 
 (* C_DEBUG_INTERFACE = "0" *) (* C_DEVICE = "xc7a200t" *) (* C_EXT_TRIG_RESET_VALUE = "20'b11110001001000110100" *) 
@@ -4741,7 +7067,7 @@ endmodule
 (* C_S_AXI_DATA_WIDTH = "32" *) (* C_TRACE_ASYNC_RESET = "0" *) (* C_TRACE_CLK_FREQ_HZ = "200000000" *) 
 (* C_TRACE_CLK_OUT_PHASE = "90" *) (* C_TRACE_DATA_WIDTH = "32" *) (* C_TRACE_ID = "110" *) 
 (* C_TRACE_OUTPUT = "0" *) (* C_TRACE_PROTOCOL = "1" *) (* C_USE_BSCAN = "0" *) 
-(* C_USE_CONFIG_RESET = "0" *) (* C_USE_CROSS_TRIGGER = "0" *) (* C_USE_UART = "0" *) 
+(* C_USE_CONFIG_RESET = "0" *) (* C_USE_CROSS_TRIGGER = "0" *) (* C_USE_UART = "1" *) 
 (* ORIG_REF_NAME = "MDM" *) (* bscan_debug_core = "FALSE" *) (* dont_touch = "false" *) 
 module led_blinker_mdm_0_0_MDM
    (Config_Reset,
@@ -7791,27 +10117,61 @@ module led_blinker_mdm_0_0_MDM
   wire [0:7]Dbg_Reg_En_0;
   wire Dbg_Rst_0;
   wire Dbg_Shift_0;
+  wire Dbg_TDI_0;
   wire Dbg_TDO_0;
   wire Dbg_Update_0;
   wire Debug_SYS_Rst;
-  wire Ext_JTAG_TDI;
   wire Functional_Reset;
+  wire \I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg ;
+  wire \I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
+  wire \I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
+  wire Interrupt;
+  wire \JTAG_CONTROL_I/FIFO_Write ;
   wire \JTAG_CONTROL_I/Use_Serial_Unified_Completion.Data_Read_Status.count ;
   wire \JTAG_CONTROL_I/Use_Serial_Unified_Completion.mb_data_overrun1__0 ;
-  wire \JTAG_CONTROL_I/completion_status130_out ;
+  wire \JTAG_CONTROL_I/Use_UART.fifo_Data_Present ;
+  wire \JTAG_CONTROL_I/completion_status136_out ;
+  wire \JTAG_CONTROL_I/p_0_in43_in ;
   wire MDM_Core_I1_n_0;
-  wire MDM_Core_I1_n_16;
+  wire MDM_Core_I1_n_30;
+  wire RX_Buffer_Full;
+  wire [0:7]RX_Data;
   wire SEL;
+  wire S_AXI_ACLK;
+  wire [3:0]S_AXI_ARADDR;
+  wire S_AXI_ARESETN;
+  wire S_AXI_ARREADY;
+  wire S_AXI_ARVALID;
+  wire [3:0]S_AXI_AWADDR;
+  wire S_AXI_AWVALID;
+  wire S_AXI_BREADY;
+  wire [1:1]\^S_AXI_BRESP ;
+  wire S_AXI_BVALID;
+  wire [7:0]\^S_AXI_RDATA ;
+  wire S_AXI_RREADY;
+  wire [1:1]\^S_AXI_RRESP ;
+  wire S_AXI_RVALID;
+  wire [31:0]S_AXI_WDATA;
+  wire S_AXI_WREADY;
+  wire S_AXI_WVALID;
   wire TDI;
-  wire \Use_E2.BSCAN_I_n_10 ;
+  wire \Use_AXI_IPIF.AXI_LITE_IPIF_I_n_11 ;
+  wire \Use_AXI_IPIF.AXI_LITE_IPIF_I_n_12 ;
+  wire \Use_AXI_IPIF.AXI_LITE_IPIF_I_n_13 ;
   wire \Use_E2.BSCAN_I_n_11 ;
   wire \Use_E2.BSCAN_I_n_12 ;
+  wire \Use_E2.BSCAN_I_n_13 ;
   wire \Use_E2.BSCAN_I_n_3 ;
   wire \Use_E2.BSCAN_I_n_7 ;
   wire \Use_E2.BSCAN_I_n_8 ;
+  wire \Use_E2.BSCAN_I_n_9 ;
   wire [5:5]\Use_Serial_Unified_Completion.Data_Read_Status.count ;
-  wire [15:15]p_1_in;
+  wire [3:3]bus2ip_rdce;
+  wire [2:2]bus2ip_wrce;
+  wire enable_interrupts;
+  wire rx_Data_Present;
   wire tdo;
+  wire tx_Buffer_Full;
 
   assign Dbg_ARADDR_0[14] = \<const0> ;
   assign Dbg_ARADDR_0[13] = \<const0> ;
@@ -9176,38 +11536,37 @@ module led_blinker_mdm_0_0_MDM
   assign Dbg_Shift_7 = \<const0> ;
   assign Dbg_Shift_8 = \<const0> ;
   assign Dbg_Shift_9 = \<const0> ;
-  assign Dbg_TDI_0 = Ext_JTAG_TDI;
-  assign Dbg_TDI_1 = Ext_JTAG_TDI;
-  assign Dbg_TDI_10 = Ext_JTAG_TDI;
-  assign Dbg_TDI_11 = Ext_JTAG_TDI;
-  assign Dbg_TDI_12 = Ext_JTAG_TDI;
-  assign Dbg_TDI_13 = Ext_JTAG_TDI;
-  assign Dbg_TDI_14 = Ext_JTAG_TDI;
-  assign Dbg_TDI_15 = Ext_JTAG_TDI;
-  assign Dbg_TDI_16 = Ext_JTAG_TDI;
-  assign Dbg_TDI_17 = Ext_JTAG_TDI;
-  assign Dbg_TDI_18 = Ext_JTAG_TDI;
-  assign Dbg_TDI_19 = Ext_JTAG_TDI;
-  assign Dbg_TDI_2 = Ext_JTAG_TDI;
-  assign Dbg_TDI_20 = Ext_JTAG_TDI;
-  assign Dbg_TDI_21 = Ext_JTAG_TDI;
-  assign Dbg_TDI_22 = Ext_JTAG_TDI;
-  assign Dbg_TDI_23 = Ext_JTAG_TDI;
-  assign Dbg_TDI_24 = Ext_JTAG_TDI;
-  assign Dbg_TDI_25 = Ext_JTAG_TDI;
-  assign Dbg_TDI_26 = Ext_JTAG_TDI;
-  assign Dbg_TDI_27 = Ext_JTAG_TDI;
-  assign Dbg_TDI_28 = Ext_JTAG_TDI;
-  assign Dbg_TDI_29 = Ext_JTAG_TDI;
-  assign Dbg_TDI_3 = Ext_JTAG_TDI;
-  assign Dbg_TDI_30 = Ext_JTAG_TDI;
-  assign Dbg_TDI_31 = Ext_JTAG_TDI;
-  assign Dbg_TDI_4 = Ext_JTAG_TDI;
-  assign Dbg_TDI_5 = Ext_JTAG_TDI;
-  assign Dbg_TDI_6 = Ext_JTAG_TDI;
-  assign Dbg_TDI_7 = Ext_JTAG_TDI;
-  assign Dbg_TDI_8 = Ext_JTAG_TDI;
-  assign Dbg_TDI_9 = Ext_JTAG_TDI;
+  assign Dbg_TDI_1 = Dbg_TDI_0;
+  assign Dbg_TDI_10 = Dbg_TDI_0;
+  assign Dbg_TDI_11 = Dbg_TDI_0;
+  assign Dbg_TDI_12 = Dbg_TDI_0;
+  assign Dbg_TDI_13 = Dbg_TDI_0;
+  assign Dbg_TDI_14 = Dbg_TDI_0;
+  assign Dbg_TDI_15 = Dbg_TDI_0;
+  assign Dbg_TDI_16 = Dbg_TDI_0;
+  assign Dbg_TDI_17 = Dbg_TDI_0;
+  assign Dbg_TDI_18 = Dbg_TDI_0;
+  assign Dbg_TDI_19 = Dbg_TDI_0;
+  assign Dbg_TDI_2 = Dbg_TDI_0;
+  assign Dbg_TDI_20 = Dbg_TDI_0;
+  assign Dbg_TDI_21 = Dbg_TDI_0;
+  assign Dbg_TDI_22 = Dbg_TDI_0;
+  assign Dbg_TDI_23 = Dbg_TDI_0;
+  assign Dbg_TDI_24 = Dbg_TDI_0;
+  assign Dbg_TDI_25 = Dbg_TDI_0;
+  assign Dbg_TDI_26 = Dbg_TDI_0;
+  assign Dbg_TDI_27 = Dbg_TDI_0;
+  assign Dbg_TDI_28 = Dbg_TDI_0;
+  assign Dbg_TDI_29 = Dbg_TDI_0;
+  assign Dbg_TDI_3 = Dbg_TDI_0;
+  assign Dbg_TDI_30 = Dbg_TDI_0;
+  assign Dbg_TDI_31 = Dbg_TDI_0;
+  assign Dbg_TDI_4 = Dbg_TDI_0;
+  assign Dbg_TDI_5 = Dbg_TDI_0;
+  assign Dbg_TDI_6 = Dbg_TDI_0;
+  assign Dbg_TDI_7 = Dbg_TDI_0;
+  assign Dbg_TDI_8 = Dbg_TDI_0;
+  assign Dbg_TDI_9 = Dbg_TDI_0;
   assign Dbg_TrClk_0 = \<const0> ;
   assign Dbg_TrClk_1 = \<const0> ;
   assign Dbg_TrClk_10 = \<const0> ;
@@ -10877,9 +13236,9 @@ module led_blinker_mdm_0_0_MDM
   assign Ext_JTAG_RESET = \<const0> ;
   assign Ext_JTAG_SEL = \<const0> ;
   assign Ext_JTAG_SHIFT = \<const0> ;
+  assign Ext_JTAG_TDI = Dbg_TDI_0;
   assign Ext_JTAG_UPDATE = \<const0> ;
   assign Ext_NM_BRK = \<const0> ;
-  assign Interrupt = \<const0> ;
   assign LMB_Addr_Strobe_0 = \<const0> ;
   assign LMB_Addr_Strobe_1 = \<const0> ;
   assign LMB_Addr_Strobe_10 = \<const0> ;
@@ -13350,11 +15709,9 @@ module led_blinker_mdm_0_0_MDM
   assign M_AXI_WSTRB[1] = \<const0> ;
   assign M_AXI_WSTRB[0] = \<const0> ;
   assign M_AXI_WVALID = \<const0> ;
-  assign S_AXI_ARREADY = \<const0> ;
-  assign S_AXI_AWREADY = \<const0> ;
-  assign S_AXI_BRESP[1] = \<const0> ;
+  assign S_AXI_AWREADY = S_AXI_WREADY;
+  assign S_AXI_BRESP[1] = \^S_AXI_BRESP [1];
   assign S_AXI_BRESP[0] = \<const0> ;
-  assign S_AXI_BVALID = \<const0> ;
   assign S_AXI_RDATA[31] = \<const0> ;
   assign S_AXI_RDATA[30] = \<const0> ;
   assign S_AXI_RDATA[29] = \<const0> ;
@@ -13379,18 +15736,9 @@ module led_blinker_mdm_0_0_MDM
   assign S_AXI_RDATA[10] = \<const0> ;
   assign S_AXI_RDATA[9] = \<const0> ;
   assign S_AXI_RDATA[8] = \<const0> ;
-  assign S_AXI_RDATA[7] = \<const0> ;
-  assign S_AXI_RDATA[6] = \<const0> ;
-  assign S_AXI_RDATA[5] = \<const0> ;
-  assign S_AXI_RDATA[4] = \<const0> ;
-  assign S_AXI_RDATA[3] = \<const0> ;
-  assign S_AXI_RDATA[2] = \<const0> ;
-  assign S_AXI_RDATA[1] = \<const0> ;
-  assign S_AXI_RDATA[0] = \<const0> ;
-  assign S_AXI_RRESP[1] = \<const0> ;
+  assign S_AXI_RDATA[7:0] = \^S_AXI_RDATA [7:0];
+  assign S_AXI_RRESP[1] = \^S_AXI_RRESP [1];
   assign S_AXI_RRESP[0] = \<const0> ;
-  assign S_AXI_RVALID = \<const0> ;
-  assign S_AXI_WREADY = \<const0> ;
   assign TRACE_CLK_OUT = \<const0> ;
   assign TRACE_CTL = \<const0> ;
   assign TRACE_DATA[31] = \<const0> ;
@@ -13438,39 +15786,90 @@ module led_blinker_mdm_0_0_MDM
        (.G(\<const0> ));
   led_blinker_mdm_0_0_MDM_Core MDM_Core_I1
        (.AR(Functional_Reset),
+        .Bus_RNW_reg(\I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg ),
         .CLK(Dbg_Update_0),
         .Dbg_Disable_0(Dbg_Disable_0),
         .Dbg_Reg_En_0(Dbg_Reg_En_0),
         .Dbg_Rst_0(Dbg_Rst_0),
-        .Dbg_Shift_0(Dbg_Shift_0),
-        .Dbg_Shift_0_0(\Use_E2.BSCAN_I_n_3 ),
+        .Dbg_TDI_0(Dbg_TDI_0),
         .Dbg_TDO_0(Dbg_TDO_0),
         .Debug_SYS_Rst(Debug_SYS_Rst),
-        .Ext_JTAG_TDI(Ext_JTAG_TDI),
+        .FIFO_Write(\JTAG_CONTROL_I/FIFO_Write ),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg (\I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
+        .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg (\I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
+        .Interrupt(Interrupt),
+        .RX_Buffer_Full(RX_Buffer_Full),
+        .RX_Data(RX_Data),
         .SEL(SEL),
-        .\Use_BSCAN.Config_Reg_reg[30]_0 (\Use_E2.BSCAN_I_n_8 ),
-        .\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[15] (MDM_Core_I1_n_16),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_WDATA(S_AXI_WDATA[7:0]),
+        .\Use_BSCAN.Config_Reg_reg[30]_0 (\Use_E2.BSCAN_I_n_9 ),
+        .\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[15] (MDM_Core_I1_n_30),
         .\Use_Serial_Unified_Completion.Data_Read_Status.count (\JTAG_CONTROL_I/Use_Serial_Unified_Completion.Data_Read_Status.count ),
         .\Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5] (\Use_Serial_Unified_Completion.Data_Read_Status.count ),
         .\Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5]_0 (\Use_E2.BSCAN_I_n_11 ),
         .\Use_Serial_Unified_Completion.completion_status_reg[10] (\Use_E2.BSCAN_I_n_7 ),
-        .\Use_Serial_Unified_Completion.completion_status_reg[15] (p_1_in),
+        .\Use_Serial_Unified_Completion.completion_status_reg[15] (\Use_E2.BSCAN_I_n_13 ),
         .\Use_Serial_Unified_Completion.mb_data_overrun1__0 (\JTAG_CONTROL_I/Use_Serial_Unified_Completion.mb_data_overrun1__0 ),
-        .\Use_Serial_Unified_Completion.mb_instr_overrun_reg (\Use_E2.BSCAN_I_n_10 ),
+        .\Use_UART.fifo_Data_Present (\JTAG_CONTROL_I/Use_UART.fifo_Data_Present ),
+        .\Use_UART.fifo_Din_reg[7] (\Use_E2.BSCAN_I_n_3 ),
+        .\Use_UART.tdo_reg_reg[7] (\Use_E2.BSCAN_I_n_8 ),
+        .\Use_Uart.enable_interrupts_reg_0 (\Use_AXI_IPIF.AXI_LITE_IPIF_I_n_11 ),
+        .\Use_Uart.reset_RX_FIFO_i_reg_0 (\Use_AXI_IPIF.AXI_LITE_IPIF_I_n_12 ),
+        .\Use_Uart.reset_TX_FIFO_i_reg_0 (\Use_AXI_IPIF.AXI_LITE_IPIF_I_n_13 ),
         .\Use_unisim.MB_SRL16E_I1 (Dbg_Clk_0),
-        .completion_status130_out(\JTAG_CONTROL_I/completion_status130_out ),
+        .\Using_FPGA.Native (Dbg_Shift_0),
+        .bus2ip_rdce(bus2ip_rdce),
+        .bus2ip_wrce(bus2ip_wrce),
+        .completion_status136_out(\JTAG_CONTROL_I/completion_status136_out ),
+        .enable_interrupts(enable_interrupts),
+        .out(\JTAG_CONTROL_I/p_0_in43_in ),
+        .rx_Data_Present(rx_Data_Present),
         .sel_n_reg(Dbg_Capture_0),
         .\shift_Count_reg[0] (MDM_Core_I1_n_0),
         .\shift_Count_reg[0]_0 (\Use_E2.BSCAN_I_n_12 ),
-        .tdo(tdo));
+        .tdo(tdo),
+        .tx_Buffer_Full(tx_Buffer_Full));
   led_blinker_mdm_0_0_MB_BUFG \No_Dbg_Reg_Access.BUFG_DRCK 
        (.DRCK(DRCK),
         .Dbg_Clk_0(Dbg_Clk_0));
+  led_blinker_mdm_0_0_axi_lite_ipif \Use_AXI_IPIF.AXI_LITE_IPIF_I 
+       (.Bus_RNW_reg(\I_SLAVE_ATTACHMENT/I_DECODER/Bus_RNW_reg ),
+        .FIFO_Write(\JTAG_CONTROL_I/FIFO_Write ),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg (\I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
+        .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg (\I_SLAVE_ATTACHMENT/I_DECODER/GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
+        .\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] (S_AXI_WREADY),
+        .\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] (S_AXI_ARREADY),
+        .RX_Buffer_Full(RX_Buffer_Full),
+        .RX_Data(RX_Data),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_ARADDR(S_AXI_ARADDR[3:2]),
+        .S_AXI_ARESETN(S_AXI_ARESETN),
+        .S_AXI_ARVALID(S_AXI_ARVALID),
+        .S_AXI_AWADDR(S_AXI_AWADDR[3:2]),
+        .S_AXI_AWVALID(S_AXI_AWVALID),
+        .S_AXI_BREADY(S_AXI_BREADY),
+        .S_AXI_BRESP(\^S_AXI_BRESP ),
+        .S_AXI_BVALID(S_AXI_BVALID),
+        .S_AXI_RDATA(\^S_AXI_RDATA ),
+        .S_AXI_RREADY(S_AXI_RREADY),
+        .S_AXI_RRESP(\^S_AXI_RRESP ),
+        .S_AXI_RVALID(S_AXI_RVALID),
+        .S_AXI_WDATA({S_AXI_WDATA[4],S_AXI_WDATA[1:0]}),
+        .S_AXI_WDATA_0_sp_1(\Use_AXI_IPIF.AXI_LITE_IPIF_I_n_13 ),
+        .S_AXI_WDATA_1_sp_1(\Use_AXI_IPIF.AXI_LITE_IPIF_I_n_12 ),
+        .S_AXI_WVALID(S_AXI_WVALID),
+        .\Use_UART.fifo_Data_Present (\JTAG_CONTROL_I/Use_UART.fifo_Data_Present ),
+        .\Use_Uart.enable_interrupts_reg (\Use_AXI_IPIF.AXI_LITE_IPIF_I_n_11 ),
+        .bus2ip_rdce(bus2ip_rdce),
+        .bus2ip_wrce(bus2ip_wrce),
+        .enable_interrupts(enable_interrupts),
+        .out(\JTAG_CONTROL_I/p_0_in43_in ),
+        .rx_Data_Present(rx_Data_Present),
+        .tx_Buffer_Full(tx_Buffer_Full));
   led_blinker_mdm_0_0_MB_BSCANE2 \Use_E2.BSCAN_I 
        (.AR(Functional_Reset),
         .DRCK(DRCK),
-        .Dbg_TDO_0(Dbg_TDO_0),
-        .Dbg_TDO_0_0(\Use_E2.BSCAN_I_n_10 ),
         .Dbg_Update_0(Dbg_Update_0),
         .I0(TDI),
         .SEL(SEL),
@@ -13478,87 +15877,134 @@ module led_blinker_mdm_0_0_MDM
         .\Use_E2.BSCANE2_I_1 (\Use_E2.BSCAN_I_n_3 ),
         .\Use_E2.BSCANE2_I_2 (\Use_E2.BSCAN_I_n_7 ),
         .\Use_E2.BSCANE2_I_3 (\Use_E2.BSCAN_I_n_8 ),
-        .\Use_E2.BSCANE2_I_4 (\Use_E2.BSCAN_I_n_11 ),
-        .\Use_E2.BSCANE2_I_5 (\Use_E2.BSCAN_I_n_12 ),
-        .\Use_E2.BSCANE2_I_6 (p_1_in),
+        .\Use_E2.BSCANE2_I_4 (\Use_E2.BSCAN_I_n_9 ),
+        .\Use_E2.BSCANE2_I_5 (\Use_E2.BSCAN_I_n_11 ),
+        .\Use_E2.BSCANE2_I_6 (\Use_E2.BSCAN_I_n_12 ),
+        .\Use_E2.BSCANE2_I_7 (\Use_E2.BSCAN_I_n_13 ),
         .\Use_Serial_Unified_Completion.Data_Read_Status.count (\JTAG_CONTROL_I/Use_Serial_Unified_Completion.Data_Read_Status.count ),
         .\Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5] (\Use_Serial_Unified_Completion.Data_Read_Status.count ),
-        .\Use_Serial_Unified_Completion.completion_status_reg[15] (MDM_Core_I1_n_16),
+        .\Use_Serial_Unified_Completion.completion_status_reg[15] (MDM_Core_I1_n_30),
         .\Use_Serial_Unified_Completion.mb_data_overrun1__0 (\JTAG_CONTROL_I/Use_Serial_Unified_Completion.mb_data_overrun1__0 ),
-        .completion_status130_out(\JTAG_CONTROL_I/completion_status130_out ),
+        .completion_status136_out(\JTAG_CONTROL_I/completion_status136_out ),
         .\shift_Count_reg[0] (MDM_Core_I1_n_0),
         .tdo(tdo));
   led_blinker_mdm_0_0_MB_LUT1 \Use_E2.LUT1_I 
-       (.Ext_JTAG_TDI(Ext_JTAG_TDI),
+       (.Dbg_TDI_0(Dbg_TDI_0),
         .I0(TDI));
 endmodule
 
 (* ORIG_REF_NAME = "MDM_Core" *) 
 module led_blinker_mdm_0_0_MDM_Core
    (\shift_Count_reg[0] ,
+    rx_Data_Present,
+    RX_Data,
+    \Use_UART.fifo_Data_Present ,
+    out,
     Debug_SYS_Rst,
     Dbg_Rst_0,
+    enable_interrupts,
     Dbg_Disable_0,
     Dbg_Reg_En_0,
-    completion_status130_out,
     \Use_Serial_Unified_Completion.mb_data_overrun1__0 ,
-    Dbg_Shift_0,
+    completion_status136_out,
+    \Using_FPGA.Native ,
     tdo,
+    tx_Buffer_Full,
+    RX_Buffer_Full,
     \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[15] ,
     \Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5] ,
+    Interrupt,
+    bus2ip_wrce,
+    S_AXI_ACLK,
     CLK,
     \Use_unisim.MB_SRL16E_I1 ,
+    S_AXI_WDATA,
     sel_n_reg,
+    \Use_Uart.reset_RX_FIFO_i_reg_0 ,
+    \Use_Uart.reset_TX_FIFO_i_reg_0 ,
+    \Use_Uart.enable_interrupts_reg_0 ,
     \Use_BSCAN.Config_Reg_reg[30]_0 ,
-    Dbg_Shift_0_0,
+    \Use_UART.fifo_Din_reg[7] ,
     SEL,
-    \Use_Serial_Unified_Completion.completion_status_reg[15] ,
     Dbg_TDO_0,
-    \Use_Serial_Unified_Completion.mb_instr_overrun_reg ,
-    Ext_JTAG_TDI,
+    FIFO_Write,
+    Bus_RNW_reg,
+    \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ,
+    bus2ip_rdce,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ,
+    Dbg_TDI_0,
     \Use_Serial_Unified_Completion.Data_Read_Status.count ,
     \Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5]_0 ,
     \shift_Count_reg[0]_0 ,
+    \Use_UART.tdo_reg_reg[7] ,
     \Use_Serial_Unified_Completion.completion_status_reg[10] ,
+    \Use_Serial_Unified_Completion.completion_status_reg[15] ,
     AR);
   output \shift_Count_reg[0] ;
+  output rx_Data_Present;
+  output [0:7]RX_Data;
+  output \Use_UART.fifo_Data_Present ;
+  output out;
   output Debug_SYS_Rst;
   output Dbg_Rst_0;
+  output enable_interrupts;
   output Dbg_Disable_0;
   output [0:7]Dbg_Reg_En_0;
-  output completion_status130_out;
   output \Use_Serial_Unified_Completion.mb_data_overrun1__0 ;
-  output Dbg_Shift_0;
+  output completion_status136_out;
+  output \Using_FPGA.Native ;
   output tdo;
+  output tx_Buffer_Full;
+  output RX_Buffer_Full;
   output \Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[15] ;
   output [0:0]\Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5] ;
+  output Interrupt;
+  input [0:0]bus2ip_wrce;
+  input S_AXI_ACLK;
   input CLK;
   input \Use_unisim.MB_SRL16E_I1 ;
+  input [7:0]S_AXI_WDATA;
   input sel_n_reg;
+  input \Use_Uart.reset_RX_FIFO_i_reg_0 ;
+  input \Use_Uart.reset_TX_FIFO_i_reg_0 ;
+  input \Use_Uart.enable_interrupts_reg_0 ;
   input \Use_BSCAN.Config_Reg_reg[30]_0 ;
-  input Dbg_Shift_0_0;
+  input \Use_UART.fifo_Din_reg[7] ;
   input SEL;
-  input [0:0]\Use_Serial_Unified_Completion.completion_status_reg[15] ;
   input Dbg_TDO_0;
-  input \Use_Serial_Unified_Completion.mb_instr_overrun_reg ;
-  input Ext_JTAG_TDI;
+  input FIFO_Write;
+  input Bus_RNW_reg;
+  input \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
+  input [0:0]bus2ip_rdce;
+  input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
+  input Dbg_TDI_0;
   input \Use_Serial_Unified_Completion.Data_Read_Status.count ;
   input \Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5]_0 ;
   input \shift_Count_reg[0]_0 ;
+  input \Use_UART.tdo_reg_reg[7] ;
   input \Use_Serial_Unified_Completion.completion_status_reg[10] ;
+  input \Use_Serial_Unified_Completion.completion_status_reg[15] ;
   input [0:0]AR;
 
   wire [0:0]AR;
+  wire Bus_RNW_reg;
   wire CLK;
   wire Dbg_Disable_0;
   wire [0:7]Dbg_Reg_En_0;
   wire Dbg_Rst_0;
-  wire Dbg_Shift_0;
-  wire Dbg_Shift_0_0;
+  wire Dbg_TDI_0;
   wire Dbg_TDO_0;
   wire Debug_SYS_Rst;
-  wire Ext_JTAG_TDI;
+  wire FIFO_Write;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
+  wire \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
+  wire Interrupt;
+  wire Q;
+  wire RX_Buffer_Full;
+  wire [0:7]RX_Data;
   wire SEL;
+  wire S_AXI_ACLK;
+  wire [7:0]S_AXI_WDATA;
   wire [0:0]\Use_BSCAN.Config_Reg ;
   wire \Use_BSCAN.Config_Reg_reg[11]_MDM_Core_I1_Use_BSCAN.Config_Reg_reg_c_12_n_0 ;
   wire \Use_BSCAN.Config_Reg_reg[12]_srl13_MDM_Core_I1_Use_BSCAN.Config_Reg_reg_c_11_n_0 ;
@@ -13603,28 +16049,50 @@ module led_blinker_mdm_0_0_MDM_Core
   wire [0:0]\Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5] ;
   wire \Use_Serial_Unified_Completion.Data_Read_Status.count_reg[5]_0 ;
   wire \Use_Serial_Unified_Completion.completion_status_reg[10] ;
-  wire [0:0]\Use_Serial_Unified_Completion.completion_status_reg[15] ;
+  wire \Use_Serial_Unified_Completion.completion_status_reg[15] ;
   wire \Use_Serial_Unified_Completion.mb_data_overrun1__0 ;
-  wire \Use_Serial_Unified_Completion.mb_instr_overrun_reg ;
+  wire \Use_UART.fifo_Data_Present ;
+  wire \Use_UART.fifo_Din_reg[7] ;
+  wire \Use_UART.tdo_reg_reg[7] ;
+  wire \Use_Uart.enable_interrupts_reg_0 ;
+  wire \Use_Uart.reset_RX_FIFO_i_reg_0 ;
+  wire \Use_Uart.reset_RX_FIFO_i_reg_n_0 ;
+  wire \Use_Uart.reset_TX_FIFO_i_reg_0 ;
+  wire \Use_Uart.reset_TX_FIFO_i_reg_n_0 ;
   wire \Use_unisim.MB_SRL16E_I1 ;
-  wire completion_status130_out;
+  wire \Using_FPGA.Native ;
+  wire [0:0]bus2ip_rdce;
+  wire [0:0]bus2ip_wrce;
+  wire completion_status136_out;
+  wire enable_interrupts;
+  wire out;
+  wire rx_Data_Present;
   wire sel_n_reg;
   wire \shift_Count_reg[0] ;
   wire \shift_Count_reg[0]_0 ;
   wire tdo;
+  wire tx_Buffer_Empty;
+  wire tx_Buffer_Full;
 
   led_blinker_mdm_0_0_JTAG_CONTROL JTAG_CONTROL_I
-       (.CLK(CLK),
+       (.Bus_RNW_reg(Bus_RNW_reg),
+        .CLK(CLK),
         .Dbg_Reg_En_0(Dbg_Reg_En_0),
         .Dbg_Rst_0(Dbg_Rst_0),
-        .Dbg_Shift_0(Dbg_Shift_0),
-        .Dbg_Shift_0_0(Dbg_Shift_0_0),
+        .Dbg_TDI_0(Dbg_TDI_0),
         .Dbg_TDO_0(Dbg_TDO_0),
         .Debug_SYS_Rst(Debug_SYS_Rst),
-        .Ext_JTAG_TDI(Ext_JTAG_TDI),
+        .FIFO_Write(FIFO_Write),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
+        .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
+        .Interrupt(Interrupt),
+        .Interrupt_0(Q),
         .Q(\Use_BSCAN.PORT_Selector ),
+        .RX_Buffer_Full(RX_Buffer_Full),
+        .RX_Data(RX_Data),
         .SEL(SEL),
-        .\Use_BSCAN.command_reg[6]_0 (completion_status130_out),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_WDATA(S_AXI_WDATA),
         .\Use_E2.BSCANE2_I (\Use_E2.BSCANE2_I_i_2_n_0 ),
         .\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[15]_0 (\Use_Serial_Unified_Completion.Completion_Status_Register.sample_1_reg[15] ),
         .\Use_Serial_Unified_Completion.Data_Read_Status.count (\Use_Serial_Unified_Completion.Data_Read_Status.count ),
@@ -13633,12 +16101,24 @@ module led_blinker_mdm_0_0_MDM_Core
         .\Use_Serial_Unified_Completion.completion_status_reg[10]_0 (\Use_Serial_Unified_Completion.completion_status_reg[10] ),
         .\Use_Serial_Unified_Completion.completion_status_reg[15]_0 (\Use_Serial_Unified_Completion.completion_status_reg[15] ),
         .\Use_Serial_Unified_Completion.mb_data_overrun1__0 (\Use_Serial_Unified_Completion.mb_data_overrun1__0 ),
-        .\Use_Serial_Unified_Completion.mb_instr_overrun_reg_0 (\Use_Serial_Unified_Completion.mb_instr_overrun_reg ),
+        .\Use_UART.fifo_Din_reg[7]_0 (\Use_UART.fifo_Din_reg[7] ),
+        .\Use_UART.tdo_reg_reg[7]_0 (\Use_UART.tdo_reg_reg[7] ),
         .\Use_unisim.MB_SRL16E_I1 (\Use_unisim.MB_SRL16E_I1 ),
+        .\Using_FPGA.Native (completion_status136_out),
+        .\Using_FPGA.Native_0 (\Using_FPGA.Native ),
+        .\Using_FPGA.Native_1 (\Use_Uart.reset_RX_FIFO_i_reg_n_0 ),
+        .\Using_FPGA.Native_2 (\Use_Uart.reset_TX_FIFO_i_reg_n_0 ),
+        .bus2ip_rdce(bus2ip_rdce),
+        .data_Exists_I_reg(rx_Data_Present),
+        .data_Exists_I_reg_0(\Use_UART.fifo_Data_Present ),
+        .enable_interrupts(enable_interrupts),
+        .out(out),
         .sel_n_reg_0(sel_n_reg),
         .\shift_Count_reg[0]_0 (\shift_Count_reg[0] ),
         .\shift_Count_reg[0]_1 (\shift_Count_reg[0]_0 ),
-        .tdo(tdo));
+        .tdo(tdo),
+        .tx_Buffer_Empty(tx_Buffer_Empty),
+        .tx_Buffer_Full(tx_Buffer_Full));
   (* SHREG_EXTRACT = "YES" *) 
   FDCE #(
     .INIT(1'b0)) 
@@ -13955,7 +16435,7 @@ module led_blinker_mdm_0_0_MDM_Core
         .I2(\Use_BSCAN.PORT_Selector [1]),
         .I3(\Use_BSCAN.PORT_Selector [0]),
         .I4(SEL),
-        .I5(Dbg_Shift_0_0),
+        .I5(\Use_UART.fifo_Din_reg[7] ),
         .O(\Use_BSCAN.TDI_Shifter0 ));
   FDCE #(
     .INIT(1'b0)) 
@@ -13987,7 +16467,7 @@ module led_blinker_mdm_0_0_MDM_Core
        (.C(\Use_unisim.MB_SRL16E_I1 ),
         .CE(\Use_BSCAN.TDI_Shifter0 ),
         .CLR(AR),
-        .D(Ext_JTAG_TDI),
+        .D(Dbg_TDI_0),
         .Q(\Use_BSCAN.TDI_Shifter [3]));
   FDRE #(
     .INIT(1'b1)) 
@@ -14006,6 +16486,1590 @@ module led_blinker_mdm_0_0_MDM_Core
         .I3(\Use_BSCAN.PORT_Selector [3]),
         .I4(\Use_BSCAN.PORT_Selector [2]),
         .O(\Use_E2.BSCANE2_I_i_2_n_0 ));
+  led_blinker_mdm_0_0_MB_FDRE \Use_Uart.TX_Buffer_Empty_FDRE 
+       (.S_AXI_ACLK(S_AXI_ACLK),
+        .\Using_FPGA.Native_0 (Q),
+        .bus2ip_wrce(bus2ip_wrce),
+        .tx_Buffer_Empty(tx_Buffer_Empty));
+  FDRE \Use_Uart.enable_interrupts_reg 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Use_Uart.enable_interrupts_reg_0 ),
+        .Q(enable_interrupts),
+        .R(1'b0));
+  FDRE \Use_Uart.reset_RX_FIFO_i_reg 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Use_Uart.reset_RX_FIFO_i_reg_0 ),
+        .Q(\Use_Uart.reset_RX_FIFO_i_reg_n_0 ),
+        .R(1'b0));
+  FDRE \Use_Uart.reset_TX_FIFO_i_reg 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Use_Uart.reset_TX_FIFO_i_reg_0 ),
+        .Q(\Use_Uart.reset_TX_FIFO_i_reg_n_0 ),
+        .R(1'b0));
+endmodule
+
+(* ORIG_REF_NAME = "SRL_FIFO" *) 
+module led_blinker_mdm_0_0_SRL_FIFO
+   (data_Exists_I_reg_0,
+    RX_Data,
+    \Use_UART.tdo_reg_reg[4] ,
+    \Use_UART.tdo_reg_reg[3] ,
+    RX_Buffer_Full,
+    \Using_FPGA.Native ,
+    S_AXI_ACLK,
+    \Use_UART.fifo_Din ,
+    \Use_UART.tdo_reg ,
+    \Use_UART.tdo_reg_reg[4]_0 ,
+    \Use_UART.tdo_reg_reg[4]_1 ,
+    Data_Out,
+    \Use_UART.tdo_reg_reg[4]_2 ,
+    \Using_FPGA.Native_0 ,
+    bus2ip_rdce,
+    Bus_RNW_reg,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg );
+  output data_Exists_I_reg_0;
+  output [0:7]RX_Data;
+  output \Use_UART.tdo_reg_reg[4] ;
+  output \Use_UART.tdo_reg_reg[3] ;
+  output RX_Buffer_Full;
+  input \Using_FPGA.Native ;
+  input S_AXI_ACLK;
+  input [0:7]\Use_UART.fifo_Din ;
+  input [1:0]\Use_UART.tdo_reg ;
+  input \Use_UART.tdo_reg_reg[4]_0 ;
+  input \Use_UART.tdo_reg_reg[4]_1 ;
+  input [1:0]Data_Out;
+  input \Use_UART.tdo_reg_reg[4]_2 ;
+  input \Using_FPGA.Native_0 ;
+  input [0:0]bus2ip_rdce;
+  input Bus_RNW_reg;
+  input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire \Addr_Counters[2].FDRE_I_n_5 ;
+  wire Bus_RNW_reg;
+  wire CI;
+  wire [1:0]Data_Out;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
+  wire LI;
+  wire RX_Buffer_Full;
+  wire [0:7]RX_Data;
+  wire S;
+  wire S3_out;
+  wire S4_out;
+  wire S_AXI_ACLK;
+  wire [0:7]\Use_UART.fifo_Din ;
+  wire [1:0]\Use_UART.tdo_reg ;
+  wire \Use_UART.tdo_reg_reg[3] ;
+  wire \Use_UART.tdo_reg_reg[4] ;
+  wire \Use_UART.tdo_reg_reg[4]_0 ;
+  wire \Use_UART.tdo_reg_reg[4]_1 ;
+  wire \Use_UART.tdo_reg_reg[4]_2 ;
+  wire \Using_FPGA.Native ;
+  wire \Using_FPGA.Native_0 ;
+  wire addr_cy_0;
+  wire addr_cy_1;
+  wire addr_cy_2;
+  wire [0:0]bus2ip_rdce;
+  wire data_Exists_I_reg_0;
+  wire lopt;
+  wire lopt_1;
+  wire lopt_2;
+  wire lopt_3;
+  wire lopt_4;
+  wire sum_A_0;
+  wire sum_A_1;
+  wire sum_A_2;
+  wire sum_A_3;
+
+  led_blinker_mdm_0_0_MB_FDRE_15 \Addr_Counters[0].FDRE_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .O(sum_A_3),
+        .S(S),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Using_FPGA.Native_0 (\Using_FPGA.Native ),
+        .\Using_FPGA.Native_1 (data_Exists_I_reg_0),
+        .\Using_FPGA.Native_I1 (\Using_FPGA.Native_0 ),
+        .bus2ip_rdce(bus2ip_rdce));
+  led_blinker_mdm_0_0_MB_MUXCY_XORCY_16 \Addr_Counters[0].Used_MuxCY.MUXCY_L_I 
+       (.Addr_3(Addr_3),
+        .CI(CI),
+        .LO(addr_cy_2),
+        .O(sum_A_3),
+        .S(S),
+        .lopt(lopt),
+        .lopt_1(Addr_2),
+        .lopt_2(S4_out),
+        .lopt_3(lopt_1),
+        .lopt_4(Addr_1),
+        .lopt_5(S3_out),
+        .lopt_6(lopt_2),
+        .lopt_7(lopt_3),
+        .lopt_8(lopt_4),
+        .lopt_9(LI));
+  led_blinker_mdm_0_0_MB_FDRE_17 \Addr_Counters[1].FDRE_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .O(sum_A_2),
+        .S(S4_out),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Using_FPGA.Native_0 (\Using_FPGA.Native ),
+        .\Using_FPGA.Native_1 (data_Exists_I_reg_0),
+        .\Using_FPGA.Native_I1 (\Using_FPGA.Native_0 ),
+        .bus2ip_rdce(bus2ip_rdce));
+  led_blinker_mdm_0_0_MB_MUXCY_XORCY_18 \Addr_Counters[1].Used_MuxCY.MUXCY_L_I 
+       (.Addr_2(Addr_2),
+        .CI(addr_cy_2),
+        .LO(addr_cy_1),
+        .O(sum_A_2),
+        .S(S4_out),
+        .lopt(lopt),
+        .lopt_1(lopt_2));
+  led_blinker_mdm_0_0_MB_FDRE_19 \Addr_Counters[2].FDRE_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .Bus_RNW_reg(Bus_RNW_reg),
+        .CI(CI),
+        .Data_Out(Data_Out[1]),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
+        .O(sum_A_1),
+        .RX_Buffer_Full(RX_Buffer_Full),
+        .S(S3_out),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Use_UART.tdo_reg (\Use_UART.tdo_reg [1]),
+        .\Use_UART.tdo_reg_reg[3] (\Use_UART.tdo_reg_reg[3] ),
+        .\Use_UART.tdo_reg_reg[4] (\Use_UART.tdo_reg_reg[4]_0 ),
+        .\Use_UART.tdo_reg_reg[4]_0 (\Use_UART.tdo_reg_reg[4]_1 ),
+        .\Use_UART.tdo_reg_reg[4]_1 (\Use_UART.tdo_reg_reg[4]_2 ),
+        .\Using_FPGA.Native_0 (\Using_FPGA.Native ),
+        .\Using_FPGA.Native_1 (data_Exists_I_reg_0),
+        .bus2ip_rdce(bus2ip_rdce),
+        .data_Exists_I_reg(\Addr_Counters[2].FDRE_I_n_5 ),
+        .data_Exists_I_reg_0(\Using_FPGA.Native_0 ));
+  led_blinker_mdm_0_0_MB_MUXCY_XORCY_20 \Addr_Counters[2].Used_MuxCY.MUXCY_L_I 
+       (.Addr_1(Addr_1),
+        .CI(addr_cy_1),
+        .LO(addr_cy_0),
+        .O(sum_A_1),
+        .S(S3_out),
+        .lopt(lopt_1),
+        .lopt_1(lopt_3));
+  led_blinker_mdm_0_0_MB_FDRE_21 \Addr_Counters[3].FDRE_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .LI(LI),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Using_FPGA.Native_0 (\Using_FPGA.Native ),
+        .\Using_FPGA.Native_1 (data_Exists_I_reg_0),
+        .\Using_FPGA.Native_2 (\Using_FPGA.Native_0 ),
+        .bus2ip_rdce(bus2ip_rdce),
+        .sum_A_0(sum_A_0));
+  led_blinker_mdm_0_0_MB_XORCY_22 \Addr_Counters[3].No_MuxCY.XORCY_I 
+       (.LI(LI),
+        .LO(addr_cy_0),
+        .lopt(lopt_4),
+        .sum_A_0(sum_A_0));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_23 \FIFO_RAM[0].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .RX_Data(RX_Data[0]),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Use_UART.fifo_Din (\Use_UART.fifo_Din [0]));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_24 \FIFO_RAM[1].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .RX_Data(RX_Data[1]),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Use_UART.fifo_Din (\Use_UART.fifo_Din [1]));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_25 \FIFO_RAM[2].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .RX_Data(RX_Data[2]),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Use_UART.fifo_Din (\Use_UART.fifo_Din [2]));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_26 \FIFO_RAM[3].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .RX_Data(RX_Data[3]),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Use_UART.fifo_Din (\Use_UART.fifo_Din [3]));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_27 \FIFO_RAM[4].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .RX_Data(RX_Data[4]),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Use_UART.fifo_Din (\Use_UART.fifo_Din [4]));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_28 \FIFO_RAM[5].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .RX_Data(RX_Data[5]),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Use_UART.fifo_Din (\Use_UART.fifo_Din [5]));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_29 \FIFO_RAM[6].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .RX_Data(RX_Data[6]),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Use_UART.fifo_Din (\Use_UART.fifo_Din [6]));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_30 \FIFO_RAM[7].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .RX_Data(RX_Data[7]),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Use_UART.fifo_Din (\Use_UART.fifo_Din [7]));
+  LUT6 #(
+    .INIT(64'hFFFF22F222F222F2)) 
+    \Use_UART.tdo_reg[5]_i_1 
+       (.I0(\Use_UART.tdo_reg [0]),
+        .I1(\Use_UART.tdo_reg_reg[4]_0 ),
+        .I2(\Use_UART.tdo_reg_reg[4]_1 ),
+        .I3(data_Exists_I_reg_0),
+        .I4(Data_Out[0]),
+        .I5(\Use_UART.tdo_reg_reg[4]_2 ),
+        .O(\Use_UART.tdo_reg_reg[4] ));
+  FDRE #(
+    .INIT(1'b0)) 
+    data_Exists_I_reg
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Addr_Counters[2].FDRE_I_n_5 ),
+        .Q(data_Exists_I_reg_0),
+        .R(1'b0));
+endmodule
+
+(* ORIG_REF_NAME = "SRL_FIFO" *) 
+module led_blinker_mdm_0_0_SRL_FIFO_0
+   (data_Exists_I_reg_0,
+    \Use_unisim.MB_SRL16E_I1 ,
+    \Use_UART.tdo_reg_reg[6] ,
+    \Use_UART.tdo_reg_reg[5] ,
+    tx_Buffer_Full,
+    \Use_unisim.MB_SRL16E_I1_0 ,
+    \Use_unisim.MB_SRL16E_I1_1 ,
+    \Use_unisim.MB_SRL16E_I1_2 ,
+    \Use_unisim.MB_SRL16E_I1_3 ,
+    tx_Buffer_Empty,
+    Interrupt,
+    \Using_FPGA.Native ,
+    S_AXI_ACLK,
+    S_AXI_WDATA,
+    \Use_UART.tdo_reg ,
+    \Use_UART.tdo_reg_reg[7] ,
+    \Use_UART.tdo_reg_reg[7]_0 ,
+    \Use_UART.tdo_reg_reg[7]_1 ,
+    FIFO_Write,
+    \Using_FPGA.Native_0 ,
+    Bus_RNW_reg,
+    \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ,
+    out,
+    Interrupt_0,
+    Interrupt_1,
+    enable_interrupts);
+  output data_Exists_I_reg_0;
+  output [1:0]\Use_unisim.MB_SRL16E_I1 ;
+  output \Use_UART.tdo_reg_reg[6] ;
+  output \Use_UART.tdo_reg_reg[5] ;
+  output tx_Buffer_Full;
+  output \Use_unisim.MB_SRL16E_I1_0 ;
+  output \Use_unisim.MB_SRL16E_I1_1 ;
+  output \Use_unisim.MB_SRL16E_I1_2 ;
+  output \Use_unisim.MB_SRL16E_I1_3 ;
+  output tx_Buffer_Empty;
+  output Interrupt;
+  input \Using_FPGA.Native ;
+  input S_AXI_ACLK;
+  input [7:0]S_AXI_WDATA;
+  input [4:0]\Use_UART.tdo_reg ;
+  input \Use_UART.tdo_reg_reg[7] ;
+  input \Use_UART.tdo_reg_reg[7]_0 ;
+  input \Use_UART.tdo_reg_reg[7]_1 ;
+  input FIFO_Write;
+  input \Using_FPGA.Native_0 ;
+  input Bus_RNW_reg;
+  input \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
+  input out;
+  input Interrupt_0;
+  input Interrupt_1;
+  input enable_interrupts;
+
+  wire Addr_0;
+  wire Addr_1;
+  wire Addr_2;
+  wire Addr_3;
+  wire \Addr_Counters[2].FDRE_I_n_5 ;
+  wire Bus_RNW_reg;
+  wire CI;
+  wire [6:6]Data_Out;
+  wire FIFO_Write;
+  wire \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
+  wire Interrupt;
+  wire Interrupt_0;
+  wire Interrupt_1;
+  wire LI;
+  wire S;
+  wire S3_out;
+  wire S4_out;
+  wire S_AXI_ACLK;
+  wire [7:0]S_AXI_WDATA;
+  wire [4:0]\Use_UART.tdo_reg ;
+  wire \Use_UART.tdo_reg_reg[5] ;
+  wire \Use_UART.tdo_reg_reg[6] ;
+  wire \Use_UART.tdo_reg_reg[7] ;
+  wire \Use_UART.tdo_reg_reg[7]_0 ;
+  wire \Use_UART.tdo_reg_reg[7]_1 ;
+  wire [1:0]\Use_unisim.MB_SRL16E_I1 ;
+  wire \Use_unisim.MB_SRL16E_I1_0 ;
+  wire \Use_unisim.MB_SRL16E_I1_1 ;
+  wire \Use_unisim.MB_SRL16E_I1_2 ;
+  wire \Use_unisim.MB_SRL16E_I1_3 ;
+  wire \Using_FPGA.Native ;
+  wire \Using_FPGA.Native_0 ;
+  wire addr_cy_0;
+  wire addr_cy_1;
+  wire addr_cy_2;
+  wire data_Exists_I_reg_0;
+  wire enable_interrupts;
+  wire lopt;
+  wire lopt_1;
+  wire lopt_2;
+  wire lopt_3;
+  wire lopt_4;
+  wire out;
+  wire sum_A_0;
+  wire sum_A_1;
+  wire sum_A_2;
+  wire sum_A_3;
+  wire tx_Buffer_Empty;
+  wire tx_Buffer_Full;
+
+  led_blinker_mdm_0_0_MB_FDRE_2 \Addr_Counters[0].FDRE_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .FIFO_Write(FIFO_Write),
+        .O(sum_A_3),
+        .S(S),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Using_FPGA.Native_0 (\Using_FPGA.Native ),
+        .\Using_FPGA.Native_1 (data_Exists_I_reg_0),
+        .\Using_FPGA.Native_I1 (\Using_FPGA.Native_0 ));
+  led_blinker_mdm_0_0_MB_MUXCY_XORCY \Addr_Counters[0].Used_MuxCY.MUXCY_L_I 
+       (.Addr_3(Addr_3),
+        .CI(CI),
+        .LO(addr_cy_2),
+        .O(sum_A_3),
+        .S(S),
+        .lopt(lopt),
+        .lopt_1(Addr_2),
+        .lopt_2(S4_out),
+        .lopt_3(lopt_1),
+        .lopt_4(Addr_1),
+        .lopt_5(S3_out),
+        .lopt_6(lopt_2),
+        .lopt_7(lopt_3),
+        .lopt_8(lopt_4),
+        .lopt_9(LI));
+  led_blinker_mdm_0_0_MB_FDRE_3 \Addr_Counters[1].FDRE_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .FIFO_Write(FIFO_Write),
+        .O(sum_A_2),
+        .S(S4_out),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Using_FPGA.Native_0 (\Using_FPGA.Native ),
+        .\Using_FPGA.Native_1 (data_Exists_I_reg_0),
+        .\Using_FPGA.Native_I1 (\Using_FPGA.Native_0 ));
+  led_blinker_mdm_0_0_MB_MUXCY_XORCY_4 \Addr_Counters[1].Used_MuxCY.MUXCY_L_I 
+       (.Addr_2(Addr_2),
+        .CI(addr_cy_2),
+        .LO(addr_cy_1),
+        .O(sum_A_2),
+        .S(S4_out),
+        .lopt(lopt),
+        .lopt_1(lopt_2));
+  led_blinker_mdm_0_0_MB_FDRE_5 \Addr_Counters[2].FDRE_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .Bus_RNW_reg(Bus_RNW_reg),
+        .CI(CI),
+        .Data_Out(Data_Out),
+        .FIFO_Write(FIFO_Write),
+        .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
+        .O(sum_A_1),
+        .S(S3_out),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Use_UART.tdo_reg (\Use_UART.tdo_reg [1]),
+        .\Use_UART.tdo_reg_reg[5] (\Use_UART.tdo_reg_reg[5] ),
+        .\Use_UART.tdo_reg_reg[6] (\Use_UART.tdo_reg_reg[7] ),
+        .\Use_UART.tdo_reg_reg[6]_0 (\Use_UART.tdo_reg_reg[7]_0 ),
+        .\Use_UART.tdo_reg_reg[6]_1 (\Use_UART.tdo_reg_reg[7]_1 ),
+        .\Using_FPGA.Native_0 (\Using_FPGA.Native ),
+        .\Using_FPGA.Native_1 (data_Exists_I_reg_0),
+        .data_Exists_I_reg(\Addr_Counters[2].FDRE_I_n_5 ),
+        .data_Exists_I_reg_0(\Using_FPGA.Native_0 ),
+        .out(out),
+        .tx_Buffer_Full(tx_Buffer_Full));
+  led_blinker_mdm_0_0_MB_MUXCY_XORCY_6 \Addr_Counters[2].Used_MuxCY.MUXCY_L_I 
+       (.Addr_1(Addr_1),
+        .CI(addr_cy_1),
+        .LO(addr_cy_0),
+        .O(sum_A_1),
+        .S(S3_out),
+        .lopt(lopt_1),
+        .lopt_1(lopt_3));
+  led_blinker_mdm_0_0_MB_FDRE_7 \Addr_Counters[3].FDRE_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .FIFO_Write(FIFO_Write),
+        .LI(LI),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .\Using_FPGA.Native_0 (\Using_FPGA.Native ),
+        .\Using_FPGA.Native_1 (data_Exists_I_reg_0),
+        .\Using_FPGA.Native_2 (\Using_FPGA.Native_0 ),
+        .sum_A_0(sum_A_0));
+  led_blinker_mdm_0_0_MB_XORCY \Addr_Counters[3].No_MuxCY.XORCY_I 
+       (.LI(LI),
+        .LO(addr_cy_0),
+        .lopt(lopt_4),
+        .sum_A_0(sum_A_0));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7 \FIFO_RAM[0].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_WDATA(S_AXI_WDATA[7]),
+        .\Use_UART.tdo_reg_reg[0] (\Use_UART.tdo_reg_reg[7]_1 ),
+        .\Use_unisim.MB_SRL16E_I1_0 (\Use_unisim.MB_SRL16E_I1_3 ));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_8 \FIFO_RAM[1].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_WDATA(S_AXI_WDATA[6]),
+        .\Use_UART.tdo_reg (\Use_UART.tdo_reg [4]),
+        .\Use_UART.tdo_reg_reg[1] (\Use_UART.tdo_reg_reg[7]_1 ),
+        .\Use_UART.tdo_reg_reg[1]_0 (\Use_UART.tdo_reg_reg[7] ),
+        .\Use_unisim.MB_SRL16E_I1_0 (\Use_unisim.MB_SRL16E_I1_2 ));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_9 \FIFO_RAM[2].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_WDATA(S_AXI_WDATA[5]),
+        .\Use_UART.tdo_reg (\Use_UART.tdo_reg [3]),
+        .\Use_UART.tdo_reg_reg[2] (\Use_UART.tdo_reg_reg[7]_1 ),
+        .\Use_UART.tdo_reg_reg[2]_0 (\Use_UART.tdo_reg_reg[7] ),
+        .\Use_unisim.MB_SRL16E_I1_0 (\Use_unisim.MB_SRL16E_I1_1 ));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_10 \FIFO_RAM[3].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_WDATA(S_AXI_WDATA[4]),
+        .\Use_UART.tdo_reg (\Use_UART.tdo_reg [2]),
+        .\Use_UART.tdo_reg_reg[3] (\Use_UART.tdo_reg_reg[7]_1 ),
+        .\Use_UART.tdo_reg_reg[3]_0 (\Use_UART.tdo_reg_reg[7] ),
+        .\Use_unisim.MB_SRL16E_I1_0 (\Use_unisim.MB_SRL16E_I1_0 ));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_11 \FIFO_RAM[4].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_WDATA(S_AXI_WDATA[3]),
+        .\Use_unisim.MB_SRL16E_I1_0 (\Use_unisim.MB_SRL16E_I1 [1]));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_12 \FIFO_RAM[5].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_WDATA(S_AXI_WDATA[2]),
+        .\Use_unisim.MB_SRL16E_I1_0 (\Use_unisim.MB_SRL16E_I1 [0]));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_13 \FIFO_RAM[6].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .Data_Out(Data_Out),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_WDATA(S_AXI_WDATA[1]));
+  led_blinker_mdm_0_0_MB_SRL16E__parameterized7_14 \FIFO_RAM[7].D16.SRL16E_I 
+       (.Addr_0(Addr_0),
+        .Addr_1(Addr_1),
+        .Addr_2(Addr_2),
+        .Addr_3(Addr_3),
+        .CI(CI),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_WDATA(S_AXI_WDATA[0]),
+        .\Use_UART.tdo_reg (\Use_UART.tdo_reg [0]),
+        .\Use_UART.tdo_reg_reg[6] (\Use_UART.tdo_reg_reg[6] ),
+        .\Use_UART.tdo_reg_reg[7] (\Use_UART.tdo_reg_reg[7] ),
+        .\Use_UART.tdo_reg_reg[7]_0 (\Use_UART.tdo_reg_reg[7]_0 ),
+        .\Use_UART.tdo_reg_reg[7]_1 (data_Exists_I_reg_0),
+        .\Use_UART.tdo_reg_reg[7]_2 (\Use_UART.tdo_reg_reg[7]_1 ));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT4 #(
+    .INIT(16'hF100)) 
+    Interrupt_INST_0
+       (.I0(Interrupt_0),
+        .I1(data_Exists_I_reg_0),
+        .I2(Interrupt_1),
+        .I3(enable_interrupts),
+        .O(Interrupt));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  LUT1 #(
+    .INIT(2'h1)) 
+    \Using_FPGA.Native_i_2__0 
+       (.I0(data_Exists_I_reg_0),
+        .O(tx_Buffer_Empty));
+  FDRE #(
+    .INIT(1'b0)) 
+    data_Exists_I_reg
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\Addr_Counters[2].FDRE_I_n_5 ),
+        .Q(data_Exists_I_reg_0),
+        .R(1'b0));
+endmodule
+
+(* ORIG_REF_NAME = "address_decoder" *) 
+module led_blinker_mdm_0_0_address_decoder
+   (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 ,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ,
+    Bus_RNW_reg_reg_0,
+    D,
+    \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3]_0 ,
+    \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 ,
+    FIFO_Write,
+    ip2bus_error,
+    bus2ip_wrce,
+    \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 ,
+    bus2ip_rdce,
+    \Use_Uart.enable_interrupts_reg ,
+    \FSM_onehot_state_reg[3] ,
+    \FSM_onehot_state_reg[2] ,
+    S_AXI_WDATA_1_sp_1,
+    S_AXI_WDATA_0_sp_1,
+    start2,
+    S_AXI_ACLK,
+    Q,
+    state1__2,
+    S_AXI_AWVALID,
+    S_AXI_WVALID,
+    S_AXI_ARVALID,
+    out,
+    tx_Buffer_Full,
+    rx_Data_Present,
+    RX_Data,
+    RX_Buffer_Full,
+    \Use_UART.fifo_Data_Present ,
+    enable_interrupts,
+    S_AXI_ARESETN,
+    S_AXI_WDATA,
+    S_AXI_RREADY,
+    S_AXI_RVALID,
+    S_AXI_BREADY,
+    S_AXI_BVALID,
+    bus2ip_rnw_i,
+    \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_2 ,
+    \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_3 );
+  output \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 ;
+  output \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ;
+  output Bus_RNW_reg_reg_0;
+  output [2:0]D;
+  output \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3]_0 ;
+  output \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 ;
+  output FIFO_Write;
+  output ip2bus_error;
+  output [0:0]bus2ip_wrce;
+  output [7:0]\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 ;
+  output [0:0]bus2ip_rdce;
+  output \Use_Uart.enable_interrupts_reg ;
+  output \FSM_onehot_state_reg[3] ;
+  output \FSM_onehot_state_reg[2] ;
+  output S_AXI_WDATA_1_sp_1;
+  output S_AXI_WDATA_0_sp_1;
+  input start2;
+  input S_AXI_ACLK;
+  input [3:0]Q;
+  input state1__2;
+  input S_AXI_AWVALID;
+  input S_AXI_WVALID;
+  input S_AXI_ARVALID;
+  input out;
+  input tx_Buffer_Full;
+  input rx_Data_Present;
+  input [0:7]RX_Data;
+  input RX_Buffer_Full;
+  input \Use_UART.fifo_Data_Present ;
+  input enable_interrupts;
+  input S_AXI_ARESETN;
+  input [2:0]S_AXI_WDATA;
+  input S_AXI_RREADY;
+  input S_AXI_RVALID;
+  input S_AXI_BREADY;
+  input S_AXI_BVALID;
+  input bus2ip_rnw_i;
+  input \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_2 ;
+  input \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_3 ;
+
+  wire Bus_RNW_reg_i_1_n_0;
+  wire Bus_RNW_reg_reg_0;
+  wire [2:0]D;
+  wire FIFO_Write;
+  wire \FSM_onehot_state_reg[2] ;
+  wire \FSM_onehot_state_reg[3] ;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ;
+  wire \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 ;
+  wire \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ;
+  wire \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 ;
+  wire [7:0]\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 ;
+  wire \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_2 ;
+  wire \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_3 ;
+  wire \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ;
+  wire \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3]_0 ;
+  wire [3:0]Q;
+  wire RX_Buffer_Full;
+  wire [0:7]RX_Data;
+  wire S_AXI_ACLK;
+  wire S_AXI_ARESETN;
+  wire S_AXI_ARVALID;
+  wire S_AXI_AWVALID;
+  wire S_AXI_BREADY;
+  wire S_AXI_BVALID;
+  wire S_AXI_RREADY;
+  wire S_AXI_RVALID;
+  wire [2:0]S_AXI_WDATA;
+  wire S_AXI_WDATA_0_sn_1;
+  wire S_AXI_WDATA_1_sn_1;
+  wire S_AXI_WVALID;
+  wire \Use_UART.fifo_Data_Present ;
+  wire \Use_Uart.enable_interrupts_reg ;
+  wire [0:0]bus2ip_rdce;
+  wire bus2ip_rnw_i;
+  wire [0:0]bus2ip_wrce;
+  wire ce_expnd_i_0;
+  wire ce_expnd_i_1;
+  wire ce_expnd_i_2;
+  wire ce_expnd_i_3;
+  wire cs_ce_clr;
+  wire enable_interrupts;
+  wire ip2bus_error;
+  wire out;
+  wire rx_Data_Present;
+  wire start2;
+  wire state1__2;
+  wire tx_Buffer_Full;
+
+  assign S_AXI_WDATA_0_sp_1 = S_AXI_WDATA_0_sn_1;
+  assign S_AXI_WDATA_1_sp_1 = S_AXI_WDATA_1_sn_1;
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  LUT3 #(
+    .INIT(8'hB8)) 
+    Bus_RNW_reg_i_1
+       (.I0(bus2ip_rnw_i),
+        .I1(start2),
+        .I2(Bus_RNW_reg_reg_0),
+        .O(Bus_RNW_reg_i_1_n_0));
+  FDRE Bus_RNW_reg_reg
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(Bus_RNW_reg_i_1_n_0),
+        .Q(Bus_RNW_reg_reg_0),
+        .R(1'b0));
+  LUT6 #(
+    .INIT(64'hF888FFFFF888F888)) 
+    \FSM_onehot_state[0]_i_1 
+       (.I0(Q[3]),
+        .I1(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3]_0 ),
+        .I2(Q[2]),
+        .I3(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 ),
+        .I4(state1__2),
+        .I5(Q[0]),
+        .O(D[0]));
+  LUT6 #(
+    .INIT(64'h0080FFFF00800080)) 
+    \FSM_onehot_state[2]_i_1 
+       (.I0(S_AXI_AWVALID),
+        .I1(S_AXI_WVALID),
+        .I2(Q[1]),
+        .I3(S_AXI_ARVALID),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 ),
+        .I5(Q[2]),
+        .O(D[1]));
+  LUT4 #(
+    .INIT(16'hF444)) 
+    \FSM_onehot_state[3]_i_1 
+       (.I0(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3]_0 ),
+        .I1(Q[3]),
+        .I2(S_AXI_ARVALID),
+        .I3(Q[1]),
+        .O(D[2]));
+  FDRE \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] 
+       (.C(S_AXI_ACLK),
+        .CE(start2),
+        .D(ce_expnd_i_3),
+        .Q(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .R(cs_ce_clr));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \GEN_BKEND_CE_REGISTERS[1].ce_out_i[1]_i_1 
+       (.I0(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_3 ),
+        .I1(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_2 ),
+        .O(ce_expnd_i_2));
+  FDRE \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] 
+       (.C(S_AXI_ACLK),
+        .CE(start2),
+        .D(ce_expnd_i_2),
+        .Q(\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 ),
+        .R(cs_ce_clr));
+  FDRE \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] 
+       (.C(S_AXI_ACLK),
+        .CE(start2),
+        .D(ce_expnd_i_1),
+        .Q(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .R(cs_ce_clr));
+  LUT5 #(
+    .INIT(32'hFFFEFFFF)) 
+    \GEN_BKEND_CE_REGISTERS[3].ce_out_i[3]_i_1 
+       (.I0(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .I1(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I2(\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 ),
+        .I3(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .I4(S_AXI_ARESETN),
+        .O(cs_ce_clr));
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \GEN_BKEND_CE_REGISTERS[3].ce_out_i[3]_i_2 
+       (.I0(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_2 ),
+        .I1(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_3 ),
+        .O(ce_expnd_i_0));
+  FDRE \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] 
+       (.C(S_AXI_ACLK),
+        .CE(start2),
+        .D(ce_expnd_i_0),
+        .Q(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .R(cs_ce_clr));
+  led_blinker_mdm_0_0_pselect_f \MEM_DECODE_GEN[0].PER_CE_GEN[0].MULTIPLE_CES_THIS_CS_GEN.CE_I 
+       (.\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] (\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_3 ),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 (\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_2 ),
+        .ce_expnd_i_3(ce_expnd_i_3));
+  led_blinker_mdm_0_0_pselect_f__parameterized1 \MEM_DECODE_GEN[0].PER_CE_GEN[2].MULTIPLE_CES_THIS_CS_GEN.CE_I 
+       (.\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] (\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_2 ),
+        .\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 (\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_3 ),
+        .ce_expnd_i_1(ce_expnd_i_1));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  LUT5 #(
+    .INIT(32'hFF00FE00)) 
+    S_AXI_ARREADY_INST_0
+       (.I0(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .I1(\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 ),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I3(Bus_RNW_reg_reg_0),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3]_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  LUT5 #(
+    .INIT(32'h00FF00FE)) 
+    S_AXI_WREADY_INST_0
+       (.I0(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .I1(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I2(\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 ),
+        .I3(Bus_RNW_reg_reg_0),
+        .I4(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .O(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 ));
+  LUT5 #(
+    .INIT(32'hBA8A0000)) 
+    \Use_Uart.enable_interrupts_i_1 
+       (.I0(enable_interrupts),
+        .I1(Bus_RNW_reg_reg_0),
+        .I2(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .I3(S_AXI_WDATA[2]),
+        .I4(S_AXI_ARESETN),
+        .O(\Use_Uart.enable_interrupts_reg ));
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  LUT4 #(
+    .INIT(16'h08FF)) 
+    \Use_Uart.reset_RX_FIFO_i_i_1 
+       (.I0(S_AXI_WDATA[1]),
+        .I1(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .I2(Bus_RNW_reg_reg_0),
+        .I3(S_AXI_ARESETN),
+        .O(S_AXI_WDATA_1_sn_1));
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  LUT4 #(
+    .INIT(16'h08FF)) 
+    \Use_Uart.reset_TX_FIFO_i_i_1 
+       (.I0(S_AXI_WDATA[0]),
+        .I1(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg ),
+        .I2(Bus_RNW_reg_reg_0),
+        .I3(S_AXI_ARESETN),
+        .O(S_AXI_WDATA_0_sn_1));
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  LUT3 #(
+    .INIT(8'h40)) 
+    \Using_FPGA.Native_I1_i_3 
+       (.I0(Bus_RNW_reg_reg_0),
+        .I1(\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 ),
+        .I2(out),
+        .O(FIFO_Write));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \Using_FPGA.Native_I1_i_3__0 
+       (.I0(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I1(Bus_RNW_reg_reg_0),
+        .O(bus2ip_rdce));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \Using_FPGA.Native_i_1__1 
+       (.I0(\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 ),
+        .I1(Bus_RNW_reg_reg_0),
+        .O(bus2ip_wrce));
+  LUT4 #(
+    .INIT(16'h8F88)) 
+    s_axi_bvalid_i_i_1
+       (.I0(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 ),
+        .I1(Q[2]),
+        .I2(S_AXI_BREADY),
+        .I3(S_AXI_BVALID),
+        .O(\FSM_onehot_state_reg[2] ));
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  LUT5 #(
+    .INIT(32'hAA00C000)) 
+    \s_axi_rdata_i[0]_i_1 
+       (.I0(rx_Data_Present),
+        .I1(RX_Data[7]),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I3(Bus_RNW_reg_reg_0),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 [0]));
+  LUT5 #(
+    .INIT(32'hAA00C000)) 
+    \s_axi_rdata_i[1]_i_1 
+       (.I0(RX_Buffer_Full),
+        .I1(RX_Data[6]),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I3(Bus_RNW_reg_reg_0),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 [1]));
+  LUT5 #(
+    .INIT(32'h5500C000)) 
+    \s_axi_rdata_i[2]_i_1 
+       (.I0(\Use_UART.fifo_Data_Present ),
+        .I1(RX_Data[5]),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I3(Bus_RNW_reg_reg_0),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 [2]));
+  LUT5 #(
+    .INIT(32'hAA00C000)) 
+    \s_axi_rdata_i[3]_i_1 
+       (.I0(tx_Buffer_Full),
+        .I1(RX_Data[4]),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I3(Bus_RNW_reg_reg_0),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 [3]));
+  LUT5 #(
+    .INIT(32'hAA00C000)) 
+    \s_axi_rdata_i[4]_i_1 
+       (.I0(enable_interrupts),
+        .I1(RX_Data[3]),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I3(Bus_RNW_reg_reg_0),
+        .I4(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .O(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 [4]));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  LUT4 #(
+    .INIT(16'h4000)) 
+    \s_axi_rdata_i[5]_i_1 
+       (.I0(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .I1(Bus_RNW_reg_reg_0),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I3(RX_Data[2]),
+        .O(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 [5]));
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  LUT4 #(
+    .INIT(16'h4000)) 
+    \s_axi_rdata_i[6]_i_1 
+       (.I0(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .I1(Bus_RNW_reg_reg_0),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I3(RX_Data[1]),
+        .O(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 [6]));
+  LUT4 #(
+    .INIT(16'h4000)) 
+    \s_axi_rdata_i[7]_i_1 
+       (.I0(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg ),
+        .I1(Bus_RNW_reg_reg_0),
+        .I2(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I3(RX_Data[0]),
+        .O(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 [7]));
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  LUT5 #(
+    .INIT(32'h0F008888)) 
+    \s_axi_rresp_i[1]_i_1 
+       (.I0(tx_Buffer_Full),
+        .I1(\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 ),
+        .I2(rx_Data_Present),
+        .I3(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .I4(Bus_RNW_reg_reg_0),
+        .O(ip2bus_error));
+  LUT4 #(
+    .INIT(16'h8F88)) 
+    s_axi_rvalid_i_i_1
+       (.I0(\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3]_0 ),
+        .I1(Q[3]),
+        .I2(S_AXI_RREADY),
+        .I3(S_AXI_RVALID),
+        .O(\FSM_onehot_state_reg[3] ));
+endmodule
+
+(* ORIG_REF_NAME = "axi_lite_ipif" *) 
+module led_blinker_mdm_0_0_axi_lite_ipif
+   (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ,
+    S_AXI_RRESP,
+    Bus_RNW_reg,
+    S_AXI_RVALID,
+    S_AXI_BVALID,
+    \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ,
+    \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ,
+    FIFO_Write,
+    bus2ip_wrce,
+    bus2ip_rdce,
+    \Use_Uart.enable_interrupts_reg ,
+    S_AXI_WDATA_1_sp_1,
+    S_AXI_WDATA_0_sp_1,
+    S_AXI_BRESP,
+    S_AXI_RDATA,
+    S_AXI_ACLK,
+    S_AXI_AWVALID,
+    S_AXI_WVALID,
+    S_AXI_ARVALID,
+    out,
+    tx_Buffer_Full,
+    rx_Data_Present,
+    RX_Data,
+    RX_Buffer_Full,
+    \Use_UART.fifo_Data_Present ,
+    enable_interrupts,
+    S_AXI_ARESETN,
+    S_AXI_RREADY,
+    S_AXI_BREADY,
+    S_AXI_WDATA,
+    S_AXI_ARADDR,
+    S_AXI_AWADDR);
+  output \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
+  output \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
+  output [0:0]S_AXI_RRESP;
+  output Bus_RNW_reg;
+  output S_AXI_RVALID;
+  output S_AXI_BVALID;
+  output \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ;
+  output \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ;
+  output FIFO_Write;
+  output [0:0]bus2ip_wrce;
+  output [0:0]bus2ip_rdce;
+  output \Use_Uart.enable_interrupts_reg ;
+  output S_AXI_WDATA_1_sp_1;
+  output S_AXI_WDATA_0_sp_1;
+  output [0:0]S_AXI_BRESP;
+  output [7:0]S_AXI_RDATA;
+  input S_AXI_ACLK;
+  input S_AXI_AWVALID;
+  input S_AXI_WVALID;
+  input S_AXI_ARVALID;
+  input out;
+  input tx_Buffer_Full;
+  input rx_Data_Present;
+  input [0:7]RX_Data;
+  input RX_Buffer_Full;
+  input \Use_UART.fifo_Data_Present ;
+  input enable_interrupts;
+  input S_AXI_ARESETN;
+  input S_AXI_RREADY;
+  input S_AXI_BREADY;
+  input [2:0]S_AXI_WDATA;
+  input [1:0]S_AXI_ARADDR;
+  input [1:0]S_AXI_AWADDR;
+
+  wire Bus_RNW_reg;
+  wire FIFO_Write;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ;
+  wire \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ;
+  wire \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ;
+  wire \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ;
+  wire RX_Buffer_Full;
+  wire [0:7]RX_Data;
+  wire S_AXI_ACLK;
+  wire [1:0]S_AXI_ARADDR;
+  wire S_AXI_ARESETN;
+  wire S_AXI_ARVALID;
+  wire [1:0]S_AXI_AWADDR;
+  wire S_AXI_AWVALID;
+  wire S_AXI_BREADY;
+  wire [0:0]S_AXI_BRESP;
+  wire S_AXI_BVALID;
+  wire [7:0]S_AXI_RDATA;
+  wire S_AXI_RREADY;
+  wire [0:0]S_AXI_RRESP;
+  wire S_AXI_RVALID;
+  wire [2:0]S_AXI_WDATA;
+  wire S_AXI_WDATA_0_sn_1;
+  wire S_AXI_WDATA_1_sn_1;
+  wire S_AXI_WVALID;
+  wire \Use_UART.fifo_Data_Present ;
+  wire \Use_Uart.enable_interrupts_reg ;
+  wire [0:0]bus2ip_rdce;
+  wire [0:0]bus2ip_wrce;
+  wire enable_interrupts;
+  wire out;
+  wire rx_Data_Present;
+  wire tx_Buffer_Full;
+
+  assign S_AXI_WDATA_0_sp_1 = S_AXI_WDATA_0_sn_1;
+  assign S_AXI_WDATA_1_sp_1 = S_AXI_WDATA_1_sn_1;
+  led_blinker_mdm_0_0_slave_attachment I_SLAVE_ATTACHMENT
+       (.Bus_RNW_reg_reg(Bus_RNW_reg),
+        .FIFO_Write(FIFO_Write),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg ),
+        .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg ),
+        .\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] (\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ),
+        .\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] (\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ),
+        .RX_Buffer_Full(RX_Buffer_Full),
+        .RX_Data(RX_Data),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_ARADDR(S_AXI_ARADDR),
+        .S_AXI_ARESETN(S_AXI_ARESETN),
+        .S_AXI_ARVALID(S_AXI_ARVALID),
+        .S_AXI_AWADDR(S_AXI_AWADDR),
+        .S_AXI_AWVALID(S_AXI_AWVALID),
+        .S_AXI_BREADY(S_AXI_BREADY),
+        .S_AXI_BRESP(S_AXI_BRESP),
+        .S_AXI_BVALID(S_AXI_BVALID),
+        .S_AXI_RDATA(S_AXI_RDATA),
+        .S_AXI_RREADY(S_AXI_RREADY),
+        .S_AXI_RRESP(S_AXI_RRESP),
+        .S_AXI_RVALID(S_AXI_RVALID),
+        .S_AXI_WDATA(S_AXI_WDATA),
+        .S_AXI_WDATA_0_sp_1(S_AXI_WDATA_0_sn_1),
+        .S_AXI_WDATA_1_sp_1(S_AXI_WDATA_1_sn_1),
+        .S_AXI_WVALID(S_AXI_WVALID),
+        .\Use_UART.fifo_Data_Present (\Use_UART.fifo_Data_Present ),
+        .\Use_Uart.enable_interrupts_reg (\Use_Uart.enable_interrupts_reg ),
+        .bus2ip_rdce(bus2ip_rdce),
+        .bus2ip_wrce(bus2ip_wrce),
+        .enable_interrupts(enable_interrupts),
+        .out(out),
+        .rx_Data_Present(rx_Data_Present),
+        .tx_Buffer_Full(tx_Buffer_Full));
+endmodule
+
+(* ORIG_REF_NAME = "pselect_f" *) 
+module led_blinker_mdm_0_0_pselect_f
+   (ce_expnd_i_3,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 );
+  output ce_expnd_i_3;
+  input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ;
+  input \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ;
+
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ;
+  wire ce_expnd_i_3;
+
+  LUT2 #(
+    .INIT(4'h1)) 
+    CS
+       (.I0(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ),
+        .I1(\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 ),
+        .O(ce_expnd_i_3));
+endmodule
+
+(* ORIG_REF_NAME = "pselect_f" *) 
+module led_blinker_mdm_0_0_pselect_f__parameterized1
+   (ce_expnd_i_1,
+    \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ,
+    \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 );
+  output ce_expnd_i_1;
+  input \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ;
+  input \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 ;
+
+  wire \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ;
+  wire \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 ;
+  wire ce_expnd_i_1;
+
+  LUT2 #(
+    .INIT(4'h2)) 
+    CS
+       (.I0(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ),
+        .I1(\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 ),
+        .O(ce_expnd_i_1));
+endmodule
+
+(* ORIG_REF_NAME = "slave_attachment" *) 
+module led_blinker_mdm_0_0_slave_attachment
+   (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ,
+    \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ,
+    S_AXI_RRESP,
+    Bus_RNW_reg_reg,
+    S_AXI_RVALID,
+    S_AXI_BVALID,
+    \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ,
+    \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ,
+    FIFO_Write,
+    bus2ip_wrce,
+    bus2ip_rdce,
+    \Use_Uart.enable_interrupts_reg ,
+    S_AXI_WDATA_1_sp_1,
+    S_AXI_WDATA_0_sp_1,
+    S_AXI_BRESP,
+    S_AXI_RDATA,
+    S_AXI_ACLK,
+    S_AXI_AWVALID,
+    S_AXI_WVALID,
+    S_AXI_ARVALID,
+    out,
+    tx_Buffer_Full,
+    rx_Data_Present,
+    RX_Data,
+    RX_Buffer_Full,
+    \Use_UART.fifo_Data_Present ,
+    enable_interrupts,
+    S_AXI_ARESETN,
+    S_AXI_RREADY,
+    S_AXI_BREADY,
+    S_AXI_WDATA,
+    S_AXI_ARADDR,
+    S_AXI_AWADDR);
+  output \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ;
+  output \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ;
+  output [0:0]S_AXI_RRESP;
+  output Bus_RNW_reg_reg;
+  output S_AXI_RVALID;
+  output S_AXI_BVALID;
+  output \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ;
+  output \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ;
+  output FIFO_Write;
+  output [0:0]bus2ip_wrce;
+  output [0:0]bus2ip_rdce;
+  output \Use_Uart.enable_interrupts_reg ;
+  output S_AXI_WDATA_1_sp_1;
+  output S_AXI_WDATA_0_sp_1;
+  output [0:0]S_AXI_BRESP;
+  output [7:0]S_AXI_RDATA;
+  input S_AXI_ACLK;
+  input S_AXI_AWVALID;
+  input S_AXI_WVALID;
+  input S_AXI_ARVALID;
+  input out;
+  input tx_Buffer_Full;
+  input rx_Data_Present;
+  input [0:7]RX_Data;
+  input RX_Buffer_Full;
+  input \Use_UART.fifo_Data_Present ;
+  input enable_interrupts;
+  input S_AXI_ARESETN;
+  input S_AXI_RREADY;
+  input S_AXI_BREADY;
+  input [2:0]S_AXI_WDATA;
+  input [1:0]S_AXI_ARADDR;
+  input [1:0]S_AXI_AWADDR;
+
+  wire Bus_RNW_reg_reg;
+  wire FIFO_Write;
+  wire \FSM_onehot_state[1]_i_1_n_0 ;
+  wire \FSM_onehot_state_reg_n_0_[0] ;
+  wire \FSM_onehot_state_reg_n_0_[1] ;
+  wire \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ;
+  wire \GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ;
+  wire \GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ;
+  wire \GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ;
+  wire [7:0]IP2Bus_Data;
+  wire I_DECODER_n_21;
+  wire I_DECODER_n_22;
+  wire I_DECODER_n_3;
+  wire I_DECODER_n_4;
+  wire I_DECODER_n_5;
+  wire RX_Buffer_Full;
+  wire [0:7]RX_Data;
+  wire S_AXI_ACLK;
+  wire [1:0]S_AXI_ARADDR;
+  wire S_AXI_ARESETN;
+  wire S_AXI_ARVALID;
+  wire [1:0]S_AXI_AWADDR;
+  wire S_AXI_AWVALID;
+  wire S_AXI_BREADY;
+  wire [0:0]S_AXI_BRESP;
+  wire S_AXI_BVALID;
+  wire [7:0]S_AXI_RDATA;
+  wire S_AXI_RREADY;
+  wire [0:0]S_AXI_RRESP;
+  wire S_AXI_RVALID;
+  wire [2:0]S_AXI_WDATA;
+  wire S_AXI_WDATA_0_sn_1;
+  wire S_AXI_WDATA_1_sn_1;
+  wire S_AXI_WVALID;
+  wire \Use_UART.fifo_Data_Present ;
+  wire \Use_Uart.enable_interrupts_reg ;
+  wire \bus2ip_addr_i[2]_i_1_n_0 ;
+  wire \bus2ip_addr_i[3]_i_1_n_0 ;
+  wire \bus2ip_addr_i_reg_n_0_[2] ;
+  wire \bus2ip_addr_i_reg_n_0_[3] ;
+  wire [0:0]bus2ip_rdce;
+  wire bus2ip_rnw_i;
+  wire bus2ip_rnw_i_i_1_n_0;
+  wire [0:0]bus2ip_wrce;
+  wire enable_interrupts;
+  wire ip2bus_error;
+  wire out;
+  wire rst;
+  wire rst_i_1_n_0;
+  wire rx_Data_Present;
+  wire [0:0]s_axi_bresp_i;
+  wire \s_axi_bresp_i[1]_i_1_n_0 ;
+  wire [0:0]s_axi_rresp_i;
+  wire start2;
+  wire start2_i_1_n_0;
+  wire state1__2;
+  wire tx_Buffer_Full;
+
+  assign S_AXI_WDATA_0_sp_1 = S_AXI_WDATA_0_sn_1;
+  assign S_AXI_WDATA_1_sp_1 = S_AXI_WDATA_1_sn_1;
+  LUT6 #(
+    .INIT(64'hFFFF007000700070)) 
+    \FSM_onehot_state[1]_i_1 
+       (.I0(S_AXI_AWVALID),
+        .I1(S_AXI_WVALID),
+        .I2(\FSM_onehot_state_reg_n_0_[1] ),
+        .I3(S_AXI_ARVALID),
+        .I4(state1__2),
+        .I5(\FSM_onehot_state_reg_n_0_[0] ),
+        .O(\FSM_onehot_state[1]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'hF888)) 
+    \FSM_onehot_state[1]_i_2 
+       (.I0(S_AXI_RREADY),
+        .I1(S_AXI_RVALID),
+        .I2(S_AXI_BREADY),
+        .I3(S_AXI_BVALID),
+        .O(state1__2));
+  (* FSM_ENCODED_STATES = "sm_read:1000,sm_write:0100,sm_resp:0001,sm_idle:0010" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \FSM_onehot_state_reg[0] 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(I_DECODER_n_5),
+        .Q(\FSM_onehot_state_reg_n_0_[0] ),
+        .R(rst));
+  (* FSM_ENCODED_STATES = "sm_read:1000,sm_write:0100,sm_resp:0001,sm_idle:0010" *) 
+  FDSE #(
+    .INIT(1'b1)) 
+    \FSM_onehot_state_reg[1] 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\FSM_onehot_state[1]_i_1_n_0 ),
+        .Q(\FSM_onehot_state_reg_n_0_[1] ),
+        .S(rst));
+  (* FSM_ENCODED_STATES = "sm_read:1000,sm_write:0100,sm_resp:0001,sm_idle:0010" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \FSM_onehot_state_reg[2] 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(I_DECODER_n_4),
+        .Q(s_axi_bresp_i),
+        .R(rst));
+  (* FSM_ENCODED_STATES = "sm_read:1000,sm_write:0100,sm_resp:0001,sm_idle:0010" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \FSM_onehot_state_reg[3] 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(I_DECODER_n_3),
+        .Q(s_axi_rresp_i),
+        .R(rst));
+  led_blinker_mdm_0_0_address_decoder I_DECODER
+       (.Bus_RNW_reg_reg_0(Bus_RNW_reg_reg),
+        .D({I_DECODER_n_3,I_DECODER_n_4,I_DECODER_n_5}),
+        .FIFO_Write(FIFO_Write),
+        .\FSM_onehot_state_reg[2] (I_DECODER_n_22),
+        .\FSM_onehot_state_reg[3] (I_DECODER_n_21),
+        .\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]_0 (\GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0] ),
+        .\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1]_0 (\GEN_BKEND_CE_REGISTERS[1].ce_out_i_reg[1] ),
+        .\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_0 (\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2] ),
+        .\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_1 (IP2Bus_Data),
+        .\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_2 (\bus2ip_addr_i_reg_n_0_[3] ),
+        .\GEN_BKEND_CE_REGISTERS[2].ce_out_i_reg[2]_3 (\bus2ip_addr_i_reg_n_0_[2] ),
+        .\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3]_0 (\GEN_BKEND_CE_REGISTERS[3].ce_out_i_reg[3] ),
+        .Q({s_axi_rresp_i,s_axi_bresp_i,\FSM_onehot_state_reg_n_0_[1] ,\FSM_onehot_state_reg_n_0_[0] }),
+        .RX_Buffer_Full(RX_Buffer_Full),
+        .RX_Data(RX_Data),
+        .S_AXI_ACLK(S_AXI_ACLK),
+        .S_AXI_ARESETN(S_AXI_ARESETN),
+        .S_AXI_ARVALID(S_AXI_ARVALID),
+        .S_AXI_AWVALID(S_AXI_AWVALID),
+        .S_AXI_BREADY(S_AXI_BREADY),
+        .S_AXI_BVALID(S_AXI_BVALID),
+        .S_AXI_RREADY(S_AXI_RREADY),
+        .S_AXI_RVALID(S_AXI_RVALID),
+        .S_AXI_WDATA(S_AXI_WDATA),
+        .S_AXI_WDATA_0_sp_1(S_AXI_WDATA_0_sn_1),
+        .S_AXI_WDATA_1_sp_1(S_AXI_WDATA_1_sn_1),
+        .S_AXI_WVALID(S_AXI_WVALID),
+        .\Use_UART.fifo_Data_Present (\Use_UART.fifo_Data_Present ),
+        .\Use_Uart.enable_interrupts_reg (\Use_Uart.enable_interrupts_reg ),
+        .bus2ip_rdce(bus2ip_rdce),
+        .bus2ip_rnw_i(bus2ip_rnw_i),
+        .bus2ip_wrce(bus2ip_wrce),
+        .enable_interrupts(enable_interrupts),
+        .ip2bus_error(ip2bus_error),
+        .out(out),
+        .rx_Data_Present(rx_Data_Present),
+        .start2(start2),
+        .state1__2(state1__2),
+        .tx_Buffer_Full(tx_Buffer_Full));
+  LUT6 #(
+    .INIT(64'hBF80FFFFBF800000)) 
+    \bus2ip_addr_i[2]_i_1 
+       (.I0(S_AXI_ARADDR[0]),
+        .I1(\FSM_onehot_state_reg_n_0_[1] ),
+        .I2(S_AXI_ARVALID),
+        .I3(S_AXI_AWADDR[0]),
+        .I4(start2_i_1_n_0),
+        .I5(\bus2ip_addr_i_reg_n_0_[2] ),
+        .O(\bus2ip_addr_i[2]_i_1_n_0 ));
+  LUT6 #(
+    .INIT(64'hBF80FFFFBF800000)) 
+    \bus2ip_addr_i[3]_i_1 
+       (.I0(S_AXI_ARADDR[1]),
+        .I1(\FSM_onehot_state_reg_n_0_[1] ),
+        .I2(S_AXI_ARVALID),
+        .I3(S_AXI_AWADDR[1]),
+        .I4(start2_i_1_n_0),
+        .I5(\bus2ip_addr_i_reg_n_0_[3] ),
+        .O(\bus2ip_addr_i[3]_i_1_n_0 ));
+  FDRE \bus2ip_addr_i_reg[2] 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\bus2ip_addr_i[2]_i_1_n_0 ),
+        .Q(\bus2ip_addr_i_reg_n_0_[2] ),
+        .R(rst));
+  FDRE \bus2ip_addr_i_reg[3] 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\bus2ip_addr_i[3]_i_1_n_0 ),
+        .Q(\bus2ip_addr_i_reg_n_0_[3] ),
+        .R(rst));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  LUT5 #(
+    .INIT(32'hF7FFF000)) 
+    bus2ip_rnw_i_i_1
+       (.I0(S_AXI_AWVALID),
+        .I1(S_AXI_WVALID),
+        .I2(S_AXI_ARVALID),
+        .I3(\FSM_onehot_state_reg_n_0_[1] ),
+        .I4(bus2ip_rnw_i),
+        .O(bus2ip_rnw_i_i_1_n_0));
+  FDRE bus2ip_rnw_i_reg
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(bus2ip_rnw_i_i_1_n_0),
+        .Q(bus2ip_rnw_i),
+        .R(rst));
+  LUT1 #(
+    .INIT(2'h1)) 
+    rst_i_1
+       (.I0(S_AXI_ARESETN),
+        .O(rst_i_1_n_0));
+  FDRE rst_reg
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(rst_i_1_n_0),
+        .Q(rst),
+        .R(1'b0));
+  LUT3 #(
+    .INIT(8'hB8)) 
+    \s_axi_bresp_i[1]_i_1 
+       (.I0(ip2bus_error),
+        .I1(s_axi_bresp_i),
+        .I2(S_AXI_BRESP),
+        .O(\s_axi_bresp_i[1]_i_1_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \s_axi_bresp_i_reg[1] 
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(\s_axi_bresp_i[1]_i_1_n_0 ),
+        .Q(S_AXI_BRESP),
+        .R(rst));
+  FDRE #(
+    .INIT(1'b0)) 
+    s_axi_bvalid_i_reg
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(I_DECODER_n_22),
+        .Q(S_AXI_BVALID),
+        .R(rst));
+  FDRE #(
+    .INIT(1'b0)) 
+    \s_axi_rdata_i_reg[0] 
+       (.C(S_AXI_ACLK),
+        .CE(s_axi_rresp_i),
+        .D(IP2Bus_Data[0]),
+        .Q(S_AXI_RDATA[0]),
+        .R(rst));
+  FDRE #(
+    .INIT(1'b0)) 
+    \s_axi_rdata_i_reg[1] 
+       (.C(S_AXI_ACLK),
+        .CE(s_axi_rresp_i),
+        .D(IP2Bus_Data[1]),
+        .Q(S_AXI_RDATA[1]),
+        .R(rst));
+  FDRE #(
+    .INIT(1'b0)) 
+    \s_axi_rdata_i_reg[2] 
+       (.C(S_AXI_ACLK),
+        .CE(s_axi_rresp_i),
+        .D(IP2Bus_Data[2]),
+        .Q(S_AXI_RDATA[2]),
+        .R(rst));
+  FDRE #(
+    .INIT(1'b0)) 
+    \s_axi_rdata_i_reg[3] 
+       (.C(S_AXI_ACLK),
+        .CE(s_axi_rresp_i),
+        .D(IP2Bus_Data[3]),
+        .Q(S_AXI_RDATA[3]),
+        .R(rst));
+  FDRE #(
+    .INIT(1'b0)) 
+    \s_axi_rdata_i_reg[4] 
+       (.C(S_AXI_ACLK),
+        .CE(s_axi_rresp_i),
+        .D(IP2Bus_Data[4]),
+        .Q(S_AXI_RDATA[4]),
+        .R(rst));
+  FDRE #(
+    .INIT(1'b0)) 
+    \s_axi_rdata_i_reg[5] 
+       (.C(S_AXI_ACLK),
+        .CE(s_axi_rresp_i),
+        .D(IP2Bus_Data[5]),
+        .Q(S_AXI_RDATA[5]),
+        .R(rst));
+  FDRE #(
+    .INIT(1'b0)) 
+    \s_axi_rdata_i_reg[6] 
+       (.C(S_AXI_ACLK),
+        .CE(s_axi_rresp_i),
+        .D(IP2Bus_Data[6]),
+        .Q(S_AXI_RDATA[6]),
+        .R(rst));
+  FDRE #(
+    .INIT(1'b0)) 
+    \s_axi_rdata_i_reg[7] 
+       (.C(S_AXI_ACLK),
+        .CE(s_axi_rresp_i),
+        .D(IP2Bus_Data[7]),
+        .Q(S_AXI_RDATA[7]),
+        .R(rst));
+  FDRE #(
+    .INIT(1'b0)) 
+    \s_axi_rresp_i_reg[1] 
+       (.C(S_AXI_ACLK),
+        .CE(s_axi_rresp_i),
+        .D(ip2bus_error),
+        .Q(S_AXI_RRESP),
+        .R(rst));
+  FDRE #(
+    .INIT(1'b0)) 
+    s_axi_rvalid_i_reg
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(I_DECODER_n_21),
+        .Q(S_AXI_RVALID),
+        .R(rst));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  LUT4 #(
+    .INIT(16'hF800)) 
+    start2_i_1
+       (.I0(S_AXI_AWVALID),
+        .I1(S_AXI_WVALID),
+        .I2(S_AXI_ARVALID),
+        .I3(\FSM_onehot_state_reg_n_0_[1] ),
+        .O(start2_i_1_n_0));
+  FDRE start2_reg
+       (.C(S_AXI_ACLK),
+        .CE(1'b1),
+        .D(start2_i_1_n_0),
+        .Q(start2),
+        .R(rst));
 endmodule
 `ifndef GLBL
 `define GLBL

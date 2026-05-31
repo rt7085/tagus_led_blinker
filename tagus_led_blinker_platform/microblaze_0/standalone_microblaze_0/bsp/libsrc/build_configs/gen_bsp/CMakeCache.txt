@@ -379,16 +379,25 @@ standalone_profile_timer:STRING=None
 standalone_sleep_timer:STRING=None
 
 //stdin peripheral
-standalone_stdin:STRING=None;
+standalone_stdin:STRING=axi_uartlite_0
 
 //stdout peripheral
-standalone_stdout:STRING=None;
+standalone_stdout:STRING=axi_uartlite_0
 
 //Deprecated in favor of xiltimer
 standalone_ttc_select_cntr:STRING=None
 
 //Enable xpm support
 standalone_xpm_support:BOOL=OFF
+
+//Value Computed by CMake
+uartlite_BINARY_DIR:STATIC=/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src
+
+//Value Computed by CMake
+uartlite_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+uartlite_SOURCE_DIR:STATIC=/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/uartlite/src
 
 //Value Computed by CMake
 xilstandalone_BINARY_DIR:STATIC=/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/standalone/src
@@ -520,7 +529,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=12
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=13
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -578,9 +587,9 @@ standalone_profile_timer-STRINGS:INTERNAL=None
 //STRINGS property for variable: standalone_sleep_timer
 standalone_sleep_timer-STRINGS:INTERNAL=None
 //STRINGS property for variable: standalone_stdin
-standalone_stdin-STRINGS:INTERNAL=None;
+standalone_stdin-STRINGS:INTERNAL=None;axi_uartlite_0;mdm_0
 //STRINGS property for variable: standalone_stdout
-standalone_stdout-STRINGS:INTERNAL=None;
+standalone_stdout-STRINGS:INTERNAL=None;axi_uartlite_0;mdm_0
 //STRINGS property for variable: standalone_ttc_select_cntr
 standalone_ttc_select_cntr-STRINGS:INTERNAL=None
 

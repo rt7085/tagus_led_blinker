@@ -66,8 +66,10 @@
 
 // INST_TAG     ------ Begin cut for WRAPPER INSTANTIATION Template ------
 led_blinker_sv your_instance_name (
+  .usb_uart_rxd(usb_uart_rxd), // input wire usb_uart_rxd
+  .usb_uart_txd(usb_uart_txd), // output wire usb_uart_txd
   .led_green(led_green), // output wire [0:0] led_green
-  .sys_clock(sys_clock), // input wire sys_clock
+  .clk(clk), // input wire clk
   .reset(reset), // input wire reset
   .led_red(led_red), // output wire [0:0] led_red
   .led_blue(led_blue) // output wire [0:0] led_blue

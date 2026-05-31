@@ -1,21 +1,70 @@
-# Ignore build output directory
-/build
-/export
+# ==========================================
+# Vivado Specific
+# ==========================================
+# Ignore Vivado temporary files and logs
+*.jou
+*.log
+*.debug
+*.str
+*.zip
+*.tmp
+*.rst
+*.os
+*.js
+*.pb
+*.dmp
+*.rpx
+*.rpt
+vivado_pid*
 
-# Ignore object files and dependent files
-.o
-.d
+# Ignore specific Vivado build/run directories
+*.cache/
+*.hw/
+*.ip_user_files/
+*.runs/
+*.sim/
+*.sdk/
+.Xil/
+.metadata/
+*.data/
+*.ipdefs/
 
-#Ignore logs folder and log files
-/logs
-.log
+# Ignore auto-generated simulation and synthesis files
+*_stub.v
+*_stub.vhdl
+*_funcsim.v
+*_funcsim.vhdl
 
-#Ignore lock files
-.lock
+# ==========================================
+# Vitis Specific
+# ==========================================
+# Ignore Vitis build artifacts and temporary folders
+/vitis_workspace/
+/vitis_proj/*/Debug/
+/vitis_proj/*/Release/
+*.elf
+*.o
+*.d
+*.a
+*.bit
+*.mmi
+*.xsa
 
-.bin
-.pdi
-.vitisWorkspace.json
+# Ignore IDE-specific project files that contain absolute paths
+# Note: In "Unified Vitis" IDE, it's often better to version only 
+# specific source files and reconstruct the project via script.
+.cproject
+.project
+.sdkproject
+.settings/
+RemoteSystemsTempFiles/
+webtalk/
 
-_ide/logs
-_ide/.wsdata
+# ==========================================
+# General / OS
+# ==========================================
+*~
+\#*
+.\#*
+.DS_Store
+Thumbs.db

@@ -3,8 +3,8 @@
 # SW Build 6299465 on Fri Nov 14 12:34:56 MST 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Sun May 10 15:46:53 2026
-# Process ID         : 945706
+# Start of session at: Sat May 30 09:04:20 2026
+# Process ID         : 33004
 # Current directory  : /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1
 # Command line       : vivado -log led_blinker_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source led_blinker_wrapper.tcl
 # Log file           : /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/led_blinker_wrapper.vds
@@ -13,12 +13,12 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : AMD Ryzen 7 7800X3D 8-Core Processor
-# CPU Frequency      : 3962.406 MHz
+# CPU Frequency      : 4190.917 MHz
 # CPU Physical cores : 8
 # CPU Logical cores  : 8
 # Host memory        : 15878 MB
 # Swap memory        : 4294 MB
 # Total Virtual      : 20173 MB
-# Available Virtual  : 7829 MB
+# Available Virtual  : 10055 MB
 #-----------------------------------------------------------
 source led_blinker_wrapper.tcl -notrace
