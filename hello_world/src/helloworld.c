@@ -1,3 +1,4 @@
+#include <xil_types.h>
 #define __MICROBLAZE__
 
 #include <stdio.h>
@@ -53,28 +54,27 @@ int main()
     bram_init();
 
     u32 *data;
-    u32 dataRead = 0;
     u32 dataReadXIL = 0;
-    int i = 0;
+    u32 i = 0;
 
     print("Led Blinker Applications Started...\n\r");
 
+    // Write and Read to BRAM (depth is 2048 x 32 bits)
     data = (unsigned int *)XPAR_XBRAM_0_BASEADDR;
  
-    for(i = 0; i<50; i++)
+    for(i = 0 ; i < 50; i++)
     {
-        *(data + 4*i) = 5*i;
- 
+        Xil_Out32((u64)(data + 4*i), 5*i);
     }
-    xil_printf("DATA WRITE SUCCESSFUL : POINTER METHOD\n");
+    xil_printf("DATA WRITE SUCCESSFUL : XIL_IO METHOD\n");
  
-    for(i = 0; i< 50;i++)
+    for(i = 0; i< 50; i++)
     {
-        dataRead = *(data + 4*i);
-        xil_printf("Value Read : %0d\n", dataRead);
  
+        dataReadXIL =  Xil_In32((u64)(data + 4*i));
+        xil_printf("Value Read : %0d\n", dataReadXIL);
     }
-    xil_printf("DATA READ SUCCESSFUL : POINTER METHOD\n");
+    xil_printf("DATA READ SUCCESSFUL : XIL_IO METHOD\n");
    
     // Set Channel 1 as output (0 mask = output)
     XGpio_SetDataDirection(&Gpio, 1, 0x0);
