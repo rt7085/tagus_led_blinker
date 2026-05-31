@@ -1,4 +1,0 @@
-domain_path: /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/export/tagus_led_blinker_platform/sw/standalone_microblaze_0
-app_src_dir: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/lib/sw_apps/empty_application
-template: empty_application
-lang: c
