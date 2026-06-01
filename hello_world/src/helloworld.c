@@ -61,18 +61,21 @@ int main()
 
     // Write and Read to BRAM (depth is 2048 x 32 bits)
     data = (unsigned int *)XPAR_XBRAM_0_BASEADDR;
+
+    u32 data_pattern = 0xFFFFF000;
  
-    for(i = 0 ; i < 50; i++)
+    // Literature suggests to apply an offset of 4 to a data location, but it seems correct without using xsdb mrd checks
+    // Upon checking Xil_Out32() it appears the compiler handles it with volatile u32 pointer arithmetic which automatically applies offsets of 4
+    for(i = 0 ; i < 2047; i++)
     {
-        Xil_Out32((u64)(data + 4*i), 5*i);
+        Xil_Out32((u64)(data + i), data_pattern+i+1);
     }
     xil_printf("DATA WRITE SUCCESSFUL : XIL_IO METHOD\n");
  
-    for(i = 0; i< 50; i++)
+    for(i = 0; i< 31; i++)
     {
- 
-        dataReadXIL =  Xil_In32((u64)(data + 4*i));
-        xil_printf("Value Read : %0d\n", dataReadXIL);
+        dataReadXIL =  Xil_In32((u64)(data + i));
+        xil_printf("Location: %08X: Value: : %08X\n", data+i, dataReadXIL);
     }
     xil_printf("DATA READ SUCCESSFUL : XIL_IO METHOD\n");
    
