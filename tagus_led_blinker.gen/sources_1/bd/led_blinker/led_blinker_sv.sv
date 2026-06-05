@@ -58,19 +58,64 @@ module led_blinker_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   output wire usb_uart_txd,
   (* X_INTERFACE_IGNORE = "true" *)
+  output wire [2:0] rgb_led_tri_o,
+  (* X_INTERFACE_IGNORE = "true" *)
+  inout wire [15:0] ddr3_sdram_dq,
+  (* X_INTERFACE_IGNORE = "true" *)
+  inout wire [1:0] ddr3_sdram_dqs_p,
+  (* X_INTERFACE_IGNORE = "true" *)
+  inout wire [1:0] ddr3_sdram_dqs_n,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [13:0] ddr3_sdram_addr,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [2:0] ddr3_sdram_ba,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire ddr3_sdram_ras_n,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire ddr3_sdram_cas_n,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire ddr3_sdram_we_n,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire ddr3_sdram_reset_n,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [0:0] ddr3_sdram_ck_p,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [0:0] ddr3_sdram_ck_n,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [0:0] ddr3_sdram_cke,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [0:0] ddr3_sdram_cs_n,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [1:0] ddr3_sdram_dm,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [0:0] ddr3_sdram_odt,
+  (* X_INTERFACE_IGNORE = "true" *)
   input wire clk,
   (* X_INTERFACE_IGNORE = "true" *)
-  input wire reset,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire [2:0] rgb_led_tri_o
+  input wire reset
 );
 
   led_blinker inst (
     .usb_uart_rxd(usb_uart_rxd),
     .usb_uart_txd(usb_uart_txd),
+    .rgb_led_tri_o(rgb_led_tri_o),
+    .ddr3_sdram_dq(ddr3_sdram_dq),
+    .ddr3_sdram_dqs_p(ddr3_sdram_dqs_p),
+    .ddr3_sdram_dqs_n(ddr3_sdram_dqs_n),
+    .ddr3_sdram_addr(ddr3_sdram_addr),
+    .ddr3_sdram_ba(ddr3_sdram_ba),
+    .ddr3_sdram_ras_n(ddr3_sdram_ras_n),
+    .ddr3_sdram_cas_n(ddr3_sdram_cas_n),
+    .ddr3_sdram_we_n(ddr3_sdram_we_n),
+    .ddr3_sdram_reset_n(ddr3_sdram_reset_n),
+    .ddr3_sdram_ck_p(ddr3_sdram_ck_p),
+    .ddr3_sdram_ck_n(ddr3_sdram_ck_n),
+    .ddr3_sdram_cke(ddr3_sdram_cke),
+    .ddr3_sdram_cs_n(ddr3_sdram_cs_n),
+    .ddr3_sdram_dm(ddr3_sdram_dm),
+    .ddr3_sdram_odt(ddr3_sdram_odt),
     .clk(clk),
-    .reset(reset),
-    .rgb_led_tri_o(rgb_led_tri_o)
+    .reset(reset)
   );
 
 endmodule

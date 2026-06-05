@@ -152,7 +152,7 @@ module sim_tb_top;
    //***************************************************************************
    // IODELAY and PHY related parameters
    //***************************************************************************
-   parameter RST_ACT_LOW           = 1;
+   parameter RST_ACT_LOW           = 0;
                                      // =1 for active low reset,
                                      // =0 for active high.
 
@@ -496,6 +496,8 @@ module sim_tb_top;
     
      
      .sys_clk_i            (sys_clk_i),
+    
+     .clk_ref_i            (clk_ref_i),
     
       .init_calib_complete (init_calib_complete),
       .tg_compare_error    (tg_compare_error),

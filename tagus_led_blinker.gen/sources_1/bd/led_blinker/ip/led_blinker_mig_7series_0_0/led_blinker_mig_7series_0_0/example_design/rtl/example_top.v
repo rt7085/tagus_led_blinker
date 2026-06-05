@@ -213,7 +213,7 @@ module example_top #
                                      // # = "ON" Enable debug signals/controls.
                                      //   = "OFF" Disable debug signals/controls.
       
-   parameter RST_ACT_LOW           = 1
+   parameter RST_ACT_LOW           = 0
                                      // =1 for active low reset,
                                      // =0 for active high.
    )
@@ -247,6 +247,8 @@ module example_top #
    // Single-ended system clock
    input                                        sys_clk_i,
    
+   // Single-ended iodelayctrl clk (reference clock)
+   input                                        clk_ref_i,
 
    output                                       tg_compare_error,
    output                                       init_calib_complete,
@@ -479,6 +481,8 @@ function integer clogb2 (input integer size);
        
 // System Clock Ports
        .sys_clk_i                       (sys_clk_i),
+// Reference Clock Ports
+       .clk_ref_i                      (clk_ref_i),
        .device_temp            (device_temp),
        `ifdef SKIP_CALIB
        .calib_tap_req                    (calib_tap_req),

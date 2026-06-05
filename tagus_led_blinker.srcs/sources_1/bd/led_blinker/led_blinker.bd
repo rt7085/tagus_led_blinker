@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xBA51B266E9A6FF6B",
+      "boundary_crc": "0xBA51B2667358F1C6",
       "device": "xc7a200tfbg484-2",
       "gen_directory": "../../../../tagus_led_blinker.gen/sources_1/bd/led_blinker",
       "name": "led_blinker",
@@ -28,7 +28,8 @@
       "axi_bram_ctrl_0": "",
       "axi_bram_ctrl_0_bram": "",
       "mig_7series_0": "",
-      "rst_mig_7series_0_100M": ""
+      "rst_mig_7series_0_100M": "",
+      "util_ds_buf_0": ""
     },
     "interface_ports": {
       "usb_uart": {
@@ -1152,7 +1153,7 @@
             "value": "reset"
           },
           "XML_INPUT_FILE": {
-            "value": "mig_a.prj"
+            "value": "mig_b.prj"
           }
         },
         "interface_ports": {
@@ -1173,6 +1174,19 @@
         "xci_path": "ip/led_blinker_rst_mig_7series_0_100M_2/led_blinker_rst_mig_7series_0_100M_2.xci",
         "inst_hier_path": "rst_mig_7series_0_100M",
         "has_run_ip_tcl": "true"
+      },
+      "util_ds_buf_0": {
+        "vlnv": "xilinx.com:ip:util_ds_buf:2.2",
+        "ip_revision": "9",
+        "xci_name": "led_blinker_util_ds_buf_0_0",
+        "xci_path": "ip/led_blinker_util_ds_buf_0_0/led_blinker_util_ds_buf_0_0.xci",
+        "inst_hier_path": "util_ds_buf_0",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "C_BUF_TYPE": {
+            "value": "BUFG"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -1277,7 +1291,7 @@
       "clk_wiz_clk_out2": {
         "ports": [
           "clk_wiz/clk_out2",
-          "mig_7series_0/sys_clk_i"
+          "mig_7series_0/clk_ref_i"
         ]
       },
       "clk_wiz_locked": {
@@ -1328,7 +1342,8 @@
         "ports": [
           "reset",
           "rst_clk_wiz_100M/ext_reset_in",
-          "clk_wiz/reset"
+          "clk_wiz/reset",
+          "mig_7series_0/sys_rst"
         ]
       },
       "rst_clk_wiz_100M_bus_struct_reset": {
@@ -1350,8 +1365,7 @@
           "axi_smc/aresetn",
           "mdm_0/S_AXI_ARESETN",
           "axi_uartlite_0/s_axi_aresetn",
-          "axi_bram_ctrl_0/s_axi_aresetn",
-          "mig_7series_0/sys_rst"
+          "axi_bram_ctrl_0/s_axi_aresetn"
         ]
       },
       "rst_mig_7series_0_100M_peripheral_aresetn": {
@@ -1363,14 +1377,23 @@
       "sys_clock_1": {
         "ports": [
           "clk",
-          "clk_wiz/clk_in1"
+          "clk_wiz/clk_in1",
+          "util_ds_buf_0/BUFG_I"
+        ]
+      },
+      "util_ds_buf_0_BUFG_O": {
+        "ports": [
+          "util_ds_buf_0/BUFG_O",
+          "mig_7series_0/sys_clk_i"
         ]
       }
     },
     "comments": {
       "/": {
         "comment_0": "Sensing reset is problematic as the edge cannot be detected (as it would reset the design). Only state of reset can be confirmed!\nThe sys_clock is samples at 400 MHz while the clock itself runs at 100MHz. We should see 4 ticks per 100 Mhz cycle (which is true)",
-        "comment_2": "Must use a clock wizard on sys_clock"
+        "comment_2": "Must use a clock wizard on sys_clock",
+        "comment_3": "May need to move SDRAM to its own SMC in the future",
+        "comment_4": "MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter "
       }
     },
     "addressing": {

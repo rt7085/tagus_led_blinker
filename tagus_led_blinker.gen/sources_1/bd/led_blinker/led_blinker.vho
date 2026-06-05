@@ -55,9 +55,24 @@ COMPONENT led_blinker
   PORT (
     usb_uart_rxd : IN STD_LOGIC;
     usb_uart_txd : OUT STD_LOGIC;
+    rgb_led_tri_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    ddr3_sdram_dq : INOUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    ddr3_sdram_dqs_p : INOUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    ddr3_sdram_dqs_n : INOUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    ddr3_sdram_addr : OUT STD_LOGIC_VECTOR(13 DOWNTO 0);
+    ddr3_sdram_ba : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+    ddr3_sdram_ras_n : OUT STD_LOGIC;
+    ddr3_sdram_cas_n : OUT STD_LOGIC;
+    ddr3_sdram_we_n : OUT STD_LOGIC;
+    ddr3_sdram_reset_n : OUT STD_LOGIC;
+    ddr3_sdram_ck_p : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+    ddr3_sdram_ck_n : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+    ddr3_sdram_cke : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+    ddr3_sdram_cs_n : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+    ddr3_sdram_dm : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+    ddr3_sdram_odt : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     clk : IN STD_LOGIC;
-    reset : IN STD_LOGIC;
-    rgb_led_tri_o : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+    reset : IN STD_LOGIC
   );
 END COMPONENT;
 -- COMP_TAG_END ------  End cut for COMPONENT Declaration  ------
@@ -70,9 +85,24 @@ your_instance_name : led_blinker
   PORT MAP (
     usb_uart_rxd => usb_uart_rxd,
     usb_uart_txd => usb_uart_txd,
+    rgb_led_tri_o => rgb_led_tri_o,
+    ddr3_sdram_dq => ddr3_sdram_dq,
+    ddr3_sdram_dqs_p => ddr3_sdram_dqs_p,
+    ddr3_sdram_dqs_n => ddr3_sdram_dqs_n,
+    ddr3_sdram_addr => ddr3_sdram_addr,
+    ddr3_sdram_ba => ddr3_sdram_ba,
+    ddr3_sdram_ras_n => ddr3_sdram_ras_n,
+    ddr3_sdram_cas_n => ddr3_sdram_cas_n,
+    ddr3_sdram_we_n => ddr3_sdram_we_n,
+    ddr3_sdram_reset_n => ddr3_sdram_reset_n,
+    ddr3_sdram_ck_p => ddr3_sdram_ck_p,
+    ddr3_sdram_ck_n => ddr3_sdram_ck_n,
+    ddr3_sdram_cke => ddr3_sdram_cke,
+    ddr3_sdram_cs_n => ddr3_sdram_cs_n,
+    ddr3_sdram_dm => ddr3_sdram_dm,
+    ddr3_sdram_odt => ddr3_sdram_odt,
     clk => clk,
-    reset => reset,
-    rgb_led_tri_o => rgb_led_tri_o
+    reset => reset
   );
 -- INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

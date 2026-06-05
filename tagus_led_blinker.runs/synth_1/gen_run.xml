@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tfbg484-2" LaunchTime="1780226323" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/led_blinker_wrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a200tfbg484-2" LaunchTime="1780655700" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/led_blinker_wrapper.dcp">
   <File Type="VDS-TIMING-PB" Name="led_blinker_wrapper_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="led_blinker_wrapper_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="led_blinker_wrapper.dcp"/>
@@ -11,6 +11,18 @@
   <File Type="PA-TCL" Name="led_blinker_wrapper.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/bd/led_blinker/ip/led_blinker_mig_7series_0_0/mig_a.prj">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="ScopedToCell" Val="led_blinker_mig_7series_0_0"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/led_blinker/ip/led_blinker_mig_7series_0_0/mig_b.prj">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="ScopedToCell" Val="led_blinker_mig_7series_0_0"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/bd/led_blinker/led_blinker.bd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -74,5 +86,6 @@
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_gpio_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_bram_ctrl_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_dlmb_bram_if_cntlr_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="led_blinker_mig_7series_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_clk_wiz_0"/>
 </GenRun>

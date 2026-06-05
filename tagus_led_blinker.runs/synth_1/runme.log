@@ -7,7 +7,7 @@
   **** SW Build 6299465 on Fri Nov 14 12:34:56 MST 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Sun May 31 07:19:09 2026
+  **** Start of session at: Fri Jun  5 06:37:03 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -27,84 +27,119 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 116274
+INFO: [Synth 8-7075] Helper process launched with PID 350825
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2305.809 ; gain = 481.844 ; free physical = 679 ; free virtual = 8368
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 2330.977 ; gain = 479.973 ; free physical = 2390 ; free virtual = 7615
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'led_blinker_wrapper' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/hdl/led_blinker_wrapper.v:13]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:16]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_axi_bram_ctrl_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_axi_bram_ctrl_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_axi_bram_ctrl_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_axi_bram_ctrl_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_axi_bram_ctrl_0_bram_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_axi_bram_ctrl_0_bram_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_axi_bram_ctrl_0_bram_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_axi_bram_ctrl_0_bram_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_axi_gpio_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_axi_gpio_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_axi_gpio_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_axi_gpio_0_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_axi_smc_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_axi_smc_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_axi_smc_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_axi_smc_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'M00_AXI_awprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:270]
-WARNING: [Synth 8-7071] port 'M00_AXI_arprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:270]
-WARNING: [Synth 8-7071] port 'M01_AXI_awprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:270]
-WARNING: [Synth 8-7071] port 'M01_AXI_arprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:270]
-WARNING: [Synth 8-7071] port 'M02_AXI_awprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:270]
-WARNING: [Synth 8-7071] port 'M02_AXI_arprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:270]
-WARNING: [Synth 8-7071] port 'M03_AXI_awqos' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:270]
-WARNING: [Synth 8-7071] port 'M03_AXI_arqos' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:270]
-WARNING: [Synth 8-7023] instance 'axi_smc' of module 'led_blinker_axi_smc_0' has 111 connections declared, but only 103 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:270]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_axi_uartlite_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_axi_uartlite_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_axi_uartlite_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_axi_uartlite_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'interrupt' of module 'led_blinker_axi_uartlite_0_0' is unconnected for instance 'axi_uartlite_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:374]
-WARNING: [Synth 8-7023] instance 'axi_uartlite_0' of module 'led_blinker_axi_uartlite_0_0' has 22 connections declared, but only 21 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:374]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_clk_wiz_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_clk_wiz_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_clk_wiz_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_clk_wiz_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'clk_out2' of module 'led_blinker_clk_wiz_0' is unconnected for instance 'clk_wiz' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:396]
-WARNING: [Synth 8-7023] instance 'clk_wiz' of module 'led_blinker_clk_wiz_0' has 5 connections declared, but only 4 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:396]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_mdm_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_mdm_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_mdm_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_mdm_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'Interrupt' of module 'led_blinker_mdm_0_0' is unconnected for instance 'mdm_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:401]
-WARNING: [Synth 8-7023] instance 'mdm_0' of module 'led_blinker_mdm_0_0' has 30 connections declared, but only 29 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:401]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_microblaze_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_microblaze_0_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_microblaze_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_microblaze_0_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:433]
-WARNING: [Synth 8-7023] instance 'microblaze_0' of module 'led_blinker_microblaze_0_0' has 52 connections declared, but only 51 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:433]
-INFO: [Synth 8-6157] synthesizing module 'microblaze_0_local_memory_imp_2KOJ0J' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:518]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_dlmb_bram_if_cntlr_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_dlmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_dlmb_bram_if_cntlr_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_dlmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_dlmb_v10_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_dlmb_v10_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_dlmb_v10_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_dlmb_v10_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'led_blinker_dlmb_v10_0' is unconnected for instance 'dlmb_v10' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:643]
-WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'led_blinker_dlmb_v10_0' has 25 connections declared, but only 24 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:643]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_ilmb_bram_if_cntlr_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_ilmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_ilmb_bram_if_cntlr_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_ilmb_bram_if_cntlr_0_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_ilmb_v10_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_ilmb_v10_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_ilmb_v10_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_ilmb_v10_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'led_blinker_ilmb_v10_0' is unconnected for instance 'ilmb_v10' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:689]
-WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'led_blinker_ilmb_v10_0' has 25 connections declared, but only 24 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:689]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_lmb_bram_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_lmb_bram_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_lmb_bram_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_lmb_bram_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'rsta_busy' of module 'led_blinker_lmb_bram_0' is unconnected for instance 'lmb_bram' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:714]
-WARNING: [Synth 8-7071] port 'rstb_busy' of module 'led_blinker_lmb_bram_0' is unconnected for instance 'lmb_bram' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:714]
-WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'led_blinker_lmb_bram_0' has 16 connections declared, but only 14 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:714]
-INFO: [Synth 8-6155] done synthesizing module 'microblaze_0_local_memory_imp_2KOJ0J' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:518]
-INFO: [Synth 8-6157] synthesizing module 'led_blinker_rst_clk_wiz_100M_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_rst_clk_wiz_100M_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker_rst_clk_wiz_100M_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-116173-capybara/realtime/led_blinker_rst_clk_wiz_100M_0_stub.v:6]
-WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'led_blinker_rst_clk_wiz_100M_0' is unconnected for instance 'rst_clk_wiz_100M' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:507]
-WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'led_blinker_rst_clk_wiz_100M_0' is unconnected for instance 'rst_clk_wiz_100M' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:507]
-WARNING: [Synth 8-7023] instance 'rst_clk_wiz_100M' of module 'led_blinker_rst_clk_wiz_100M_0' has 10 connections declared, but only 8 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:507]
-INFO: [Synth 8-6155] done synthesizing module 'led_blinker' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:16]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:18]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_axi_bram_ctrl_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_axi_bram_ctrl_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_axi_bram_ctrl_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_axi_bram_ctrl_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_axi_bram_ctrl_0_bram_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_axi_bram_ctrl_0_bram_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_axi_bram_ctrl_0_bram_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_axi_bram_ctrl_0_bram_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_axi_gpio_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_axi_gpio_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_axi_gpio_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_axi_gpio_0_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_axi_smc_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_axi_smc_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_axi_smc_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_axi_smc_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'M00_AXI_awprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:404]
+WARNING: [Synth 8-7071] port 'M00_AXI_arprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:404]
+WARNING: [Synth 8-7071] port 'M01_AXI_awprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:404]
+WARNING: [Synth 8-7071] port 'M01_AXI_arprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:404]
+WARNING: [Synth 8-7071] port 'M02_AXI_awprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:404]
+WARNING: [Synth 8-7071] port 'M02_AXI_arprot' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:404]
+WARNING: [Synth 8-7071] port 'M03_AXI_awqos' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:404]
+WARNING: [Synth 8-7071] port 'M03_AXI_arqos' of module 'led_blinker_axi_smc_0' is unconnected for instance 'axi_smc' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:404]
+WARNING: [Synth 8-7023] instance 'axi_smc' of module 'led_blinker_axi_smc_0' has 193 connections declared, but only 185 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:404]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_axi_uartlite_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_axi_uartlite_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_axi_uartlite_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_axi_uartlite_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'interrupt' of module 'led_blinker_axi_uartlite_0_0' is unconnected for instance 'axi_uartlite_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:590]
+WARNING: [Synth 8-7023] instance 'axi_uartlite_0' of module 'led_blinker_axi_uartlite_0_0' has 22 connections declared, but only 21 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:590]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_clk_wiz_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_clk_wiz_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_clk_wiz_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_mdm_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_mdm_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_mdm_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_mdm_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'Interrupt' of module 'led_blinker_mdm_0_0' is unconnected for instance 'mdm_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:618]
+WARNING: [Synth 8-7023] instance 'mdm_0' of module 'led_blinker_mdm_0_0' has 30 connections declared, but only 29 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:618]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_microblaze_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_microblaze_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_microblaze_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_microblaze_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'Interrupt_Ack' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_AWID' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_AWADDR' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_AWLEN' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_AWSIZE' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_AWBURST' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_AWLOCK' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_AWCACHE' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_AWPROT' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_AWQOS' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_AWVALID' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_WDATA' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_WSTRB' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_WLAST' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_WVALID' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_BREADY' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_IC_ARID' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_DC_AWID' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7071] port 'M_AXI_DC_ARID' of module 'led_blinker_microblaze_0_0' is unconnected for instance 'microblaze_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+WARNING: [Synth 8-7023] instance 'microblaze_0' of module 'led_blinker_microblaze_0_0' has 126 connections declared, but only 107 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:650]
+INFO: [Synth 8-6157] synthesizing module 'microblaze_0_local_memory_imp_2KOJ0J' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:859]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_dlmb_bram_if_cntlr_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_dlmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_dlmb_bram_if_cntlr_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_dlmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_dlmb_v10_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_dlmb_v10_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_dlmb_v10_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_dlmb_v10_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'led_blinker_dlmb_v10_0' is unconnected for instance 'dlmb_v10' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:984]
+WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'led_blinker_dlmb_v10_0' has 25 connections declared, but only 24 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:984]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_ilmb_bram_if_cntlr_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_ilmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_ilmb_bram_if_cntlr_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_ilmb_bram_if_cntlr_0_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_ilmb_v10_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_ilmb_v10_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_ilmb_v10_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_ilmb_v10_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'led_blinker_ilmb_v10_0' is unconnected for instance 'ilmb_v10' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:1030]
+WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'led_blinker_ilmb_v10_0' has 25 connections declared, but only 24 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:1030]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_lmb_bram_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_lmb_bram_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_lmb_bram_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_lmb_bram_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'rsta_busy' of module 'led_blinker_lmb_bram_0' is unconnected for instance 'lmb_bram' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:1055]
+WARNING: [Synth 8-7071] port 'rstb_busy' of module 'led_blinker_lmb_bram_0' is unconnected for instance 'lmb_bram' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:1055]
+WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'led_blinker_lmb_bram_0' has 16 connections declared, but only 14 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:1055]
+INFO: [Synth 8-6155] done synthesizing module 'microblaze_0_local_memory_imp_2KOJ0J' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:859]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_mig_7series_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_mig_7series_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_mig_7series_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_mig_7series_0_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'app_sr_active' of module 'led_blinker_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:780]
+WARNING: [Synth 8-7071] port 'app_ref_ack' of module 'led_blinker_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:780]
+WARNING: [Synth 8-7071] port 'app_zq_ack' of module 'led_blinker_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:780]
+WARNING: [Synth 8-7071] port 's_axi_bid' of module 'led_blinker_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:780]
+WARNING: [Synth 8-7071] port 's_axi_rid' of module 'led_blinker_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:780]
+WARNING: [Synth 8-7071] port 'init_calib_complete' of module 'led_blinker_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:780]
+WARNING: [Synth 8-7071] port 'device_temp' of module 'led_blinker_mig_7series_0_0' is unconnected for instance 'mig_7series_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:780]
+WARNING: [Synth 8-7023] instance 'mig_7series_0' of module 'led_blinker_mig_7series_0_0' has 64 connections declared, but only 57 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:780]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_rst_clk_wiz_100M_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_rst_clk_wiz_100M_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_rst_clk_wiz_100M_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_rst_clk_wiz_100M_0_stub.v:6]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'led_blinker_rst_clk_wiz_100M_0' is unconnected for instance 'rst_clk_wiz_100M' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:838]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'led_blinker_rst_clk_wiz_100M_0' is unconnected for instance 'rst_clk_wiz_100M' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:838]
+WARNING: [Synth 8-7023] instance 'rst_clk_wiz_100M' of module 'led_blinker_rst_clk_wiz_100M_0' has 10 connections declared, but only 8 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:838]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_rst_mig_7series_0_100M_2' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_rst_mig_7series_0_100M_2_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_rst_mig_7series_0_100M_2' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_rst_mig_7series_0_100M_2_stub.v:6]
+WARNING: [Synth 8-7071] port 'mb_reset' of module 'led_blinker_rst_mig_7series_0_100M_2' is unconnected for instance 'rst_mig_7series_0_100M' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:847]
+WARNING: [Synth 8-7071] port 'bus_struct_reset' of module 'led_blinker_rst_mig_7series_0_100M_2' is unconnected for instance 'rst_mig_7series_0_100M' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:847]
+WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'led_blinker_rst_mig_7series_0_100M_2' is unconnected for instance 'rst_mig_7series_0_100M' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:847]
+WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'led_blinker_rst_mig_7series_0_100M_2' is unconnected for instance 'rst_mig_7series_0_100M' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:847]
+WARNING: [Synth 8-7023] instance 'rst_mig_7series_0_100M' of module 'led_blinker_rst_mig_7series_0_100M_2' has 10 connections declared, but only 6 given [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:847]
+INFO: [Synth 8-6157] synthesizing module 'led_blinker_util_ds_buf_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_util_ds_buf_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker_util_ds_buf_0_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/.Xil/Vivado-350755-capybara/realtime/led_blinker_util_ds_buf_0_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'led_blinker' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/synth/led_blinker.v:18]
 INFO: [Synth 8-6155] done synthesizing module 'led_blinker_wrapper' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/hdl/led_blinker_wrapper.v:13]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2400.746 ; gain = 576.781 ; free physical = 576 ; free virtual = 8269
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2436.914 ; gain = 585.910 ; free physical = 2263 ; free virtual = 7490
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2400.746 ; gain = 576.781 ; free physical = 579 ; free virtual = 8271
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2439.883 ; gain = 588.879 ; free physical = 2263 ; free virtual = 7490
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2400.746 ; gain = 576.781 ; free physical = 579 ; free virtual = 8271
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2439.883 ; gain = 588.879 ; free physical = 2263 ; free virtual = 7490
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2400.746 ; gain = 0.000 ; free physical = 580 ; free virtual = 8272
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2439.883 ; gain = 0.000 ; free physical = 2263 ; free virtual = 7489
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -121,8 +156,8 @@ Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sou
 Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_ilmb_v10_0/led_blinker_ilmb_v10_0/led_blinker_ilmb_v10_0_in_context.xdc] for cell 'led_blinker_i/microblaze_0_local_memory/ilmb_v10'
 Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_dlmb_bram_if_cntlr_0/led_blinker_dlmb_bram_if_cntlr_0/led_blinker_dlmb_bram_if_cntlr_0_in_context.xdc] for cell 'led_blinker_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
 Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_dlmb_bram_if_cntlr_0/led_blinker_dlmb_bram_if_cntlr_0/led_blinker_dlmb_bram_if_cntlr_0_in_context.xdc] for cell 'led_blinker_i/microblaze_0_local_memory/dlmb_bram_if_cntlr'
-Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_ilmb_bram_if_cntlr_0/led_blinker_ilmb_bram_if_cntlr_0/led_blinker_ilmb_bram_if_cntlr_0_in_context.xdc] for cell 'led_blinker_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
-Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_ilmb_bram_if_cntlr_0/led_blinker_ilmb_bram_if_cntlr_0/led_blinker_ilmb_bram_if_cntlr_0_in_context.xdc] for cell 'led_blinker_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_ilmb_bram_if_cntlr_0/led_blinker_ilmb_bram_if_cntlr_0/led_blinker_dlmb_bram_if_cntlr_0_in_context.xdc] for cell 'led_blinker_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
+Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_ilmb_bram_if_cntlr_0/led_blinker_ilmb_bram_if_cntlr_0/led_blinker_dlmb_bram_if_cntlr_0_in_context.xdc] for cell 'led_blinker_i/microblaze_0_local_memory/ilmb_bram_if_cntlr'
 Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_lmb_bram_0/led_blinker_lmb_bram_0/led_blinker_lmb_bram_0_in_context.xdc] for cell 'led_blinker_i/microblaze_0_local_memory/lmb_bram'
 Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_lmb_bram_0/led_blinker_lmb_bram_0/led_blinker_lmb_bram_0_in_context.xdc] for cell 'led_blinker_i/microblaze_0_local_memory/lmb_bram'
 Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_rst_clk_wiz_100M_0/led_blinker_rst_clk_wiz_100M_0/led_blinker_rst_clk_wiz_100M_0_in_context.xdc] for cell 'led_blinker_i/rst_clk_wiz_100M'
@@ -137,6 +172,12 @@ Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sou
 Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_bram_ctrl_0_0/led_blinker_axi_bram_ctrl_0_0/led_blinker_axi_bram_ctrl_0_0_in_context.xdc] for cell 'led_blinker_i/axi_bram_ctrl_0'
 Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_bram_ctrl_0_bram_0/led_blinker_axi_bram_ctrl_0_bram_0/led_blinker_axi_bram_ctrl_0_bram_0_in_context.xdc] for cell 'led_blinker_i/axi_bram_ctrl_0_bram'
 Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_bram_ctrl_0_bram_0/led_blinker_axi_bram_ctrl_0_bram_0/led_blinker_axi_bram_ctrl_0_bram_0_in_context.xdc] for cell 'led_blinker_i/axi_bram_ctrl_0_bram'
+Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_mig_7series_0_0/led_blinker_mig_7series_0_0/led_blinker_mig_7series_0_0_in_context.xdc] for cell 'led_blinker_i/mig_7series_0'
+Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_mig_7series_0_0/led_blinker_mig_7series_0_0/led_blinker_mig_7series_0_0_in_context.xdc] for cell 'led_blinker_i/mig_7series_0'
+Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_rst_mig_7series_0_100M_2/led_blinker_rst_mig_7series_0_100M_2/led_blinker_rst_clk_wiz_100M_0_in_context.xdc] for cell 'led_blinker_i/rst_mig_7series_0_100M'
+Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_rst_mig_7series_0_100M_2/led_blinker_rst_mig_7series_0_100M_2/led_blinker_rst_clk_wiz_100M_0_in_context.xdc] for cell 'led_blinker_i/rst_mig_7series_0_100M'
+Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_util_ds_buf_0_0/led_blinker_util_ds_buf_0_0/led_blinker_util_ds_buf_0_1_in_context.xdc] for cell 'led_blinker_i/util_ds_buf_0'
+Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_util_ds_buf_0_0/led_blinker_util_ds_buf_0_0/led_blinker_util_ds_buf_0_1_in_context.xdc] for cell 'led_blinker_i/util_ds_buf_0'
 Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.srcs/constrs_1/new/led_blinker.xdc]
 Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.srcs/constrs_1/new/led_blinker.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.srcs/constrs_1/new/led_blinker.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/led_blinker_wrapper_propImpl.xdc].
@@ -145,33 +186,33 @@ Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/sy
 Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2448.398 ; gain = 0.000 ; free physical = 609 ; free virtual = 8301
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2482.871 ; gain = 0.000 ; free physical = 2268 ; free virtual = 7494
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2448.434 ; gain = 0.000 ; free physical = 608 ; free virtual = 8300
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2482.906 ; gain = 0.000 ; free physical = 2268 ; free virtual = 7494
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'led_blinker_i/axi_bram_ctrl_0_bram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'led_blinker_i/microblaze_0_local_memory/lmb_bram' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2448.434 ; gain = 624.469 ; free physical = 634 ; free virtual = 8323
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2482.906 ; gain = 631.902 ; free physical = 2286 ; free virtual = 7512
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tfbg484-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2456.402 ; gain = 632.438 ; free physical = 634 ; free virtual = 8323
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2490.875 ; gain = 639.871 ; free physical = 2286 ; free virtual = 7512
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2456.402 ; gain = 632.438 ; free physical = 633 ; free virtual = 8322
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2490.875 ; gain = 639.871 ; free physical = 2286 ; free virtual = 7512
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2456.402 ; gain = 632.438 ; free physical = 625 ; free virtual = 8315
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2490.875 ; gain = 639.871 ; free physical = 2286 ; free virtual = 7513
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -193,25 +234,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2456.402 ; gain = 632.438 ; free physical = 591 ; free virtual = 8286
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2490.875 ; gain = 639.871 ; free physical = 2286 ; free virtual = 7518
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2559.402 ; gain = 735.438 ; free physical = 518 ; free virtual = 8213
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2586.875 ; gain = 735.871 ; free physical = 2285 ; free virtual = 7517
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2559.402 ; gain = 735.438 ; free physical = 518 ; free virtual = 8213
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2586.875 ; gain = 735.871 ; free physical = 2285 ; free virtual = 7517
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:12 . Memory (MB): peak = 2570.418 ; gain = 746.453 ; free physical = 510 ; free virtual = 8204
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2597.891 ; gain = 746.887 ; free physical = 2269 ; free virtual = 7501
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -229,105 +270,111 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2756.230 ; gain = 932.266 ; free physical = 370 ; free virtual = 8068
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2783.703 ; gain = 932.699 ; free physical = 2096 ; free virtual = 7328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2756.230 ; gain = 932.266 ; free physical = 370 ; free virtual = 8068
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2783.703 ; gain = 932.699 ; free physical = 2096 ; free virtual = 7328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2756.230 ; gain = 932.266 ; free physical = 370 ; free virtual = 8068
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2783.703 ; gain = 932.699 ; free physical = 2096 ; free virtual = 7328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2756.230 ; gain = 932.266 ; free physical = 371 ; free virtual = 8068
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2783.703 ; gain = 932.699 ; free physical = 2096 ; free virtual = 7328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2756.230 ; gain = 932.266 ; free physical = 371 ; free virtual = 8068
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2783.703 ; gain = 932.699 ; free physical = 2096 ; free virtual = 7328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2756.230 ; gain = 932.266 ; free physical = 371 ; free virtual = 8068
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2783.703 ; gain = 932.699 ; free physical = 2096 ; free virtual = 7328
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+------+-----------------------------------+----------+
-|      |BlackBox name                      |Instances |
-+------+-----------------------------------+----------+
-|1     |led_blinker_axi_bram_ctrl_0_0      |         1|
-|2     |led_blinker_axi_bram_ctrl_0_bram_0 |         1|
-|3     |led_blinker_axi_gpio_0_0           |         1|
-|4     |led_blinker_axi_smc_0              |         1|
-|5     |led_blinker_axi_uartlite_0_0       |         1|
-|6     |led_blinker_clk_wiz_0              |         1|
-|7     |led_blinker_mdm_0_0                |         1|
-|8     |led_blinker_microblaze_0_0         |         1|
-|9     |led_blinker_rst_clk_wiz_100M_0     |         1|
-|10    |led_blinker_dlmb_bram_if_cntlr_0   |         1|
-|11    |led_blinker_dlmb_v10_0             |         1|
-|12    |led_blinker_ilmb_bram_if_cntlr_0   |         1|
-|13    |led_blinker_ilmb_v10_0             |         1|
-|14    |led_blinker_lmb_bram_0             |         1|
-+------+-----------------------------------+----------+
++------+-------------------------------------+----------+
+|      |BlackBox name                        |Instances |
++------+-------------------------------------+----------+
+|1     |led_blinker_axi_bram_ctrl_0_0        |         1|
+|2     |led_blinker_axi_bram_ctrl_0_bram_0   |         1|
+|3     |led_blinker_axi_gpio_0_0             |         1|
+|4     |led_blinker_axi_smc_0                |         1|
+|5     |led_blinker_axi_uartlite_0_0         |         1|
+|6     |led_blinker_clk_wiz_0                |         1|
+|7     |led_blinker_mdm_0_0                  |         1|
+|8     |led_blinker_microblaze_0_0           |         1|
+|9     |led_blinker_mig_7series_0_0          |         1|
+|10    |led_blinker_rst_clk_wiz_100M_0       |         1|
+|11    |led_blinker_rst_mig_7series_0_100M_2 |         1|
+|12    |led_blinker_util_ds_buf_0_0          |         1|
+|13    |led_blinker_dlmb_bram_if_cntlr_0     |         1|
+|14    |led_blinker_dlmb_v10_0               |         1|
+|15    |led_blinker_ilmb_bram_if_cntlr_0     |         1|
+|16    |led_blinker_ilmb_v10_0               |         1|
+|17    |led_blinker_lmb_bram_0               |         1|
++------+-------------------------------------+----------+
 
 Report Cell Usage: 
-+------+---------------------------------+------+
-|      |Cell                             |Count |
-+------+---------------------------------+------+
-|1     |led_blinker_axi_bram_ctrl_0      |     1|
-|2     |led_blinker_axi_bram_ctrl_0_bram |     1|
-|3     |led_blinker_axi_gpio_0           |     1|
-|4     |led_blinker_axi_smc              |     1|
-|5     |led_blinker_axi_uartlite_0       |     1|
-|6     |led_blinker_clk_wiz              |     1|
-|7     |led_blinker_dlmb_bram_if_cntlr   |     1|
-|8     |led_blinker_dlmb_v10             |     1|
-|9     |led_blinker_ilmb_bram_if_cntlr   |     1|
-|10    |led_blinker_ilmb_v10             |     1|
-|11    |led_blinker_lmb_bram             |     1|
-|12    |led_blinker_mdm_0                |     1|
-|13    |led_blinker_microblaze_0         |     1|
-|14    |led_blinker_rst_clk_wiz_100M     |     1|
-|15    |IBUF                             |     2|
-|16    |OBUF                             |     4|
-+------+---------------------------------+------+
++------+-----------------------------------+------+
+|      |Cell                               |Count |
++------+-----------------------------------+------+
+|1     |led_blinker_axi_bram_ctrl_0        |     1|
+|2     |led_blinker_axi_bram_ctrl_0_bram   |     1|
+|3     |led_blinker_axi_gpio_0             |     1|
+|4     |led_blinker_axi_smc                |     1|
+|5     |led_blinker_axi_uartlite_0         |     1|
+|6     |led_blinker_clk_wiz                |     1|
+|7     |led_blinker_dlmb_bram_if_cntlr     |     1|
+|8     |led_blinker_dlmb_v10               |     1|
+|9     |led_blinker_ilmb_bram_if_cntlr     |     1|
+|10    |led_blinker_ilmb_v10               |     1|
+|11    |led_blinker_lmb_bram               |     1|
+|12    |led_blinker_mdm_0                  |     1|
+|13    |led_blinker_microblaze_0           |     1|
+|14    |led_blinker_mig_7series_0          |     1|
+|15    |led_blinker_rst_clk_wiz_100M       |     1|
+|16    |led_blinker_rst_mig_7series_0_100M |     1|
+|17    |led_blinker_util_ds_buf_0          |     1|
+|18    |IBUF                               |     2|
+|19    |OBUF                               |     4|
++------+-----------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2756.230 ; gain = 932.266 ; free physical = 371 ; free virtual = 8068
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2783.703 ; gain = 932.699 ; free physical = 2096 ; free virtual = 7328
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 2756.230 ; gain = 884.578 ; free physical = 371 ; free virtual = 8069
-Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2756.238 ; gain = 932.266 ; free physical = 371 ; free virtual = 8069
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2783.703 ; gain = 889.676 ; free physical = 2096 ; free virtual = 7328
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2783.711 ; gain = 932.699 ; free physical = 2096 ; free virtual = 7328
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:00 . Memory (MB): peak = 2756.238 ; gain = 0.000 ; free physical = 521 ; free virtual = 8219
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2783.711 ; gain = 0.000 ; free physical = 2251 ; free virtual = 7483
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2756.238 ; gain = 0.000 ; free physical = 522 ; free virtual = 8221
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2783.711 ; gain = 0.000 ; free physical = 2246 ; free virtual = 7479
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: faa0abec
+Synth Design complete | Checksum: ccc92df3
 INFO: [Common 17-83] Releasing license: Synthesis
-56 Infos, 29 Warnings, 0 Critical Warnings and 0 Errors encountered.
+62 Infos, 58 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:19 . Memory (MB): peak = 2756.266 ; gain = 1128.262 ; free physical = 521 ; free virtual = 8220
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1882.438; main = 1882.438; forked = 280.119
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3450.621; main = 2756.234; forked = 994.215
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2780.242 ; gain = 0.000 ; free physical = 521 ; free virtual = 8220
+synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:20 . Memory (MB): peak = 2783.738 ; gain = 1141.738 ; free physical = 2251 ; free virtual = 7483
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 2076.991; main = 2076.991; forked = 316.998
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3485.094; main = 2783.707; forked = 994.215
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2807.715 ; gain = 0.000 ; free physical = 2251 ; free virtual = 7483
 INFO: [Common 17-1381] The checkpoint '/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/synth_1/led_blinker_wrapper.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file led_blinker_wrapper_utilization_synth.rpt -pb led_blinker_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May 31 07:19:32 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Jun  5 06:37:28 2026...

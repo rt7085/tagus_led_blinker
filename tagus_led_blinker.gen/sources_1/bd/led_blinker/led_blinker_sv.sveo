@@ -68,9 +68,24 @@
 led_blinker_sv your_instance_name (
   .usb_uart_rxd(usb_uart_rxd), // input wire usb_uart_rxd
   .usb_uart_txd(usb_uart_txd), // output wire usb_uart_txd
+  .rgb_led_tri_o(rgb_led_tri_o), // output wire [2:0] rgb_led_tri_o
+  .ddr3_sdram_dq(ddr3_sdram_dq), // inout wire [15:0] ddr3_sdram_dq
+  .ddr3_sdram_dqs_p(ddr3_sdram_dqs_p), // inout wire [1:0] ddr3_sdram_dqs_p
+  .ddr3_sdram_dqs_n(ddr3_sdram_dqs_n), // inout wire [1:0] ddr3_sdram_dqs_n
+  .ddr3_sdram_addr(ddr3_sdram_addr), // output wire [13:0] ddr3_sdram_addr
+  .ddr3_sdram_ba(ddr3_sdram_ba), // output wire [2:0] ddr3_sdram_ba
+  .ddr3_sdram_ras_n(ddr3_sdram_ras_n), // output wire ddr3_sdram_ras_n
+  .ddr3_sdram_cas_n(ddr3_sdram_cas_n), // output wire ddr3_sdram_cas_n
+  .ddr3_sdram_we_n(ddr3_sdram_we_n), // output wire ddr3_sdram_we_n
+  .ddr3_sdram_reset_n(ddr3_sdram_reset_n), // output wire ddr3_sdram_reset_n
+  .ddr3_sdram_ck_p(ddr3_sdram_ck_p), // output wire [0:0] ddr3_sdram_ck_p
+  .ddr3_sdram_ck_n(ddr3_sdram_ck_n), // output wire [0:0] ddr3_sdram_ck_n
+  .ddr3_sdram_cke(ddr3_sdram_cke), // output wire [0:0] ddr3_sdram_cke
+  .ddr3_sdram_cs_n(ddr3_sdram_cs_n), // output wire [0:0] ddr3_sdram_cs_n
+  .ddr3_sdram_dm(ddr3_sdram_dm), // output wire [1:0] ddr3_sdram_dm
+  .ddr3_sdram_odt(ddr3_sdram_odt), // output wire [0:0] ddr3_sdram_odt
   .clk(clk), // input wire clk
-  .reset(reset), // input wire reset
-  .rgb_led_tri_o(rgb_led_tri_o) // output wire [2:0] rgb_led_tri_o
+  .reset(reset) // input wire reset
 );
 // INST_TAG_END ------  End cut for WRAPPER INSTANTIATION Template  ------
 

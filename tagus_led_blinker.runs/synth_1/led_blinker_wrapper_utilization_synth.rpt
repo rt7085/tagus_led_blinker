@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-| Date         : Sun May 31 07:19:32 2026
+| Date         : Fri Jun  5 06:37:28 2026
 | Host         : capybara running 64-bit Ubuntu 24.04.3 LTS
 | Command      : report_utilization -file led_blinker_wrapper_utilization_synth.rpt -pb led_blinker_wrapper_utilization_synth.pb
 | Design       : led_blinker_wrapper
@@ -162,24 +162,27 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 8. Black Boxes
 --------------
 
-+------------------------------------+------+
-|              Ref Name              | Used |
-+------------------------------------+------+
-| led_blinker_rst_clk_wiz_100M_0     |    1 |
-| led_blinker_microblaze_0_0         |    1 |
-| led_blinker_mdm_0_0                |    1 |
-| led_blinker_lmb_bram_0             |    1 |
-| led_blinker_ilmb_v10_0             |    1 |
-| led_blinker_ilmb_bram_if_cntlr_0   |    1 |
-| led_blinker_dlmb_v10_0             |    1 |
-| led_blinker_dlmb_bram_if_cntlr_0   |    1 |
-| led_blinker_clk_wiz_0              |    1 |
-| led_blinker_axi_uartlite_0_0       |    1 |
-| led_blinker_axi_smc_0              |    1 |
-| led_blinker_axi_gpio_0_0           |    1 |
-| led_blinker_axi_bram_ctrl_0_bram_0 |    1 |
-| led_blinker_axi_bram_ctrl_0_0      |    1 |
-+------------------------------------+------+
++--------------------------------------+------+
+|               Ref Name               | Used |
++--------------------------------------+------+
+| led_blinker_util_ds_buf_0_0          |    1 |
+| led_blinker_rst_mig_7series_0_100M_2 |    1 |
+| led_blinker_rst_clk_wiz_100M_0       |    1 |
+| led_blinker_mig_7series_0_0          |    1 |
+| led_blinker_microblaze_0_0           |    1 |
+| led_blinker_mdm_0_0                  |    1 |
+| led_blinker_lmb_bram_0               |    1 |
+| led_blinker_ilmb_v10_0               |    1 |
+| led_blinker_ilmb_bram_if_cntlr_0     |    1 |
+| led_blinker_dlmb_v10_0               |    1 |
+| led_blinker_dlmb_bram_if_cntlr_0     |    1 |
+| led_blinker_clk_wiz_0                |    1 |
+| led_blinker_axi_uartlite_0_0         |    1 |
+| led_blinker_axi_smc_0                |    1 |
+| led_blinker_axi_gpio_0_0             |    1 |
+| led_blinker_axi_bram_ctrl_0_bram_0   |    1 |
+| led_blinker_axi_bram_ctrl_0_0        |    1 |
++--------------------------------------+------+
 
 
 9. Instantiated Netlists

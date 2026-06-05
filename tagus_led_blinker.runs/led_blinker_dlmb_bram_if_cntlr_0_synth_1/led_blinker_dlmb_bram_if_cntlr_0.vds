@@ -3,8 +3,8 @@
 # SW Build 6299465 on Fri Nov 14 12:34:56 MST 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Sun May 10 15:45:28 2026
-# Process ID         : 942037
+# Start of session at: Fri Jun  5 05:58:32 2026
+# Process ID         : 339942
 # Current directory  : /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_dlmb_bram_if_cntlr_0_synth_1
 # Command line       : vivado -log led_blinker_dlmb_bram_if_cntlr_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source led_blinker_dlmb_bram_if_cntlr_0.tcl
 # Log file           : /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_dlmb_bram_if_cntlr_0_synth_1/led_blinker_dlmb_bram_if_cntlr_0.vds
@@ -13,13 +13,13 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : AMD Ryzen 7 7800X3D 8-Core Processor
-# CPU Frequency      : 4191.461 MHz
+# CPU Frequency      : 4191.740 MHz
 # CPU Physical cores : 8
 # CPU Logical cores  : 8
 # Host memory        : 15878 MB
 # Swap memory        : 4294 MB
 # Total Virtual      : 20173 MB
-# Available Virtual  : 7491 MB
+# Available Virtual  : 8835 MB
 #-----------------------------------------------------------
 source led_blinker_dlmb_bram_if_cntlr_0.tcl -notrace
 Command: synth_design -top led_blinker_dlmb_bram_if_cntlr_0 -part xc7a200tfbg484-2 -incremental_mode off -mode out_of_context
@@ -29,16 +29,16 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200
 INFO: [Device 21-403] Loading part xc7a200tfbg484-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 942313
+INFO: [Synth 8-7075] Helper process launched with PID 340118
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2266.055 ; gain = 482.875 ; free physical = 281 ; free virtual = 2443
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2266.371 ; gain = 482.844 ; free physical = 325 ; free virtual = 3790
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'led_blinker_dlmb_bram_if_cntlr_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_dlmb_bram_if_cntlr_0/synth/led_blinker_dlmb_bram_if_cntlr_0.vhd:84]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_HIGHADDR bound to: 64'b0000000000000000000000000000000000000000000000001111111111111111 
 	Parameter C_BASEADDR bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
 	Parameter C_NUM_LMB bound to: 1 - type: integer 
-	Parameter C_MASK bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter C_MASK bound to: 64'b0000000000000000000000000000000011000000000000000000000000000000 
 	Parameter C_MASK1 bound to: 64'b0000000000000000000000000000000000000000100000000000000000000000 
 	Parameter C_MASK2 bound to: 64'b0000000000000000000000000000000000000000100000000000000000000000 
 	Parameter C_MASK3 bound to: 64'b0000000000000000000000000000000000000000100000000000000000000000 
@@ -76,7 +76,7 @@ INFO: [Synth 8-3491] module 'lmb_bram_if_cntlr' declared at '/home/rt7085/repos/
 INFO: [Synth 8-638] synthesizing module 'lmb_bram_if_cntlr' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/7cd0/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:5306]
 	Parameter C_TARGET bound to: 2 - type: integer 
 	Parameter C_BASEADDR bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
-	Parameter C_MASK bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter C_MASK bound to: 64'b0000000000000000000000000000000011000000000000000000000000000000 
 	Parameter C_MASK1 bound to: 64'b0000000000000000000000000000000000000000100000000000000000000000 
 	Parameter C_MASK2 bound to: 64'b0000000000000000000000000000000000000000100000000000000000000000 
 	Parameter C_MASK3 bound to: 64'b0000000000000000000000000000000000000000100000000000000000000000 
@@ -104,14 +104,13 @@ INFO: [Synth 8-3491] module 'lmb_mux' declared at '/home/rt7085/repos/tagus_led_
 INFO: [Synth 8-638] synthesizing module 'lmb_mux' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/7cd0/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:4309]
 	Parameter C_AW bound to: 32 - type: integer 
 	Parameter C_BAR bound to: 64'b0000000000000000000000000000000000000000000000000000000000000000 
-	Parameter C_MASK bound to: 64'b0000000000000000000000000000000001000000000000000000000000000000 
+	Parameter C_MASK bound to: 64'b0000000000000000000000000000000011000000000000000000000000000000 
 INFO: [Synth 8-3491] module 'pselect_mask' declared at '/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/7cd0/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:3470' bound to instance 'pselect_mask_lmb' of component 'pselect_mask' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/7cd0/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:4435]
 INFO: [Synth 8-638] synthesizing module 'pselect_mask' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/7cd0/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:3485]
 INFO: [Synth 8-256] done synthesizing module 'pselect_mask' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/7cd0/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:3485]
 INFO: [Synth 8-256] done synthesizing module 'lmb_mux' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/7cd0/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:4309]
 INFO: [Synth 8-256] done synthesizing module 'lmb_bram_if_cntlr' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ipshared/7cd0/hdl/lmb_bram_if_cntlr_v4_0_vh_rfs.vhd:5306]
 INFO: [Synth 8-256] done synthesizing module 'led_blinker_dlmb_bram_if_cntlr_0' (0#1) [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_dlmb_bram_if_cntlr_0/synth/led_blinker_dlmb_bram_if_cntlr_0.vhd:84]
-INFO: [Synth 8-7129] Port A[0] in module pselect_mask is either unconnected or has no load
 INFO: [Synth 8-7129] Port A[2] in module pselect_mask is either unconnected or has no load
 INFO: [Synth 8-7129] Port A[3] in module pselect_mask is either unconnected or has no load
 INFO: [Synth 8-7129] Port A[4] in module pselect_mask is either unconnected or has no load
@@ -211,20 +210,21 @@ INFO: [Synth 8-7129] Port LMB1_WriteDBus[29] in module lmb_mux is either unconne
 INFO: [Synth 8-7129] Port LMB1_WriteDBus[30] in module lmb_mux is either unconnected or has no load
 INFO: [Synth 8-7129] Port LMB1_WriteDBus[31] in module lmb_mux is either unconnected or has no load
 INFO: [Synth 8-7129] Port LMB1_AddrStrobe in module lmb_mux is either unconnected or has no load
+INFO: [Synth 8-7129] Port LMB1_ReadStrobe in module lmb_mux is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2367.992 ; gain = 584.812 ; free physical = 242 ; free virtual = 2037
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2360.309 ; gain = 576.781 ; free physical = 293 ; free virtual = 3227
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2379.867 ; gain = 596.688 ; free physical = 241 ; free virtual = 2038
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2372.184 ; gain = 588.656 ; free physical = 275 ; free virtual = 3209
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2379.867 ; gain = 596.688 ; free physical = 241 ; free virtual = 2038
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2372.184 ; gain = 588.656 ; free physical = 275 ; free virtual = 3209
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2379.867 ; gain = 0.000 ; free physical = 240 ; free virtual = 2036
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2372.184 ; gain = 0.000 ; free physical = 267 ; free virtual = 3202
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -235,30 +235,30 @@ Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/le
 Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_dlmb_bram_if_cntlr_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2450.637 ; gain = 0.000 ; free physical = 184 ; free virtual = 1980
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2440.953 ; gain = 0.000 ; free physical = 191 ; free virtual = 2974
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2450.672 ; gain = 0.000 ; free physical = 184 ; free virtual = 1980
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2440.988 ; gain = 0.000 ; free physical = 184 ; free virtual = 2966
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2450.672 ; gain = 667.492 ; free physical = 210 ; free virtual = 2008
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2440.988 ; gain = 657.461 ; free physical = 232 ; free virtual = 2492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tfbg484-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2458.641 ; gain = 675.461 ; free physical = 210 ; free virtual = 2008
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2448.957 ; gain = 665.430 ; free physical = 232 ; free virtual = 2492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2458.641 ; gain = 675.461 ; free physical = 210 ; free virtual = 2008
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2448.957 ; gain = 665.430 ; free physical = 231 ; free virtual = 2492
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 2458.641 ; gain = 675.461 ; free physical = 213 ; free virtual = 2013
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2448.957 ; gain = 665.430 ; free physical = 215 ; free virtual = 2475
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -284,25 +284,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 2458.641 ; gain = 675.461 ; free physical = 205 ; free virtual = 2006
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 2448.957 ; gain = 665.430 ; free physical = 194 ; free virtual = 2372
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2534.641 ; gain = 751.461 ; free physical = 165 ; free virtual = 1669
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2533.957 ; gain = 750.430 ; free physical = 254 ; free virtual = 2195
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2534.641 ; gain = 751.461 ; free physical = 165 ; free virtual = 1669
+Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2533.957 ; gain = 750.430 ; free physical = 254 ; free virtual = 2195
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2544.664 ; gain = 761.484 ; free physical = 180 ; free virtual = 1651
+Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 2543.973 ; gain = 760.445 ; free physical = 246 ; free virtual = 2187
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -320,37 +320,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2731.477 ; gain = 948.297 ; free physical = 262 ; free virtual = 1089
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2730.785 ; gain = 947.258 ; free physical = 205 ; free virtual = 1851
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2731.477 ; gain = 948.297 ; free physical = 262 ; free virtual = 1089
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2730.785 ; gain = 947.258 ; free physical = 205 ; free virtual = 1851
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2731.477 ; gain = 948.297 ; free physical = 262 ; free virtual = 1089
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2730.785 ; gain = 947.258 ; free physical = 205 ; free virtual = 1851
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2731.477 ; gain = 948.297 ; free physical = 262 ; free virtual = 1089
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2730.785 ; gain = 947.258 ; free physical = 205 ; free virtual = 1851
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2731.477 ; gain = 948.297 ; free physical = 262 ; free virtual = 1089
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2730.785 ; gain = 947.258 ; free physical = 205 ; free virtual = 1851
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2731.477 ; gain = 948.297 ; free physical = 262 ; free virtual = 1089
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2730.785 ; gain = 947.258 ; free physical = 205 ; free virtual = 1851
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -366,35 +366,36 @@ Report Cell Usage:
 +------+-----+------+
 |      |Cell |Count |
 +------+-----+------+
-|1     |LUT2 |     3|
-|2     |LUT3 |     4|
-|3     |FDRE |     2|
+|1     |LUT2 |     2|
+|2     |LUT3 |     1|
+|3     |LUT4 |     4|
+|4     |FDRE |     2|
 +------+-----+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2731.477 ; gain = 948.297 ; free physical = 262 ; free virtual = 1089
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2730.785 ; gain = 947.258 ; free physical = 205 ; free virtual = 1851
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2731.477 ; gain = 877.492 ; free physical = 247 ; free virtual = 1073
-Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2731.484 ; gain = 948.297 ; free physical = 247 ; free virtual = 1073
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 2730.785 ; gain = 878.453 ; free physical = 197 ; free virtual = 1844
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 2730.793 ; gain = 947.258 ; free physical = 197 ; free virtual = 1844
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2731.484 ; gain = 0.000 ; free physical = 247 ; free virtual = 1074
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2730.793 ; gain = 0.000 ; free physical = 193 ; free virtual = 1842
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2787.504 ; gain = 0.000 ; free physical = 390 ; free virtual = 1244
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2786.812 ; gain = 0.000 ; free physical = 398 ; free virtual = 2070
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 7cfffe27
+Synth Design complete | Checksum: 392fbdef
 INFO: [Common 17-83] Releasing license: Synthesis
 125 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:19 ; elapsed = 00:00:18 . Memory (MB): peak = 2787.539 ; gain = 1159.539 ; free physical = 384 ; free virtual = 1240
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1661.745; main = 1661.745; forked = 206.035
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3452.855; main = 2787.508; forked = 994.211
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2811.516 ; gain = 0.000 ; free physical = 384 ; free virtual = 1240
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:19 . Memory (MB): peak = 2786.848 ; gain = 1188.281 ; free physical = 383 ; free virtual = 2057
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1654.477; main = 1654.477; forked = 205.512
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3443.172; main = 2786.816; forked = 994.211
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2810.824 ; gain = 0.000 ; free physical = 375 ; free virtual = 2049
 INFO: [Common 17-1381] The checkpoint '/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_dlmb_bram_if_cntlr_0_synth_1/led_blinker_dlmb_bram_if_cntlr_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP led_blinker_dlmb_bram_if_cntlr_0, cache-ID = bd575da94a70efc1
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2811.516 ; gain = 0.000 ; free physical = 373 ; free virtual = 1232
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP led_blinker_dlmb_bram_if_cntlr_0, cache-ID = 8a2daba183a368f9
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2810.824 ; gain = 0.000 ; free physical = 328 ; free virtual = 2007
 INFO: [Common 17-1381] The checkpoint '/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_dlmb_bram_if_cntlr_0_synth_1/led_blinker_dlmb_bram_if_cntlr_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file led_blinker_dlmb_bram_if_cntlr_0_utilization_synth.rpt -pb led_blinker_dlmb_bram_if_cntlr_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun May 10 15:45:51 2026...
+INFO: [Common 17-206] Exiting Vivado at Fri Jun  5 05:58:56 2026...

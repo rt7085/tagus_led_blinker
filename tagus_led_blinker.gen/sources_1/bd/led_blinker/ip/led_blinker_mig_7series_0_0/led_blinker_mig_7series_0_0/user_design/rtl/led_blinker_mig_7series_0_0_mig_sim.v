@@ -424,7 +424,7 @@ module led_blinker_mig_7series_0_0_mig #
    parameter SYSCLK_TYPE           = "NO_BUFFER",
                                      // System clock type DIFFERENTIAL, SINGLE_ENDED,
                                      // NO_BUFFER
-   parameter REFCLK_TYPE           = "USE_SYSTEM_CLOCK",
+   parameter REFCLK_TYPE           = "NO_BUFFER",
                                      // Reference clock type DIFFERENTIAL, SINGLE_ENDED,
                                      // NO_BUFFER, USE_SYSTEM_CLOCK
    parameter SYS_RST_PORT          = "FALSE",
@@ -563,7 +563,7 @@ module led_blinker_mig_7series_0_0_mig #
                                      // # = "L", "N". When FPGA VccINT is 0.9v,
                                      // the value is "L", else it is "N"
       
-   parameter RST_ACT_LOW           = 1
+   parameter RST_ACT_LOW           = 0
                                      // =1 for active low reset,
                                      // =0 for active high.
    )
@@ -597,6 +597,8 @@ module led_blinker_mig_7series_0_0_mig #
    // Single-ended system clock
    input                                        sys_clk_i,
    
+   // Single-ended iodelayctrl clk (reference clock)
+   input                                        clk_ref_i,
    
    // user interface signals
    output                                       ui_clk,
@@ -774,7 +776,6 @@ module led_blinker_mig_7series_0_0_mig #
   wire                              mmcm_clk;
   wire                              clk_ref_p;
   wire                              clk_ref_n;
-  wire                              clk_ref_i;
   wire [11:0]                       device_temp_s;
   wire [11:0]                       device_temp_i;
 
@@ -865,7 +866,8 @@ module led_blinker_mig_7series_0_0_mig #
   
   assign sys_clk_p = 1'b0;
   assign sys_clk_n = 1'b0;
-  assign clk_ref_i = 1'b0;
+  assign clk_ref_p = 1'b0;
+  assign clk_ref_n = 1'b0;
   assign device_temp = device_temp_s;
       
 
