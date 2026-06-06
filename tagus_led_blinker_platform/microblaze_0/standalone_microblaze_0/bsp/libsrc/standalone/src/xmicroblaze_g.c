@@ -15,11 +15,11 @@ XMicroblaze_Config XMicroblaze_ConfigTable[] __attribute__ ((section (".drvcfg_s
 		0x5f5e100,  /* xlnx,freq */
 		0x0,  /* xlnx,use-msr-instr */
 		0x10,  /* d-cache-line-size */
-		0x1,  /* xlnx,dcache-always-used */
+		0x0,  /* xlnx,dcache-always-used */
 		0x2000,  /* d-cache-size */
 		0x10,  /* i-cache-line-size */
 		0x2000,  /* i-cache-size */
-		0x0,  /* xlnx,addr-tag-bits */
+		0x12,  /* xlnx,addr-tag-bits */
 		0x1,  /* xlnx,allow-dcache-wr */
 		0x1,  /* xlnx,allow-icache-wr */
 		0x0,  /* xlnx,area-optimized */
@@ -30,7 +30,7 @@ XMicroblaze_Config XMicroblaze_ConfigTable[] __attribute__ ((section (".drvcfg_s
 		0x1,  /* xlnx,i-lmb */
 		 0,  /* xlnx,i-opb */
 		 0,  /* xlnx,i-plb */
-		0x0,  /* xlnx,dcache-addr-tag */
+		0x12,  /* xlnx,dcache-addr-tag */
 		0x2000,  /* xlnx,dcache-byte-size */
 		0x4,  /* xlnx,dcache-line-len */
 		 0,  /* xlnx,dcache-use-fsl */
@@ -61,21 +61,21 @@ XMicroblaze_Config XMicroblaze_ConfigTable[] __attribute__ ((section (".drvcfg_s
 		0x0,  /* xlnx,reset-msr */
 		0x0,  /* xlnx,sco */
 		0x0,  /* xlnx,use-barrel */
-		0x0,  /* xlnx,use-dcache */
+		0x1,  /* xlnx,use-dcache */
 		0x0,  /* xlnx,use-div */
 		0x0,  /* xlnx,use-ext-brk */
 		0x0,  /* xlnx,use-ext-nm-brk */
 		0x0,  /* xlnx,use-extended-fsl-instr */
 		0x0,  /* xlnx,use-fpu */
 		0x0,  /* xlnx,use-hw-mul */
-		0x0,  /* xlnx,use-icache */
+		0x1,  /* xlnx,use-icache */
 		0x0,  /* xlnx,use-interrupt */
 		0x0,  /* xlnx,use-mmu */
 		0x0,  /* xlnx,use-pcmp-instr */
-		0x0,  /* d-cache-baseaddr */
-		0x3fffffff,  /* d-cache-highaddr */
-		0x0,  /* i-cache-baseaddr */
-		0x3fffffff,  /* i-cache-highaddr */
+		0x80000000,  /* d-cache-baseaddr */
+		0xffffffff,  /* d-cache-highaddr */
+		0x80000000,  /* i-cache-baseaddr */
+		0xffffffff,  /* i-cache-highaddr */
 		 0,  /* microblaze_ddr_reserve_sa */
 		 0,  /* microblaze_ddr_reserve_ea */
 		0x0,  /* reg */

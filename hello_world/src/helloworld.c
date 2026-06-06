@@ -1,12 +1,13 @@
-#include <xil_types.h>
-#define __MICROBLAZE__
+#ifdef __MICROBLAZE__
 
+#include <xil_types.h>
 #include <stdio.h>
 #include "platform.h"
 #include "xil_printf.h"
 #include "xparameters.h"
 #include "xgpio.h"
 #include "xbram.h"
+#include "xil_cache.h"
 #include "xil_io.h"
 #include "sleep.h"
 
@@ -52,9 +53,10 @@ int main()
     init_platform();
     gpio_init();
     bram_init();
+    //sdram_init();
 
-    u32 *data;
-    u32 dataReadXIL = 0;
+    unsigned int *data;
+    u32 data_read = 0;
     u32 i = 0;
 
     print("Led Blinker Applications Started...\n\r");
@@ -68,17 +70,42 @@ int main()
     // Upon checking Xil_Out32() it appears the compiler handles it with volatile u32 pointer arithmetic which automatically applies offsets of 4
     for(i = 0 ; i < 2047; i++)
     {
-        Xil_Out32((u64)(data + i), data_pattern+i+1);
+        Xil_Out32((UINTPTR)(data + i), data_pattern+i+1);
     }
     xil_printf("DATA WRITE SUCCESSFUL : XIL_IO METHOD\n");
  
     for(i = 0; i< 31; i++)
     {
-        dataReadXIL =  Xil_In32((u64)(data + i));
-        xil_printf("Location: %08X: Value: : %08X\n", data+i, dataReadXIL);
+        data_read =  Xil_In32((UINTPTR)(data + i));
+        xil_printf("Location: %08X: Value: : %08X\n", data+i, data_read);
     }
     xil_printf("DATA READ SUCCESSFUL : XIL_IO METHOD\n");
-   
+
+
+
+    // Read and Write to the SDRAM
+    data = (unsigned int *)XPAR_MIG_0_BASEADDRESS;
+
+    // Flush cache before interacting with external memory to prevent data corruption
+    Xil_DCacheFlushRange(XPAR_MIG_0_BASEADDRESS, sizeof(u32));
+
+    // Write to SDRAM
+    for(i = 0 ; i < 2047; i++)
+    {
+        Xil_Out32((UINTPTR)(data + i), data_pattern+i+1);
+    }
+    xil_printf("DATA WRITE SUCCESSFUL : XIL_IO METHOD\n");
+
+    // Read from SDRAM
+    for(i = 0; i< 31; i++)
+    {
+        data_read =  Xil_In32((UINTPTR)(data + i));
+        xil_printf("Location: %08X: Value: : %08X\n", data+i, data_read);
+    }
+    xil_printf("DATA READ SUCCESSFUL : XIL_IO METHOD\n");
+    
+    
+
     // Set Channel 1 as output (0 mask = output)
     XGpio_SetDataDirection(&Gpio, 1, 0x0);
     XGpio_DiscreteWrite(&Gpio, 1, 0x7); // each bit is an LED
@@ -89,10 +116,11 @@ int main()
         usleep(1000000);
     }
 
-
     cleanup_platform();
     
     return 0;
 
     
 }
+
+#endif // __MICROBLAZE__

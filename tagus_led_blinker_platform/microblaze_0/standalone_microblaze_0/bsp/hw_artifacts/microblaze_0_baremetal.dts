@@ -13,7 +13,7 @@
         pruned-sdt = <0x1>;
 
         cpus_microblaze_0: cpus_microblaze@0 {
-                phandle = <0xa>;
+                phandle = <0xb>;
                 #cpu-mask-cells = <0x1>;
                 compatible = "cpus,cluster";
                 #address-cells = <0x1>;
@@ -22,6 +22,7 @@
                  <0xc0000000 &axi_bram_ctrl_0 0xc0000000 0x2000>,
                  <0x0 &microblaze_0_local_memory_dlmb_bram_if_cntlr_memory 0x0 0x10000>,
                  <0x0 &microblaze_0_local_memory_dlmb_bram_if_cntlr 0x0 0x10000>,
+                 <0x80000000 &mig_7series_0_memory 0x80000000 0x10000000>,
                  <0x40000000 &axi_gpio_0 0x40000000 0x10000>,
                  <0x40600000 &axi_uartlite_0 0x40600000 0x10000>,
                  <0x41400000 &mdm_0 0x41400000 0x1000>;
@@ -29,10 +30,10 @@
                 #ranges-size-cells = <0x1>;
 
                 microblaze_0: cpu@0 {
-                        phandle = <0xb>;
+                        phandle = <0xc>;
                         xlnx,reset-msr-dce = <0x0>;
                         model = "microblaze,11.0";
-                        xlnx,addr-tag-bits = <0x0>;
+                        xlnx,addr-tag-bits = <0x12>;
                         xlnx,d-axi = <0x1>;
                         xlnx,interrupt-mon = <0x0>;
                         xlnx,iaddr-size = <0x20>;
@@ -43,7 +44,7 @@
                         xlnx,optimization = <0x0>;
                         xlnx,ip-axi-mon = <0x0>;
                         xlnx,ip-name = "microblaze";
-                        d-cache-highaddr = <0x3fffffff>;
+                        d-cache-highaddr = <0xffffffff>;
                         xlnx,dcache-force-tag-lutram = <0x0>;
                         xlnx,pc-width = <0x20>;
                         xlnx,interrupt-is-edge = <0x0>;
@@ -56,13 +57,13 @@
                         xlnx,d-lmb-mon = <0x0>;
                         xlnx,d-lmb-protocol = <0x0>;
                         xlnx,ill-opcode-exception = <0x0>;
-                        xlnx,dcache-always-used = <0x1>;
+                        xlnx,dcache-always-used = <0x0>;
                         xlnx,use-div = <0x0>;
                         xlnx,dc-axi-mon = <0x0>;
                         xlnx,debug-trace-async-reset = <0x0>;
                         xlnx,trace = <0x0>;
                         xlnx,part = "xc7a200tfbg484-2";
-                        i-cache-baseaddr = <0x0>;
+                        i-cache-baseaddr = <0x80000000>;
                         xlnx,use-config-reset = <0x0>;
                         xlnx,pvr = <0x0>;
                         xlnx,i-lmb-mon = <0x0>;
@@ -107,14 +108,14 @@
                         xlnx,base-vectors = <0x0>;
                         xlnx,d-lmb-has-prot = <0x0>;
                         xlnx,edk-special = "microblaze";
-                        xlnx,use-dcache = <0x0>;
+                        xlnx,use-dcache = <0x1>;
                         xlnx,use-barrel = <0x0>;
                         xlnx,reset-msr-bip = <0x0>;
                         xlnx,allow-dcache-wr = <0x1>;
                         xlnx,debug-external-trace = <0x0>;
                         xlnx,addr-size = <0x20>;
                         xlnx,piaddr-size = <0x20>;
-                        i-cache-highaddr = <0x3fffffff>;
+                        i-cache-highaddr = <0xffffffff>;
                         xlnx,num-sync-ff-clk-debug = <0x2>;
                         xlnx,debug-event-counters = <0x5>;
                         xlnx,fpu-exception = <0x0>;
@@ -138,14 +139,14 @@
                         xlnx,reset-msr-ie = <0x0>;
                         xlnx,edge-is-positive = <0x1>;
                         xlnx,use-pcmp-instr = <0x0>;
-                        xlnx,use-icache = <0x0>;
+                        xlnx,use-icache = <0x1>;
                         d-cache-size = <0x2000>;
-                        xlnx,memory-ip-list = "microblaze_0_local_memory_ilmb_bram_if_cntlr_memory", "microblaze_0_local_memory_dlmb_bram_if_cntlr_memory";
+                        xlnx,memory-ip-list = "microblaze_0_local_memory_ilmb_bram_if_cntlr_memory", "microblaze_0_local_memory_dlmb_bram_if_cntlr_memory", "mig_7series_0_memory", "mig_7series_0_memory", "axi_bram_ctrl_0_memory", "axi_bram_ctrl_0_memory";
                         xlnx,async-wakeup = <0x3>;
                         xlnx,use-non-secure = <0x0>;
-                        xlnx,dcache-addr-tag = <0x0>;
+                        xlnx,dcache-addr-tag = <0x12>;
                         xlnx,number-of-rd-addr-brk = <0x0>;
-                        d-cache-baseaddr = <0x0>;
+                        d-cache-baseaddr = <0x80000000>;
                         xlnx,area-optimized = <0x0>;
                         xlnx,avoid-primitives = <0x0>;
                         xlnx,lockstep-slave = <0x0>;
@@ -179,12 +180,12 @@
         };
 
         clock: clocks {
-                phandle = <0xc>;
+                phandle = <0xd>;
                 #address-cells = <0x1>;
                 #size-cells = <0x0>;
 
                 clk_cpu_0: clk_cpu@0 {
-                        phandle = <0xd>;
+                        phandle = <0xe>;
                         compatible = "fixed-clock";
                         reg = <0x0>;
                         clock-frequency = <0x5f5e100>;
@@ -193,7 +194,7 @@
                 };
 
                 clk_bus_0: clk_bus_0@1 {
-                        phandle = <0x9>;
+                        phandle = <0xa>;
                         compatible = "fixed-clock";
                         reg = <0x1>;
                         clock-frequency = <0x5f5e100>;
@@ -203,7 +204,7 @@
         };
 
         amba_pl: amba_pl {
-                phandle = <0x8>;
+                phandle = <0x9>;
                 ranges;
                 compatible = "simple-bus";
                 #address-cells = <0x1>;
@@ -242,7 +243,7 @@
                 };
 
                 axi_gpio_0: gpio@40000000 {
-                        phandle = <0x5>;
+                        phandle = <0x6>;
                         xlnx,gpio-board-interface = "rgb_led";
                         compatible = "xlnx,axi-gpio-2.0", "xlnx,xps-gpio-1.00.a";
                         xlnx,all-outputs = <0x1>;
@@ -272,7 +273,7 @@
                 };
 
                 axi_uartlite_0: serial@40600000 {
-                        phandle = <0x6>;
+                        phandle = <0x7>;
                         compatible = "xlnx,axi-uartlite-2.0", "xlnx,xps-uartlite-1.00.a";
                         clock-frequency = <0x5f5e100>;
                         xlnx,uartlite-board-interface = "usb_uart";
@@ -293,7 +294,7 @@
                 };
 
                 mdm_0: serial@41400000 {
-                        phandle = <0x7>;
+                        phandle = <0x8>;
                         xlnx,trace-async-reset = <0x0>;
                         compatible = "xlnx,mdm-3.2", "xlnx,xps-uartlite-1.00.a";
                         xlnx,data-size = <0x20>;
@@ -339,7 +340,7 @@
                         xlnx,ecc-onoff-register = <0x0>;
                         xlnx,ecc-onoff-reset-value = <0x1>;
                         xlnx,s-axi-ctrl-protocol = "AXI4LITE";
-                        xlnx,mask = <0x40000000>;
+                        xlnx,mask = <0xc0000000>;
                         xlnx,mask1 = <0x800000>;
                         xlnx,mask2 = <0x800000>;
                         xlnx,fault-inject = <0x0>;
@@ -398,6 +399,15 @@
                 reg = <0x0 0x10000>;
         };
 
+        mig_7series_0_memory: memory@80000000 {
+                phandle = <0x5>;
+                compatible = "xlnx,mig-7series-4.2";
+                xlnx,ip-name = "mig_7series";
+                device_type = "memory";
+                memory_type = "memory";
+                reg = <0x80000000 0x10000000>;
+        };
+
         chosen {
                 stdout-path = "serial0:115200n8";
         };
@@ -421,5 +431,6 @@
                 microblaze_0_local_memory_dlmb_bram_if_cntlr = "/amba_pl/lmb_bram_if_cntlr@0";
                 axi_bram_ctrl_0_memory = "/memory@c0000000";
                 microblaze_0_local_memory_dlmb_bram_if_cntlr_memory = "/memory@0";
+                mig_7series_0_memory = "/memory@80000000";
         };
 };
