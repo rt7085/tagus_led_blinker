@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Fri Jun  5 06:34:38 2026
+//Date        : Mon Jun  8 07:07:39 2026
 //Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
 //Command     : generate_target led_blinker.bd
 //Design      : led_blinker
@@ -15,7 +15,7 @@ The sys_clock is samples at 400 MHz while the clock itself runs at 100MHz. We sh
 Must use a clock wizard on sys_clock
 May need to move SDRAM to its own SMC in the future
 MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter  */
-(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=18,numReposBlks=17,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"=1,\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"=2,\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"=1,\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"=1,\"\"da_axi4_cnt\"\"=1,\"\"da_board_cnt\"\"=1,\"\"da_bram_cntlr_cnt\"\"=2,\"da_axi4_cnt\"=7,\"da_board_cnt\"=1,da_clkrst_cnt=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
+(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"=1,\"\"\"\"da_axi4_cnt\"\"\"\"=1,\"\"\"\"da_board_cnt\"\"\"\"=1,\"\"\"\"da_bram_cntlr_cnt\"\"\"\"=2,\"\"\"da_axi4_cnt\"\"\"=7,\"\"\"da_board_cnt\"\"\"=1,\"\"da_clkrst_cnt\"\"=1,\"da_board_cnt\"=1,\"da_xdma_cnt\"=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
 module led_blinker
    (clk,
     ddr3_sdram_addr,
@@ -33,11 +33,18 @@ module led_blinker
     ddr3_sdram_ras_n,
     ddr3_sdram_reset_n,
     ddr3_sdram_we_n,
+    pci_express_x1_rxn,
+    pci_express_x1_rxp,
+    pci_express_x1_txn,
+    pci_express_x1_txp,
+    pcie_perstn,
+    pcie_refclk_clk_n,
+    pcie_refclk_clk_p,
     reset,
     rgb_led_tri_o,
     usb_uart_rxd,
     usb_uart_txd);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, CLK_DOMAIN led_blinker_sys_clock, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, CLK_DOMAIN led_blinker_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 ddr3_sdram ADDR" *) (* X_INTERFACE_MODE = "Master" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ddr3_sdram, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) output [13:0]ddr3_sdram_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 ddr3_sdram BA" *) output [2:0]ddr3_sdram_ba;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 ddr3_sdram CAS_N" *) output ddr3_sdram_cas_n;
@@ -53,6 +60,13 @@ module led_blinker
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 ddr3_sdram RAS_N" *) output ddr3_sdram_ras_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 ddr3_sdram RESET_N" *) output ddr3_sdram_reset_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 ddr3_sdram WE_N" *) output ddr3_sdram_we_n;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pci_express_x1 rxn" *) (* X_INTERFACE_MODE = "Master" *) input pci_express_x1_rxn;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pci_express_x1 rxp" *) input pci_express_x1_rxp;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pci_express_x1 txn" *) output pci_express_x1_txn;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pci_express_x1 txp" *) output pci_express_x1_txp;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.PCIE_PERSTN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.PCIE_PERSTN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input pcie_perstn;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 pcie_refclk CLK_N" *) (* X_INTERFACE_MODE = "Slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pcie_refclk, CAN_DEBUG false, FREQ_HZ 100000000" *) input pcie_refclk_clk_n;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 pcie_refclk CLK_P" *) input pcie_refclk_clk_p;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 rgb_led TRI_O" *) (* X_INTERFACE_MODE = "Master" *) output [2:0]rgb_led_tri_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 usb_uart RxD" *) (* X_INTERFACE_MODE = "Master" *) input usb_uart_rxd;
@@ -305,6 +319,13 @@ module led_blinker
   wire mig_7series_0_mmcm_locked;
   wire mig_7series_0_ui_clk;
   wire mig_7series_0_ui_clk_sync_rst;
+  wire pci_express_x1_rxn;
+  wire pci_express_x1_rxp;
+  wire [0:0]\^pci_express_x1_txn ;
+  wire [0:0]\^pci_express_x1_txp ;
+  wire pcie_perstn;
+  wire pcie_refclk_clk_n;
+  wire pcie_refclk_clk_p;
   wire reset;
   wire [2:0]rgb_led_tri_o;
   wire [0:0]rst_clk_wiz_100M_bus_struct_reset;
@@ -314,7 +335,47 @@ module led_blinker
   wire usb_uart_rxd;
   wire usb_uart_txd;
   wire [0:0]util_ds_buf_0_BUFG_O;
+  wire [0:0]util_ds_buf_IBUF_OUT;
+  wire [63:0]xdma_0_M_AXI_ARADDR;
+  wire [1:0]xdma_0_M_AXI_ARBURST;
+  wire [3:0]xdma_0_M_AXI_ARCACHE;
+  wire [3:0]xdma_0_M_AXI_ARID;
+  wire [7:0]xdma_0_M_AXI_ARLEN;
+  wire xdma_0_M_AXI_ARLOCK;
+  wire [2:0]xdma_0_M_AXI_ARPROT;
+  wire xdma_0_M_AXI_ARREADY;
+  wire [2:0]xdma_0_M_AXI_ARSIZE;
+  wire xdma_0_M_AXI_ARVALID;
+  wire [63:0]xdma_0_M_AXI_AWADDR;
+  wire [1:0]xdma_0_M_AXI_AWBURST;
+  wire [3:0]xdma_0_M_AXI_AWCACHE;
+  wire [3:0]xdma_0_M_AXI_AWID;
+  wire [7:0]xdma_0_M_AXI_AWLEN;
+  wire xdma_0_M_AXI_AWLOCK;
+  wire [2:0]xdma_0_M_AXI_AWPROT;
+  wire xdma_0_M_AXI_AWREADY;
+  wire [2:0]xdma_0_M_AXI_AWSIZE;
+  wire xdma_0_M_AXI_AWVALID;
+  wire [3:0]xdma_0_M_AXI_BID;
+  wire xdma_0_M_AXI_BREADY;
+  wire [1:0]xdma_0_M_AXI_BRESP;
+  wire xdma_0_M_AXI_BVALID;
+  wire [63:0]xdma_0_M_AXI_RDATA;
+  wire [3:0]xdma_0_M_AXI_RID;
+  wire xdma_0_M_AXI_RLAST;
+  wire xdma_0_M_AXI_RREADY;
+  wire [1:0]xdma_0_M_AXI_RRESP;
+  wire xdma_0_M_AXI_RVALID;
+  wire [63:0]xdma_0_M_AXI_WDATA;
+  wire xdma_0_M_AXI_WLAST;
+  wire xdma_0_M_AXI_WREADY;
+  wire [7:0]xdma_0_M_AXI_WSTRB;
+  wire xdma_0_M_AXI_WVALID;
+  wire xdma_0_axi_aclk;
+  wire xdma_0_user_lnk_up;
 
+  assign pci_express_x1_txn = \^pci_express_x1_txn [0];
+  assign pci_express_x1_txp = \^pci_express_x1_txp [0];
   (* BMM_INFO_ADDRESS_SPACE = "byte  0xC0000000 32 > led_blinker axi_bram_ctrl_0_bram" *) 
   (* KEEP_HIERARCHY = "YES" *) 
   led_blinker_axi_bram_ctrl_0_0 axi_bram_ctrl_0
@@ -381,7 +442,8 @@ module led_blinker
         .wea(axi_bram_ctrl_0_BRAM_PORTA_WE),
         .web(axi_bram_ctrl_0_BRAM_PORTB_WE));
   led_blinker_axi_gpio_0_0 axi_gpio_0
-       (.gpio_io_o(rgb_led_tri_o),
+       (.gpio2_io_i(xdma_0_user_lnk_up),
+        .gpio_io_o(rgb_led_tri_o),
         .s_axi_aclk(microblaze_0_Clk),
         .s_axi_araddr(axi_smc_M00_AXI_ARADDR),
         .s_axi_aresetn(rst_clk_wiz_100M_peripheral_aresetn),
@@ -584,8 +646,46 @@ module led_blinker
         .S02_AXI_rready(microblaze_0_M_AXI_IC_RREADY),
         .S02_AXI_rresp(microblaze_0_M_AXI_IC_RRESP),
         .S02_AXI_rvalid(microblaze_0_M_AXI_IC_RVALID),
+        .S03_AXI_araddr(xdma_0_M_AXI_ARADDR),
+        .S03_AXI_arburst(xdma_0_M_AXI_ARBURST),
+        .S03_AXI_arcache(xdma_0_M_AXI_ARCACHE),
+        .S03_AXI_arid(xdma_0_M_AXI_ARID),
+        .S03_AXI_arlen(xdma_0_M_AXI_ARLEN),
+        .S03_AXI_arlock(xdma_0_M_AXI_ARLOCK),
+        .S03_AXI_arprot(xdma_0_M_AXI_ARPROT),
+        .S03_AXI_arqos({1'b0,1'b0,1'b0,1'b0}),
+        .S03_AXI_arready(xdma_0_M_AXI_ARREADY),
+        .S03_AXI_arsize(xdma_0_M_AXI_ARSIZE),
+        .S03_AXI_arvalid(xdma_0_M_AXI_ARVALID),
+        .S03_AXI_awaddr(xdma_0_M_AXI_AWADDR),
+        .S03_AXI_awburst(xdma_0_M_AXI_AWBURST),
+        .S03_AXI_awcache(xdma_0_M_AXI_AWCACHE),
+        .S03_AXI_awid(xdma_0_M_AXI_AWID),
+        .S03_AXI_awlen(xdma_0_M_AXI_AWLEN),
+        .S03_AXI_awlock(xdma_0_M_AXI_AWLOCK),
+        .S03_AXI_awprot(xdma_0_M_AXI_AWPROT),
+        .S03_AXI_awqos({1'b0,1'b0,1'b0,1'b0}),
+        .S03_AXI_awready(xdma_0_M_AXI_AWREADY),
+        .S03_AXI_awsize(xdma_0_M_AXI_AWSIZE),
+        .S03_AXI_awvalid(xdma_0_M_AXI_AWVALID),
+        .S03_AXI_bid(xdma_0_M_AXI_BID),
+        .S03_AXI_bready(xdma_0_M_AXI_BREADY),
+        .S03_AXI_bresp(xdma_0_M_AXI_BRESP),
+        .S03_AXI_bvalid(xdma_0_M_AXI_BVALID),
+        .S03_AXI_rdata(xdma_0_M_AXI_RDATA),
+        .S03_AXI_rid(xdma_0_M_AXI_RID),
+        .S03_AXI_rlast(xdma_0_M_AXI_RLAST),
+        .S03_AXI_rready(xdma_0_M_AXI_RREADY),
+        .S03_AXI_rresp(xdma_0_M_AXI_RRESP),
+        .S03_AXI_rvalid(xdma_0_M_AXI_RVALID),
+        .S03_AXI_wdata(xdma_0_M_AXI_WDATA),
+        .S03_AXI_wlast(xdma_0_M_AXI_WLAST),
+        .S03_AXI_wready(xdma_0_M_AXI_WREADY),
+        .S03_AXI_wstrb(xdma_0_M_AXI_WSTRB),
+        .S03_AXI_wvalid(xdma_0_M_AXI_WVALID),
         .aclk(microblaze_0_Clk),
         .aclk1(mig_7series_0_ui_clk),
+        .aclk2(xdma_0_axi_aclk),
         .aresetn(rst_clk_wiz_100M_peripheral_aresetn));
   led_blinker_axi_uartlite_0_0 axi_uartlite_0
        (.rx(usb_uart_rxd),
@@ -836,7 +936,7 @@ module led_blinker
         .ui_clk(mig_7series_0_ui_clk),
         .ui_clk_sync_rst(mig_7series_0_ui_clk_sync_rst));
   led_blinker_rst_clk_wiz_100M_0 rst_clk_wiz_100M
-       (.aux_reset_in(1'b1),
+       (.aux_reset_in(pcie_perstn),
         .bus_struct_reset(rst_clk_wiz_100M_bus_struct_reset),
         .dcm_locked(clk_wiz_locked),
         .ext_reset_in(reset),
@@ -851,9 +951,64 @@ module led_blinker
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_mig_7series_0_100M_peripheral_aresetn),
         .slowest_sync_clk(mig_7series_0_ui_clk));
+  led_blinker_util_ds_buf_1 util_ds_buf
+       (.IBUF_DS_N(pcie_refclk_clk_n),
+        .IBUF_DS_P(pcie_refclk_clk_p),
+        .IBUF_OUT(util_ds_buf_IBUF_OUT));
   led_blinker_util_ds_buf_0_0 util_ds_buf_0
        (.BUFG_I(clk),
         .BUFG_O(util_ds_buf_0_BUFG_O));
+  led_blinker_xdma_0_0 xdma_0
+       (.axi_aclk(xdma_0_axi_aclk),
+        .cfg_mgmt_addr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .cfg_mgmt_byte_enable({1'b0,1'b0,1'b0,1'b0}),
+        .cfg_mgmt_read(1'b0),
+        .cfg_mgmt_type1_cfg_reg_access(1'b0),
+        .cfg_mgmt_write(1'b0),
+        .cfg_mgmt_write_data({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .m_axi_araddr(xdma_0_M_AXI_ARADDR),
+        .m_axi_arburst(xdma_0_M_AXI_ARBURST),
+        .m_axi_arcache(xdma_0_M_AXI_ARCACHE),
+        .m_axi_arid(xdma_0_M_AXI_ARID),
+        .m_axi_arlen(xdma_0_M_AXI_ARLEN),
+        .m_axi_arlock(xdma_0_M_AXI_ARLOCK),
+        .m_axi_arprot(xdma_0_M_AXI_ARPROT),
+        .m_axi_arready(xdma_0_M_AXI_ARREADY),
+        .m_axi_arsize(xdma_0_M_AXI_ARSIZE),
+        .m_axi_arvalid(xdma_0_M_AXI_ARVALID),
+        .m_axi_awaddr(xdma_0_M_AXI_AWADDR),
+        .m_axi_awburst(xdma_0_M_AXI_AWBURST),
+        .m_axi_awcache(xdma_0_M_AXI_AWCACHE),
+        .m_axi_awid(xdma_0_M_AXI_AWID),
+        .m_axi_awlen(xdma_0_M_AXI_AWLEN),
+        .m_axi_awlock(xdma_0_M_AXI_AWLOCK),
+        .m_axi_awprot(xdma_0_M_AXI_AWPROT),
+        .m_axi_awready(xdma_0_M_AXI_AWREADY),
+        .m_axi_awsize(xdma_0_M_AXI_AWSIZE),
+        .m_axi_awvalid(xdma_0_M_AXI_AWVALID),
+        .m_axi_bid(xdma_0_M_AXI_BID),
+        .m_axi_bready(xdma_0_M_AXI_BREADY),
+        .m_axi_bresp(xdma_0_M_AXI_BRESP),
+        .m_axi_bvalid(xdma_0_M_AXI_BVALID),
+        .m_axi_rdata(xdma_0_M_AXI_RDATA),
+        .m_axi_rid(xdma_0_M_AXI_RID),
+        .m_axi_rlast(xdma_0_M_AXI_RLAST),
+        .m_axi_rready(xdma_0_M_AXI_RREADY),
+        .m_axi_rresp(xdma_0_M_AXI_RRESP),
+        .m_axi_rvalid(xdma_0_M_AXI_RVALID),
+        .m_axi_wdata(xdma_0_M_AXI_WDATA),
+        .m_axi_wlast(xdma_0_M_AXI_WLAST),
+        .m_axi_wready(xdma_0_M_AXI_WREADY),
+        .m_axi_wstrb(xdma_0_M_AXI_WSTRB),
+        .m_axi_wvalid(xdma_0_M_AXI_WVALID),
+        .pci_exp_rxn(pci_express_x1_rxn),
+        .pci_exp_rxp(pci_express_x1_rxp),
+        .pci_exp_txn(\^pci_express_x1_txn ),
+        .pci_exp_txp(\^pci_express_x1_txp ),
+        .sys_clk(util_ds_buf_IBUF_OUT),
+        .sys_rst_n(rst_clk_wiz_100M_peripheral_aresetn),
+        .user_lnk_up(xdma_0_user_lnk_up),
+        .usr_irq_req(1'b0));
 endmodule
 
 module microblaze_0_local_memory_imp_2KOJ0J

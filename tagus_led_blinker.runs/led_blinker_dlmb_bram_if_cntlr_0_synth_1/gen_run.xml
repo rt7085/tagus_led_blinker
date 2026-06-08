@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="led_blinker_dlmb_bram_if_cntlr_0_synth_1" LaunchPart="xc7a200tfbg484-2" LaunchTime="1780653510">
-  <File Type="VDS-TIMING-PB" Name="led_blinker_dlmb_bram_if_cntlr_0_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="led_blinker_dlmb_bram_if_cntlr_0_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="led_blinker_dlmb_bram_if_cntlr_0.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="led_blinker_dlmb_bram_if_cntlr_0_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="led_blinker_dlmb_bram_if_cntlr_0_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="led_blinker_dlmb_bram_if_cntlr_0_drc_synth.rpt"/>
   <File Type="RDS-RDS" Name="led_blinker_dlmb_bram_if_cntlr_0.vds"/>
-  <File Type="REPORTS-TCL" Name="led_blinker_dlmb_bram_if_cntlr_0_reports.tcl"/>
+  <File Type="RDS-UTIL" Name="led_blinker_dlmb_bram_if_cntlr_0_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="led_blinker_dlmb_bram_if_cntlr_0_utilization_synth.pb"/>
   <File Type="PA-TCL" Name="led_blinker_dlmb_bram_if_cntlr_0.tcl"/>
+  <File Type="REPORTS-TCL" Name="led_blinker_dlmb_bram_if_cntlr_0_reports.tcl"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/led_blinker_dlmb_bram_if_cntlr_0" RelGenDir="$PGENDIR/led_blinker_dlmb_bram_if_cntlr_0">
     <File Path="$PSRCDIR/sources_1/bd/led_blinker/ip/led_blinker_dlmb_bram_if_cntlr_0/led_blinker_dlmb_bram_if_cntlr_0.xci">
       <FileInfo>

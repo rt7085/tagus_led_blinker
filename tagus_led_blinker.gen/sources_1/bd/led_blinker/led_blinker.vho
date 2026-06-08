@@ -71,8 +71,15 @@ COMPONENT led_blinker
     ddr3_sdram_cs_n : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
     ddr3_sdram_dm : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     ddr3_sdram_odt : OUT STD_LOGIC_VECTOR(0 DOWNTO 0);
+    pci_express_x1_rxn : IN STD_LOGIC;
+    pci_express_x1_rxp : IN STD_LOGIC;
+    pci_express_x1_txn : OUT STD_LOGIC;
+    pci_express_x1_txp : OUT STD_LOGIC;
+    pcie_refclk_clk_n : IN STD_LOGIC;
+    pcie_refclk_clk_p : IN STD_LOGIC;
     clk : IN STD_LOGIC;
-    reset : IN STD_LOGIC
+    reset : IN STD_LOGIC;
+    pcie_perstn : IN STD_LOGIC
   );
 END COMPONENT;
 -- COMP_TAG_END ------  End cut for COMPONENT Declaration  ------
@@ -101,8 +108,15 @@ your_instance_name : led_blinker
     ddr3_sdram_cs_n => ddr3_sdram_cs_n,
     ddr3_sdram_dm => ddr3_sdram_dm,
     ddr3_sdram_odt => ddr3_sdram_odt,
+    pci_express_x1_rxn => pci_express_x1_rxn,
+    pci_express_x1_rxp => pci_express_x1_rxp,
+    pci_express_x1_txn => pci_express_x1_txn,
+    pci_express_x1_txp => pci_express_x1_txp,
+    pcie_refclk_clk_n => pcie_refclk_clk_n,
+    pcie_refclk_clk_p => pcie_refclk_clk_p,
     clk => clk,
-    reset => reset
+    reset => reset,
+    pcie_perstn => pcie_perstn
   );
 -- INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tfbg484-2" LaunchTime="1780655700" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/led_blinker_wrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a200tfbg484-2" LaunchTime="1780918079" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/led_blinker_wrapper.dcp">
   <File Type="VDS-TIMING-PB" Name="led_blinker_wrapper_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="led_blinker_wrapper_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="led_blinker_wrapper.dcp"/>
@@ -75,6 +75,8 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_bram_ctrl_0_bram_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="led_blinker_util_ds_buf_1"/>
+  <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_smc_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_uartlite_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_microblaze_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_rst_clk_wiz_100M_0"/>
@@ -84,6 +86,7 @@
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_dlmb_v10_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_ilmb_bram_if_cntlr_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_gpio_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="led_blinker_xdma_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_bram_ctrl_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_dlmb_bram_if_cntlr_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_mig_7series_0_0"/>
