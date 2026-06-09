@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Mon Jun  8 07:07:40 2026
+//Date        : Mon Jun  8 20:14:09 2026
 //Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
 //Command     : generate_target led_blinker_wrapper.bd
 //Design      : led_blinker_wrapper
@@ -27,13 +27,13 @@ module led_blinker_wrapper
     ddr3_sdram_ras_n,
     ddr3_sdram_reset_n,
     ddr3_sdram_we_n,
-    pci_express_x1_rxn,
-    pci_express_x1_rxp,
-    pci_express_x1_txn,
-    pci_express_x1_txp,
     pcie_perstn,
     pcie_refclk_clk_n,
     pcie_refclk_clk_p,
+    pcie_rxn,
+    pcie_rxp,
+    pcie_txn,
+    pcie_txp,
     reset,
     rgb_led_tri_o,
     usb_uart_rxd,
@@ -54,13 +54,13 @@ module led_blinker_wrapper
   output ddr3_sdram_ras_n;
   output ddr3_sdram_reset_n;
   output ddr3_sdram_we_n;
-  input pci_express_x1_rxn;
-  input pci_express_x1_rxp;
-  output pci_express_x1_txn;
-  output pci_express_x1_txp;
   input pcie_perstn;
   input pcie_refclk_clk_n;
   input pcie_refclk_clk_p;
+  input pcie_rxn;
+  input pcie_rxp;
+  output pcie_txn;
+  output pcie_txp;
   input reset;
   output [2:0]rgb_led_tri_o;
   input usb_uart_rxd;
@@ -82,13 +82,13 @@ module led_blinker_wrapper
   wire ddr3_sdram_ras_n;
   wire ddr3_sdram_reset_n;
   wire ddr3_sdram_we_n;
-  wire pci_express_x1_rxn;
-  wire pci_express_x1_rxp;
-  wire pci_express_x1_txn;
-  wire pci_express_x1_txp;
   wire pcie_perstn;
   wire pcie_refclk_clk_n;
   wire pcie_refclk_clk_p;
+  wire pcie_rxn;
+  wire pcie_rxp;
+  wire pcie_txn;
+  wire pcie_txp;
   wire reset;
   wire [2:0]rgb_led_tri_o;
   wire usb_uart_rxd;
@@ -111,13 +111,13 @@ module led_blinker_wrapper
         .ddr3_sdram_ras_n(ddr3_sdram_ras_n),
         .ddr3_sdram_reset_n(ddr3_sdram_reset_n),
         .ddr3_sdram_we_n(ddr3_sdram_we_n),
-        .pci_express_x1_rxn(pci_express_x1_rxn),
-        .pci_express_x1_rxp(pci_express_x1_rxp),
-        .pci_express_x1_txn(pci_express_x1_txn),
-        .pci_express_x1_txp(pci_express_x1_txp),
         .pcie_perstn(pcie_perstn),
         .pcie_refclk_clk_n(pcie_refclk_clk_n),
         .pcie_refclk_clk_p(pcie_refclk_clk_p),
+        .pcie_rxn(pcie_rxn),
+        .pcie_rxp(pcie_rxp),
+        .pcie_txn(pcie_txn),
+        .pcie_txp(pcie_txp),
         .reset(reset),
         .rgb_led_tri_o(rgb_led_tri_o),
         .usb_uart_rxd(usb_uart_rxd),

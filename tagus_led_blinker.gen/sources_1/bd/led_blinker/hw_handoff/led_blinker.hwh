@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jun  8 07:07:45 2026" VIVADOVERSION="2025.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jun  8 20:14:11 2026" VIVADOVERSION="2025.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="numato.com:tagus:part0:1.0" DEVICE="7a200t" NAME="led_blinker" PACKAGE="fbg484" SPEEDGRADE="-2"/>
 
@@ -85,26 +85,6 @@
         <CONNECTION INSTANCE="mig_7series_0" PORT="ddr3_we_n"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="pci_express_x1_rxn" SIGIS="undef" SIGNAME="xdma_0_pci_exp_rxn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="xdma_0" PORT="pci_exp_rxn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="pci_express_x1_rxp" SIGIS="undef" SIGNAME="xdma_0_pci_exp_rxp">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="xdma_0" PORT="pci_exp_rxp"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="pci_express_x1_txn" SIGIS="undef" SIGNAME="xdma_0_pci_exp_txn">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="xdma_0" PORT="pci_exp_txn"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="pci_express_x1_txp" SIGIS="undef" SIGNAME="xdma_0_pci_exp_txp">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="xdma_0" PORT="pci_exp_txp"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" NAME="pcie_perstn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_pcie_perstn">
       <CONNECTIONS>
         <CONNECTION INSTANCE="rst_clk_wiz_100M" PORT="aux_reset_in"/>
@@ -118,6 +98,26 @@
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="pcie_refclk_clk_p" SIGIS="clk" SIGNAME="util_ds_buf_IBUF_DS_P">
       <CONNECTIONS>
         <CONNECTION INSTANCE="util_ds_buf" PORT="IBUF_DS_P"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="pcie_rxn" SIGIS="undef" SIGNAME="xdma_0_pci_exp_rxn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="xdma_0" PORT="pci_exp_rxn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="pcie_rxp" SIGIS="undef" SIGNAME="xdma_0_pci_exp_rxp">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="xdma_0" PORT="pci_exp_rxp"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="pcie_txn" SIGIS="undef" SIGNAME="xdma_0_pci_exp_txn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="xdma_0" PORT="pci_exp_txn"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="pcie_txp" SIGIS="undef" SIGNAME="xdma_0_pci_exp_txp">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="xdma_0" PORT="pci_exp_txp"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="reset" POLARITY="ACTIVE_HIGH" SIGIS="rst" SIGNAME="External_Ports_reset">
@@ -189,12 +189,12 @@
         <PORTMAP LOGICAL="WE_N" PHYSICAL="ddr3_sdram_we_n"/>
       </PORTMAPS>
     </BUSINTERFACE>
-    <BUSINTERFACE BUSNAME="xdma_0_pcie_mgt" NAME="pci_express_x1" TYPE="INITIATOR">
+    <BUSINTERFACE BUSNAME="xdma_0_pcie_mgt" NAME="pcie" TYPE="INITIATOR">
       <PORTMAPS>
-        <PORTMAP LOGICAL="rxn" PHYSICAL="pci_express_x1_rxn"/>
-        <PORTMAP LOGICAL="rxp" PHYSICAL="pci_express_x1_rxp"/>
-        <PORTMAP LOGICAL="txn" PHYSICAL="pci_express_x1_txn"/>
-        <PORTMAP LOGICAL="txp" PHYSICAL="pci_express_x1_txp"/>
+        <PORTMAP LOGICAL="rxn" PHYSICAL="pcie_rxn"/>
+        <PORTMAP LOGICAL="rxp" PHYSICAL="pcie_rxp"/>
+        <PORTMAP LOGICAL="txn" PHYSICAL="pcie_txn"/>
+        <PORTMAP LOGICAL="txp" PHYSICAL="pcie_txp"/>
       </PORTMAPS>
     </BUSINTERFACE>
     <BUSINTERFACE BUSNAME="External_Interface_pcie_refclk" NAME="pcie_refclk" TYPE="TARGET">
@@ -11812,22 +11812,22 @@
         <PORT DIR="O" LEFT="2" NAME="msi_vector_width" RIGHT="0" SIGIS="undef"/>
         <PORT DIR="I" LEFT="0" NAME="pci_exp_rxn" RIGHT="0" SIGIS="undef" SIGNAME="xdma_0_pci_exp_rxn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="led_blinker_imp" PORT="pci_express_x1_rxn"/>
+            <CONNECTION INSTANCE="led_blinker_imp" PORT="pcie_rxn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="0" NAME="pci_exp_rxp" RIGHT="0" SIGIS="undef" SIGNAME="xdma_0_pci_exp_rxp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="led_blinker_imp" PORT="pci_express_x1_rxp"/>
+            <CONNECTION INSTANCE="led_blinker_imp" PORT="pcie_rxp"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="pci_exp_txn" RIGHT="0" SIGIS="undef" SIGNAME="xdma_0_pci_exp_txn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="led_blinker_imp" PORT="pci_express_x1_txn"/>
+            <CONNECTION INSTANCE="led_blinker_imp" PORT="pcie_txn"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="0" NAME="pci_exp_txp" RIGHT="0" SIGIS="undef" SIGNAME="xdma_0_pci_exp_txp">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="led_blinker_imp" PORT="pci_express_x1_txp"/>
+            <CONNECTION INSTANCE="led_blinker_imp" PORT="pcie_txp"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sys_clk" SIGIS="clk" SIGNAME="util_ds_buf_IBUF_OUT">

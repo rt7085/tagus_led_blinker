@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x7F4D61F43F055BE7",
+      "boundary_crc": "0x5F54EF3EAE4D9B8C",
       "device": "xc7a200tfbg484-2",
       "gen_directory": "../../../../tagus_led_blinker.gen/sources_1/bd/led_blinker",
       "name": "led_blinker",
@@ -219,7 +219,7 @@
           }
         }
       },
-      "pci_express_x1": {
+      "pcie": {
         "mode": "Master",
         "vlnv_bus_definition": "xilinx.com:interface:pcie_7x_mgt:1.0",
         "vlnv": "xilinx.com:interface:pcie_7x_mgt_rtl:1.0",
@@ -231,19 +231,19 @@
         },
         "port_maps": {
           "rxn": {
-            "physical_name": "pci_express_x1_rxn",
+            "physical_name": "pcie_rxn",
             "direction": "I"
           },
           "rxp": {
-            "physical_name": "pci_express_x1_rxp",
+            "physical_name": "pcie_rxp",
             "direction": "I"
           },
           "txn": {
-            "physical_name": "pci_express_x1_txn",
+            "physical_name": "pcie_txn",
             "direction": "O"
           },
           "txp": {
-            "physical_name": "pci_express_x1_txp",
+            "physical_name": "pcie_txp",
             "direction": "O"
           }
         }
@@ -1504,7 +1504,7 @@
       },
       "xdma_0_pcie_mgt": {
         "interface_ports": [
-          "pci_express_x1",
+          "pcie",
           "xdma_0/pcie_mgt"
         ]
       }

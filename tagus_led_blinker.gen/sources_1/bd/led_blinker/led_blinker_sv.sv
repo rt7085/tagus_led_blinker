@@ -90,13 +90,13 @@ module led_blinker_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   output wire [0:0] ddr3_sdram_odt,
   (* X_INTERFACE_IGNORE = "true" *)
-  input wire pci_express_x1_rxn,
+  input wire pcie_rxn,
   (* X_INTERFACE_IGNORE = "true" *)
-  input wire pci_express_x1_rxp,
+  input wire pcie_rxp,
   (* X_INTERFACE_IGNORE = "true" *)
-  output wire pci_express_x1_txn,
+  output wire pcie_txn,
   (* X_INTERFACE_IGNORE = "true" *)
-  output wire pci_express_x1_txp,
+  output wire pcie_txp,
   (* X_INTERFACE_IGNORE = "true" *)
   input wire pcie_refclk_clk_n,
   (* X_INTERFACE_IGNORE = "true" *)
@@ -128,10 +128,10 @@ module led_blinker_sv (
     .ddr3_sdram_cs_n(ddr3_sdram_cs_n),
     .ddr3_sdram_dm(ddr3_sdram_dm),
     .ddr3_sdram_odt(ddr3_sdram_odt),
-    .pci_express_x1_rxn(pci_express_x1_rxn),
-    .pci_express_x1_rxp(pci_express_x1_rxp),
-    .pci_express_x1_txn(pci_express_x1_txn),
-    .pci_express_x1_txp(pci_express_x1_txp),
+    .pcie_rxn(pcie_rxn),
+    .pcie_rxp(pcie_rxp),
+    .pcie_txn(pcie_txn),
+    .pcie_txp(pcie_txp),
     .pcie_refclk_clk_n(pcie_refclk_clk_n),
     .pcie_refclk_clk_p(pcie_refclk_clk_p),
     .clk(clk),

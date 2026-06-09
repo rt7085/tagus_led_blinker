@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Mon Jun  8 07:07:39 2026
+//Date        : Mon Jun  8 20:14:09 2026
 //Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
 //Command     : generate_target led_blinker.bd
 //Design      : led_blinker
@@ -15,7 +15,7 @@ The sys_clock is samples at 400 MHz while the clock itself runs at 100MHz. We sh
 Must use a clock wizard on sys_clock
 May need to move SDRAM to its own SMC in the future
 MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter  */
-(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"=1,\"\"\"\"da_axi4_cnt\"\"\"\"=1,\"\"\"\"da_board_cnt\"\"\"\"=1,\"\"\"\"da_bram_cntlr_cnt\"\"\"\"=2,\"\"\"da_axi4_cnt\"\"\"=7,\"\"\"da_board_cnt\"\"\"=1,\"\"da_clkrst_cnt\"\"=1,\"da_board_cnt\"=1,\"da_xdma_cnt\"=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
+(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"da_axi4_cnt\"\"\"\"\"=1,\"\"\"\"\"da_board_cnt\"\"\"\"\"=1,\"\"\"\"\"da_bram_cntlr_cnt\"\"\"\"\"=2,\"\"\"\"da_axi4_cnt\"\"\"\"=7,\"\"\"\"da_board_cnt\"\"\"\"=1,\"\"\"da_clkrst_cnt\"\"\"=1,\"\"da_board_cnt\"\"=1,\"\"da_xdma_cnt\"\"=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
 module led_blinker
    (clk,
     ddr3_sdram_addr,
@@ -33,13 +33,13 @@ module led_blinker
     ddr3_sdram_ras_n,
     ddr3_sdram_reset_n,
     ddr3_sdram_we_n,
-    pci_express_x1_rxn,
-    pci_express_x1_rxp,
-    pci_express_x1_txn,
-    pci_express_x1_txp,
     pcie_perstn,
     pcie_refclk_clk_n,
     pcie_refclk_clk_p,
+    pcie_rxn,
+    pcie_rxp,
+    pcie_txn,
+    pcie_txp,
     reset,
     rgb_led_tri_o,
     usb_uart_rxd,
@@ -60,13 +60,13 @@ module led_blinker
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 ddr3_sdram RAS_N" *) output ddr3_sdram_ras_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 ddr3_sdram RESET_N" *) output ddr3_sdram_reset_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 ddr3_sdram WE_N" *) output ddr3_sdram_we_n;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pci_express_x1 rxn" *) (* X_INTERFACE_MODE = "Master" *) input pci_express_x1_rxn;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pci_express_x1 rxp" *) input pci_express_x1_rxp;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pci_express_x1 txn" *) output pci_express_x1_txn;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pci_express_x1 txp" *) output pci_express_x1_txp;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.PCIE_PERSTN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.PCIE_PERSTN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input pcie_perstn;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 pcie_refclk CLK_N" *) (* X_INTERFACE_MODE = "Slave" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME pcie_refclk, CAN_DEBUG false, FREQ_HZ 100000000" *) input pcie_refclk_clk_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 pcie_refclk CLK_P" *) input pcie_refclk_clk_p;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pcie rxn" *) (* X_INTERFACE_MODE = "Master" *) input pcie_rxn;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pcie rxp" *) input pcie_rxp;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pcie txn" *) output pcie_txn;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_7x_mgt:1.0 pcie txp" *) output pcie_txp;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
   (* X_INTERFACE_INFO = "xilinx.com:interface:gpio:1.0 rgb_led TRI_O" *) (* X_INTERFACE_MODE = "Master" *) output [2:0]rgb_led_tri_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 usb_uart RxD" *) (* X_INTERFACE_MODE = "Master" *) input usb_uart_rxd;
@@ -319,13 +319,13 @@ module led_blinker
   wire mig_7series_0_mmcm_locked;
   wire mig_7series_0_ui_clk;
   wire mig_7series_0_ui_clk_sync_rst;
-  wire pci_express_x1_rxn;
-  wire pci_express_x1_rxp;
-  wire [0:0]\^pci_express_x1_txn ;
-  wire [0:0]\^pci_express_x1_txp ;
   wire pcie_perstn;
   wire pcie_refclk_clk_n;
   wire pcie_refclk_clk_p;
+  wire pcie_rxn;
+  wire pcie_rxp;
+  wire [0:0]\^pcie_txn ;
+  wire [0:0]\^pcie_txp ;
   wire reset;
   wire [2:0]rgb_led_tri_o;
   wire [0:0]rst_clk_wiz_100M_bus_struct_reset;
@@ -374,8 +374,8 @@ module led_blinker
   wire xdma_0_axi_aclk;
   wire xdma_0_user_lnk_up;
 
-  assign pci_express_x1_txn = \^pci_express_x1_txn [0];
-  assign pci_express_x1_txp = \^pci_express_x1_txp [0];
+  assign pcie_txn = \^pcie_txn [0];
+  assign pcie_txp = \^pcie_txp [0];
   (* BMM_INFO_ADDRESS_SPACE = "byte  0xC0000000 32 > led_blinker axi_bram_ctrl_0_bram" *) 
   (* KEEP_HIERARCHY = "YES" *) 
   led_blinker_axi_bram_ctrl_0_0 axi_bram_ctrl_0
@@ -1001,10 +1001,10 @@ module led_blinker
         .m_axi_wready(xdma_0_M_AXI_WREADY),
         .m_axi_wstrb(xdma_0_M_AXI_WSTRB),
         .m_axi_wvalid(xdma_0_M_AXI_WVALID),
-        .pci_exp_rxn(pci_express_x1_rxn),
-        .pci_exp_rxp(pci_express_x1_rxp),
-        .pci_exp_txn(\^pci_express_x1_txn ),
-        .pci_exp_txp(\^pci_express_x1_txp ),
+        .pci_exp_rxn(pcie_rxn),
+        .pci_exp_rxp(pcie_rxp),
+        .pci_exp_txn(\^pcie_txn ),
+        .pci_exp_txp(\^pcie_txp ),
         .sys_clk(util_ds_buf_IBUF_OUT),
         .sys_rst_n(rst_clk_wiz_100M_peripheral_aresetn),
         .user_lnk_up(xdma_0_user_lnk_up),

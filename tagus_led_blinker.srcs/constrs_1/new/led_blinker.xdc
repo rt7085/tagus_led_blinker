@@ -52,5 +52,15 @@ set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[2]]
 set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[1]]
 set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[0]]
 set_property LOC GTPE2_CHANNEL_X0Y4 [get_cells {led_blinker_i/xdma_0/inst/led_blinker_xdma_0_0_pcie2_to_pcie3_wrapper_i/pcie2_ip_i/inst/inst/gt_top_i/pipe_wrapper_i/pipe_lane[0].gt_wrapper_i/gtp_channel.gtpe2_channel_i}]
-set_property PACKAGE_PIN B8 [get_ports pci_express_x1_rxp]
+
 set_property PACKAGE_PIN W20 [get_ports pcie_perstn]
+set_property IOSTANDARD LVCMOS33 [get_ports pcie_perstn]
+
+set_property PACKAGE_PIN F6 [get_ports {pcie_refclk_clk_p}]
+set_property PACKAGE_PIN E6 [get_ports {pcie_refclk_clk_n}]
+
+set_property PACKAGE_PIN B8 [get_ports {pcie_rxp}]
+set_property PACKAGE_PIN A8 [get_ports {pcie_rxn}]
+
+set_property PACKAGE_PIN B4 [get_ports {pcie_txp}]
+set_property PACKAGE_PIN A4 [get_ports {pcie_txn}]
