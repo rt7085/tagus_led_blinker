@@ -64,3 +64,7 @@ set_property PACKAGE_PIN A8 [get_ports {pcie_rxn}]
 
 set_property PACKAGE_PIN B4 [get_ports {pcie_txp}]
 set_property PACKAGE_PIN A4 [get_ports {pcie_txn}]
+
+set_property BITSTREAM.CONFIG.CONFIGRATE 66 [current_design]
+set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
+set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
