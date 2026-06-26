@@ -877,7 +877,7 @@
             "value": "5"
           },
           "NUM_SI": {
-            "value": "4"
+            "value": "5"
           }
         },
         "interface_ports": {
@@ -981,6 +981,36 @@
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "16"
+              }
+            },
+            "bridges": [
+              "M00_AXI",
+              "M01_AXI",
+              "M02_AXI",
+              "M03_AXI",
+              "M04_AXI"
+            ],
+            "bd_attributes": {
+              "BRIDGES": {
+                "value": "M00_AXI:M01_AXI:M02_AXI:M03_AXI:M04_AXI",
+                "value_src": "auto"
+              },
+              "TYPE": {
+                "value": "interior",
+                "value_src": "default"
+              }
+            }
+          },
+          "S04_AXI": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "parameters": {
+              "NUM_READ_OUTSTANDING": {
+                "value": "1"
+              },
+              "NUM_WRITE_OUTSTANDING": {
+                "value": "1"
               }
             },
             "bridges": [
@@ -1324,6 +1354,15 @@
           "axi_data_width": {
             "value": "64_bit"
           },
+          "axilite_master_en": {
+            "value": "true"
+          },
+          "axilite_master_scale": {
+            "value": "Megabytes"
+          },
+          "axilite_master_size": {
+            "value": "1"
+          },
           "axisten_freq": {
             "value": "62.5"
           },
@@ -1365,6 +1404,22 @@
               "maximum": "0xFFFFFFFFFFFFFFFF",
               "width": "64"
             }
+          },
+          "M_AXI_LITE": {
+            "bd_attributes": {
+              "TYPE": {
+                "value": "END_POINT",
+                "value_src": "auto"
+              }
+            },
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "mode": "Master",
+            "address_space_ref": "M_AXI_LITE",
+            "base_address": {
+              "minimum": "0x00000000",
+              "maximum": "0xFFFFFFFF",
+              "width": "32"
+            }
           }
         },
         "addressing": {
@@ -1372,6 +1427,10 @@
             "M_AXI": {
               "range": "16E",
               "width": "64"
+            },
+            "M_AXI_LITE": {
+              "range": "4G",
+              "width": "32"
             }
           }
         }
@@ -1500,6 +1559,12 @@
         "interface_ports": [
           "xdma_0/M_AXI",
           "axi_smc/S03_AXI"
+        ]
+      },
+      "xdma_0_M_AXI_LITE": {
+        "interface_ports": [
+          "xdma_0/M_AXI_LITE",
+          "axi_smc/S04_AXI"
         ]
       },
       "xdma_0_pcie_mgt": {
@@ -1640,7 +1705,8 @@
         "comment_0": "Sensing reset is problematic as the edge cannot be detected (as it would reset the design). Only state of reset can be confirmed!\nThe sys_clock is samples at 400 MHz while the clock itself runs at 100MHz. We should see 4 ticks per 100 Mhz cycle (which is true)",
         "comment_2": "Must use a clock wizard on sys_clock",
         "comment_3": "May need to move SDRAM to its own SMC in the future",
-        "comment_4": "MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter "
+        "comment_4": "MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter ",
+        "comment_5": "Must connect M_AXI_LITE port for Config BAR detection by XDMA driver"
       }
     },
     "addressing": {
@@ -1745,6 +1811,35 @@
               "SEG_mig_7series_0_memaddr": {
                 "address_block": "/mig_7series_0/memmap/memaddr",
                 "offset": "0x0000000080000000",
+                "range": "256M"
+              }
+            }
+          },
+          "M_AXI_LITE": {
+            "segments": {
+              "SEG_axi_bram_ctrl_0_Mem0": {
+                "address_block": "/axi_bram_ctrl_0/S_AXI/Mem0",
+                "offset": "0xC0000000",
+                "range": "8K"
+              },
+              "SEG_axi_gpio_0_Reg": {
+                "address_block": "/axi_gpio_0/S_AXI/Reg",
+                "offset": "0x40000000",
+                "range": "64K"
+              },
+              "SEG_axi_uartlite_0_Reg": {
+                "address_block": "/axi_uartlite_0/S_AXI/Reg",
+                "offset": "0x40600000",
+                "range": "64K"
+              },
+              "SEG_mdm_0_Reg": {
+                "address_block": "/mdm_0/S_AXI/Reg",
+                "offset": "0x41400000",
+                "range": "4K"
+              },
+              "SEG_mig_7series_0_memaddr": {
+                "address_block": "/mig_7series_0/memmap/memaddr",
+                "offset": "0x80000000",
                 "range": "256M"
               }
             }

@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Mon Jun  8 20:14:09 2026
+//Date        : Fri Jun 26 07:12:43 2026
 //Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
 //Command     : generate_target led_blinker.bd
 //Design      : led_blinker
@@ -14,8 +14,9 @@
 The sys_clock is samples at 400 MHz while the clock itself runs at 100MHz. We should see 4 ticks per 100 Mhz cycle (which is true)
 Must use a clock wizard on sys_clock
 May need to move SDRAM to its own SMC in the future
-MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter  */
-(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"da_axi4_cnt\"\"\"\"\"=1,\"\"\"\"\"da_board_cnt\"\"\"\"\"=1,\"\"\"\"\"da_bram_cntlr_cnt\"\"\"\"\"=2,\"\"\"\"da_axi4_cnt\"\"\"\"=7,\"\"\"\"da_board_cnt\"\"\"\"=1,\"\"\"da_clkrst_cnt\"\"\"=1,\"\"da_board_cnt\"\"=1,\"\"da_xdma_cnt\"\"=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
+MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter 
+Must connect M_AXI_LITE port for Config BAR detection by XDMA driver */
+(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"da_bram_cntlr_cnt\"\"\"\"\"\"\"=2,\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"=7,\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"=1,\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"=1,\"\"\"\"da_board_cnt\"\"\"\"=1,\"\"\"\"da_xdma_cnt\"\"\"\"=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
 module led_blinker
    (clk,
     ddr3_sdram_addr,
@@ -360,6 +361,25 @@ module led_blinker
   wire xdma_0_M_AXI_BREADY;
   wire [1:0]xdma_0_M_AXI_BRESP;
   wire xdma_0_M_AXI_BVALID;
+  wire [31:0]xdma_0_M_AXI_LITE_ARADDR;
+  wire [2:0]xdma_0_M_AXI_LITE_ARPROT;
+  wire xdma_0_M_AXI_LITE_ARREADY;
+  wire xdma_0_M_AXI_LITE_ARVALID;
+  wire [31:0]xdma_0_M_AXI_LITE_AWADDR;
+  wire [2:0]xdma_0_M_AXI_LITE_AWPROT;
+  wire xdma_0_M_AXI_LITE_AWREADY;
+  wire xdma_0_M_AXI_LITE_AWVALID;
+  wire xdma_0_M_AXI_LITE_BREADY;
+  wire [1:0]xdma_0_M_AXI_LITE_BRESP;
+  wire xdma_0_M_AXI_LITE_BVALID;
+  wire [31:0]xdma_0_M_AXI_LITE_RDATA;
+  wire xdma_0_M_AXI_LITE_RREADY;
+  wire [1:0]xdma_0_M_AXI_LITE_RRESP;
+  wire xdma_0_M_AXI_LITE_RVALID;
+  wire [31:0]xdma_0_M_AXI_LITE_WDATA;
+  wire xdma_0_M_AXI_LITE_WREADY;
+  wire [3:0]xdma_0_M_AXI_LITE_WSTRB;
+  wire xdma_0_M_AXI_LITE_WVALID;
   wire [63:0]xdma_0_M_AXI_RDATA;
   wire [3:0]xdma_0_M_AXI_RID;
   wire xdma_0_M_AXI_RLAST;
@@ -683,6 +703,25 @@ module led_blinker
         .S03_AXI_wready(xdma_0_M_AXI_WREADY),
         .S03_AXI_wstrb(xdma_0_M_AXI_WSTRB),
         .S03_AXI_wvalid(xdma_0_M_AXI_WVALID),
+        .S04_AXI_araddr(xdma_0_M_AXI_LITE_ARADDR),
+        .S04_AXI_arprot(xdma_0_M_AXI_LITE_ARPROT),
+        .S04_AXI_arready(xdma_0_M_AXI_LITE_ARREADY),
+        .S04_AXI_arvalid(xdma_0_M_AXI_LITE_ARVALID),
+        .S04_AXI_awaddr(xdma_0_M_AXI_LITE_AWADDR),
+        .S04_AXI_awprot(xdma_0_M_AXI_LITE_AWPROT),
+        .S04_AXI_awready(xdma_0_M_AXI_LITE_AWREADY),
+        .S04_AXI_awvalid(xdma_0_M_AXI_LITE_AWVALID),
+        .S04_AXI_bready(xdma_0_M_AXI_LITE_BREADY),
+        .S04_AXI_bresp(xdma_0_M_AXI_LITE_BRESP),
+        .S04_AXI_bvalid(xdma_0_M_AXI_LITE_BVALID),
+        .S04_AXI_rdata(xdma_0_M_AXI_LITE_RDATA),
+        .S04_AXI_rready(xdma_0_M_AXI_LITE_RREADY),
+        .S04_AXI_rresp(xdma_0_M_AXI_LITE_RRESP),
+        .S04_AXI_rvalid(xdma_0_M_AXI_LITE_RVALID),
+        .S04_AXI_wdata(xdma_0_M_AXI_LITE_WDATA),
+        .S04_AXI_wready(xdma_0_M_AXI_LITE_WREADY),
+        .S04_AXI_wstrb(xdma_0_M_AXI_LITE_WSTRB),
+        .S04_AXI_wvalid(xdma_0_M_AXI_LITE_WVALID),
         .aclk(microblaze_0_Clk),
         .aclk1(mig_7series_0_ui_clk),
         .aclk2(xdma_0_axi_aclk),
@@ -1001,6 +1040,25 @@ module led_blinker
         .m_axi_wready(xdma_0_M_AXI_WREADY),
         .m_axi_wstrb(xdma_0_M_AXI_WSTRB),
         .m_axi_wvalid(xdma_0_M_AXI_WVALID),
+        .m_axil_araddr(xdma_0_M_AXI_LITE_ARADDR),
+        .m_axil_arprot(xdma_0_M_AXI_LITE_ARPROT),
+        .m_axil_arready(xdma_0_M_AXI_LITE_ARREADY),
+        .m_axil_arvalid(xdma_0_M_AXI_LITE_ARVALID),
+        .m_axil_awaddr(xdma_0_M_AXI_LITE_AWADDR),
+        .m_axil_awprot(xdma_0_M_AXI_LITE_AWPROT),
+        .m_axil_awready(xdma_0_M_AXI_LITE_AWREADY),
+        .m_axil_awvalid(xdma_0_M_AXI_LITE_AWVALID),
+        .m_axil_bready(xdma_0_M_AXI_LITE_BREADY),
+        .m_axil_bresp(xdma_0_M_AXI_LITE_BRESP),
+        .m_axil_bvalid(xdma_0_M_AXI_LITE_BVALID),
+        .m_axil_rdata(xdma_0_M_AXI_LITE_RDATA),
+        .m_axil_rready(xdma_0_M_AXI_LITE_RREADY),
+        .m_axil_rresp(xdma_0_M_AXI_LITE_RRESP),
+        .m_axil_rvalid(xdma_0_M_AXI_LITE_RVALID),
+        .m_axil_wdata(xdma_0_M_AXI_LITE_WDATA),
+        .m_axil_wready(xdma_0_M_AXI_LITE_WREADY),
+        .m_axil_wstrb(xdma_0_M_AXI_LITE_WSTRB),
+        .m_axil_wvalid(xdma_0_M_AXI_LITE_WVALID),
         .pci_exp_rxn(pcie_rxn),
         .pci_exp_rxp(pcie_rxp),
         .pci_exp_txn(\^pcie_txn ),

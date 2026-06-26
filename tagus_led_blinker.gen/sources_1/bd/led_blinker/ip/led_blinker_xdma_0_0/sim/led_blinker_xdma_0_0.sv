@@ -102,6 +102,25 @@ module led_blinker_xdma_0_0 (
   m_axi_arlock,
   m_axi_arcache,
   m_axi_rready,
+  m_axil_awaddr,
+  m_axil_awprot,
+  m_axil_awvalid,
+  m_axil_awready,
+  m_axil_wdata,
+  m_axil_wstrb,
+  m_axil_wvalid,
+  m_axil_wready,
+  m_axil_bvalid,
+  m_axil_bresp,
+  m_axil_bready,
+  m_axil_araddr,
+  m_axil_arprot,
+  m_axil_arvalid,
+  m_axil_arready,
+  m_axil_rdata,
+  m_axil_rresp,
+  m_axil_rvalid,
+  m_axil_rready,
   cfg_mgmt_addr,
   cfg_mgmt_write,
   cfg_mgmt_write_data,
@@ -217,6 +236,47 @@ output wire m_axi_arlock;
 output wire [3 : 0] m_axi_arcache;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI RREADY" *)
 output wire m_axi_rready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE AWADDR" *)
+(* X_INTERFACE_MODE = "master" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M_AXI_LITE, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 62500000, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN led_blinker_xdma_0_0_axi_aclk, NUM_READ_THREADS 1, NUM_W\
+RITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *)
+output wire [31 : 0] m_axil_awaddr;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE AWPROT" *)
+output wire [2 : 0] m_axil_awprot;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE AWVALID" *)
+output wire m_axil_awvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE AWREADY" *)
+input wire m_axil_awready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE WDATA" *)
+output wire [31 : 0] m_axil_wdata;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE WSTRB" *)
+output wire [3 : 0] m_axil_wstrb;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE WVALID" *)
+output wire m_axil_wvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE WREADY" *)
+input wire m_axil_wready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE BVALID" *)
+input wire m_axil_bvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE BRESP" *)
+input wire [1 : 0] m_axil_bresp;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE BREADY" *)
+output wire m_axil_bready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE ARADDR" *)
+output wire [31 : 0] m_axil_araddr;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE ARPROT" *)
+output wire [2 : 0] m_axil_arprot;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE ARVALID" *)
+output wire m_axil_arvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE ARREADY" *)
+input wire m_axil_arready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE RDATA" *)
+input wire [31 : 0] m_axil_rdata;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE RRESP" *)
+input wire [1 : 0] m_axil_rresp;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE RVALID" *)
+input wire m_axil_rvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M_AXI_LITE RREADY" *)
+output wire m_axil_rready;
 (* X_INTERFACE_INFO = "xilinx.com:interface:pcie_cfg_mgmt:1.0 pcie_cfg_mgmt ADDR" *)
 (* X_INTERFACE_MODE = "slave" *)
 input wire [18 : 0] cfg_mgmt_addr;
@@ -279,7 +339,7 @@ input wire cfg_mgmt_type1_cfg_reg_access;
     .PF3_REVISION_ID(8'H00),
     .PF3_SUBSYSTEM_ID(16'H0007),
     .AXILITE_MASTER_APERTURE_SIZE(8'H0D),
-    .AXILITE_MASTER_CONTROL(3'H0),
+    .AXILITE_MASTER_CONTROL(3'H4),
     .XDMA_APERTURE_SIZE(8'H09),
     .XDMA_CONTROL(3'H4),
     .AXIST_BYPASS_APERTURE_SIZE(8'H0D),
@@ -310,7 +370,7 @@ input wire cfg_mgmt_type1_cfg_reg_access;
     .DEV_PORT_TYPE(0),
     .XDMA_AXI_INTF_MM(1),
     .XDMA_PCIE_64BIT_EN("xdma_pcie_64bit_en"),
-    .XDMA_AXILITE_MASTER("FALSE"),
+    .XDMA_AXILITE_MASTER("TRUE"),
     .XDMA_AXIST_BYPASS("FALSE"),
     .XDMA_RNUM_CHNL(2),
     .XDMA_WNUM_CHNL(2),
@@ -427,7 +487,7 @@ input wire cfg_mgmt_type1_cfg_reg_access;
     .C_PCIEBAR2AXIBAR_4(64'H0000000000000000),
     .C_PCIEBAR2AXIBAR_5(64'H0000000000000000),
     .C_PCIEBAR2AXIBAR_6(64'H0000000000000000),
-    .BARLITE1(0),
+    .BARLITE1(1),
     .BARLITE2(7),
     .VCU118_BOARD("FALSE"),
     .ENABLE_ERROR_INJECTION("FALSE"),
@@ -491,11 +551,11 @@ input wire cfg_mgmt_type1_cfg_reg_access;
     .DMA_ST(0),
     .C_PCIE_PFS_SUPPORTED(0),
     .C_SRIOV_EN(0),
-    .BARLITE_EXT_PF0(6'H00),
+    .BARLITE_EXT_PF0(6'H01),
     .BARLITE_EXT_PF1(6'H00),
     .BARLITE_EXT_PF2(6'H00),
     .BARLITE_EXT_PF3(6'H00),
-    .BARLITE_INT_PF0(6'H01),
+    .BARLITE_INT_PF0(6'H02),
     .BARLITE_INT_PF1(6'H00),
     .BARLITE_INT_PF2(6'H00),
     .BARLITE_INT_PF3(6'H00),
@@ -629,27 +689,27 @@ input wire cfg_mgmt_type1_cfg_reg_access;
     .m_axi_arlock(m_axi_arlock),
     .m_axi_arcache(m_axi_arcache),
     .m_axi_rready(m_axi_rready),
-    .m_axil_awaddr(),
+    .m_axil_awaddr(m_axil_awaddr),
     .m_axil_awuser(),
-    .m_axil_awprot(),
-    .m_axil_awvalid(),
-    .m_axil_awready(1'B0),
-    .m_axil_wdata(),
-    .m_axil_wstrb(),
-    .m_axil_wvalid(),
-    .m_axil_wready(1'B0),
-    .m_axil_bvalid(1'B0),
-    .m_axil_bresp(2'B0),
-    .m_axil_bready(),
-    .m_axil_araddr(),
+    .m_axil_awprot(m_axil_awprot),
+    .m_axil_awvalid(m_axil_awvalid),
+    .m_axil_awready(m_axil_awready),
+    .m_axil_wdata(m_axil_wdata),
+    .m_axil_wstrb(m_axil_wstrb),
+    .m_axil_wvalid(m_axil_wvalid),
+    .m_axil_wready(m_axil_wready),
+    .m_axil_bvalid(m_axil_bvalid),
+    .m_axil_bresp(m_axil_bresp),
+    .m_axil_bready(m_axil_bready),
+    .m_axil_araddr(m_axil_araddr),
     .m_axil_aruser(),
-    .m_axil_arprot(),
-    .m_axil_arvalid(),
-    .m_axil_arready(1'B0),
-    .m_axil_rdata(32'B0),
-    .m_axil_rresp(2'B0),
-    .m_axil_rvalid(1'B0),
-    .m_axil_rready(),
+    .m_axil_arprot(m_axil_arprot),
+    .m_axil_arvalid(m_axil_arvalid),
+    .m_axil_arready(m_axil_arready),
+    .m_axil_rdata(m_axil_rdata),
+    .m_axil_rresp(m_axil_rresp),
+    .m_axil_rvalid(m_axil_rvalid),
+    .m_axil_rready(m_axil_rready),
     .cfg_mgmt_addr(cfg_mgmt_addr),
     .cfg_mgmt_write(cfg_mgmt_write),
     .cfg_mgmt_write_data(cfg_mgmt_write_data),

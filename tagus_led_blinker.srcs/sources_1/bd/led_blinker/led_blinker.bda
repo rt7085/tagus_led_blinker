@@ -286,6 +286,24 @@
             },
             "V8": {
                 "VT": "AC",
+                "BA": "0x40000000",
+                "HA": "0x4000FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "M_AXI_LITE",
+                "MX": "/xdma_0",
+                "MI": "M_AXI_LITE",
+                "MS": "SEG_axi_gpio_0_Reg",
+                "MV": "xilinx.com:ip:xdma:4.2",
+                "SX": "/axi_gpio_0",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_gpio:2.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V9": {
+                "VT": "AC",
                 "BA": "0x40600000",
                 "HA": "0x4060FFFF",
                 "BP": "C_BASEADDR",
@@ -302,7 +320,7 @@
                 "TM": "data",
                 "TU": "register"
             },
-            "V9": {
+            "V10": {
                 "VT": "AC",
                 "BA": "0x40600000",
                 "HA": "0x4060FFFF",
@@ -320,7 +338,7 @@
                 "TM": "instruction",
                 "TU": "register"
             },
-            "V10": {
+            "V11": {
                 "VT": "AC",
                 "BA": "0x0000000040600000",
                 "HA": "0x000000004060FFFF",
@@ -338,7 +356,25 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V11": {
+            "V12": {
+                "VT": "AC",
+                "BA": "0x40600000",
+                "HA": "0x4060FFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "M_AXI_LITE",
+                "MX": "/xdma_0",
+                "MI": "M_AXI_LITE",
+                "MS": "SEG_axi_uartlite_0_Reg",
+                "MV": "xilinx.com:ip:xdma:4.2",
+                "SX": "/axi_uartlite_0",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:axi_uartlite:2.0",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V13": {
                 "VT": "AC",
                 "BA": "0x41400000",
                 "HA": "0x41400FFF",
@@ -356,7 +392,7 @@
                 "TM": "data",
                 "TU": "register"
             },
-            "V12": {
+            "V14": {
                 "VT": "AC",
                 "BA": "0x41400000",
                 "HA": "0x41400FFF",
@@ -374,7 +410,7 @@
                 "TM": "instruction",
                 "TU": "register"
             },
-            "V13": {
+            "V15": {
                 "VT": "AC",
                 "BA": "0x0000000041400000",
                 "HA": "0x0000000041400FFF",
@@ -392,7 +428,25 @@
                 "TM": "both",
                 "TU": "register"
             },
-            "V14": {
+            "V16": {
+                "VT": "AC",
+                "BA": "0x41400000",
+                "HA": "0x41400FFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "M_AXI_LITE",
+                "MX": "/xdma_0",
+                "MI": "M_AXI_LITE",
+                "MS": "SEG_mdm_0_Reg",
+                "MV": "xilinx.com:ip:xdma:4.2",
+                "SX": "/mdm_0",
+                "SI": "S_AXI",
+                "SS": "Reg",
+                "SV": "xilinx.com:ip:mdm:3.2",
+                "TM": "both",
+                "TU": "register"
+            },
+            "V17": {
                 "VT": "AC",
                 "BA": "0x80000000",
                 "HA": "0x8FFFFFFF",
@@ -411,7 +465,7 @@
                 "TM": "data",
                 "TU": "memory"
             },
-            "V15": {
+            "V18": {
                 "VT": "AC",
                 "BA": "0x80000000",
                 "HA": "0x8FFFFFFF",
@@ -430,7 +484,7 @@
                 "TM": "instruction",
                 "TU": "memory"
             },
-            "V16": {
+            "V19": {
                 "VT": "AC",
                 "BA": "0x0000000080000000",
                 "HA": "0x000000008FFFFFFF",
@@ -449,7 +503,26 @@
                 "TM": "both",
                 "TU": "memory"
             },
-            "V17": {
+            "V20": {
+                "VT": "AC",
+                "BA": "0x80000000",
+                "HA": "0x8FFFFFFF",
+                "BP": "C_BASEADDR",
+                "HP": "C_HIGHADDR",
+                "MA": "M_AXI_LITE",
+                "MX": "/xdma_0",
+                "MI": "M_AXI_LITE",
+                "MS": "SEG_mig_7series_0_memaddr",
+                "MV": "xilinx.com:ip:xdma:4.2",
+                "SX": "/mig_7series_0",
+                "SI": "S_AXI",
+                "MM": "memmap",
+                "SS": "memaddr",
+                "SV": "xilinx.com:ip:mig_7series:4.2",
+                "TM": "both",
+                "TU": "memory"
+            },
+            "V21": {
                 "VT": "AC",
                 "BA": "0xC0000000",
                 "HA": "0xC0001FFF",
@@ -467,7 +540,7 @@
                 "TM": "data",
                 "TU": "memory"
             },
-            "V18": {
+            "V22": {
                 "VT": "AC",
                 "BA": "0xC0000000",
                 "HA": "0xC0001FFF",
@@ -485,7 +558,7 @@
                 "TM": "instruction",
                 "TU": "memory"
             },
-            "V19": {
+            "V23": {
                 "VT": "AC",
                 "BA": "0x00000000C0000000",
                 "HA": "0x00000000C0001FFF",
@@ -494,6 +567,24 @@
                 "MA": "M_AXI",
                 "MX": "/xdma_0",
                 "MI": "M_AXI",
+                "MS": "SEG_axi_bram_ctrl_0_Mem0",
+                "MV": "xilinx.com:ip:xdma:4.2",
+                "SX": "/axi_bram_ctrl_0",
+                "SI": "S_AXI",
+                "SS": "Mem0",
+                "SV": "xilinx.com:ip:axi_bram_ctrl:4.1",
+                "TM": "both",
+                "TU": "memory"
+            },
+            "V24": {
+                "VT": "AC",
+                "BA": "0xC0000000",
+                "HA": "0xC0001FFF",
+                "BP": "C_S_AXI_BASEADDR",
+                "HP": "C_S_AXI_HIGHADDR",
+                "MA": "M_AXI_LITE",
+                "MX": "/xdma_0",
+                "MI": "M_AXI_LITE",
                 "MS": "SEG_axi_bram_ctrl_0_Mem0",
                 "MV": "xilinx.com:ip:xdma:4.2",
                 "SX": "/axi_bram_ctrl_0",
@@ -595,6 +686,31 @@
             },
             {
                 "src": "V19",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V20",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V21",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V22",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V23",
+                "trg": "V2",
+                "EH": "2"
+            },
+            {
+                "src": "V24",
                 "trg": "V2",
                 "EH": "2"
             }

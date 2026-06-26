@@ -11,7 +11,7 @@
         "S_PIPELINES": [ { "value": "0", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M_PIPELINES": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "S_LATENCY": [ { "value": "0", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "NUM_SI": [ { "value": "4", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "NUM_SI": [ { "value": "5", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "NUM_MI": [ { "value": "5", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "TESTING_MODE": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "PAYLD_WIDTH": [ { "value": "180", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -19,7 +19,7 @@
         "M00_S01_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M00_S02_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M00_S03_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "M00_S04_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "M00_S04_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M00_S05_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M00_S06_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M00_S07_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -35,7 +35,7 @@
         "M01_S01_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M01_S02_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M01_S03_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "M01_S04_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "M01_S04_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M01_S05_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M01_S06_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M01_S07_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -51,7 +51,7 @@
         "M02_S01_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M02_S02_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M02_S03_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "M02_S04_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "M02_S04_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M02_S05_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M02_S06_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M02_S07_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -67,7 +67,7 @@
         "M03_S01_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M03_S02_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M03_S03_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "M03_S04_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "M03_S04_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M03_S05_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M03_S06_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M03_S07_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -83,7 +83,7 @@
         "M04_S01_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M04_S02_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M04_S03_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "M04_S04_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "M04_S04_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M04_S05_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M04_S06_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M04_S07_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -279,10 +279,10 @@
         "C_S_PIPELINES": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_M_PIPELINES": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_S_LATENCY": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_NUM_SI": [ { "value": "4", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_NUM_SI": [ { "value": "5", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_NUM_MI": [ { "value": "5", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_TESTING_MODE": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_CONNECTIVITY": [ { "value": "0b11111111111111111111", "resolve_type": "generated", "format": "bitString", "enabled": false, "usage": "all" } ]
+        "C_CONNECTIVITY": [ { "value": "0b1111111111111111111111111", "resolve_type": "generated", "format": "bitString", "enabled": false, "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "artix7", "resolve_type": "generated", "usage": "all" } ],
@@ -312,15 +312,15 @@
       "ports": {
         "aclk": [ { "direction": "in" } ],
         "aclken": [ { "direction": "in", "driver_value": "1" } ],
-        "s_sc_send": [ { "direction": "in", "size_left": "19", "size_right": "0" } ],
-        "s_sc_req": [ { "direction": "in", "size_left": "19", "size_right": "0" } ],
-        "s_sc_info": [ { "direction": "in", "size_left": "19", "size_right": "0" } ],
-        "s_sc_payld": [ { "direction": "in", "size_left": "719", "size_right": "0" } ],
-        "s_sc_recv": [ { "direction": "out", "size_left": "19", "size_right": "0" } ],
-        "m_sc_recv": [ { "direction": "in", "size_left": "19", "size_right": "0" } ],
-        "m_sc_send": [ { "direction": "out", "size_left": "19", "size_right": "0" } ],
-        "m_sc_req": [ { "direction": "out", "size_left": "19", "size_right": "0" } ],
-        "m_sc_info": [ { "direction": "out", "size_left": "19", "size_right": "0" } ],
+        "s_sc_send": [ { "direction": "in", "size_left": "24", "size_right": "0" } ],
+        "s_sc_req": [ { "direction": "in", "size_left": "24", "size_right": "0" } ],
+        "s_sc_info": [ { "direction": "in", "size_left": "24", "size_right": "0" } ],
+        "s_sc_payld": [ { "direction": "in", "size_left": "899", "size_right": "0" } ],
+        "s_sc_recv": [ { "direction": "out", "size_left": "24", "size_right": "0" } ],
+        "m_sc_recv": [ { "direction": "in", "size_left": "24", "size_right": "0" } ],
+        "m_sc_send": [ { "direction": "out", "size_left": "24", "size_right": "0" } ],
+        "m_sc_req": [ { "direction": "out", "size_left": "24", "size_right": "0" } ],
+        "m_sc_info": [ { "direction": "out", "size_left": "24", "size_right": "0" } ],
         "m_sc_payld": [ { "direction": "out", "size_left": "899", "size_right": "0" } ]
       },
       "interfaces": {
@@ -373,10 +373,10 @@
           "abstraction_type": "xilinx.com:interface:sc_rtl:1.0",
           "mode": "master",
           "port_maps": {
-            "RECV": [ { "physical_name": "m_sc_recv", "physical_left": "3", "physical_right": "0" } ],
-            "SEND": [ { "physical_name": "m_sc_send", "physical_left": "3", "physical_right": "0" } ],
-            "REQ": [ { "physical_name": "m_sc_req", "physical_left": "3", "physical_right": "0" } ],
-            "INFO": [ { "physical_name": "m_sc_info", "physical_left": "3", "physical_right": "0" } ],
+            "RECV": [ { "physical_name": "m_sc_recv", "physical_left": "4", "physical_right": "0" } ],
+            "SEND": [ { "physical_name": "m_sc_send", "physical_left": "4", "physical_right": "0" } ],
+            "REQ": [ { "physical_name": "m_sc_req", "physical_left": "4", "physical_right": "0" } ],
+            "INFO": [ { "physical_name": "m_sc_info", "physical_left": "4", "physical_right": "0" } ],
             "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "179", "physical_right": "0" } ]
           }
         },
@@ -400,10 +400,10 @@
           "abstraction_type": "xilinx.com:interface:sc_rtl:1.0",
           "mode": "master",
           "port_maps": {
-            "RECV": [ { "physical_name": "m_sc_recv", "physical_left": "7", "physical_right": "4" } ],
-            "SEND": [ { "physical_name": "m_sc_send", "physical_left": "7", "physical_right": "4" } ],
-            "REQ": [ { "physical_name": "m_sc_req", "physical_left": "7", "physical_right": "4" } ],
-            "INFO": [ { "physical_name": "m_sc_info", "physical_left": "7", "physical_right": "4" } ],
+            "RECV": [ { "physical_name": "m_sc_recv", "physical_left": "9", "physical_right": "5" } ],
+            "SEND": [ { "physical_name": "m_sc_send", "physical_left": "9", "physical_right": "5" } ],
+            "REQ": [ { "physical_name": "m_sc_req", "physical_left": "9", "physical_right": "5" } ],
+            "INFO": [ { "physical_name": "m_sc_info", "physical_left": "9", "physical_right": "5" } ],
             "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "359", "physical_right": "180" } ]
           }
         },
@@ -427,10 +427,10 @@
           "abstraction_type": "xilinx.com:interface:sc_rtl:1.0",
           "mode": "master",
           "port_maps": {
-            "RECV": [ { "physical_name": "m_sc_recv", "physical_left": "11", "physical_right": "8" } ],
-            "SEND": [ { "physical_name": "m_sc_send", "physical_left": "11", "physical_right": "8" } ],
-            "REQ": [ { "physical_name": "m_sc_req", "physical_left": "11", "physical_right": "8" } ],
-            "INFO": [ { "physical_name": "m_sc_info", "physical_left": "11", "physical_right": "8" } ],
+            "RECV": [ { "physical_name": "m_sc_recv", "physical_left": "14", "physical_right": "10" } ],
+            "SEND": [ { "physical_name": "m_sc_send", "physical_left": "14", "physical_right": "10" } ],
+            "REQ": [ { "physical_name": "m_sc_req", "physical_left": "14", "physical_right": "10" } ],
+            "INFO": [ { "physical_name": "m_sc_info", "physical_left": "14", "physical_right": "10" } ],
             "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "539", "physical_right": "360" } ]
           }
         },
@@ -454,11 +454,26 @@
           "abstraction_type": "xilinx.com:interface:sc_rtl:1.0",
           "mode": "master",
           "port_maps": {
-            "RECV": [ { "physical_name": "m_sc_recv", "physical_left": "15", "physical_right": "12" } ],
-            "SEND": [ { "physical_name": "m_sc_send", "physical_left": "15", "physical_right": "12" } ],
-            "REQ": [ { "physical_name": "m_sc_req", "physical_left": "15", "physical_right": "12" } ],
-            "INFO": [ { "physical_name": "m_sc_info", "physical_left": "15", "physical_right": "12" } ],
+            "RECV": [ { "physical_name": "m_sc_recv", "physical_left": "19", "physical_right": "15" } ],
+            "SEND": [ { "physical_name": "m_sc_send", "physical_left": "19", "physical_right": "15" } ],
+            "REQ": [ { "physical_name": "m_sc_req", "physical_left": "19", "physical_right": "15" } ],
+            "INFO": [ { "physical_name": "m_sc_info", "physical_left": "19", "physical_right": "15" } ],
             "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "719", "physical_right": "540" } ]
+          }
+        },
+        "S04_SC": {
+          "vlnv": "xilinx.com:interface:sc:1.0",
+          "abstraction_type": "xilinx.com:interface:sc_rtl:1.0",
+          "mode": "slave",
+          "parameters": {
+            "BRIDGES": [ { "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC:M08_SC:M09_SC:M10_SC:M11_SC:M12_SC:M13_SC:M14_SC:M15_SC", "value_src": "constant", "value_permission": "bd", "usage": "all" } ]
+          },
+          "port_maps": {
+            "SEND": [ { "physical_name": "s_sc_send", "physical_left": "24", "physical_right": "20" } ],
+            "REQ": [ { "physical_name": "s_sc_req", "physical_left": "24", "physical_right": "20" } ],
+            "INFO": [ { "physical_name": "s_sc_info", "physical_left": "24", "physical_right": "20" } ],
+            "PAYLD": [ { "physical_name": "s_sc_payld", "physical_left": "899", "physical_right": "720" } ],
+            "RECV": [ { "physical_name": "s_sc_recv", "physical_left": "24", "physical_right": "20" } ]
           }
         },
         "M04_SC": {
@@ -466,15 +481,15 @@
           "abstraction_type": "xilinx.com:interface:sc_rtl:1.0",
           "mode": "master",
           "port_maps": {
-            "RECV": [ { "physical_name": "m_sc_recv", "physical_left": "19", "physical_right": "16" } ],
-            "SEND": [ { "physical_name": "m_sc_send", "physical_left": "19", "physical_right": "16" } ],
-            "REQ": [ { "physical_name": "m_sc_req", "physical_left": "19", "physical_right": "16" } ],
-            "INFO": [ { "physical_name": "m_sc_info", "physical_left": "19", "physical_right": "16" } ],
+            "RECV": [ { "physical_name": "m_sc_recv", "physical_left": "24", "physical_right": "20" } ],
+            "SEND": [ { "physical_name": "m_sc_send", "physical_left": "24", "physical_right": "20" } ],
+            "REQ": [ { "physical_name": "m_sc_req", "physical_left": "24", "physical_right": "20" } ],
+            "INFO": [ { "physical_name": "m_sc_info", "physical_left": "24", "physical_right": "20" } ],
             "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "899", "physical_right": "720" } ]
           }
         }
       }
     }
   },
-  "checksum": "551de4c6"
+  "checksum": "d6ec5253"
 }

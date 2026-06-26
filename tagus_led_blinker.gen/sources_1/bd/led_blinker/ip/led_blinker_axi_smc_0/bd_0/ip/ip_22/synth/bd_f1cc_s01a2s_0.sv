@@ -53,7 +53,7 @@
 (* X_CORE_INFO = "sc_axi2sc_v1_0_11_top,Vivado 2025.2" *)
 (* CHECK_LICENSE_TYPE = "bd_f1cc_s01a2s_0,sc_axi2sc_v1_0_11_top,{}" *)
 (* CORE_GENERATION_INFO = "bd_f1cc_s01a2s_0,sc_axi2sc_v1_0_11_top,{x_ipProduct=Vivado 2025.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=sc_axi2sc,x_ipVersion=1.0,x_ipCoreRevision=11,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_AXI_ADDR_WIDTH=32,C_AXI_ID_WIDTH=3,C_AXI_RDATA_WIDTH=32,C_AXI_WDATA_WIDTH=32,C_SC_ADDR_WIDTH=64,C_SC_ID_WIDTH=4,C_SC_RDATA_WIDTH=128,C_SC_WDATA_WIDTH=128,C_SC_RUSER_BITS_PER_BYTE=0,C_SC_WUSER_BITS_PER_BYTE=0,C_SC_ARUSER_WIDTH=0,C_SC_AWUSER_WIDTH=0,C_SC_BUSER_WIDTH=0,C_MSC_ROUTE_WIDTH=5,C_SSC_ROUT\
-E_WIDTH=4,C_AWPAYLD_WIDTH=180,C_ARPAYLD_WIDTH=180,C_WPAYLD_WIDTH=164,C_RPAYLD_WIDTH=153,C_BPAYLD_WIDTH=11}" *)
+E_WIDTH=5,C_AWPAYLD_WIDTH=180,C_ARPAYLD_WIDTH=180,C_WPAYLD_WIDTH=164,C_RPAYLD_WIDTH=154,C_BPAYLD_WIDTH=12}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module bd_f1cc_s01a2s_0 (
   aclk,
@@ -136,7 +136,7 @@ input wire s_sc_r_send;
 (* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S_SC_R RECV" *)
 output wire s_sc_r_recv;
 (* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S_SC_R PAYLD" *)
-input wire [152 : 0] s_sc_r_payld;
+input wire [153 : 0] s_sc_r_payld;
 (* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S_SC_B REQ" *)
 (* X_INTERFACE_MODE = "slave" *)
 input wire s_sc_b_req;
@@ -147,7 +147,7 @@ input wire s_sc_b_send;
 (* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S_SC_B RECV" *)
 output wire s_sc_b_recv;
 (* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S_SC_B PAYLD" *)
-input wire [10 : 0] s_sc_b_payld;
+input wire [11 : 0] s_sc_b_payld;
 (* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M_SC_AR REQ" *)
 (* X_INTERFACE_MODE = "master" *)
 output wire m_sc_ar_req;
@@ -276,12 +276,12 @@ input wire s_axi_rready;
     .C_SC_AWUSER_WIDTH(0),
     .C_SC_BUSER_WIDTH(0),
     .C_MSC_ROUTE_WIDTH(5),
-    .C_SSC_ROUTE_WIDTH(4),
+    .C_SSC_ROUTE_WIDTH(5),
     .C_AWPAYLD_WIDTH(180),
     .C_ARPAYLD_WIDTH(180),
     .C_WPAYLD_WIDTH(164),
-    .C_RPAYLD_WIDTH(153),
-    .C_BPAYLD_WIDTH(11)
+    .C_RPAYLD_WIDTH(154),
+    .C_BPAYLD_WIDTH(12)
   ) inst (
     .aclk(aclk),
     .s_sc_r_req(s_sc_r_req),
