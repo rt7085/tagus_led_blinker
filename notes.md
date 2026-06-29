@@ -176,6 +176,9 @@ crw-rw-rw-   1 root   root    237,  32 Jun 27 17:55 xdma0_h2c_0
 crw-rw-rw-   1 root   root    237,  33 Jun 27 17:55 xdma0_h2c_1
 crw-rw-rw-   1 root   root    237,   0 Jun 27 17:55 xdma0_user
 
+Started maintaining driver in my own repo
 
+origin	https://github.com/RHSResearchLLC/XilinxAR65444.git (fetch)
+origin	https://github.com/RHSResearchLLC/XilinxAR65444.git (push)
 
 

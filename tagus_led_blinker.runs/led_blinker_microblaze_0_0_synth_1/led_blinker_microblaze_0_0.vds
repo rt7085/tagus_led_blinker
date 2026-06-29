@@ -3,8 +3,8 @@
 # SW Build 6299465 on Fri Nov 14 12:34:56 MST 2025
 # IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
 # SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-# Start of session at: Fri Jun  5 05:58:32 2026
-# Process ID         : 339945
+# Start of session at: Mon Jun 29 07:00:46 2026
+# Process ID         : 89328
 # Current directory  : /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_microblaze_0_0_synth_1
 # Command line       : vivado -log led_blinker_microblaze_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source led_blinker_microblaze_0_0.tcl
 # Log file           : /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_microblaze_0_0_synth_1/led_blinker_microblaze_0_0.vds
@@ -13,13 +13,13 @@
 # Platform           : Ubuntu
 # Operating System   : Ubuntu 24.04.3 LTS
 # Processor Detail   : AMD Ryzen 7 7800X3D 8-Core Processor
-# CPU Frequency      : 4191.585 MHz
+# CPU Frequency      : 4191.759 MHz
 # CPU Physical cores : 8
 # CPU Logical cores  : 8
 # Host memory        : 15878 MB
 # Swap memory        : 4294 MB
 # Total Virtual      : 20173 MB
-# Available Virtual  : 8832 MB
+# Available Virtual  : 11000 MB
 #-----------------------------------------------------------
 source led_blinker_microblaze_0_0.tcl -notrace
 Command: synth_design -top led_blinker_microblaze_0_0 -part xc7a200tfbg484-2 -incremental_mode off -mode out_of_context
@@ -29,9 +29,9 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200
 INFO: [Device 21-403] Loading part xc7a200tfbg484-2
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 340124
+INFO: [Synth 8-7075] Helper process launched with PID 89560
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2268.230 ; gain = 481.594 ; free physical = 241 ; free virtual = 3373
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2268.469 ; gain = 482.875 ; free physical = 198 ; free virtual = 6590
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'led_blinker_microblaze_0_0' [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_microblaze_0_0/synth/led_blinker_microblaze_0_0.vhd:190]
 	Parameter C_SCO bound to: 0 - type: integer 
@@ -96,7 +96,7 @@ INFO: [Synth 8-638] synthesizing module 'led_blinker_microblaze_0_0' [/home/rt70
 	Parameter C_FSL_EXCEPTION bound to: 0 - type: integer 
 	Parameter C_USE_STACK_PROTECTION bound to: 0 - type: integer 
 	Parameter C_IMPRECISE_EXCEPTIONS bound to: 0 - type: integer 
-	Parameter C_USE_INTERRUPT bound to: 0 - type: integer 
+	Parameter C_USE_INTERRUPT bound to: 1 - type: integer 
 	Parameter C_USE_EXT_BRK bound to: 0 - type: integer 
 	Parameter C_USE_EXT_NM_BRK bound to: 0 - type: integer 
 	Parameter C_USE_NON_SECURE bound to: 0 - type: integer 
@@ -310,18 +310,18 @@ INFO: [Synth 8-7129] Port Snoop_TLB_PID[1] in module MMU is either unconnected o
 INFO: [Synth 8-7129] Port Snoop_TLB_PID[2] in module MMU is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2615.738 ; gain = 829.102 ; free physical = 223 ; free virtual = 2635
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2615.977 ; gain = 830.383 ; free physical = 194 ; free virtual = 5732
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2615.738 ; gain = 829.102 ; free physical = 205 ; free virtual = 2618
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2615.977 ; gain = 830.383 ; free physical = 193 ; free virtual = 5732
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 2615.738 ; gain = 829.102 ; free physical = 203 ; free virtual = 2616
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2615.977 ; gain = 830.383 ; free physical = 193 ; free virtual = 5732
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.15 . Memory (MB): peak = 2615.738 ; gain = 0.000 ; free physical = 203 ; free virtual = 2464
+Netlist sorting complete. Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.14 . Memory (MB): peak = 2615.977 ; gain = 0.000 ; free physical = 169 ; free virtual = 5709
 INFO: [Netlist 29-17] Analyzing 672 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -340,7 +340,7 @@ Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/le
 Finished Parsing XDC File [/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_microblaze_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2655.758 ; gain = 0.000 ; free physical = 299 ; free virtual = 2377
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2655.996 ; gain = 0.000 ; free physical = 154 ; free virtual = 5381
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 464 instances were transformed.
   FDR => FDRE: 158 instances
@@ -351,23 +351,23 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 16 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 32 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2655.793 ; gain = 0.000 ; free physical = 289 ; free virtual = 2376
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2656.031 ; gain = 0.000 ; free physical = 142 ; free virtual = 5369
 INFO: [Designutils 20-5008] Incremental synthesis strategy off
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2655.793 ; gain = 869.156 ; free physical = 276 ; free virtual = 1919
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2656.031 ; gain = 870.438 ; free physical = 184 ; free virtual = 4918
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tfbg484-2
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2663.762 ; gain = 877.125 ; free physical = 276 ; free virtual = 1919
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2664.000 ; gain = 878.406 ; free physical = 168 ; free virtual = 4902
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2663.762 ; gain = 877.125 ; free physical = 276 ; free virtual = 1919
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2664.000 ; gain = 878.406 ; free physical = 167 ; free virtual = 4901
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'cache_state_reg' in module 'Icache'
 ---------------------------------------------------------------------------------------------------
@@ -381,7 +381,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'cache_state_reg' in module 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'cache_state_reg' using encoding 'sequential' in module 'Icache'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2663.762 ; gain = 877.125 ; free physical = 430 ; free virtual = 2089
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 2664.000 ; gain = 878.406 ; free physical = 260 ; free virtual = 4731
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -403,7 +403,6 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3332] Sequential element (Using_FPGA.Gen_Bits[27].MEM_EX_Result_Inst/Using_FPGA.Native) is unused and will be removed from module Decode_gti.
 WARNING: [Synth 8-3332] Sequential element (Using_FPGA.Gen_Bits[29].MEM_EX_Result_Inst/Using_FPGA.Native) is unused and will be removed from module Decode_gti.
-WARNING: [Synth 8-3332] Sequential element (Using_FPGA.Gen_Bits[30].MEM_EX_Result_Inst/Using_FPGA.Native) is unused and will be removed from module Decode_gti.
 WARNING: [Synth 8-3332] Sequential element (msr_reg_i/MEM_MSR_Bits[17].Using_FDR.MSR_I/Using_FPGA.Native) is unused and will be removed from module Data_Flow_gti.
 WARNING: [Synth 8-3332] Sequential element (msr_reg_i/MEM_MSR_Bits[18].Using_FDR.MSR_I/Using_FPGA.Native) is unused and will be removed from module Data_Flow_gti.
 WARNING: [Synth 8-3332] Sequential element (msr_reg_i/MEM_MSR_Bits[19].Using_FDR.MSR_I/Using_FPGA.Native) is unused and will be removed from module Data_Flow_gti.
@@ -434,31 +433,29 @@ WARNING: [Synth 8-3332] Sequential element (msr_reg_i/OF_EX_MSR_Bits[25].Using_F
 WARNING: [Synth 8-3332] Sequential element (msr_reg_i/OF_EX_MSR_Bits[26].Using_FDR.MSR_of_I/Using_FPGA.Native) is unused and will be removed from module Data_Flow_gti.
 WARNING: [Synth 8-3332] Sequential element (msr_reg_i/OF_EX_MSR_Bits[27].Using_FDR.MSR_ex_I/Using_FPGA.Native) is unused and will be removed from module Data_Flow_gti.
 WARNING: [Synth 8-3332] Sequential element (msr_reg_i/OF_EX_MSR_Bits[27].Using_FDR.MSR_of_I/Using_FPGA.Native) is unused and will be removed from module Data_Flow_gti.
-WARNING: [Synth 8-3332] Sequential element (msr_reg_i/OF_EX_MSR_Bits[28].Using_FDR.MSR_of_I/Using_FPGA.Native) is unused and will be removed from module Data_Flow_gti.
 WARNING: [Synth 8-3332] Sequential element (msr_reg_i/OF_EX_MSR_Bits[29].Using_FDR.MSR_of_I/Using_FPGA.Native) is unused and will be removed from module Data_Flow_gti.
-WARNING: [Synth 8-3332] Sequential element (msr_reg_i/OF_EX_MSR_Bits[30].Using_FDR.MSR_of_I/Using_FPGA.Native) is unused and will be removed from module Data_Flow_gti.
 WARNING: [Synth 8-3332] Sequential element (msr_reg_i/OF_EX_MSR_Bits[31].Using_FDR.MSR_ex_I/Using_FPGA.Native) is unused and will be removed from module Data_Flow_gti.
 WARNING: [Synth 8-3332] Sequential element (msr_reg_i/OF_EX_MSR_Bits[31].Using_FDR.MSR_of_I/Using_FPGA.Native) is unused and will be removed from module Data_Flow_gti.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 2663.762 ; gain = 877.125 ; free physical = 1956 ; free virtual = 3830
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 2664.000 ; gain = 878.406 ; free physical = 2773 ; free virtual = 7836
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 2663.762 ; gain = 877.125 ; free physical = 1755 ; free virtual = 3730
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 2664.000 ; gain = 878.406 ; free physical = 2447 ; free virtual = 7540
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2663.762 ; gain = 877.125 ; free physical = 1299 ; free virtual = 3331
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2664.000 ; gain = 878.406 ; free physical = 2400 ; free virtual = 7496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 2663.762 ; gain = 877.125 ; free physical = 1113 ; free virtual = 3145
+Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 2664.000 ; gain = 878.406 ; free physical = 2307 ; free virtual = 7402
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -476,37 +473,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2788.574 ; gain = 1001.938 ; free physical = 654 ; free virtual = 2722
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2787.812 ; gain = 1002.219 ; free physical = 2035 ; free virtual = 7131
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2788.574 ; gain = 1001.938 ; free physical = 654 ; free virtual = 2722
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2787.812 ; gain = 1002.219 ; free physical = 2035 ; free virtual = 7131
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2788.574 ; gain = 1001.938 ; free physical = 633 ; free virtual = 2701
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2787.812 ; gain = 1002.219 ; free physical = 2029 ; free virtual = 7125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2788.574 ; gain = 1001.938 ; free physical = 633 ; free virtual = 2701
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2787.812 ; gain = 1002.219 ; free physical = 2029 ; free virtual = 7125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2788.574 ; gain = 1001.938 ; free physical = 625 ; free virtual = 2693
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2787.812 ; gain = 1002.219 ; free physical = 2029 ; free virtual = 7125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2788.574 ; gain = 1001.938 ; free physical = 625 ; free virtual = 2693
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2787.812 ; gain = 1002.219 ; free physical = 2029 ; free virtual = 7125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -525,11 +522,11 @@ Report Cell Usage:
 |1     |AND2B1L  |     4|
 |2     |CARRY4   |     1|
 |3     |LUT1     |    32|
-|4     |LUT2     |   129|
-|5     |LUT3     |   303|
-|6     |LUT4     |   238|
-|7     |LUT5     |   269|
-|8     |LUT6     |   551|
+|4     |LUT2     |   149|
+|5     |LUT3     |   302|
+|6     |LUT4     |   267|
+|7     |LUT5     |   281|
+|8     |LUT6     |   599|
 |10    |MULT_AND |     1|
 |11    |MUXCY_L  |   174|
 |12    |MUXF7    |   108|
@@ -540,46 +537,46 @@ Report Cell Usage:
 |18    |SRLC16E  |     8|
 |19    |XORCY    |    94|
 |20    |FDCE     |     7|
-|21    |FDR      |   123|
-|22    |FDRE     |  1154|
+|21    |FDR      |   125|
+|22    |FDRE     |  1165|
 |23    |FDS      |     1|
 |24    |FDSE     |    60|
 +------+---------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2788.574 ; gain = 1001.938 ; free physical = 625 ; free virtual = 2693
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2787.812 ; gain = 1002.219 ; free physical = 2029 ; free virtual = 7125
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 38 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:28 . Memory (MB): peak = 2788.574 ; gain = 961.883 ; free physical = 617 ; free virtual = 2685
-Synthesis Optimization Complete : Time (s): cpu = 00:00:29 ; elapsed = 00:00:31 . Memory (MB): peak = 2788.582 ; gain = 1001.938 ; free physical = 617 ; free virtual = 2685
+Synthesis finished with 0 errors, 0 critical warnings and 35 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 2787.812 ; gain = 962.164 ; free physical = 2012 ; free virtual = 7123
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 2787.820 ; gain = 1002.219 ; free physical = 2011 ; free virtual = 7123
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2788.582 ; gain = 0.000 ; free physical = 723 ; free virtual = 2790
-INFO: [Netlist 29-17] Analyzing 620 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2787.820 ; gain = 0.000 ; free physical = 1911 ; free virtual = 7071
+INFO: [Netlist 29-17] Analyzing 622 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2844.602 ; gain = 0.000 ; free physical = 504 ; free virtual = 2578
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2843.840 ; gain = 0.000 ; free physical = 1899 ; free virtual = 7079
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 285 instances were transformed.
+  A total of 287 instances were transformed.
   (MUXCY,XORCY) => CARRY4: 48 instances
-  FDR => FDRE: 123 instances
+  FDR => FDRE: 125 instances
   FDS => FDSE: 1 instance 
   LUT6_2 => LUT6_2 (LUT5, LUT6): 64 instances
   MULT_AND => LUT2: 1 instance 
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 16 instances
   RAM32X1D => RAM32X1D (RAMD32(x2)): 32 instances
 
-Synth Design complete | Checksum: 247bc537
+Synth Design complete | Checksum: 1c353402
 INFO: [Common 17-83] Releasing license: Synthesis
-124 Infos, 38 Warnings, 0 Critical Warnings and 0 Errors encountered.
+124 Infos, 35 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 2844.637 ; gain = 1219.180 ; free physical = 505 ; free virtual = 2579
-INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1935.771; main = 1753.531; forked = 226.835
-INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3748.977; main = 2844.605; forked = 994.211
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2868.613 ; gain = 0.000 ; free physical = 505 ; free virtual = 2579
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:34 . Memory (MB): peak = 2843.875 ; gain = 1235.367 ; free physical = 1899 ; free virtual = 7080
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1808.345; main = 1613.576; forked = 234.993
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3782.031; main = 2843.844; forked = 994.215
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2867.852 ; gain = 0.000 ; free physical = 1899 ; free virtual = 7080
 INFO: [Common 17-1381] The checkpoint '/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_microblaze_0_0_synth_1/led_blinker_microblaze_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP led_blinker_microblaze_0_0, cache-ID = 875d36198cac4cbc
-INFO: [Coretcl 2-1174] Renamed 847 cell refs.
-Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2868.613 ; gain = 0.000 ; free physical = 496 ; free virtual = 2582
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP led_blinker_microblaze_0_0, cache-ID = 928b4e80d4b5ddea
+INFO: [Coretcl 2-1174] Renamed 851 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2867.852 ; gain = 0.000 ; free physical = 1878 ; free virtual = 7072
 INFO: [Common 17-1381] The checkpoint '/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.runs/led_blinker_microblaze_0_0_synth_1/led_blinker_microblaze_0_0.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file led_blinker_microblaze_0_0_utilization_synth.rpt -pb led_blinker_microblaze_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Jun  5 05:59:14 2026...
+INFO: [Common 17-206] Exiting Vivado at Mon Jun 29 07:01:27 2026...

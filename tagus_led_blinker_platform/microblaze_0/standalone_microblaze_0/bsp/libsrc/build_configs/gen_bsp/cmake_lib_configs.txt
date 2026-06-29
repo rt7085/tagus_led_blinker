@@ -46,9 +46,6 @@ CMAKE_TOOLCHAIN_FILE:FILEPATH=/home/rt7085/repos/tagus_led_blinker/tagus_led_bli
 // Device Id
 DEVICE_ID:STRING=7a200t
 
-// The directory containing a CMake configuration file for INTC.
-INTC_DIR:PATH=INTC_DIR-NOTFOUND
-
 // Number of slrs
 NUMBER_OF_SLRS:STRING=0x1
 
@@ -80,7 +77,7 @@ TOOLCHAIN_EXTRA_C_FLAGS:STRING= -O2 -g -ffunction-sections -fdata-sections -Wall
 XILTIMER_en_interval_timer:BOOL=OFF
 
 // This parameter is used to select specific timer for sleep functionality
-XILTIMER_sleep_timer:STRING=Default
+XILTIMER_sleep_timer:STRING=Default;
 
 // This parameter is used to select specific timer for tick functionality
 XILTIMER_tick_timer:STRING=None

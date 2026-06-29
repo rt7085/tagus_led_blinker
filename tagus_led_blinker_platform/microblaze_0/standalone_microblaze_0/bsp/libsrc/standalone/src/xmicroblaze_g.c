@@ -69,7 +69,7 @@ XMicroblaze_Config XMicroblaze_ConfigTable[] __attribute__ ((section (".drvcfg_s
 		0x0,  /* xlnx,use-fpu */
 		0x0,  /* xlnx,use-hw-mul */
 		0x1,  /* xlnx,use-icache */
-		0x0,  /* xlnx,use-interrupt */
+		0x1,  /* xlnx,use-interrupt */
 		0x0,  /* xlnx,use-mmu */
 		0x0,  /* xlnx,use-pcmp-instr */
 		0x80000000,  /* d-cache-baseaddr */

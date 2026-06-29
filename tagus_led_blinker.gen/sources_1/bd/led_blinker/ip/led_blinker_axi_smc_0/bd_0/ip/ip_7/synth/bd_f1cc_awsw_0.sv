@@ -52,7 +52,7 @@
 
 (* X_CORE_INFO = "sc_switchboard_v1_0_9_top,Vivado 2025.2" *)
 (* CHECK_LICENSE_TYPE = "bd_f1cc_awsw_0,sc_switchboard_v1_0_9_top,{}" *)
-(* CORE_GENERATION_INFO = "bd_f1cc_awsw_0,sc_switchboard_v1_0_9_top,{x_ipProduct=Vivado 2025.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=sc_switchboard,x_ipVersion=1.0,x_ipCoreRevision=9,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_PAYLD_WIDTH=180,K_MAX_INFO_WIDTH=1,C_S_PIPELINES=0,C_M_PIPELINES=1,C_S_LATENCY=0,C_NUM_SI=5,C_NUM_MI=5,C_TESTING_MODE=0,C_CONNECTIVITY=0b1111111111111111111111111}" *)
+(* CORE_GENERATION_INFO = "bd_f1cc_awsw_0,sc_switchboard_v1_0_9_top,{x_ipProduct=Vivado 2025.2,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=sc_switchboard,x_ipVersion=1.0,x_ipCoreRevision=9,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_PAYLD_WIDTH=182,K_MAX_INFO_WIDTH=1,C_S_PIPELINES=0,C_M_PIPELINES=1,C_S_LATENCY=0,C_NUM_SI=5,C_NUM_MI=7,C_TESTING_MODE=0,C_CONNECTIVITY=0b11111111111111111111111111111111111}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module bd_f1cc_awsw_0 (
   aclk,
@@ -77,45 +77,45 @@ input wire aclk;
 (* X_INTERFACE_MODE = "slave" *)
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME aclken, POLARITY ACTIVE_LOW" *)
 input wire aclken;
-(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S00_SC SEND [4:0] [4:0], xilinx.com:interface:sc:1.0 S01_SC SEND [4:0] [9:5], xilinx.com:interface:sc:1.0 S02_SC SEND [4:0] [14:10], xilinx.com:interface:sc:1.0 S03_SC SEND [4:0] [19:15], xilinx.com:interface:sc:1.0 S04_SC SEND [4:0] [24:20]" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S00_SC SEND [6:0] [6:0], xilinx.com:interface:sc:1.0 S01_SC SEND [6:0] [13:7], xilinx.com:interface:sc:1.0 S02_SC SEND [6:0] [20:14], xilinx.com:interface:sc:1.0 S03_SC SEND [6:0] [27:21], xilinx.com:interface:sc:1.0 S04_SC SEND [6:0] [34:28]" *)
 (* X_INTERFACE_MODE = "slave S00_SC, slave S01_SC, slave S02_SC, slave S03_SC, slave S04_SC" *)
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME S00_SC, BRIDGES M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC:M08_SC:M09_SC:M10_SC:M11_SC:M12_SC:M13_SC:M14_SC:M15_SC, XIL_INTERFACENAME S01_SC, BRIDGES M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC:M08_SC:M09_SC:M10_SC:M11_SC:M12_SC:M13_SC:M14_SC:M15_SC, XIL_INTERFACENAME S02_SC, BRIDGES M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC:M08_SC:M09_SC:M10_SC:M11_SC:M12_SC:M13_SC:M14_SC:M15_SC, XIL_INTERFACENAME S03_SC, BRIDGES M00_SC:M01_SC:M02_SC:M03_\
 SC:M04_SC:M05_SC:M06_SC:M07_SC:M08_SC:M09_SC:M10_SC:M11_SC:M12_SC:M13_SC:M14_SC:M15_SC, XIL_INTERFACENAME S04_SC, BRIDGES M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC:M08_SC:M09_SC:M10_SC:M11_SC:M12_SC:M13_SC:M14_SC:M15_SC" *)
-input wire [24 : 0] s_sc_send;
-(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S00_SC REQ [4:0] [4:0], xilinx.com:interface:sc:1.0 S01_SC REQ [4:0] [9:5], xilinx.com:interface:sc:1.0 S02_SC REQ [4:0] [14:10], xilinx.com:interface:sc:1.0 S03_SC REQ [4:0] [19:15], xilinx.com:interface:sc:1.0 S04_SC REQ [4:0] [24:20]" *)
-input wire [24 : 0] s_sc_req;
-(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S00_SC INFO [4:0] [4:0], xilinx.com:interface:sc:1.0 S01_SC INFO [4:0] [9:5], xilinx.com:interface:sc:1.0 S02_SC INFO [4:0] [14:10], xilinx.com:interface:sc:1.0 S03_SC INFO [4:0] [19:15], xilinx.com:interface:sc:1.0 S04_SC INFO [4:0] [24:20]" *)
-input wire [24 : 0] s_sc_info;
-(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S00_SC PAYLD [179:0] [179:0], xilinx.com:interface:sc:1.0 S01_SC PAYLD [179:0] [359:180], xilinx.com:interface:sc:1.0 S02_SC PAYLD [179:0] [539:360], xilinx.com:interface:sc:1.0 S03_SC PAYLD [179:0] [719:540], xilinx.com:interface:sc:1.0 S04_SC PAYLD [179:0] [899:720]" *)
-input wire [899 : 0] s_sc_payld;
-(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S00_SC RECV [4:0] [4:0], xilinx.com:interface:sc:1.0 S01_SC RECV [4:0] [9:5], xilinx.com:interface:sc:1.0 S02_SC RECV [4:0] [14:10], xilinx.com:interface:sc:1.0 S03_SC RECV [4:0] [19:15], xilinx.com:interface:sc:1.0 S04_SC RECV [4:0] [24:20]" *)
-output wire [24 : 0] s_sc_recv;
-(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M00_SC RECV [4:0] [4:0], xilinx.com:interface:sc:1.0 M01_SC RECV [4:0] [9:5], xilinx.com:interface:sc:1.0 M02_SC RECV [4:0] [14:10], xilinx.com:interface:sc:1.0 M03_SC RECV [4:0] [19:15], xilinx.com:interface:sc:1.0 M04_SC RECV [4:0] [24:20]" *)
-(* X_INTERFACE_MODE = "master M00_SC, master M01_SC, master M02_SC, master M03_SC, master M04_SC" *)
-input wire [24 : 0] m_sc_recv;
-(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M00_SC SEND [4:0] [4:0], xilinx.com:interface:sc:1.0 M01_SC SEND [4:0] [9:5], xilinx.com:interface:sc:1.0 M02_SC SEND [4:0] [14:10], xilinx.com:interface:sc:1.0 M03_SC SEND [4:0] [19:15], xilinx.com:interface:sc:1.0 M04_SC SEND [4:0] [24:20]" *)
-output wire [24 : 0] m_sc_send;
-(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M00_SC REQ [4:0] [4:0], xilinx.com:interface:sc:1.0 M01_SC REQ [4:0] [9:5], xilinx.com:interface:sc:1.0 M02_SC REQ [4:0] [14:10], xilinx.com:interface:sc:1.0 M03_SC REQ [4:0] [19:15], xilinx.com:interface:sc:1.0 M04_SC REQ [4:0] [24:20]" *)
-output wire [24 : 0] m_sc_req;
-(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M00_SC INFO [4:0] [4:0], xilinx.com:interface:sc:1.0 M01_SC INFO [4:0] [9:5], xilinx.com:interface:sc:1.0 M02_SC INFO [4:0] [14:10], xilinx.com:interface:sc:1.0 M03_SC INFO [4:0] [19:15], xilinx.com:interface:sc:1.0 M04_SC INFO [4:0] [24:20]" *)
-output wire [24 : 0] m_sc_info;
-(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M00_SC PAYLD [179:0] [179:0], xilinx.com:interface:sc:1.0 M01_SC PAYLD [179:0] [359:180], xilinx.com:interface:sc:1.0 M02_SC PAYLD [179:0] [539:360], xilinx.com:interface:sc:1.0 M03_SC PAYLD [179:0] [719:540], xilinx.com:interface:sc:1.0 M04_SC PAYLD [179:0] [899:720]" *)
-output wire [899 : 0] m_sc_payld;
+input wire [34 : 0] s_sc_send;
+(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S00_SC REQ [6:0] [6:0], xilinx.com:interface:sc:1.0 S01_SC REQ [6:0] [13:7], xilinx.com:interface:sc:1.0 S02_SC REQ [6:0] [20:14], xilinx.com:interface:sc:1.0 S03_SC REQ [6:0] [27:21], xilinx.com:interface:sc:1.0 S04_SC REQ [6:0] [34:28]" *)
+input wire [34 : 0] s_sc_req;
+(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S00_SC INFO [6:0] [6:0], xilinx.com:interface:sc:1.0 S01_SC INFO [6:0] [13:7], xilinx.com:interface:sc:1.0 S02_SC INFO [6:0] [20:14], xilinx.com:interface:sc:1.0 S03_SC INFO [6:0] [27:21], xilinx.com:interface:sc:1.0 S04_SC INFO [6:0] [34:28]" *)
+input wire [34 : 0] s_sc_info;
+(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S00_SC PAYLD [181:0] [181:0], xilinx.com:interface:sc:1.0 S01_SC PAYLD [181:0] [363:182], xilinx.com:interface:sc:1.0 S02_SC PAYLD [181:0] [545:364], xilinx.com:interface:sc:1.0 S03_SC PAYLD [181:0] [727:546], xilinx.com:interface:sc:1.0 S04_SC PAYLD [181:0] [909:728]" *)
+input wire [909 : 0] s_sc_payld;
+(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 S00_SC RECV [6:0] [6:0], xilinx.com:interface:sc:1.0 S01_SC RECV [6:0] [13:7], xilinx.com:interface:sc:1.0 S02_SC RECV [6:0] [20:14], xilinx.com:interface:sc:1.0 S03_SC RECV [6:0] [27:21], xilinx.com:interface:sc:1.0 S04_SC RECV [6:0] [34:28]" *)
+output wire [34 : 0] s_sc_recv;
+(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M00_SC RECV [4:0] [4:0], xilinx.com:interface:sc:1.0 M01_SC RECV [4:0] [9:5], xilinx.com:interface:sc:1.0 M02_SC RECV [4:0] [14:10], xilinx.com:interface:sc:1.0 M03_SC RECV [4:0] [19:15], xilinx.com:interface:sc:1.0 M04_SC RECV [4:0] [24:20], xilinx.com:interface:sc:1.0 M05_SC RECV [4:0] [29:25], xilinx.com:interface:sc:1.0 M06_SC RECV [4:0] [34:30]" *)
+(* X_INTERFACE_MODE = "master M00_SC, master M01_SC, master M02_SC, master M03_SC, master M04_SC, master M05_SC, master M06_SC" *)
+input wire [34 : 0] m_sc_recv;
+(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M00_SC SEND [4:0] [4:0], xilinx.com:interface:sc:1.0 M01_SC SEND [4:0] [9:5], xilinx.com:interface:sc:1.0 M02_SC SEND [4:0] [14:10], xilinx.com:interface:sc:1.0 M03_SC SEND [4:0] [19:15], xilinx.com:interface:sc:1.0 M04_SC SEND [4:0] [24:20], xilinx.com:interface:sc:1.0 M05_SC SEND [4:0] [29:25], xilinx.com:interface:sc:1.0 M06_SC SEND [4:0] [34:30]" *)
+output wire [34 : 0] m_sc_send;
+(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M00_SC REQ [4:0] [4:0], xilinx.com:interface:sc:1.0 M01_SC REQ [4:0] [9:5], xilinx.com:interface:sc:1.0 M02_SC REQ [4:0] [14:10], xilinx.com:interface:sc:1.0 M03_SC REQ [4:0] [19:15], xilinx.com:interface:sc:1.0 M04_SC REQ [4:0] [24:20], xilinx.com:interface:sc:1.0 M05_SC REQ [4:0] [29:25], xilinx.com:interface:sc:1.0 M06_SC REQ [4:0] [34:30]" *)
+output wire [34 : 0] m_sc_req;
+(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M00_SC INFO [4:0] [4:0], xilinx.com:interface:sc:1.0 M01_SC INFO [4:0] [9:5], xilinx.com:interface:sc:1.0 M02_SC INFO [4:0] [14:10], xilinx.com:interface:sc:1.0 M03_SC INFO [4:0] [19:15], xilinx.com:interface:sc:1.0 M04_SC INFO [4:0] [24:20], xilinx.com:interface:sc:1.0 M05_SC INFO [4:0] [29:25], xilinx.com:interface:sc:1.0 M06_SC INFO [4:0] [34:30]" *)
+output wire [34 : 0] m_sc_info;
+(* X_INTERFACE_INFO = "xilinx.com:interface:sc:1.0 M00_SC PAYLD [181:0] [181:0], xilinx.com:interface:sc:1.0 M01_SC PAYLD [181:0] [363:182], xilinx.com:interface:sc:1.0 M02_SC PAYLD [181:0] [545:364], xilinx.com:interface:sc:1.0 M03_SC PAYLD [181:0] [727:546], xilinx.com:interface:sc:1.0 M04_SC PAYLD [181:0] [909:728], xilinx.com:interface:sc:1.0 M05_SC PAYLD [181:0] [1091:910], xilinx.com:interface:sc:1.0 M06_SC PAYLD [181:0] [1273:1092]" *)
+output wire [1273 : 0] m_sc_payld;
 
   sc_switchboard_v1_0_9_top #(
-    .C_PAYLD_WIDTH(180),
+    .C_PAYLD_WIDTH(182),
     .K_MAX_INFO_WIDTH(1),
     .C_S_PIPELINES(0),
     .C_M_PIPELINES(1),
     .C_S_LATENCY(0),
     .C_NUM_SI(5),
-    .C_NUM_MI(5),
+    .C_NUM_MI(7),
     .C_TESTING_MODE(0),
-    .C_CONNECTIVITY(25'B1111111111111111111111111)
+    .C_CONNECTIVITY(35'B11111111111111111111111111111111111)
   ) inst (
     .aclk(aclk),
     .aclken(aclken),
-    .connectivity(25'B1111111111111111111111111),
+    .connectivity(35'B11111111111111111111111111111111111),
     .s_sc_send(s_sc_send),
     .s_sc_req(s_sc_req),
     .s_sc_info(s_sc_info),

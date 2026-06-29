@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Fri Jun 26 07:12:43 2026
+//Date        : Mon Jun 29 07:00:36 2026
 //Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
 //Command     : generate_target led_blinker.bd
 //Design      : led_blinker
@@ -16,7 +16,7 @@ Must use a clock wizard on sys_clock
 May need to move SDRAM to its own SMC in the future
 MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter 
 Must connect M_AXI_LITE port for Config BAR detection by XDMA driver */
-(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=20,numReposBlks=19,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"da_bram_cntlr_cnt\"\"\"\"\"\"\"=2,\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"=7,\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"=1,\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"=1,\"\"\"\"da_board_cnt\"\"\"\"=1,\"\"\"\"da_xdma_cnt\"\"\"\"=1,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
+(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=22,numReposBlks=21,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"da_bram_cntlr_cnt\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"=7,\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"=1,\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"=1,\"\"\"\"\"da_board_cnt\"\"\"\"\"=1,\"\"\"\"\"da_xdma_cnt\"\"\"\"\"=1,da_axi4_cnt=2,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
 module led_blinker
    (clk,
     ddr3_sdram_addr,
@@ -87,6 +87,7 @@ module led_blinker
   wire axi_bram_ctrl_0_BRAM_PORTB_EN;
   wire axi_bram_ctrl_0_BRAM_PORTB_RST;
   wire [3:0]axi_bram_ctrl_0_BRAM_PORTB_WE;
+  wire axi_intc_0_interrupt_INTERRUPT;
   wire [8:0]axi_smc_M00_AXI_ARADDR;
   wire axi_smc_M00_AXI_ARREADY;
   wire axi_smc_M00_AXI_ARVALID;
@@ -202,6 +203,41 @@ module led_blinker
   wire axi_smc_M04_AXI_WREADY;
   wire [15:0]axi_smc_M04_AXI_WSTRB;
   wire axi_smc_M04_AXI_WVALID;
+  wire [8:0]axi_smc_M05_AXI_ARADDR;
+  wire axi_smc_M05_AXI_ARREADY;
+  wire axi_smc_M05_AXI_ARVALID;
+  wire [8:0]axi_smc_M05_AXI_AWADDR;
+  wire axi_smc_M05_AXI_AWREADY;
+  wire axi_smc_M05_AXI_AWVALID;
+  wire axi_smc_M05_AXI_BREADY;
+  wire [1:0]axi_smc_M05_AXI_BRESP;
+  wire axi_smc_M05_AXI_BVALID;
+  wire [31:0]axi_smc_M05_AXI_RDATA;
+  wire axi_smc_M05_AXI_RREADY;
+  wire [1:0]axi_smc_M05_AXI_RRESP;
+  wire axi_smc_M05_AXI_RVALID;
+  wire [31:0]axi_smc_M05_AXI_WDATA;
+  wire axi_smc_M05_AXI_WREADY;
+  wire [3:0]axi_smc_M05_AXI_WSTRB;
+  wire axi_smc_M05_AXI_WVALID;
+  wire [4:0]axi_smc_M06_AXI_ARADDR;
+  wire axi_smc_M06_AXI_ARREADY;
+  wire axi_smc_M06_AXI_ARVALID;
+  wire [4:0]axi_smc_M06_AXI_AWADDR;
+  wire axi_smc_M06_AXI_AWREADY;
+  wire axi_smc_M06_AXI_AWVALID;
+  wire axi_smc_M06_AXI_BREADY;
+  wire [1:0]axi_smc_M06_AXI_BRESP;
+  wire axi_smc_M06_AXI_BVALID;
+  wire [31:0]axi_smc_M06_AXI_RDATA;
+  wire axi_smc_M06_AXI_RREADY;
+  wire [1:0]axi_smc_M06_AXI_RRESP;
+  wire axi_smc_M06_AXI_RVALID;
+  wire [31:0]axi_smc_M06_AXI_WDATA;
+  wire axi_smc_M06_AXI_WREADY;
+  wire [3:0]axi_smc_M06_AXI_WSTRB;
+  wire axi_smc_M06_AXI_WVALID;
+  wire axi_timer_0_interrupt;
   wire clk;
   wire clk_wiz_clk_out2;
   wire clk_wiz_locked;
@@ -483,6 +519,28 @@ module led_blinker
         .s_axi_wready(axi_smc_M00_AXI_WREADY),
         .s_axi_wstrb(axi_smc_M00_AXI_WSTRB),
         .s_axi_wvalid(axi_smc_M00_AXI_WVALID));
+  led_blinker_axi_intc_0_0 axi_intc_0
+       (.intr(axi_timer_0_interrupt),
+        .irq(axi_intc_0_interrupt_INTERRUPT),
+        .s_axi_aclk(microblaze_0_Clk),
+        .s_axi_araddr(axi_smc_M05_AXI_ARADDR),
+        .s_axi_aresetn(rst_clk_wiz_100M_peripheral_aresetn),
+        .s_axi_arready(axi_smc_M05_AXI_ARREADY),
+        .s_axi_arvalid(axi_smc_M05_AXI_ARVALID),
+        .s_axi_awaddr(axi_smc_M05_AXI_AWADDR),
+        .s_axi_awready(axi_smc_M05_AXI_AWREADY),
+        .s_axi_awvalid(axi_smc_M05_AXI_AWVALID),
+        .s_axi_bready(axi_smc_M05_AXI_BREADY),
+        .s_axi_bresp(axi_smc_M05_AXI_BRESP),
+        .s_axi_bvalid(axi_smc_M05_AXI_BVALID),
+        .s_axi_rdata(axi_smc_M05_AXI_RDATA),
+        .s_axi_rready(axi_smc_M05_AXI_RREADY),
+        .s_axi_rresp(axi_smc_M05_AXI_RRESP),
+        .s_axi_rvalid(axi_smc_M05_AXI_RVALID),
+        .s_axi_wdata(axi_smc_M05_AXI_WDATA),
+        .s_axi_wready(axi_smc_M05_AXI_WREADY),
+        .s_axi_wstrb(axi_smc_M05_AXI_WSTRB),
+        .s_axi_wvalid(axi_smc_M05_AXI_WVALID));
   led_blinker_axi_smc_0 axi_smc
        (.M00_AXI_araddr(axi_smc_M00_AXI_ARADDR),
         .M00_AXI_arready(axi_smc_M00_AXI_ARREADY),
@@ -599,6 +657,40 @@ module led_blinker
         .M04_AXI_wready(axi_smc_M04_AXI_WREADY),
         .M04_AXI_wstrb(axi_smc_M04_AXI_WSTRB),
         .M04_AXI_wvalid(axi_smc_M04_AXI_WVALID),
+        .M05_AXI_araddr(axi_smc_M05_AXI_ARADDR),
+        .M05_AXI_arready(axi_smc_M05_AXI_ARREADY),
+        .M05_AXI_arvalid(axi_smc_M05_AXI_ARVALID),
+        .M05_AXI_awaddr(axi_smc_M05_AXI_AWADDR),
+        .M05_AXI_awready(axi_smc_M05_AXI_AWREADY),
+        .M05_AXI_awvalid(axi_smc_M05_AXI_AWVALID),
+        .M05_AXI_bready(axi_smc_M05_AXI_BREADY),
+        .M05_AXI_bresp(axi_smc_M05_AXI_BRESP),
+        .M05_AXI_bvalid(axi_smc_M05_AXI_BVALID),
+        .M05_AXI_rdata(axi_smc_M05_AXI_RDATA),
+        .M05_AXI_rready(axi_smc_M05_AXI_RREADY),
+        .M05_AXI_rresp(axi_smc_M05_AXI_RRESP),
+        .M05_AXI_rvalid(axi_smc_M05_AXI_RVALID),
+        .M05_AXI_wdata(axi_smc_M05_AXI_WDATA),
+        .M05_AXI_wready(axi_smc_M05_AXI_WREADY),
+        .M05_AXI_wstrb(axi_smc_M05_AXI_WSTRB),
+        .M05_AXI_wvalid(axi_smc_M05_AXI_WVALID),
+        .M06_AXI_araddr(axi_smc_M06_AXI_ARADDR),
+        .M06_AXI_arready(axi_smc_M06_AXI_ARREADY),
+        .M06_AXI_arvalid(axi_smc_M06_AXI_ARVALID),
+        .M06_AXI_awaddr(axi_smc_M06_AXI_AWADDR),
+        .M06_AXI_awready(axi_smc_M06_AXI_AWREADY),
+        .M06_AXI_awvalid(axi_smc_M06_AXI_AWVALID),
+        .M06_AXI_bready(axi_smc_M06_AXI_BREADY),
+        .M06_AXI_bresp(axi_smc_M06_AXI_BRESP),
+        .M06_AXI_bvalid(axi_smc_M06_AXI_BVALID),
+        .M06_AXI_rdata(axi_smc_M06_AXI_RDATA),
+        .M06_AXI_rready(axi_smc_M06_AXI_RREADY),
+        .M06_AXI_rresp(axi_smc_M06_AXI_RRESP),
+        .M06_AXI_rvalid(axi_smc_M06_AXI_RVALID),
+        .M06_AXI_wdata(axi_smc_M06_AXI_WDATA),
+        .M06_AXI_wready(axi_smc_M06_AXI_WREADY),
+        .M06_AXI_wstrb(axi_smc_M06_AXI_WSTRB),
+        .M06_AXI_wvalid(axi_smc_M06_AXI_WVALID),
         .S00_AXI_araddr(microblaze_0_M_AXI_DP_ARADDR),
         .S00_AXI_arprot(microblaze_0_M_AXI_DP_ARPROT),
         .S00_AXI_arready(microblaze_0_M_AXI_DP_ARREADY),
@@ -726,6 +818,30 @@ module led_blinker
         .aclk1(mig_7series_0_ui_clk),
         .aclk2(xdma_0_axi_aclk),
         .aresetn(rst_clk_wiz_100M_peripheral_aresetn));
+  led_blinker_axi_timer_0_0 axi_timer_0
+       (.capturetrig0(1'b0),
+        .capturetrig1(1'b0),
+        .freeze(1'b0),
+        .interrupt(axi_timer_0_interrupt),
+        .s_axi_aclk(microblaze_0_Clk),
+        .s_axi_araddr(axi_smc_M06_AXI_ARADDR),
+        .s_axi_aresetn(rst_clk_wiz_100M_peripheral_aresetn),
+        .s_axi_arready(axi_smc_M06_AXI_ARREADY),
+        .s_axi_arvalid(axi_smc_M06_AXI_ARVALID),
+        .s_axi_awaddr(axi_smc_M06_AXI_AWADDR),
+        .s_axi_awready(axi_smc_M06_AXI_AWREADY),
+        .s_axi_awvalid(axi_smc_M06_AXI_AWVALID),
+        .s_axi_bready(axi_smc_M06_AXI_BREADY),
+        .s_axi_bresp(axi_smc_M06_AXI_BRESP),
+        .s_axi_bvalid(axi_smc_M06_AXI_BVALID),
+        .s_axi_rdata(axi_smc_M06_AXI_RDATA),
+        .s_axi_rready(axi_smc_M06_AXI_RREADY),
+        .s_axi_rresp(axi_smc_M06_AXI_RRESP),
+        .s_axi_rvalid(axi_smc_M06_AXI_RVALID),
+        .s_axi_wdata(axi_smc_M06_AXI_WDATA),
+        .s_axi_wready(axi_smc_M06_AXI_WREADY),
+        .s_axi_wstrb(axi_smc_M06_AXI_WSTRB),
+        .s_axi_wvalid(axi_smc_M06_AXI_WVALID));
   led_blinker_axi_uartlite_0_0 axi_uartlite_0
        (.rx(usb_uart_rxd),
         .s_axi_aclk(microblaze_0_Clk),
@@ -814,7 +930,7 @@ module led_blinker
         .I_AS(microblaze_0_ilmb_1_ADDRSTROBE),
         .Instr(microblaze_0_ilmb_1_READDBUS),
         .Instr_Addr(microblaze_0_ilmb_1_ABUS),
-        .Interrupt(1'b0),
+        .Interrupt(axi_intc_0_interrupt_INTERRUPT),
         .Interrupt_Address({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .M_AXI_DC_ARADDR(microblaze_0_M_AXI_DC_ARADDR),
         .M_AXI_DC_ARBURST(microblaze_0_M_AXI_DC_ARBURST),

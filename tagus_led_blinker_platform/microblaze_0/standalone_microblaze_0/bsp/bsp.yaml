@@ -160,6 +160,14 @@ drv_info:
     driver: gpio
     ip_name: axi_gpio
     path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/gpio_v4_12
+  axi_intc_0:
+    driver: intc
+    ip_name: axi_intc
+    path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/intc_v3_21
+  axi_timer_0:
+    driver: tmrctr
+    ip_name: axi_timer
+    path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/tmrctr_v4_14
   axi_uartlite_0:
     driver: uartlite
     ip_name: axi_uartlite
@@ -193,9 +201,10 @@ lib_config:
       permission: read_write
       type: string
       value: Default
-      default: Default
+      default: Default;
       options:
       - Default
+      - axi_timer_0
       description: This parameter is used to select specific timer for sleep functionality
     XILTIMER_tick_timer:
       name: XILTIMER_tick_timer
@@ -205,4 +214,5 @@ lib_config:
       default: None
       options:
       - None
+      - axi_timer_0
       description: This parameter is used to select specific timer for tick functionality
