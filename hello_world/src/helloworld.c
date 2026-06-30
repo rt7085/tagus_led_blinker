@@ -32,12 +32,19 @@ XGpio_Config *Gpio_config;
 XBram bram;
 XBram_Config *bram_config;
 
+// Control FSM states
+typedef enum { STATE_INIT, STATE_RUNNING, STATE_DONE } StateType;
+volatile StateType currentState = STATE_INIT;
+volatile int timerFlag = 0;
+
+
 void intcHandler()
 {
 	XIntc_Acknowledge(&intc, xintc_config->BaseAddress);
     while(!XTmrCtr_IsExpired(&tmr,0)) {
     };
-	xil_printf("Interrupt Occurred\n");
+	//xil_printf("Interrupt Occurred\n");
+    timerFlag = 1; // Signal that the timer period has elapsed
 	XTmrCtr_Reset(&tmr, 0);
 }
 
@@ -50,6 +57,18 @@ void tmr_init()
 		xil_printf("TMR INIT SUCCESSFUL\n");
 	else
 		xil_printf("TMR INIT FAILED\n");
+
+    // Set up timer interrupt
+    XTmrCtr_Stop(&tmr, 0);
+
+    u32 option = XTmrCtr_GetOptions(&tmr, 0);
+    XTmrCtr_SetOptions(&tmr, 0, option | XTC_DOWN_COUNT_OPTION | XTC_INT_MODE_OPTION);
+
+    XTmrCtr_SetResetValue(&tmr, 0, 100000000); // Time divided by 100 MHz, so 1 sec
+
+    XTmrCtr_Reset(&tmr, 0);
+    XTmrCtr_Start(&tmr, 0);
+    
 }
 
 void intc_init()
@@ -95,6 +114,11 @@ void gpio_init()
     // Initialize GPIO using the base address from xparameters.h
     Gpio_config = XGpio_LookupConfig(XPAR_AXI_GPIO_0_BASEADDR);
     XGpio_CfgInitialize(&Gpio, Gpio_config, Gpio_config->BaseAddress);
+
+    // Set GPIO Channel 1 as output (0 mask = output)
+    XGpio_SetDataDirection(&Gpio, 1, 0x0);
+    // Set GPIO channel 2 as input 
+    XGpio_SetDataDirection(&Gpio, 2, 0x1);
 }
 
 int main()
@@ -132,7 +156,6 @@ int main()
     }
     xil_printf("DATA READ SUCCESSFUL : XIL_IO METHOD\n");
 
-
     // Read and Write to the SDRAM
     data = (unsigned int *)XPAR_MIG_0_BASEADDRESS;
 
@@ -154,25 +177,56 @@ int main()
     }
     xil_printf("DATA READ SUCCESSFUL : XIL_IO METHOD\n");
     
-    // Set up timer interrupt
-    XTmrCtr_Stop(&tmr, 0);
 
-    u32 option = XTmrCtr_GetOptions(&tmr, 0);
-    XTmrCtr_SetOptions(&tmr, 0, option | XTC_DOWN_COUNT_OPTION | XTC_INT_MODE_OPTION);
+    u32 pci_user_lnk_up = 0;
+    u32 led_state = 0;
+    
+    void RunFSM() {
+        switch(currentState) {
+            case STATE_INIT:
+                // Do initial setup
+                XGpio_DiscreteWrite(&Gpio, 1, ALL_LEDS_OFF); // each bit is an LED
 
-    XTmrCtr_SetResetValue(&tmr, 0, 100000000); // Time divided by 100 MHz, so 1 sec
-
-    XTmrCtr_Reset(&tmr, 0);
-    XTmrCtr_Start(&tmr, 0);
-
-    // Set Channel 1 as output (0 mask = output)
-    XGpio_SetDataDirection(&Gpio, 1, 0x0);
-    XGpio_DiscreteWrite(&Gpio, 1, 0x7); // each bit is an LED
+                // PCIe link up established?
+                pci_user_lnk_up = XGpio_DiscreteRead(&Gpio, 2);
+                // xil_printf("PCIE Link Up Status = %08X\n", pci_user_lnk_up);
+                
+                currentState = STATE_RUNNING;
+                break;
+                
+            case STATE_RUNNING:
+                // Blink the LED
+                if (led_state)
+                {
+                    if (pci_user_lnk_up == 0) 
+                    {
+                        XGpio_DiscreteWrite(&Gpio, 1, RED_LED_ON); // LED ON
+                    }
+                    else
+                    {
+                        XGpio_DiscreteWrite(&Gpio, 1, GREEN_LED_ON); // LED ON
+                    }
+                }
+                else
+                {
+                    XGpio_DiscreteWrite(&Gpio, 1, ALL_LEDS_OFF); // LED OFF
+                }
+                led_state = ~led_state;
+                
+                break;
+                
+            case STATE_DONE:
+                // Clean up
+                break;
+        }
+    }
+    
+    // Main loop
     while (1) {
-        XGpio_DiscreteWrite(&Gpio, 1, BLUE_LED_ON); // LED ON
-        usleep(1000000);                     // 500ms delay
-        XGpio_DiscreteWrite(&Gpio, 1, ALL_LEDS_OFF); // LED OFF
-        usleep(1000000);
+        if(timerFlag) {
+            RunFSM();       // Run state machine on timer
+            timerFlag = 0;  // Reset flag
+        }
     }
 
     cleanup_platform();   
