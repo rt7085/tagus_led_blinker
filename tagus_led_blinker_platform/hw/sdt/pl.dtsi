@@ -285,7 +285,7 @@
 			interrupt-parent = <&axi_intc_0>;
 			xlnx,count-width = <32>;
 			xlnx,ip-name = "axi_timer";
-			xlnx,one-timer-only = <0>;
+			xlnx,one-timer-only = <1>;
 			reg = <0x41c00000 0x10000>;
 			clocks = <&clk_bus_0>;
 			xlnx,gen0-assert = <1>;
@@ -293,7 +293,7 @@
 			xlnx,edk-iptype = "PERIPHERAL";
 			status = "okay";
 			xlnx,trig1-assert = <1>;
-			xlnx,enable-timer2 = <1>;
+			xlnx,enable-timer2 = <0>;
 			interrupt-names = "interrupt";
 			xlnx,name = "axi_timer_0";
 		};
