@@ -69,7 +69,4 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==led_blinker
 # IP: bd/led_blinker/ip/led_blinker_axi_timer_0_0/led_blinker_axi_timer_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==led_blinker_axi_timer_0_0 || ORIG_REF_NAME==led_blinker_axi_timer_0_0} -quiet] -quiet
 
-# IP: bd/led_blinker/ip/led_blinker_xlconcat_0_0/led_blinker_xlconcat_0_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==led_blinker_xlconcat_0_0 || ORIG_REF_NAME==led_blinker_xlconcat_0_0} -quiet] -quiet
-
 # XDC: /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/led_blinker_ooc.xdc

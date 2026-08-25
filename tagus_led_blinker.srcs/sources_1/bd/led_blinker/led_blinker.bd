@@ -34,7 +34,7 @@
       "util_ds_buf": "",
       "axi_intc_0": "",
       "axi_timer_0": "",
-      "xlconcat_0": ""
+      "ilconcat_0": ""
     },
     "interface_ports": {
       "usb_uart": {
@@ -1569,13 +1569,20 @@
           }
         }
       },
-      "xlconcat_0": {
-        "vlnv": "xilinx.com:ip:xlconcat:2.1",
-        "ip_revision": "7",
-        "xci_name": "led_blinker_xlconcat_0_0",
-        "xci_path": "ip/led_blinker_xlconcat_0_0/led_blinker_xlconcat_0_0.xci",
-        "inst_hier_path": "xlconcat_0",
-        "has_run_ip_tcl": "true"
+      "ilconcat_0": {
+        "vlnv": "xilinx.com:inline_hdl:ilconcat:1.0",
+        "parameters": {
+          "IN0_WIDTH": {
+            "value": "1",
+            "value_src": "propagated",
+            "value_mode": "auto"
+          },
+          "IN1_WIDTH": {
+            "value": "1",
+            "value_src": "propagated",
+            "value_mode": "auto"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -1722,13 +1729,13 @@
       "axi_timer_0_interrupt": {
         "ports": [
           "axi_timer_0/interrupt",
-          "xlconcat_0/In0"
+          "ilconcat_0/In0"
         ]
       },
       "axi_uartlite_0_interrupt": {
         "ports": [
           "axi_uartlite_0/interrupt",
-          "xlconcat_0/In1"
+          "ilconcat_0/In1"
         ]
       },
       "clk_wiz_clk_out2": {
@@ -1741,6 +1748,12 @@
         "ports": [
           "clk_wiz/locked",
           "rst_clk_wiz_100M/dcm_locked"
+        ]
+      },
+      "ilconcat_0_dout": {
+        "ports": [
+          "ilconcat_0/dout",
+          "axi_intc_0/intr"
         ]
       },
       "mdm_1_debug_sys_rst": {
@@ -1857,12 +1870,6 @@
         "ports": [
           "xdma_0/user_lnk_up",
           "axi_gpio_0/gpio2_io_i"
-        ]
-      },
-      "xlconcat_0_dout": {
-        "ports": [
-          "xlconcat_0/dout",
-          "axi_intc_0/intr"
         ]
       }
     },
