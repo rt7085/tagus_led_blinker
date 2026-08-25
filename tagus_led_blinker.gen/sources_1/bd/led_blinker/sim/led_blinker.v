@@ -2,8 +2,8 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Tue Jun 30 05:53:20 2026
-//Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
+//Date        : Mon Aug 24 19:47:11 2026
+//Host        : capybara running 64-bit Ubuntu 24.04.4 LTS
 //Command     : generate_target led_blinker.bd
 //Design      : led_blinker
 //Purpose     : IP block netlist
@@ -16,7 +16,7 @@ Must use a clock wizard on sys_clock
 May need to move SDRAM to its own SMC in the future
 MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter 
 Must connect M_AXI_LITE port for Config BAR detection by XDMA driver */
-(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=22,numReposBlks=21,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"da_bram_cntlr_cnt\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"=7,\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"=1,\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"=1,\"\"\"\"\"\"da_xdma_cnt\"\"\"\"\"\"=1,\"da_axi4_cnt\"=2,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
+(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=23,numReposBlks=22,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"da_bram_cntlr_cnt\"\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"=7,\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"da_xdma_cnt\"\"\"\"\"\"\"=1,\"\"da_axi4_cnt\"\"=2,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
 module led_blinker
    (clk,
     ddr3_sdram_addr,
@@ -238,6 +238,7 @@ module led_blinker
   wire [3:0]axi_smc_M06_AXI_WSTRB;
   wire axi_smc_M06_AXI_WVALID;
   wire axi_timer_0_interrupt;
+  wire axi_uartlite_0_interrupt;
   wire clk;
   wire clk_wiz_clk_out2;
   wire clk_wiz_locked;
@@ -429,6 +430,7 @@ module led_blinker
   wire xdma_0_M_AXI_WVALID;
   wire xdma_0_axi_aclk;
   wire xdma_0_user_lnk_up;
+  wire [1:0]xlconcat_0_dout;
 
   assign pcie_txn = \^pcie_txn [0];
   assign pcie_txp = \^pcie_txp [0];
@@ -520,7 +522,7 @@ module led_blinker
         .s_axi_wstrb(axi_smc_M00_AXI_WSTRB),
         .s_axi_wvalid(axi_smc_M00_AXI_WVALID));
   led_blinker_axi_intc_0_0 axi_intc_0
-       (.intr(axi_timer_0_interrupt),
+       (.intr(xlconcat_0_dout),
         .irq(axi_intc_0_interrupt_INTERRUPT),
         .s_axi_aclk(microblaze_0_Clk),
         .s_axi_araddr(axi_smc_M05_AXI_ARADDR),
@@ -843,7 +845,8 @@ module led_blinker
         .s_axi_wstrb(axi_smc_M06_AXI_WSTRB),
         .s_axi_wvalid(axi_smc_M06_AXI_WVALID));
   led_blinker_axi_uartlite_0_0 axi_uartlite_0
-       (.rx(usb_uart_rxd),
+       (.interrupt(axi_uartlite_0_interrupt),
+        .rx(usb_uart_rxd),
         .s_axi_aclk(microblaze_0_Clk),
         .s_axi_araddr(axi_smc_M02_AXI_ARADDR),
         .s_axi_aresetn(rst_clk_wiz_100M_peripheral_aresetn),
@@ -1183,6 +1186,10 @@ module led_blinker
         .sys_rst_n(rst_clk_wiz_100M_peripheral_aresetn),
         .user_lnk_up(xdma_0_user_lnk_up),
         .usr_irq_req(1'b0));
+  led_blinker_xlconcat_0_0 xlconcat_0
+       (.In0(axi_timer_0_interrupt),
+        .In1(axi_uartlite_0_interrupt),
+        .dout(xlconcat_0_dout));
 endmodule
 
 module microblaze_0_local_memory_imp_2KOJ0J

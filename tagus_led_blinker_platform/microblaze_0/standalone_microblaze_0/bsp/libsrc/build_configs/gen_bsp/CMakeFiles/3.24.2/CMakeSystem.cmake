@@ -1,6 +1,6 @@
-set(CMAKE_HOST_SYSTEM "Linux-6.17.0-35-generic")
+set(CMAKE_HOST_SYSTEM "Linux-7.0.0-30-generic")
 set(CMAKE_HOST_SYSTEM_NAME "Linux")
-set(CMAKE_HOST_SYSTEM_VERSION "6.17.0-35-generic")
+set(CMAKE_HOST_SYSTEM_VERSION "7.0.0-30-generic")
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
 include("/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/microblaze_toolchain.cmake")

@@ -217,7 +217,7 @@
                         #interrupt-cells = <0x2>;
                         xlnx,sense-of-irq-edge-type = "Rising";
                         xlnx,edk-special = "INTR_CTRL";
-                        xlnx,kind-of-intr = <0x0>;
+                        xlnx,kind-of-intr = <0x2>;
                         xlnx,kind-of-edge = <0xffffffff>;
                         xlnx,irq-is-level = <0x1>;
                         xlnx,has-ivr = <0x1>;
@@ -234,7 +234,7 @@
                         xlnx,s-axi-aclk-freq-mhz = <0x64>;
                         xlnx,num-sw-intr = <0x0>;
                         xlnx,irq-connection = <0x0>;
-                        xlnx,num-intr-inputs = <0x1>;
+                        xlnx,num-intr-inputs = <0x2>;
                         xlnx,has-sie = <0x1>;
                         xlnx,enable-async = <0x0>;
                         xlnx,has-cie = <0x1>;
@@ -250,7 +250,7 @@
                         xlnx,has-fast = <0x0>;
                         xlnx,ivar-rst-val = <0x10>;
                         interrupt-controller;
-                        xlnx,async-intr = <0xfffffffe>;
+                        xlnx,async-intr = <0xfffffffc>;
                         xlnx,name = "axi_intc_0";
                 };
 
@@ -343,10 +343,12 @@
 
                 axi_uartlite_0: serial@40600000 {
                         phandle = <0x7>;
+                        interrupts = <0x1 0x0>;
                         compatible = "xlnx,axi-uartlite-2.0", "xlnx,xps-uartlite-1.00.a";
                         clock-frequency = <0x5f5e100>;
                         xlnx,uartlite-board-interface = "usb_uart";
                         xlnx,s-axi-aclk-freq-hz-d = <0x64>;
+                        interrupt-parent = <&axi_intc_0>;
                         xlnx,ip-name = "axi_uartlite";
                         reg = <0x40600000 0x10000>;
                         xlnx,baudrate = <0x1c200>;
@@ -357,6 +359,7 @@
                         xlnx,odd-parity = <0x0>;
                         status = "okay";
                         xlnx,use-board-flow;
+                        interrupt-names = "interrupt";
                         xlnx,name = "axi_uartlite_0";
                         xlnx,data-bits = <0x8>;
                         xlnx,parity = "No_Parity";

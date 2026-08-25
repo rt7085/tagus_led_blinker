@@ -77,7 +77,7 @@ ENTITY led_blinker_axi_intc_0_0 IS
     s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     s_axi_rvalid : OUT STD_LOGIC;
     s_axi_rready : IN STD_LOGIC;
-    intr : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+    intr : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
     irq : OUT STD_LOGIC
   );
 END led_blinker_axi_intc_0_0;
@@ -134,7 +134,7 @@ ARCHITECTURE led_blinker_axi_intc_0_0_arch OF led_blinker_axi_intc_0_0 IS
       s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
       s_axi_rvalid : OUT STD_LOGIC;
       s_axi_rready : IN STD_LOGIC;
-      intr : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
+      intr : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
       processor_clk : IN STD_LOGIC;
       processor_rst : IN STD_LOGIC;
       irq : OUT STD_LOGIC;
@@ -150,7 +150,7 @@ ARCHITECTURE led_blinker_axi_intc_0_0_arch OF led_blinker_axi_intc_0_0 IS
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_INFO OF intr: SIGNAL IS "xilinx.com:signal:interrupt:1.0 interrupt_input INTERRUPT";
   ATTRIBUTE X_INTERFACE_MODE OF intr: SIGNAL IS "slave interrupt_input";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF intr: SIGNAL IS "XIL_INTERFACENAME interrupt_input, SENSITIVITY LEVEL_HIGH, PortWidth 1";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF intr: SIGNAL IS "XIL_INTERFACENAME interrupt_input, SENSITIVITY EDGE_RISING:LEVEL_HIGH, PortWidth 2";
   ATTRIBUTE X_INTERFACE_INFO OF irq: SIGNAL IS "xilinx.com:interface:mbinterrupt:1.0 interrupt INTERRUPT";
   ATTRIBUTE X_INTERFACE_MODE OF irq: SIGNAL IS "master interrupt";
   ATTRIBUTE X_INTERFACE_PARAMETER OF irq: SIGNAL IS "XIL_INTERFACENAME interrupt, SENSITIVITY LEVEL_HIGH, LOW_LATENCY 0";
@@ -187,12 +187,12 @@ BEGIN
       C_INSTANCE => "led_blinker_axi_intc_0_0",
       C_S_AXI_ADDR_WIDTH => 9,
       C_S_AXI_DATA_WIDTH => 32,
-      C_NUM_INTR_INPUTS => 1,
+      C_NUM_INTR_INPUTS => 2,
       C_NUM_SW_INTR => 0,
       C_KIND_OF_INTR => X"fffffffe",
       C_KIND_OF_EDGE => X"ffffffff",
       C_KIND_OF_LVL => X"ffffffff",
-      C_ASYNC_INTR => X"FFFFFFFE",
+      C_ASYNC_INTR => X"FFFFFFFC",
       C_NUM_SYNC_FF => 2,
       C_ADDR_WIDTH => 32,
       C_IVAR_RESET_VALUE => X"0000000000000010",

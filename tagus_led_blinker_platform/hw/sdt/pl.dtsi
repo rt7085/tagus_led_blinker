@@ -180,7 +180,7 @@
 			#interrupt-cells = <2>;
 			xlnx,sense-of-irq-edge-type = "Rising";
 			xlnx,edk-special = "INTR_CTRL";
-			xlnx,kind-of-intr = <0x0>;
+			xlnx,kind-of-intr = <0x2>;
 			xlnx,kind-of-edge = <0xffffffff>;
 			xlnx,irq-is-level = <1>;
 			xlnx,has-ivr = <1>;
@@ -197,7 +197,7 @@
 			xlnx,s-axi-aclk-freq-mhz = <100>;
 			xlnx,num-sw-intr = <0>;
 			xlnx,irq-connection = <0>;
-			xlnx,num-intr-inputs = <0x1>;
+			xlnx,num-intr-inputs = <0x2>;
 			xlnx,has-sie = <1>;
 			xlnx,enable-async = <0>;
 			xlnx,has-cie = <1>;
@@ -213,7 +213,7 @@
 			xlnx,has-fast = <0>;
 			xlnx,ivar-rst-val = <0x10>;
 			interrupt-controller;
-			xlnx,async-intr = <0xfffffffe>;
+			xlnx,async-intr = <0xfffffffc>;
 			xlnx,name = "axi_intc_0";
 		};
 		axi_bram_ctrl_0: axi_bram_ctrl_0@c0000000 {
@@ -298,10 +298,12 @@
 			xlnx,name = "axi_timer_0";
 		};
 		axi_uartlite_0: serial@40600000 {
+			interrupts = < 1 0 >;
 			compatible = "xlnx,axi-uartlite-2.0" , "xlnx,xps-uartlite-1.00.a";
 			clock-frequency = <100000000>;
 			xlnx,uartlite-board-interface = "usb_uart";
 			xlnx,s-axi-aclk-freq-hz-d = <100>;
+			interrupt-parent = <&axi_intc_0>;
 			xlnx,ip-name = "axi_uartlite";
 			reg = <0x40600000 0x10000>;
 			xlnx,baudrate = <115200>;
@@ -312,6 +314,7 @@
 			xlnx,odd-parity = <0>;
 			status = "okay";
 			xlnx,use-board-flow;
+			interrupt-names = "interrupt";
 			xlnx,name = "axi_uartlite_0";
 			xlnx,data-bits = <8>;
 			xlnx,parity = "No_Parity";
