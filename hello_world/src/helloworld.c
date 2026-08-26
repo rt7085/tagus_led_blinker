@@ -13,6 +13,7 @@
 #include "xintc.h"
 #include "xil_exception.h"
 #include "xtmrctr.h"
+#include "xuartlite.h"
 
 
 #define ALL_LEDS_OFF 0x7
@@ -26,6 +27,9 @@ XIntc_Config *xintc_config;
 XTmrCtr tmr;
 XTmrCtr_Config *tmr_config;
 
+XUartLite uart;
+XUartLite_Config *uart_config;
+
 XGpio Gpio; 
 XGpio_Config *Gpio_config;
 
@@ -37,8 +41,12 @@ typedef enum { STATE_INIT, STATE_RUNNING, STATE_DONE } StateType;
 volatile StateType currentState = STATE_INIT;
 volatile int timerFlag = 0;
 
+// UART flags
+volatile int TxPerfomed = 0;
+volatile int RxPerfomed = 0;
+uint8_t RxBuffer[1];
 
-void intcHandler()
+void tmr_intcHandler()
 {
 	XIntc_Acknowledge(&intc, xintc_config->BaseAddress);
     while(!XTmrCtr_IsExpired(&tmr,0)) {
@@ -46,6 +54,29 @@ void intcHandler()
 	//xil_printf("Interrupt Occurred\n");
     timerFlag = 1; // Signal that the timer period has elapsed
 	XTmrCtr_Reset(&tmr, 0);
+}
+
+void uartRX_intcHandler()
+{
+    RxPerfomed = 1;
+    // Simple echo: Send back what was just received
+    XUartLite_Send(&UartLiteInstance, RxBuffer, 1);
+}
+
+void uartTX_intcHandler() 
+{
+    TxPerfomed = 1;
+}
+
+void uart_init()
+{
+    uart_config = XUartLite_LookupConfig(XPAR_XUARTLITE_0_BASEADDR);    
+	int status = XUartLite_Initialize(&uart, uart_config->RegBaseAddress);
+
+    if(status == XST_SUCCESS)
+		xil_printf("UART INIT SUCCESSFUL\n");
+	else
+		xil_printf("UART INIT FAILED\n");
 }
 
 void tmr_init()
@@ -85,7 +116,8 @@ void intc_init()
 	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (Xil_ExceptionHandler)XIntc_InterruptHandler, &intc);
 	Xil_ExceptionEnable();
  
-	XIntc_Connect(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR, (XInterruptHandler)intcHandler, &tmr);
+	XIntc_Connect(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR, (XInterruptHandler)
+    tmr_intcHandler, &tmr);
 	XIntc_Enable(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR);
 	XIntc_Start(&intc, XIN_REAL_MODE);
 }
