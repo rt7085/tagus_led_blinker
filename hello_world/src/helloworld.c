@@ -1,3 +1,4 @@
+#include <xparameters.h>
 #ifdef __MICROBLAZE__
 
 #include <xil_types.h>
@@ -59,8 +60,9 @@ void tmr_intcHandler()
 void uartRX_intcHandler()
 {
     RxPerfomed = 1;
+    xil_printf("Uart Interrupt Occurred\n");
     // Simple echo: Send back what was just received
-    XUartLite_Send(&UartLiteInstance, RxBuffer, 1);
+    XUartLite_Send(&uart, RxBuffer, 1);
 }
 
 void uartTX_intcHandler() 
@@ -71,12 +73,15 @@ void uartTX_intcHandler()
 void uart_init()
 {
     uart_config = XUartLite_LookupConfig(XPAR_XUARTLITE_0_BASEADDR);    
-	int status = XUartLite_Initialize(&uart, uart_config->RegBaseAddress);
+	int status = XUartLite_Initialize(&uart, uart_config->RegBaseAddr);
 
     if(status == XST_SUCCESS)
 		xil_printf("UART INIT SUCCESSFUL\n");
 	else
 		xil_printf("UART INIT FAILED\n");
+
+    
+
 }
 
 void tmr_init()
@@ -112,14 +117,31 @@ void intc_init()
 	else
 		xil_printf("INTC INIT FAILED\n");
  
+    // Initialize MicroBlaze Exception Table & Register INTC
 	Xil_ExceptionInit();
 	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (Xil_ExceptionHandler)XIntc_InterruptHandler, &intc);
 	Xil_ExceptionEnable();
  
-	XIntc_Connect(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR, (XInterruptHandler)
-    tmr_intcHandler, &tmr);
+    // Connect timer interrupt to interrupt handler
+	XIntc_Connect(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR, (XInterruptHandler)  tmr_intcHandler, &tmr);
+
+    // Connect uart interrupt to interrupt handler 
+    XIntc_Connect(&intc, XPAR_FABRIC_AXI_UARTLITE_0_INTR, (XInterruptHandler)tmr_intcHandler, &uart);
+    
+    // Enable the timer and uart interrupts
 	XIntc_Enable(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR);
+    XIntc_Enable(&uart, XPAR_FABRIC_AXI_UARTLITE_0_INTR);
+
+    // Start the interrupt handler
 	XIntc_Start(&intc, XIN_REAL_MODE);
+
+    // Map application callbacks inside the UART Driver
+    XUartLite_SetSendHandler(&uart, uartTX_intcHandler, &uart);
+    XUartLite_SetRecvHandler(&uart, uartRX_intcHandler, &uart);
+
+    // Enable UART internal interrupts
+    XUartLite_EnableInterrupt(&uart);
+
 }
 
 void bram_init()
@@ -156,6 +178,7 @@ void gpio_init()
 int main()
 {
     init_platform();
+    uart_init();
     intc_init();
     tmr_init();
     
@@ -253,12 +276,28 @@ int main()
         }
     }
     
+    // Prepare to receive the first byte asynchronously
+    XUartLite_Recv(&uart, RxBuffer, 1);
+
     // Main loop
     while (1) {
+
+        // Handle the timer
         if(timerFlag) {
             RunFSM();       // Run state machine on timer
             timerFlag = 0;  // Reset flag
         }
+
+        // Handle the uart
+        if (RxPerfomed) {
+            RxPerfomed = 0;
+            // Rearm UART Receiver for the next incoming character
+            XUartLite_Recv(&uart, RxBuffer, 1);
+        }
+        if (TxPerfomed) {
+            TxPerfomed = 0;
+        }
+        
     }
 
     cleanup_platform();   
