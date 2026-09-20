@@ -60,7 +60,7 @@ void tmr_intcHandler()
 void uartRX_intcHandler()
 {
     RxPerfomed = 1;
-    xil_printf("Uart Interrupt Occurred\n");
+    xil_printf("Uart Interrupt Occurred, RX\n");
     // Simple echo: Send back what was just received
     XUartLite_Send(&uart, RxBuffer, 1);
 }
@@ -68,6 +68,7 @@ void uartRX_intcHandler()
 void uartTX_intcHandler() 
 {
     TxPerfomed = 1;
+    xil_printf("Uart Interrupt Occurred, TX\n");
 }
 
 void uart_init()
@@ -80,7 +81,12 @@ void uart_init()
 	else
 		xil_printf("UART INIT FAILED\n");
 
-    
+    // Map application callbacks inside the UART Driver
+    XUartLite_SetRecvHandler(&uart, uartRX_intcHandler, &uart);
+    XUartLite_SetSendHandler(&uart, uartTX_intcHandler, &uart);
+
+    // Enable UART internal interrupts
+    XUartLite_EnableInterrupt(&uart);
 
 }
 
@@ -130,17 +136,10 @@ void intc_init()
     
     // Enable the timer and uart interrupts
 	XIntc_Enable(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR);
-    XIntc_Enable(&uart, XPAR_FABRIC_AXI_UARTLITE_0_INTR);
+    XIntc_Enable(&intc, XPAR_FABRIC_AXI_UARTLITE_0_INTR);
 
     // Start the interrupt handler
 	XIntc_Start(&intc, XIN_REAL_MODE);
-
-    // Map application callbacks inside the UART Driver
-    XUartLite_SetSendHandler(&uart, uartTX_intcHandler, &uart);
-    XUartLite_SetRecvHandler(&uart, uartRX_intcHandler, &uart);
-
-    // Enable UART internal interrupts
-    XUartLite_EnableInterrupt(&uart);
 
 }
 
@@ -178,9 +177,9 @@ void gpio_init()
 int main()
 {
     init_platform();
-    uart_init();
     intc_init();
     tmr_init();
+    uart_init();
     
     gpio_init();
     bram_init();
@@ -293,11 +292,12 @@ int main()
             RxPerfomed = 0;
             // Rearm UART Receiver for the next incoming character
             XUartLite_Recv(&uart, RxBuffer, 1);
+            xil_printf("Uart Interrupt Occurred, RX\n");
         }
         if (TxPerfomed) {
             TxPerfomed = 0;
         }
-        
+       
     }
 
     cleanup_platform();   
