@@ -85,8 +85,21 @@ void uart_init()
     XUartLite_SetRecvHandler(&uart, uartRX_intcHandler, &uart);
     XUartLite_SetSendHandler(&uart, uartTX_intcHandler, &uart);
 
+    // Connect UART to the Interrupt Controller
+    //status = XIntc_Connect(&intc, XPAR_INTC_0_UARTLITE_0_VEC_ID, 
+    //                       (XInterruptHandler)XUartLite_InterruptHandler, &uart);
+    //if (status != XST_SUCCESS) {
+    //    xil_printf("UART Interupt Connect Failed\n");
+    //}
+
+    // Enable the UART interrupt in the Interrupt Controller
+    //XIntc_Enable(&intc, XPAR_INTC_0_UARTLITE_0_VEC_ID);
+
     // Enable UART internal interrupts
     XUartLite_EnableInterrupt(&uart);
+
+    // Start a background receive so the RX FIFO triggers an interrupt on incoming data
+    XUartLite_Recv(&uart, RxBuffer, 1);
 
 }
 
@@ -132,7 +145,7 @@ void intc_init()
 	XIntc_Connect(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR, (XInterruptHandler)  tmr_intcHandler, &tmr);
 
     // Connect uart interrupt to interrupt handler 
-    XIntc_Connect(&intc, XPAR_FABRIC_AXI_UARTLITE_0_INTR, (XInterruptHandler)tmr_intcHandler, &uart);
+    XIntc_Connect(&intc, XPAR_FABRIC_AXI_UARTLITE_0_INTR, (XInterruptHandler)XUartLite_InterruptHandler, &uart);
     
     // Enable the timer and uart interrupts
 	XIntc_Enable(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR);
@@ -276,7 +289,7 @@ int main()
     }
     
     // Prepare to receive the first byte asynchronously
-    XUartLite_Recv(&uart, RxBuffer, 1);
+    // XUartLite_Recv(&uart, RxBuffer, 1);
 
     // Main loop
     while (1) {
