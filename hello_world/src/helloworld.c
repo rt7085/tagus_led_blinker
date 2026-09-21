@@ -60,7 +60,8 @@ void tmr_intcHandler()
 void uartRX_intcHandler()
 {
     RxPerfomed = 1;
-    xil_printf("Uart Interrupt Occurred, RX\n");
+    // xil_printf("Uart Interrupt Occurred, RX\n");
+    
     // Simple echo: Send back what was just received
     XUartLite_Send(&uart, RxBuffer, 1);
 }
@@ -68,13 +69,15 @@ void uartRX_intcHandler()
 void uartTX_intcHandler() 
 {
     TxPerfomed = 1;
-    xil_printf("Uart Interrupt Occurred, TX\n");
+    // xil_printf("Uart Interrupt Occurred, TX\n");
 }
 
 void uart_init()
 {
+    int status = XST_SUCCESS;
+    
     uart_config = XUartLite_LookupConfig(XPAR_XUARTLITE_0_BASEADDR);    
-	int status = XUartLite_Initialize(&uart, uart_config->RegBaseAddr);
+	status = XUartLite_Initialize(&uart, uart_config->RegBaseAddr);
 
     if(status == XST_SUCCESS)
 		xil_printf("UART INIT SUCCESSFUL\n");
@@ -85,22 +88,11 @@ void uart_init()
     XUartLite_SetRecvHandler(&uart, uartRX_intcHandler, &uart);
     XUartLite_SetSendHandler(&uart, uartTX_intcHandler, &uart);
 
-    // Connect UART to the Interrupt Controller
-    //status = XIntc_Connect(&intc, XPAR_INTC_0_UARTLITE_0_VEC_ID, 
-    //                       (XInterruptHandler)XUartLite_InterruptHandler, &uart);
-    //if (status != XST_SUCCESS) {
-    //    xil_printf("UART Interupt Connect Failed\n");
-    //}
-
-    // Enable the UART interrupt in the Interrupt Controller
-    //XIntc_Enable(&intc, XPAR_INTC_0_UARTLITE_0_VEC_ID);
-
     // Enable UART internal interrupts
     XUartLite_EnableInterrupt(&uart);
 
     // Start a background receive so the RX FIFO triggers an interrupt on incoming data
     XUartLite_Recv(&uart, RxBuffer, 1);
-
 }
 
 void tmr_init()
@@ -126,10 +118,12 @@ void tmr_init()
     
 }
 
-void intc_init()
+int intc_init()
 { 
-	xintc_config = XIntc_LookupConfig(XPAR_AXI_INTC_0_BASEADDR);
-    int status = XIntc_Initialize(&intc, xintc_config->BaseAddress);
+	int status = XST_SUCCESS;
+    
+    xintc_config = XIntc_LookupConfig(XPAR_AXI_INTC_0_BASEADDR);
+    status = XIntc_Initialize(&intc, xintc_config->BaseAddress);
  
 	if(status == XST_SUCCESS)
 		xil_printf("INTC INIT SUCCESSFUL\n");
@@ -142,17 +136,20 @@ void intc_init()
 	Xil_ExceptionEnable();
  
     // Connect timer interrupt to interrupt handler
-	XIntc_Connect(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR, (XInterruptHandler)  tmr_intcHandler, &tmr);
+	status = XIntc_Connect(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR, (XInterruptHandler)  tmr_intcHandler, &tmr);
+    if (status != XST_SUCCESS) {return XST_FAILURE;}
 
     // Connect uart interrupt to interrupt handler 
     XIntc_Connect(&intc, XPAR_FABRIC_AXI_UARTLITE_0_INTR, (XInterruptHandler)XUartLite_InterruptHandler, &uart);
+    if (status != XST_SUCCESS) {return XST_FAILURE;}
     
     // Enable the timer and uart interrupts
 	XIntc_Enable(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR);
     XIntc_Enable(&intc, XPAR_FABRIC_AXI_UARTLITE_0_INTR);
 
     // Start the interrupt handler
-	XIntc_Start(&intc, XIN_REAL_MODE);
+	status = XIntc_Start(&intc, XIN_REAL_MODE);
+    if (status != XST_SUCCESS) {return XST_FAILURE;}
 
 }
 
@@ -305,7 +302,6 @@ int main()
             RxPerfomed = 0;
             // Rearm UART Receiver for the next incoming character
             XUartLite_Recv(&uart, RxBuffer, 1);
-            xil_printf("Uart Interrupt Occurred, RX\n");
         }
         if (TxPerfomed) {
             TxPerfomed = 0;
