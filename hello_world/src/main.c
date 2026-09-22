@@ -16,6 +16,8 @@
 #include "xtmrctr.h"
 #include "xuartlite.h"
 
+#include "serial.h"
+
 
 #define ALL_LEDS_OFF 0x7
 #define RED_LED_ON 0x6
