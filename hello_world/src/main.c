@@ -30,8 +30,9 @@ XIntc_Config *xintc_config;
 XTmrCtr tmr;
 XTmrCtr_Config *tmr_config;
 
-XUartLite uart;
-XUartLite_Config *uart_config;
+extern XUartLite uart; // Defined in serial.c
+extern XUartLite_Config *uart_config;
+extern uint8_t RxBuffer[1];
 
 XGpio Gpio; 
 XGpio_Config *Gpio_config;
@@ -44,11 +45,6 @@ typedef enum { STATE_INIT, STATE_RUNNING, STATE_DONE } StateType;
 volatile StateType currentState = STATE_INIT;
 volatile int timerFlag = 0;
 
-// UART flags
-volatile int TxPerfomed = 0;
-volatile int RxPerfomed = 0;
-uint8_t RxBuffer[1];
-
 void tmr_intcHandler()
 {
 	XIntc_Acknowledge(&intc, xintc_config->BaseAddress);
@@ -59,43 +55,6 @@ void tmr_intcHandler()
 	XTmrCtr_Reset(&tmr, 0);
 }
 
-void uartRX_intcHandler()
-{
-    RxPerfomed = 1;
-    // xil_printf("Uart Interrupt Occurred, RX\n");
-    
-    // Simple echo: Send back what was just received
-    XUartLite_Send(&uart, RxBuffer, 1);
-}
-
-void uartTX_intcHandler() 
-{
-    TxPerfomed = 1;
-    // xil_printf("Uart Interrupt Occurred, TX\n");
-}
-
-void uart_init()
-{
-    int status = XST_SUCCESS;
-    
-    uart_config = XUartLite_LookupConfig(XPAR_XUARTLITE_0_BASEADDR);    
-	status = XUartLite_Initialize(&uart, uart_config->RegBaseAddr);
-
-    if(status == XST_SUCCESS)
-		xil_printf("UART INIT SUCCESSFUL\n");
-	else
-		xil_printf("UART INIT FAILED\n");
-
-    // Map application callbacks inside the UART Driver
-    XUartLite_SetRecvHandler(&uart, uartRX_intcHandler, &uart);
-    XUartLite_SetSendHandler(&uart, uartTX_intcHandler, &uart);
-
-    // Enable UART internal interrupts
-    XUartLite_EnableInterrupt(&uart);
-
-    // Start a background receive so the RX FIFO triggers an interrupt on incoming data
-    XUartLite_Recv(&uart, RxBuffer, 1);
-}
 
 void tmr_init()
 {
@@ -118,6 +77,31 @@ void tmr_init()
     XTmrCtr_Reset(&tmr, 0);
     XTmrCtr_Start(&tmr, 0);
     
+}
+
+int uart_init()
+{
+    int status = XST_SUCCESS;
+    
+    uart_config = XUartLite_LookupConfig(XPAR_XUARTLITE_0_BASEADDR);    
+	status = XUartLite_Initialize(&uart, uart_config->RegBaseAddr);
+
+    if(status == XST_SUCCESS)
+		xil_printf("UART INIT SUCCESSFUL\n");
+	else
+		xil_printf("UART INIT FAILED\n");
+
+    // Map application callbacks inside the UART Driver
+    XUartLite_SetRecvHandler(&uart, uartRX_intcHandler, &uart);
+    XUartLite_SetSendHandler(&uart, uartTX_intcHandler, &uart);
+
+    // Enable UART internal interrupts
+    XUartLite_EnableInterrupt(&uart);
+
+    // Start a background receive so the RX FIFO triggers an interrupt on incoming data
+    XUartLite_Recv(&uart, RxBuffer, 1);
+
+    return XST_SUCCESS;
 }
 
 int intc_init()
@@ -153,6 +137,7 @@ int intc_init()
 	status = XIntc_Start(&intc, XIN_REAL_MODE);
     if (status != XST_SUCCESS) {return XST_FAILURE;}
 
+    return XST_SUCCESS;
 }
 
 void bram_init()
@@ -290,6 +275,8 @@ int main()
     // Prepare to receive the first byte asynchronously
     // XUartLite_Recv(&uart, RxBuffer, 1);
 
+
+
     // Main loop
     while (1) {
 
@@ -299,15 +286,7 @@ int main()
             timerFlag = 0;  // Reset flag
         }
 
-        // Handle the uart
-        if (RxPerfomed) {
-            RxPerfomed = 0;
-            // Rearm UART Receiver for the next incoming character
-            XUartLite_Recv(&uart, RxBuffer, 1);
-        }
-        if (TxPerfomed) {
-            TxPerfomed = 0;
-        }
+        // Call get_line
        
     }
 

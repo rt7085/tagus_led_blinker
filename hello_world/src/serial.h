@@ -1,15 +1,17 @@
 #ifndef SERIAL_H
 #define SERIAL_H
 
-// 1. External dependencies needed for this header
-// #include <stdbool.h> 
+#include <xil_types.h>
+#include "xuartlite.h"
+#include "xil_printf.h"
+#include "xparameters.h"
 
-// 2. Constants and Macro definitions
-//#define MAX_BUFFER_SIZE 32
+// Constants / Macros
+#define BUFFER_SIZE 64
+#define MAX_ARGS 4
 
-// 3. Custom Structs and Typedefs
-
-// 4. Function Prototypes (Declarations / Contract)
-
+// Function Prototypes
+void uartRX_intcHandler();
+void uartTX_intcHandler();
 
 #endif // SERIAL_H
