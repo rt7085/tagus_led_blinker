@@ -291,9 +291,9 @@ int main()
 
         // Wait for uart command input
         if (get_line(input_line, BUFFER_SIZE)) {
-            //process_command(input_line);
+            process_command(input_line);
 
-            xil_printf("\\r\nReceived Command: %s\r\n", input_line);
+            //xil_printf("\\r\nReceived Command: %s\r\n", input_line);
         }
     }
        

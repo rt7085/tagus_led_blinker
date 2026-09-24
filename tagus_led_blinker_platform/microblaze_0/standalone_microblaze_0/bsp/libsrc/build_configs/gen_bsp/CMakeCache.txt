@@ -242,8 +242,8 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //Path to a program.
 CMAKE_STRIP:FILEPATH=/home/rt7085/tools/xilinx/2025.2/Vitis/gnu/microblaze/lin/bin/mb-strip
 
-//The CMake toolchain file
-CMAKE_TOOLCHAIN_FILE:FILEPATH=/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/microblaze_toolchain.cmake
+//No help, variable specified on the command line.
+CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=/home/rt7085/repos/tagus_led_blinker/tagus_led_blinker_platform/microblaze_0/standalone_microblaze_0/bsp/microblaze_toolchain.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -285,7 +285,7 @@ TOOLCHAIN_EXTRA_C_FLAGS:STRING= -O2 -g -ffunction-sections -fdata-sections -Wall
 XILTIMER_en_interval_timer:BOOL=OFF
 
 //This parameter is used to select specific timer for sleep functionality
-XILTIMER_sleep_timer:STRING=Default;
+XILTIMER_sleep_timer:STRING=Default
 
 //This parameter is used to select specific timer for tick functionality
 XILTIMER_tick_timer:STRING=None
@@ -602,9 +602,9 @@ standalone_profile_timer-STRINGS:INTERNAL=None
 //STRINGS property for variable: standalone_sleep_timer
 standalone_sleep_timer-STRINGS:INTERNAL=None
 //STRINGS property for variable: standalone_stdin
-standalone_stdin-STRINGS:INTERNAL=None;mdm_0;axi_uartlite_0
+standalone_stdin-STRINGS:INTERNAL=None;axi_uartlite_0;mdm_0
 //STRINGS property for variable: standalone_stdout
-standalone_stdout-STRINGS:INTERNAL=None;mdm_0;axi_uartlite_0
+standalone_stdout-STRINGS:INTERNAL=None;axi_uartlite_0;mdm_0
 //STRINGS property for variable: standalone_ttc_select_cntr
 standalone_ttc_select_cntr-STRINGS:INTERNAL=None
 

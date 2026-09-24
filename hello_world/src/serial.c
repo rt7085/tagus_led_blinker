@@ -23,9 +23,6 @@ void uartRX_intcHandler()
 {
     RxPerfomed = 1;
     // xil_printf("Uart Interrupt Occurred, RX\n");
-    
-    // Simple echo: Send back what was just received
-    // XUartLite_Send(&uart, RxBuffer, 1);
 }
 
 void uartTX_intcHandler() 
@@ -94,9 +91,16 @@ void process_command(char *line) {
 }
 
 // Command implementations
-static void cmd_help(int argc, char *argv[]) {
+void cmd_help(int argc, char *argv[]) 
+{
     xil_printf("Available commands:\r\n");
     for (size_t i = 0; i < NUM_COMMANDS; i++) {
         xil_printf("  %s - %s\r\n", cmd_table[i].name, cmd_table[i].help);
     }
+}
+
+// Command implementations
+void cmd_memtst(int argc, char *argv[]) 
+{
+    xil_printf("SDRAM test:\r\n");
 }

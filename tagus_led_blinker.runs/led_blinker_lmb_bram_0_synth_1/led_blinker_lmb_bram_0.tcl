@@ -56,9 +56,7 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "led_blinker_lmb_bram_0_synth_1" START { ROLLUP_AUTO }
-set_param tcl.collectionResultDisplayLimit 0
-set_param xicom.use_bs_reader 1
-set_param chipscope.maxJobs 2
+set_param bd.open.in_stealth_mode 1
 set_param general.usePosixSpawnForFork 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
@@ -75,6 +73,8 @@ set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part numato.com:tagus:part0:1.0 [current_project]
+set_property ip_repo_paths /home/rt7085/repos/vivado_custom_ip [current_project]
+update_ip_catalog
 set_property ip_output_repo /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
