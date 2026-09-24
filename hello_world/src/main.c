@@ -185,6 +185,8 @@ int main()
     u32 data_read = 0;
     u32 i = 0;
 
+    
+
     print("Led Blinker Applications Started...\n\r");
 
     // Write and Read to BRAM (depth is 2048 x 32 bits)
@@ -276,7 +278,8 @@ int main()
     // XUartLite_Recv(&uart, RxBuffer, 1);
 
 
-
+    char input_line[BUFFER_SIZE];
+    
     // Main loop
     while (1) {
 
@@ -286,12 +289,17 @@ int main()
             timerFlag = 0;  // Reset flag
         }
 
-        // Call get_line
-       
-    }
+        // Wait for uart command input
+        if (get_line(input_line, BUFFER_SIZE)) {
+            //process_command(input_line);
 
+            xil_printf("\\r\nReceived Command: %s\r\n", input_line);
+        }
+    }
+       
     cleanup_platform();   
     return 0;
+    
 
 }
 
