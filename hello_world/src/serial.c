@@ -78,29 +78,69 @@ void process_command(char *line) {
         token = strtok(NULL, " ");
     }
     
-    if (argc == 0) return; // Empty line
+    // Empty line
+    if (argc == 0){
+        // line feed and drop a cursor arrow
+        xil_printf("\n>");
+        return; 
+    } 
     
     // Search lookup table
-    for (size_t i = 0; i < NUM_COMMANDS; i++) {
-        if (strcmp(argv[0], cmd_table[i].name) == 0) {
+    for (size_t i = 0; i < NUM_COMMANDS; i++) 
+    {
+        if (strcmp(argv[0], cmd_table[i].name) == 0) 
+        {
             cmd_table[i].function(argc, argv);
+            // line feed and drop a cursor arrow
+            xil_printf("\n>");
             return;
         }
     }
-    xil_printf("Unknown command: %s\r\n", argv[0]);
+    xil_printf("\nUnknown command: %s", argv[0]);
+    // line feed and drop a cursor arrow
+    xil_printf("\n>");
 }
 
-// Command implementations
-void cmd_help(int argc, char *argv[]) 
+// Command implementations 
+void cmd_help() 
 {
-    xil_printf("Available commands:\r\n");
+    xil_printf("\nAvailable commands:");
     for (size_t i = 0; i < NUM_COMMANDS; i++) {
-        xil_printf("  %s - %s\r\n", cmd_table[i].name, cmd_table[i].help);
+        xil_printf("\n%s - %s", cmd_table[i].name, cmd_table[i].help);
     }
 }
 
 // Command implementations
-void cmd_memtst(int argc, char *argv[]) 
+void cmd_bram_test(int argc, char *argv[]) 
 {
-    xil_printf("SDRAM test:\r\n");
+        if (argc < 2) 
+        {
+            xil_printf("\nError: Missing arguments. Usage: bramtest count");
+        }
+        else
+        {
+            xil_printf("\nBRAM test:");
+            for (int i = 1; i < argc ;i++)
+            {
+                xil_printf("\nArgument %d: %s",i, argv[i]);
+            }
+        }
+        return;
+}
+
+void cmd_sram_test(int argc, char *argv[]) 
+{
+        if (argc < 2) 
+        {
+            xil_printf("\nError: Missing arguments. Usage: sramtest count");
+        }
+        else
+        {
+            xil_printf("\nSDRAM test:");
+            for (int i = 1; i < argc ;i++)
+            {
+                xil_printf("\nArgument %d: %s",i, argv[i]);
+            }
+        }
+        return;
 }

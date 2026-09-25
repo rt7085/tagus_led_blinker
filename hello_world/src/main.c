@@ -277,7 +277,8 @@ int main()
     // Prepare to receive the first byte asynchronously
     // XUartLite_Recv(&uart, RxBuffer, 1);
 
-
+    // drop a cursor arrow to start interface
+    xil_printf(">");
     char input_line[BUFFER_SIZE];
     
     // Main loop
