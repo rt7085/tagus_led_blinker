@@ -4,6 +4,7 @@
 #ifdef __MICROBLAZE__
 
 #include <xil_types.h>
+#include <stdio.h> // for printf() for floats/doubles
 #include "xparameters.h"
 #include "xuartlite.h"
 #include "xil_printf.h"

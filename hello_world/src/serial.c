@@ -152,7 +152,7 @@ void cmd_bram_test()
     u32 errors = 0;
     
     u32 StartTicks, EndTicks, TotalTicks;
-    double DurationSec, BandwidthMBs;
+    double TotalBytesTransferred, DurationSec, BandwidthMBs;
         
     // Write and Read to BRAM (Example: Memory size is 8k (1FFF hex), so depth is 8192 / 32 bits = 2048 locations) 
     baseaddr = (unsigned int *)XPAR_XBRAM_0_BASEADDR;
@@ -184,15 +184,42 @@ void cmd_bram_test()
     DurationSec = (double)TotalTicks / (double)AXI_TIMER_FREQ;
     
     // Bandwidth = (Written Bytes) / Time
-    // 1 MB = 1,000,000 bytes (or 1024*1024 depending on your convention)
-    double TotalBytesTransferred = (double)(maxlocations * (XPAR_XBRAM_0_DATA_WIDTH / 8));
+    // 1 MB = 1,048,576 bytes (1024 * 1024)
+    TotalBytesTransferred = (double)(maxlocations * (XPAR_XBRAM_0_DATA_WIDTH / 8));
+    // u64 TotalBytesTransferred = (u64)maxlocations * 4; //(XPAR_XBRAM_0_DATA_WIDTH / 8);
+
+    // Calculate MB (Integer and Fractional parts)
+    // u64 MB_integer = TotalBytesTransferred / 1048576;
+    // u64 MB_fraction = ((TotalBytesTransferred % 1048576) * 100) / 1048576; // 2 decimal places
+
+    // Calculate Execution Time in seconds (Integer and Fractional parts)
+    // u32 TimerFrequencyHz = AXI_TIMER_FREQ;
+    // u64 DurationSec_integer = TotalTicks / TimerFrequencyHz;
+    // u64 DurationSec_fraction = ((TotalTicks % TimerFrequencyHz) * 1000000) / TimerFrequencyHz; // 6 decimal places
+
+    
     BandwidthMBs = (TotalBytesTransferred / (1024.0 * 1024.0)) / DurationSec;
+    // Calculate Memory Bandwidth in MB/s (Integer and Fractional parts)
+    // Bandwidth = TotalBytesTransferred / (1048576 * DurationSec)
+    // To prevent integer division from dropping to 0, we scale up the numerator first.
+    // We use a 3-step scale up to avoid 64-bit overflow during the multiplication.
+    // u64 Bandwidth_scaled = (TotalBytesTransferred * TimerFrequencyHz) / 1048576; 
+    // u64 BandwidthMBs_integer = Bandwidth_scaled / TotalTicks;
+    // u64 BandwidthMBs_fraction = ((Bandwidth_scaled % TotalTicks) * 100) / TotalTicks; // 2 decimal places
 
     // Report write time metrics
-    xil_printf("\nData Size:        %.2f MB", (double)(TotalBytesTransferred / (1024.0 * 1024.0)));
-    xil_printf("\nAXI Timer Ticks:  %lu", (unsigned long)TotalTicks);
-    xil_printf("\nExecution Time:   %.6f seconds", DurationSec);
-    xil_printf("\nMemory Bandwidth: %.2f MB/s", BandwidthMBs);
+    // Use printf() for floats, not xil_printf()
+    printf("\nData Size:        %.2f MB", (double)(TotalBytesTransferred / (1024.0 * 1024.0)));
+    printf("\nAXI Timer Ticks:  %lu", (unsigned long)TotalTicks);
+    printf("\nExecution Time:   %.6f seconds", DurationSec);
+    printf("\nMemory Bandwidth: %.2f MB/s", BandwidthMBs);
+
+/*
+    xil_printf("\nData Size: %llu.%02llu MB", MB_integer, MB_fraction);
+    xil_printf("\nAXI Timer Ticks: %llu", (u64)TotalTicks);
+    xil_printf("\nExecution Time: %llu.%06llu seconds", DurationSec_integer, DurationSec_fraction);
+    xil_printf("\nMemory Bandwidth: %llu.%02llu MB/s", BandwidthMBs_integer, BandwidthMBs_fraction);
+ */ 
     
     // Read and compare
     xil_printf("\nReading and comparing %d memory locations...", maxlocations);
