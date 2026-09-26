@@ -15,9 +15,7 @@
 #include "xil_exception.h"
 #include "xtmrctr.h"
 #include "xuartlite.h"
-
 #include "serial.h"
-
 
 #define ALL_LEDS_OFF 0x7
 #define RED_LED_ON 0x6
@@ -181,14 +179,16 @@ int main()
     gpio_init();
     bram_init();
 
+/*
     unsigned int *data;
     u32 data_read = 0;
     u32 i = 0;
-
-    
+*/
 
     print("Led Blinker Applications Started...\n\r");
 
+    
+/*
     // Write and Read to BRAM (depth is 2048 x 32 bits)
     data = (unsigned int *)XPAR_XBRAM_0_BASEADDR;
 
@@ -208,7 +208,10 @@ int main()
         xil_printf("Location: %08X: Value: : %08X\n", data+i, data_read);
     }
     xil_printf("DATA READ SUCCESSFUL : XIL_IO METHOD\n");
+*/
 
+    
+/*
     // Read and Write to the SDRAM
     data = (unsigned int *)XPAR_MIG_0_BASEADDRESS;
 
@@ -229,7 +232,7 @@ int main()
         xil_printf("Location: %08X: Value: : %08X\n", data+i, data_read);
     }
     xil_printf("DATA READ SUCCESSFUL : XIL_IO METHOD\n");
-    
+ */   
 
     u32 pci_user_lnk_up = 0;
     u32 led_state = 0;
@@ -294,7 +297,6 @@ int main()
         if (get_line(input_line, BUFFER_SIZE)) {
             process_command(input_line);
 
-            //xil_printf("\\r\nReceived Command: %s\r\n", input_line);
         }
     }
        
