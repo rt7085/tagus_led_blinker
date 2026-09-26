@@ -128,20 +128,11 @@
         <CompFileExtendedInfo CompFileName="led_blinker.bd" FileRelPathName="ip/led_blinker_clk_wiz_0/led_blinker_clk_wiz_0.xci">
           <Proxy FileSetName="led_blinker_clk_wiz_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="led_blinker.bd" FileRelPathName="ip/led_blinker_dlmb_bram_if_cntlr_0/led_blinker_dlmb_bram_if_cntlr_0.xci">
-          <Proxy FileSetName="led_blinker_dlmb_bram_if_cntlr_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="led_blinker.bd" FileRelPathName="ip/led_blinker_dlmb_v10_0/led_blinker_dlmb_v10_0.xci">
           <Proxy FileSetName="led_blinker_dlmb_v10_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="led_blinker.bd" FileRelPathName="ip/led_blinker_ilmb_bram_if_cntlr_0/led_blinker_ilmb_bram_if_cntlr_0.xci">
-          <Proxy FileSetName="led_blinker_ilmb_bram_if_cntlr_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="led_blinker.bd" FileRelPathName="ip/led_blinker_ilmb_v10_0/led_blinker_ilmb_v10_0.xci">
           <Proxy FileSetName="led_blinker_ilmb_v10_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="led_blinker.bd" FileRelPathName="ip/led_blinker_lmb_bram_0/led_blinker_lmb_bram_0.xci">
-          <Proxy FileSetName="led_blinker_lmb_bram_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="led_blinker.bd" FileRelPathName="ip/led_blinker_mdm_0_0/led_blinker_mdm_0_0.xci">
           <Proxy FileSetName="led_blinker_mdm_0_0"/>
@@ -237,21 +228,9 @@
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
-    <FileSet Name="led_blinker_dlmb_bram_if_cntlr_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/led_blinker_dlmb_bram_if_cntlr_0" RelGenDir="$PGENDIR/led_blinker_dlmb_bram_if_cntlr_0">
-      <Config>
-        <Option Name="TopModule" Val="led_blinker_dlmb_bram_if_cntlr_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="led_blinker_axi_gpio_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/led_blinker_axi_gpio_0_0" RelGenDir="$PGENDIR/led_blinker_axi_gpio_0_0">
       <Config>
         <Option Name="TopModule" Val="led_blinker_axi_gpio_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="led_blinker_ilmb_bram_if_cntlr_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/led_blinker_ilmb_bram_if_cntlr_0" RelGenDir="$PGENDIR/led_blinker_ilmb_bram_if_cntlr_0">
-      <Config>
-        <Option Name="TopModule" Val="led_blinker_ilmb_bram_if_cntlr_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -264,12 +243,6 @@
     <FileSet Name="led_blinker_dlmb_v10_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/led_blinker_dlmb_v10_0" RelGenDir="$PGENDIR/led_blinker_dlmb_v10_0">
       <Config>
         <Option Name="TopModule" Val="led_blinker_dlmb_v10_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="led_blinker_lmb_bram_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/led_blinker_lmb_bram_0" RelGenDir="$PGENDIR/led_blinker_lmb_bram_0">
-      <Config>
-        <Option Name="TopModule" Val="led_blinker_lmb_bram_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -376,27 +349,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="led_blinker_dlmb_bram_if_cntlr_0_synth_1" Type="Ft3:Synth" SrcSet="led_blinker_dlmb_bram_if_cntlr_0" Part="xc7a200tfbg484-2" ConstrsSet="led_blinker_dlmb_bram_if_cntlr_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/led_blinker_dlmb_bram_if_cntlr_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/led_blinker_dlmb_bram_if_cntlr_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/led_blinker_dlmb_bram_if_cntlr_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2025"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="led_blinker_axi_gpio_0_0_synth_1" Type="Ft3:Synth" SrcSet="led_blinker_axi_gpio_0_0" Part="xc7a200tfbg484-2" ConstrsSet="led_blinker_axi_gpio_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/led_blinker_axi_gpio_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/led_blinker_axi_gpio_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/led_blinker_axi_gpio_0_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2025"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="led_blinker_ilmb_bram_if_cntlr_0_synth_1" Type="Ft3:Synth" SrcSet="led_blinker_ilmb_bram_if_cntlr_0" Part="xc7a200tfbg484-2" ConstrsSet="led_blinker_ilmb_bram_if_cntlr_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/led_blinker_ilmb_bram_if_cntlr_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/led_blinker_ilmb_bram_if_cntlr_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/led_blinker_ilmb_bram_if_cntlr_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025"/>
         <Step Id="synth_design"/>
@@ -417,16 +370,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="led_blinker_dlmb_v10_0_synth_1" Type="Ft3:Synth" SrcSet="led_blinker_dlmb_v10_0" Part="xc7a200tfbg484-2" ConstrsSet="led_blinker_dlmb_v10_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/led_blinker_dlmb_v10_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/led_blinker_dlmb_v10_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/led_blinker_dlmb_v10_0_synth_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2025"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="led_blinker_lmb_bram_0_synth_1" Type="Ft3:Synth" SrcSet="led_blinker_lmb_bram_0" Part="xc7a200tfbg484-2" ConstrsSet="led_blinker_lmb_bram_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/led_blinker_lmb_bram_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/led_blinker_lmb_bram_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/led_blinker_lmb_bram_0_synth_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025"/>
         <Step Id="synth_design"/>
@@ -573,41 +516,7 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="led_blinker_dlmb_bram_if_cntlr_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg484-2" ConstrsSet="led_blinker_dlmb_bram_if_cntlr_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="led_blinker_dlmb_bram_if_cntlr_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/led_blinker_dlmb_bram_if_cntlr_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/led_blinker_dlmb_bram_if_cntlr_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2025"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2025"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="led_blinker_axi_gpio_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg484-2" ConstrsSet="led_blinker_axi_gpio_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="led_blinker_axi_gpio_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/led_blinker_axi_gpio_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/led_blinker_axi_gpio_0_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2025"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2025"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="led_blinker_ilmb_bram_if_cntlr_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg484-2" ConstrsSet="led_blinker_ilmb_bram_if_cntlr_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="led_blinker_ilmb_bram_if_cntlr_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/led_blinker_ilmb_bram_if_cntlr_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/led_blinker_ilmb_bram_if_cntlr_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2025"/>
         <Step Id="init_design"/>
@@ -642,23 +551,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="led_blinker_dlmb_v10_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg484-2" ConstrsSet="led_blinker_dlmb_v10_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="led_blinker_dlmb_v10_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/led_blinker_dlmb_v10_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/led_blinker_dlmb_v10_0_impl_1" ParallelReportGen="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2025"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2025"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="led_blinker_lmb_bram_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a200tfbg484-2" ConstrsSet="led_blinker_lmb_bram_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="led_blinker_lmb_bram_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/led_blinker_lmb_bram_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/led_blinker_lmb_bram_0_impl_1" ParallelReportGen="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2025"/>
         <Step Id="init_design"/>
