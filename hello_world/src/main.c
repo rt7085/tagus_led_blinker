@@ -16,17 +16,20 @@
 #include "xtmrctr.h"
 #include "xuartlite.h"
 #include "serial.h"
+#include "timer.h"
+#include "interrupt.h"
 
 #define ALL_LEDS_OFF 0x7
 #define RED_LED_ON 0x6
 #define GREEN_LED_ON 0x5
 #define BLUE_LED_ON 0x3
 
-XIntc intc;
-XIntc_Config *xintc_config;
+extern XIntc intc;
+extern XIntc_Config *xintc_config;
 
-XTmrCtr tmr;
-XTmrCtr_Config *tmr_config;
+extern XTmrCtr tmr;
+extern XTmrCtr_Config *tmr_config;
+extern volatile int timerFlag;
 
 extern XUartLite uart; // Defined in serial.c
 extern XUartLite_Config *uart_config;
@@ -41,102 +44,8 @@ XBram_Config *bram_config;
 // Control FSM states
 typedef enum { STATE_INIT, STATE_RUNNING, STATE_DONE } StateType;
 volatile StateType currentState = STATE_INIT;
-volatile int timerFlag = 0;
 
-void tmr_intcHandler()
-{
-	XIntc_Acknowledge(&intc, xintc_config->BaseAddress);
-    while(!XTmrCtr_IsExpired(&tmr,0)) {
-    };
-	//xil_printf("Interrupt Occurred\n");
-    timerFlag = 1; // Signal that the timer period has elapsed
-	XTmrCtr_Reset(&tmr, 0);
-}
-
-
-void tmr_init()
-{
-    tmr_config = XTmrCtr_LookupConfig(XPAR_AXI_TIMER_0_BASEADDR);
-	int status = XTmrCtr_Initialize(&tmr, tmr_config->BaseAddress);
- 
-	if(status == XST_SUCCESS)
-		xil_printf("TMR INIT SUCCESSFUL\n");
-	else
-		xil_printf("TMR INIT FAILED\n");
-
-    // Set up timer interrupt
-    XTmrCtr_Stop(&tmr, 0);
-
-    u32 option = XTmrCtr_GetOptions(&tmr, 0);
-    XTmrCtr_SetOptions(&tmr, 0, option | XTC_DOWN_COUNT_OPTION | XTC_INT_MODE_OPTION);
-
-    XTmrCtr_SetResetValue(&tmr, 0, 100000000); // Time divided by 100 MHz, so 1 sec
-
-    XTmrCtr_Reset(&tmr, 0);
-    XTmrCtr_Start(&tmr, 0);
-    
-}
-
-int uart_init()
-{
-    int status = XST_SUCCESS;
-    
-    uart_config = XUartLite_LookupConfig(XPAR_XUARTLITE_0_BASEADDR);    
-	status = XUartLite_Initialize(&uart, uart_config->RegBaseAddr);
-
-    if(status == XST_SUCCESS)
-		xil_printf("UART INIT SUCCESSFUL\n");
-	else
-		xil_printf("UART INIT FAILED\n");
-
-    // Map application callbacks inside the UART Driver
-    XUartLite_SetRecvHandler(&uart, uartRX_intcHandler, &uart);
-    XUartLite_SetSendHandler(&uart, uartTX_intcHandler, &uart);
-
-    // Enable UART internal interrupts
-    XUartLite_EnableInterrupt(&uart);
-
-    // Start a background receive so the RX FIFO triggers an interrupt on incoming data
-    XUartLite_Recv(&uart, RxBuffer, 1);
-
-    return XST_SUCCESS;
-}
-
-int intc_init()
-{ 
-	int status = XST_SUCCESS;
-    
-    xintc_config = XIntc_LookupConfig(XPAR_AXI_INTC_0_BASEADDR);
-    status = XIntc_Initialize(&intc, xintc_config->BaseAddress);
- 
-	if(status == XST_SUCCESS)
-		xil_printf("INTC INIT SUCCESSFUL\n");
-	else
-		xil_printf("INTC INIT FAILED\n");
- 
-    // Initialize MicroBlaze Exception Table & Register INTC
-	Xil_ExceptionInit();
-	Xil_ExceptionRegisterHandler(XIL_EXCEPTION_ID_INT, (Xil_ExceptionHandler)XIntc_InterruptHandler, &intc);
-	Xil_ExceptionEnable();
- 
-    // Connect timer interrupt to interrupt handler
-	status = XIntc_Connect(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR, (XInterruptHandler)  tmr_intcHandler, &tmr);
-    if (status != XST_SUCCESS) {return XST_FAILURE;}
-
-    // Connect uart interrupt to interrupt handler 
-    XIntc_Connect(&intc, XPAR_FABRIC_AXI_UARTLITE_0_INTR, (XInterruptHandler)XUartLite_InterruptHandler, &uart);
-    if (status != XST_SUCCESS) {return XST_FAILURE;}
-    
-    // Enable the timer and uart interrupts
-	XIntc_Enable(&intc, XPAR_FABRIC_AXI_TIMER_0_INTR);
-    XIntc_Enable(&intc, XPAR_FABRIC_AXI_UARTLITE_0_INTR);
-
-    // Start the interrupt handler
-	status = XIntc_Start(&intc, XIN_REAL_MODE);
-    if (status != XST_SUCCESS) {return XST_FAILURE;}
-
-    return XST_SUCCESS;
-}
+// Local functions
 
 void bram_init()
 {
@@ -154,7 +63,6 @@ void bram_init()
        xil_printf("BRAM SELF TEST SUCCESSFUL\n");
    else
        xil_printf("BRAM SELF TEST FAILED\n");
- 
 }
 
 void gpio_init()
@@ -179,61 +87,9 @@ int main()
     gpio_init();
     bram_init();
 
-/*
-    unsigned int *data;
-    u32 data_read = 0;
-    u32 i = 0;
-*/
-
     print("Led Blinker Applications Started...\n\r");
 
     
-/*
-    // Write and Read to BRAM (depth is 2048 x 32 bits)
-    data = (unsigned int *)XPAR_XBRAM_0_BASEADDR;
-
-    u32 data_pattern = 0xFFFFF000;
- 
-    // Literature suggests to apply an offset of 4 to a data location, but it seems correct without using xsdb mrd checks
-    // Upon checking Xil_Out32() it appears the compiler handles it with volatile u32 pointer arithmetic which automatically applies offsets of 4
-    for(i = 0 ; i < 2047; i++)
-    {
-        Xil_Out32((UINTPTR)(data + i), data_pattern+i+1);
-    }
-    xil_printf("DATA WRITE SUCCESSFUL : XIL_IO METHOD\n");
- 
-    for(i = 0; i< 31; i++)
-    {
-        data_read =  Xil_In32((UINTPTR)(data + i));
-        xil_printf("Location: %08X: Value: : %08X\n", data+i, data_read);
-    }
-    xil_printf("DATA READ SUCCESSFUL : XIL_IO METHOD\n");
-*/
-
-    
-/*
-    // Read and Write to the SDRAM
-    data = (unsigned int *)XPAR_MIG_0_BASEADDRESS;
-
-    // Flush cache before interacting with external memory to prevent data corruption
-    Xil_DCacheFlushRange(XPAR_MIG_0_BASEADDRESS, sizeof(u32));
-
-    // Write to SDRAM
-    for(i = 0 ; i < 2047; i++)
-    {
-        Xil_Out32((UINTPTR)(data + i), data_pattern+i+1);
-    }
-    xil_printf("DATA WRITE SUCCESSFUL : XIL_IO METHOD\n");
-
-    // Read from SDRAM
-    for(i = 0; i< 31; i++)
-    {
-        data_read =  Xil_In32((UINTPTR)(data + i));
-        xil_printf("Location: %08X: Value: : %08X\n", data+i, data_read);
-    }
-    xil_printf("DATA READ SUCCESSFUL : XIL_IO METHOD\n");
- */   
-
     u32 pci_user_lnk_up = 0;
     u32 led_state = 0;
     
@@ -277,8 +133,6 @@ int main()
         }
     }
     
-    // Prepare to receive the first byte asynchronously
-    // XUartLite_Recv(&uart, RxBuffer, 1);
 
     // drop a cursor arrow to start interface
     xil_printf(">");
@@ -288,15 +142,16 @@ int main()
     while (1) {
 
         // Handle the timer
-        if(timerFlag) {
-            RunFSM();       // Run state machine on timer
+        if(timerFlag) 
+        {
             timerFlag = 0;  // Reset flag
+            RunFSM();       // Run state machine on timer
         }
 
         // Wait for uart command input
-        if (get_line(input_line, BUFFER_SIZE)) {
+        if (get_line(input_line, BUFFER_SIZE)) 
+        {
             process_command(input_line);
-
         }
     }
        

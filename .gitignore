@@ -42,6 +42,8 @@ vivado_pid*
 /vitis_workspace/
 /vitis_proj/*/Debug/
 /vitis_proj/*/Release/
+**/bin/
+**/obj/
 *.elf
 *.o
 *.d

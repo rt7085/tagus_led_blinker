@@ -1,12 +1,14 @@
 #ifdef __MICROBLAZE__
 
-#include "serial.h"  // Always include its own header first to verify it compiles standalone
-#include "xil_io.h"
-#include "xil_cache.h"
+#include "serial.h"
+
 
 // Variables
 XUartLite uart;
 XUartLite_Config *uart_config;
+
+extern XTmrCtr tmr;
+extern XTmrCtr_Config *tmr_config;
 
 // UART flags
 volatile int TxPerfomed = 0;
@@ -18,10 +20,33 @@ volatile char rx_buffer[BUFFER_SIZE];
 volatile uint8_t rx_head = 0;
 volatile uint8_t rx_tail = 0;
 
-// Private Helper Function (Cannot be accessed by main.c)
-
 
 // Public Functions
+
+int uart_init()
+{
+    int status = XST_SUCCESS;
+    
+    uart_config = XUartLite_LookupConfig(XPAR_XUARTLITE_0_BASEADDR);    
+	status = XUartLite_Initialize(&uart, uart_config->RegBaseAddr);
+
+    if(status == XST_SUCCESS)
+		xil_printf("UART INIT SUCCESSFUL\n");
+	else
+		xil_printf("UART INIT FAILED\n");
+
+    // Map application callbacks inside the UART Driver
+    XUartLite_SetRecvHandler(&uart, uartRX_intcHandler, &uart);
+    XUartLite_SetSendHandler(&uart, uartTX_intcHandler, &uart);
+
+    // Enable UART internal interrupts
+    XUartLite_EnableInterrupt(&uart);
+
+    // Start a background receive so the RX FIFO triggers an interrupt on incoming data
+    XUartLite_Recv(&uart, RxBuffer, 1);
+
+    return XST_SUCCESS;
+}
 
 void uartRX_intcHandler()
 {
@@ -114,7 +139,7 @@ void cmd_help()
     }
 }
 
-void cmd_bram_test(int argc, char *argv[]) 
+void cmd_bram_test() 
 {  
     unsigned int *baseaddr;
     unsigned int maxlocations;
@@ -125,6 +150,9 @@ void cmd_bram_test(int argc, char *argv[])
     u32 data_written = 0;
     u32 i = 0;
     u32 errors = 0;
+    
+    u32 StartTicks, EndTicks, TotalTicks;
+    double DurationSec, BandwidthMBs;
         
     // Write and Read to BRAM (Example: Memory size is 8k (1FFF hex), so depth is 8192 / 32 bits = 2048 locations) 
     baseaddr = (unsigned int *)XPAR_XBRAM_0_BASEADDR;
@@ -135,12 +163,36 @@ void cmd_bram_test(int argc, char *argv[])
     // NOTE: Literature suggests to apply an offset of 4 to a data location, but it seems correct without using xsdb mrd checks
     // Upon checking Xil_Out32() it appears the compiler handles it with volatile u32 pointer arithmetic which automatically applies offsets of 4
     
-    // Write
+    // Arm timer 1
+    XTmrCtr_Reset(&tmr, TIMER_ID_1);
+    StartTicks = XTmrCtr_GetValue(&tmr, TIMER_ID_1);
+    XTmrCtr_Start(&tmr, TIMER_ID_1);
+    
+    // Write to BRAM
     xil_printf("\nWriting %d memory locations...", maxlocations);
     for(i = 0 ; i < maxlocations; i++)
     {
         Xil_Out32((UINTPTR)(baseaddr + i), data_pattern+i);
     }
+    
+    // 4. End measurement
+    XTmrCtr_Stop(&tmr, TIMER_ID_1);
+    EndTicks = XTmrCtr_GetValue(&tmr, TIMER_ID_1);
+
+    // Calculate Metrics
+    TotalTicks = EndTicks - StartTicks;
+    DurationSec = (double)TotalTicks / (double)AXI_TIMER_FREQ;
+    
+    // Bandwidth = (Written Bytes) / Time
+    // 1 MB = 1,000,000 bytes (or 1024*1024 depending on your convention)
+    double TotalBytesTransferred = (double)(maxlocations * (XPAR_XBRAM_0_DATA_WIDTH / 8));
+    BandwidthMBs = (TotalBytesTransferred / (1024.0 * 1024.0)) / DurationSec;
+
+    // Report write time metrics
+    xil_printf("\nData Size:        %.2f MB", (double)(TotalBytesTransferred / (1024.0 * 1024.0)));
+    xil_printf("\nAXI Timer Ticks:  %lu", (unsigned long)TotalTicks);
+    xil_printf("\nExecution Time:   %.6f seconds", DurationSec);
+    xil_printf("\nMemory Bandwidth: %.2f MB/s", BandwidthMBs);
     
     // Read and compare
     xil_printf("\nReading and comparing %d memory locations...", maxlocations);

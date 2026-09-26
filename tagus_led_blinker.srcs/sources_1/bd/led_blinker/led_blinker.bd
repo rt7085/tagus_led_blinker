@@ -1565,7 +1565,7 @@
         "has_run_ip_tcl": "true",
         "parameters": {
           "enable_timer2": {
-            "value": "0"
+            "value": "1"
           }
         }
       },
