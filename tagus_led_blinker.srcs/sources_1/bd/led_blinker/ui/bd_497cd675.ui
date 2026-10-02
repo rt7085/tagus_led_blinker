@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.997405",
-   "Default View_TopLeft":"-127,-255",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"216,-239",
    "ExpandedHierarchyInLayout":"",
    "HierExpandStatus_comment_0":"false",
    "HierExpandStatus_comment_1":"false",
@@ -92,7 +92,7 @@ preplace netloc pcie_refclk_1 1 0 3 NJ 440 NJ 440 NJ
 preplace netloc xdma_0_M_AXI 1 4 1 1720 360n
 preplace netloc xdma_0_M_AXI_LITE 1 4 1 1700 380n
 preplace netloc xdma_0_pcie_mgt 1 4 4 1620J 230 NJ 230 NJ 230 2680J
-preplace cgraphic comment_3 place top 1449 -41 textcolor 4 linecolor 3 linewidth 2
+preplace cgraphic comment_3 place top 2076 -24 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_2 place left 307 401 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_1 place top 1506 264 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_0 place bot 4 129 textcolor 4 linecolor 3 linewidth 2
@@ -102,22 +102,22 @@ pagesize -pg 1 -db -bbox -sgen -140 -50 2830 1020
 "
 }
 {
-   """"""""""""""""""""""da_axi4_cnt"""""""""""""""""""""":"1",
-   """"""""""""""""""""""da_board_cnt"""""""""""""""""""""":"4",
-   """"""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""":"4",
-   """"""""""""""""""""""da_mb_cnt"""""""""""""""""""""":"1",
-   """""""""""""""""""""da_axi4_cnt""""""""""""""""""""":"2",
-   """""""""""""""""""""da_board_cnt""""""""""""""""""""":"1",
-   """""""""""""""""""""da_mb_cnt""""""""""""""""""""":"1",
-   """""""""""""""""da_axi4_cnt""""""""""""""""":"1",
-   """""""""""""""""da_board_cnt""""""""""""""""":"1",
-   """""""""""""""""da_bram_cntlr_cnt""""""""""""""""":"2",
-   """"""""""""""""da_axi4_cnt"""""""""""""""":"7",
+   """"""""""""""""""""""""da_axi4_cnt"""""""""""""""""""""""":"1",
+   """"""""""""""""""""""""da_board_cnt"""""""""""""""""""""""":"4",
+   """"""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""":"4",
+   """"""""""""""""""""""""da_mb_cnt"""""""""""""""""""""""":"1",
+   """""""""""""""""""""""da_axi4_cnt""""""""""""""""""""""":"2",
+   """""""""""""""""""""""da_board_cnt""""""""""""""""""""""":"1",
+   """""""""""""""""""""""da_mb_cnt""""""""""""""""""""""":"1",
+   """""""""""""""""""da_axi4_cnt""""""""""""""""""":"1",
+   """""""""""""""""""da_board_cnt""""""""""""""""""":"1",
+   """""""""""""""""""da_bram_cntlr_cnt""""""""""""""""""":"2",
+   """"""""""""""""""da_axi4_cnt"""""""""""""""""":"7",
+   """"""""""""""""""da_board_cnt"""""""""""""""""":"1",
+   """""""""""""""""da_clkrst_cnt""""""""""""""""":"1",
    """"""""""""""""da_board_cnt"""""""""""""""":"1",
-   """""""""""""""da_clkrst_cnt""""""""""""""":"1",
-   """"""""""""""da_board_cnt"""""""""""""":"1",
-   """"""""""""""da_xdma_cnt"""""""""""""":"1",
-   """""""""da_axi4_cnt""""""""":"2"
+   """"""""""""""""da_xdma_cnt"""""""""""""""":"1",
+   """""""""""da_axi4_cnt""""""""""":"2"
 }
 {
    "/comment_0":"comment_0",

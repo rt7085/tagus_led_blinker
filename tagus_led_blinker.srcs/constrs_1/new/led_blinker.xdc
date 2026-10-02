@@ -47,24 +47,44 @@ set_property PULLTYPE PULLDOWN [get_ports reset]
 #set_property OFFCHIP_TERM NONE [get_ports rgb_led_2]
 
 
-set_property OFFCHIP_TERM NONE [get_ports usb_uart_txd]
-set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[2]]
-set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[1]]
-set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[0]]
-set_property LOC GTPE2_CHANNEL_X0Y4 [get_cells {led_blinker_i/xdma_0/inst/led_blinker_xdma_0_0_pcie2_to_pcie3_wrapper_i/pcie2_ip_i/inst/inst/gt_top_i/pipe_wrapper_i/pipe_lane[0].gt_wrapper_i/gtp_channel.gtpe2_channel_i}]
 
 set_property PACKAGE_PIN W20 [get_ports pcie_perstn]
 set_property IOSTANDARD LVCMOS33 [get_ports pcie_perstn]
 
-set_property PACKAGE_PIN F6 [get_ports {pcie_refclk_clk_p}]
-set_property PACKAGE_PIN E6 [get_ports {pcie_refclk_clk_n}]
+set_property PACKAGE_PIN F6 [get_ports pcie_refclk_clk_p]
+set_property PACKAGE_PIN E6 [get_ports pcie_refclk_clk_n]
 
-set_property PACKAGE_PIN B8 [get_ports {pcie_rxp}]
-set_property PACKAGE_PIN A8 [get_ports {pcie_rxn}]
 
-set_property PACKAGE_PIN B4 [get_ports {pcie_txp}]
-set_property PACKAGE_PIN A4 [get_ports {pcie_txn}]
+set_property LOC GTPE2_CHANNEL_X0Y4 [get_cells {led_blinker_i/xdma_0/inst/led_blinker_xdma_0_0_pcie2_to_pcie3_wrapper_i/pcie2_ip_i/inst/inst/gt_top_i/pipe_wrapper_i/pipe_lane[0].gt_wrapper_i/gtp_channel.gtpe2_channel_i}]
+set_property PACKAGE_PIN A8 [get_ports pcie_rxn]
+set_property PACKAGE_PIN B8 [get_ports pcie_rxp]
+set_property PACKAGE_PIN A4 [get_ports pcie_txn]
+set_property PACKAGE_PIN B4 [get_ports pcie_txp]
 
 set_property BITSTREAM.CONFIG.CONFIGRATE 66 [current_design]
 set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
 set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
+
+set_property OFFCHIP_TERM NONE [get_ports usb_uart_txd]
+set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[2]]
+set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[1]]
+set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[0]]
+
+
+create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
+create_clock -period 10.000 -name pcie_refclk -waveform {0.000 5.000} [get_ports pcie_rxp]
+
+set_false_path -from [get_ports reset]
+set_false_path -from [get_ports pcie_perstn]
+#set_false_path -from [get_cells {led_blinker_i/rst_clk_wiz_100M/peripheral_aresetn[0]}]
+
+# Example: Apply false path from a reset register or output pin to all endpoints
+#set_false_path -from [get_pins -of_objects [get_nets reset_n] -filter {DIRECTION == OUT}]
+#set_false_path -from [get_cells u_reset_gen/arst_reg_reg]
+
+#set_false_path -through [get_nets rst_clk_wiz_100M_peripheral_aresetn]
+
+
+
+#set_false_path -from [get_ports {ddr3_sdram_dqs_p[0] ddr3_sdram_dqs_n[0]}]
+#set_false_path -from [get_ports {ddr3_sdram_dqs_p[1] ddr3_sdram_dqs_n[1]}]

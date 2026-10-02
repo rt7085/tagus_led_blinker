@@ -2,8 +2,8 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-// Date        : Sat Jun 20 08:38:28 2026
-// Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
+// Date        : Fri Oct  2 06:18:19 2026
+// Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
 // Command     : write_verilog -force -mode funcsim
 //               /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_mig_7series_0_0/led_blinker_mig_7series_0_0_sim_netlist.v
 // Design      : led_blinker_mig_7series_0_0
@@ -112052,9 +112052,9 @@ module led_blinker_mig_7series_0_0_mig_7series_v4_2_infrastructure
   (* BOX_TYPE = "PRIMITIVE" *) 
   PLLE2_ADV #(
     .BANDWIDTH("OPTIMIZED"),
-    .CLKFBOUT_MULT(4),
+    .CLKFBOUT_MULT(8),
     .CLKFBOUT_PHASE(0.000000),
-    .CLKIN1_PERIOD(5.000000),
+    .CLKIN1_PERIOD(10.000000),
     .CLKIN2_PERIOD(0.000000),
     .CLKOUT0_DIVIDE(1),
     .CLKOUT0_DUTY_CYCLE(0.500000),

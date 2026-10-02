@@ -27,7 +27,7 @@
 
   <ReferenceClock>No Buffer</ReferenceClock>
 
-  <SysResetPolarity>ACTIVE LOW</SysResetPolarity>
+  <SysResetPolarity>ACTIVE HIGH</SysResetPolarity>
 
   <BankSelectionFlag>FALSE</BankSelectionFlag>
 
