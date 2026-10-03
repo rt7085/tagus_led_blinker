@@ -71,6 +71,8 @@ set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[1]]
 set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[0]]
 
 
+## Timing Constraints
+
 create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
 create_clock -period 10.000 -name pcie_refclk -waveform {0.000 5.000} [get_ports pcie_rxp]
 
@@ -78,13 +80,15 @@ set_false_path -from [get_ports reset]
 set_false_path -from [get_ports pcie_perstn]
 #set_false_path -from [get_cells {led_blinker_i/rst_clk_wiz_100M/peripheral_aresetn[0]}]
 
-# Example: Apply false path from a reset register or output pin to all endpoints
-#set_false_path -from [get_pins -of_objects [get_nets reset_n] -filter {DIRECTION == OUT}]
-#set_false_path -from [get_cells u_reset_gen/arst_reg_reg]
+set_false_path -from [get_clocks clk_out1_led_blinker_clk_wiz_0] -to [get_clocks userclk1]
+set_false_path -from [get_clocks *clk_125mhz_mux_x0y0*] -to [get_clocks clk_out1_led_blinker_clk_wiz_0]
 
-#set_false_path -through [get_nets rst_clk_wiz_100M_peripheral_aresetn]
+set_false_path -from [get_clocks *clk_125mhz_mux_x0y0*] -to [get_clocks clk_out1_led_blinker_clk_wiz_0]
+set_false_path -from [get_clocks clk_out1_led_blinker_clk_wiz_0] -to [get_clocks *clk_125mhz_mux_x0y0*]
+
+set_false_path -from [get_clocks *clk_250mhz_mux_x0y0*] -to [get_clocks clk_out1_led_blinker_clk_wiz_0]
+set_false_path -from [get_clocks clk_out1_led_blinker_clk_wiz_0] -to [get_clocks *clk_250mhz_mux_x0y0*]
 
 
 
-#set_false_path -from [get_ports {ddr3_sdram_dqs_p[0] ddr3_sdram_dqs_n[0]}]
-#set_false_path -from [get_ports {ddr3_sdram_dqs_p[1] ddr3_sdram_dqs_n[1]}]
+
