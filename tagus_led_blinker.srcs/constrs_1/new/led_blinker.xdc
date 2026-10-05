@@ -11,43 +11,6 @@ set_property PACKAGE_PIN P17 [get_ports reset]
 set_property IOSTANDARD LVCMOS33 [get_ports reset]
 set_property PULLTYPE PULLDOWN [get_ports reset]
 
-####################################################################################################################
-#                                              RGB LED                                                             #
-####################################################################################################################
-#set_property -dict {PACKAGE_PIN W21 IOSTANDARD LVCMOS33 SLEW SLOW} [get_ports {rgb_led_0}]; #RED
-#set_property -dict {PACKAGE_PIN W22 IOSTANDARD LVCMOS33 SLEW SLOW} [get_ports {rgb_led_1}]; # GREEN
-#set_property -dict {PACKAGE_PIN AA20 IOSTANDARD LVCMOS33 SLEW SLOW} [get_ports {rgb_led_2}]; # BLUE
-
-####################################################################################################################
-#                                              FT234 Signals                                                       #
-####################################################################################################################
-#set_property -dict { PACKAGE_PIN P14    IOSTANDARD LVCMOS33   SLEW FAST} [get_ports { FT234_TXD }]    ;                       # IO_L19P_T3_A10_D26_14         Sch = FT234_TXD
-#set_property -dict { PACKAGE_PIN R18    IOSTANDARD LVCMOS33   SLEW FAST} [get_ports { FT234_RTS }]    ;                       # IO_L20P_T3_A08_D24_14         Sch = FT234_RTS
-#set_property -dict { PACKAGE_PIN T18    IOSTANDARD LVCMOS33   SLEW FAST} [get_ports { FT234_CTS }]    ;                       # IO_L20N_T3_A07_D23_14         Sch = FT234_CTS
-#set_property -dict { PACKAGE_PIN R14    IOSTANDARD LVCMOS33   SLEW FAST} [get_ports { FT234_RXD }]    ;                       # IO_L19N_T3_A09_D25_VREF_14    Sch = FT234_RXD
-#set_property -dict { PACKAGE_PIN N17    IOSTANDARD LVCMOS33   SLEW FAST} [get_ports { FT234_CBUS0 }]  ;                       # IO_L21P_T3_DQS_14             Sch = FT234_CBUS0
-
-
-
-
-#set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
-#set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
-#set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
-
-#connect_debug_port dbg_hub/clk [get_nets clk]
-
-#set_property OFFCHIP_TERM NONE [get_ports UART_0_txd]
-#set_property IOSTANDARD LVCMOS33 [get_ports UART_0_rxd]
-#set_property PACKAGE_PIN R14 [get_ports UART_0_rxd]
-#set_property PACKAGE_PIN P14 [get_ports UART_0_txd]
-
-
-#set_property OFFCHIP_TERM NONE [get_ports rgb_led_0]
-#set_property OFFCHIP_TERM NONE [get_ports rgb_led_1]
-#set_property OFFCHIP_TERM NONE [get_ports rgb_led_2]
-
-
-
 set_property PACKAGE_PIN W20 [get_ports pcie_perstn]
 set_property IOSTANDARD LVCMOS33 [get_ports pcie_perstn]
 
@@ -71,14 +34,20 @@ set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[1]]
 set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[0]]
 
 
-## Timing Constraints
+## Clock timing Constraints
 
+# The clk_wiz_0 generates a clock in it clk_in1 pin automatically which causes a redefinition methodology critical warning
 create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
+
 create_clock -period 10.000 -name pcie_refclk -waveform {0.000 5.000} [get_ports pcie_rxp]
+
+set_clock_groups -asynchronous -group [get_clocks clk_out2_led_blinker_clk_wiz_0] -group [get_clocks clk_pll_i]
+
+
+# Asynchronous reset timing constraints
 
 set_false_path -from [get_ports reset]
 set_false_path -from [get_ports pcie_perstn]
-#set_false_path -from [get_cells {led_blinker_i/rst_clk_wiz_100M/peripheral_aresetn[0]}]
 
 set_false_path -from [get_clocks clk_out1_led_blinker_clk_wiz_0] -to [get_clocks userclk1]
 set_false_path -from [get_clocks *clk_125mhz_mux_x0y0*] -to [get_clocks clk_out1_led_blinker_clk_wiz_0]
@@ -132,11 +101,3 @@ set_false_path -to [get_ports ddr3_sdram_reset_n]
 #GPIO asynchronous contraints
 set_output_delay -clock [get_clocks led_blinker_i/clk_wiz/inst/clk_in1] -min 0.000 [get_ports {rgb_led_tri_o[*]}]
 set_output_delay -clock [get_clocks led_blinker_i/clk_wiz/inst/clk_in1] -max 2.000 [get_ports {rgb_led_tri_o[*]}]
-
-
-
-
-
-
-
-

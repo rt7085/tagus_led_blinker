@@ -2,11 +2,11 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
--- Date        : Sun May 10 08:33:21 2026
--- Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim -rename_top led_blinker_util_ds_buf_0_0 -prefix
---               led_blinker_util_ds_buf_0_0_ led_blinker_util_ds_buf_0_1_sim_netlist.vhdl
--- Design      : led_blinker_util_ds_buf_0_1
+-- Date        : Sun Oct  4 10:28:39 2026
+-- Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
+-- Command     : write_vhdl -force -mode funcsim
+--               /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_util_ds_buf_0_0/led_blinker_util_ds_buf_0_0_sim_netlist.vhdl
+-- Design      : led_blinker_util_ds_buf_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7a200tfbg484-2
@@ -184,6 +184,8 @@ entity led_blinker_util_ds_buf_0_0_util_ds_buf is
   attribute C_SIM_DEVICE of led_blinker_util_ds_buf_0_0_util_ds_buf : entity is "VERSAL_AI_CORE_ES1";
   attribute C_SIZE : integer;
   attribute C_SIZE of led_blinker_util_ds_buf_0_0_util_ds_buf : entity is 1;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_util_ds_buf_0_0_util_ds_buf : entity is "util_ds_buf";
 end led_blinker_util_ds_buf_0_0_util_ds_buf;
 
 architecture STRUCTURE of led_blinker_util_ds_buf_0_0_util_ds_buf is
@@ -273,7 +275,7 @@ entity led_blinker_util_ds_buf_0_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of led_blinker_util_ds_buf_0_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of led_blinker_util_ds_buf_0_0 : entity is "led_blinker_util_ds_buf_0_1,util_ds_buf,{}";
+  attribute CHECK_LICENSE_TYPE of led_blinker_util_ds_buf_0_0 : entity is "led_blinker_util_ds_buf_0_0,util_ds_buf,{}";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of led_blinker_util_ds_buf_0_0 : entity is "yes";
   attribute x_core_info : string;
@@ -365,10 +367,10 @@ architecture STRUCTURE of led_blinker_util_ds_buf_0_0 is
   attribute x_interface_mode : string;
   attribute x_interface_mode of BUFG_I : signal is "slave BUFG_I";
   attribute x_interface_parameter : string;
-  attribute x_interface_parameter of BUFG_I : signal is "XIL_INTERFACENAME BUFG_I, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN led_blinker_sys_clock, INSERT_VIP 0";
+  attribute x_interface_parameter of BUFG_I : signal is "XIL_INTERFACENAME BUFG_I, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN led_blinker_clk, INSERT_VIP 0";
   attribute x_interface_info of BUFG_O : signal is "xilinx.com:signal:clock:1.0 BUFG_O CLK";
   attribute x_interface_mode of BUFG_O : signal is "master BUFG_O";
-  attribute x_interface_parameter of BUFG_O : signal is "XIL_INTERFACENAME BUFG_O, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN led_blinker_sys_clock, INSERT_VIP 0, PortWidth 1";
+  attribute x_interface_parameter of BUFG_O : signal is "XIL_INTERFACENAME BUFG_O, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN led_blinker_clk, INSERT_VIP 0";
 begin
 U0: entity work.led_blinker_util_ds_buf_0_0_util_ds_buf
      port map (

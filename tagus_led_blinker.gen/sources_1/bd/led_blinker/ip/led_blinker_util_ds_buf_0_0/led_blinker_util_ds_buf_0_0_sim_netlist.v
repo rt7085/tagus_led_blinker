@@ -2,24 +2,24 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-// Date        : Sun May 10 08:33:21 2026
-// Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
-// Command     : write_verilog -force -mode funcsim -rename_top led_blinker_util_ds_buf_0_0 -prefix
-//               led_blinker_util_ds_buf_0_0_ led_blinker_util_ds_buf_0_1_sim_netlist.v
-// Design      : led_blinker_util_ds_buf_0_1
+// Date        : Sun Oct  4 10:28:39 2026
+// Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
+// Command     : write_verilog -force -mode funcsim
+//               /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_util_ds_buf_0_0/led_blinker_util_ds_buf_0_0_sim_netlist.v
+// Design      : led_blinker_util_ds_buf_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7a200tfbg484-2
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "led_blinker_util_ds_buf_0_1,util_ds_buf,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "util_ds_buf,Vivado 2025.2" *) 
+(* CHECK_LICENSE_TYPE = "led_blinker_util_ds_buf_0_0,util_ds_buf,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "util_ds_buf,Vivado 2025.2" *) 
 (* NotValidForBitStream *)
 module led_blinker_util_ds_buf_0_0
    (BUFG_I,
     BUFG_O);
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 BUFG_I CLK" *) (* x_interface_mode = "slave BUFG_I" *) (* x_interface_parameter = "XIL_INTERFACENAME BUFG_I, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN led_blinker_sys_clock, INSERT_VIP 0" *) input [0:0]BUFG_I;
-  (* x_interface_info = "xilinx.com:signal:clock:1.0 BUFG_O CLK" *) (* x_interface_mode = "master BUFG_O" *) (* x_interface_parameter = "XIL_INTERFACENAME BUFG_O, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN led_blinker_sys_clock, INSERT_VIP 0, PortWidth 1" *) output [0:0]BUFG_O;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 BUFG_I CLK" *) (* x_interface_mode = "slave BUFG_I" *) (* x_interface_parameter = "XIL_INTERFACENAME BUFG_I, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN led_blinker_clk, INSERT_VIP 0" *) input [0:0]BUFG_I;
+  (* x_interface_info = "xilinx.com:signal:clock:1.0 BUFG_O CLK" *) (* x_interface_mode = "master BUFG_O" *) (* x_interface_parameter = "XIL_INTERFACENAME BUFG_O, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN led_blinker_clk, INSERT_VIP 0" *) output [0:0]BUFG_O;
 
   wire [0:0]BUFG_I;
   wire [0:0]BUFG_O;
@@ -248,6 +248,7 @@ endmodule
 (* C_BUFGCE_DIV = "1" *) (* C_BUFG_GT_SYNC = "0" *) (* C_BUF_TYPE = "BUFG" *) 
 (* C_DIVBY2 = "0" *) (* C_MODE = "PERFORMANCE" *) (* C_OBUFDS_GTE5_ADV = "2'b00" *) 
 (* C_REFCLK_ICNTL_TX = "5'b00000" *) (* C_SIM_DEVICE = "VERSAL_AI_CORE_ES1" *) (* C_SIZE = "1" *) 
+(* ORIG_REF_NAME = "util_ds_buf" *) 
 module led_blinker_util_ds_buf_0_0_util_ds_buf
    (IBUF_DS_P,
     IBUF_DS_N,

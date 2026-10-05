@@ -2,18 +2,18 @@
 // Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-// Date        : Sat Sep 26 14:48:54 2026
+// Date        : Sun Oct  4 10:29:40 2026
 // Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
-// Command     : write_verilog -force -mode funcsim -rename_top led_blinker_ilmb_bram_if_cntlr_0 -prefix
-//               led_blinker_ilmb_bram_if_cntlr_0_ led_blinker_dlmb_bram_if_cntlr_0_sim_netlist.v
-// Design      : led_blinker_dlmb_bram_if_cntlr_0
+// Command     : write_verilog -force -mode funcsim
+//               /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_ilmb_bram_if_cntlr_0/led_blinker_ilmb_bram_if_cntlr_0_sim_netlist.v
+// Design      : led_blinker_ilmb_bram_if_cntlr_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
 // Device      : xc7a200tfbg484-2
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "led_blinker_dlmb_bram_if_cntlr_0,lmb_bram_if_cntlr,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "lmb_bram_if_cntlr,Vivado 2025.2" *) 
+(* CHECK_LICENSE_TYPE = "led_blinker_ilmb_bram_if_cntlr_0,lmb_bram_if_cntlr,{}" *) (* downgradeipidentifiedwarnings = "yes" *) (* x_core_info = "lmb_bram_if_cntlr,Vivado 2025.2" *) 
 (* NotValidForBitStream *)
 module led_blinker_ilmb_bram_if_cntlr_0
    (LMB_Clk,
@@ -313,7 +313,7 @@ endmodule
 (* C_PROT_CFG4 = "8'b11111111" *) (* C_PROT_CFG5 = "8'b11111111" *) (* C_PROT_CFG6 = "8'b11111111" *) 
 (* C_PROT_CFG7 = "8'b11111111" *) (* C_S_AXI_CTRL_ADDR_WIDTH = "32" *) (* C_S_AXI_CTRL_BASEADDR = "32'b11111111111111111111111111111111" *) 
 (* C_S_AXI_CTRL_DATA_WIDTH = "32" *) (* C_S_AXI_CTRL_HIGHADDR = "32'b00000000000000000000000000000000" *) (* C_UE_FAILING_REGISTERS = "0" *) 
-(* C_WRITE_ACCESS = "2" *) 
+(* C_WRITE_ACCESS = "2" *) (* ORIG_REF_NAME = "lmb_bram_if_cntlr" *) 
 module led_blinker_ilmb_bram_if_cntlr_0_lmb_bram_if_cntlr
    (LMB_Clk,
     LMB_Rst,

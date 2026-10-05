@@ -2,10 +2,10 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
--- Date        : Sat Sep 26 14:49:05 2026
+-- Date        : Sun Oct  4 10:29:14 2026
 -- Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
--- Command     : write_vhdl -force -mode synth_stub -rename_top led_blinker_lmb_bram_0 -prefix
---               led_blinker_lmb_bram_0_ led_blinker_lmb_bram_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub
+--               /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_lmb_bram_0/led_blinker_lmb_bram_0_stub.vhdl
 -- Design      : led_blinker_lmb_bram_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a200tfbg484-2
@@ -60,7 +60,7 @@ architecture stub of led_blinker_lmb_bram_0 is
   attribute x_interface_info of douta : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT";
   attribute x_interface_info of clkb : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTB CLK";
   attribute x_interface_mode of clkb : signal is "slave BRAM_PORTB";
-  attribute x_interface_parameter of clkb : signal is "XIL_INTERFACENAME BRAM_PORTB, MEM_ADDRESS_MODE BYTE_ADDRESS, MEM_SIZE 65536, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE BRAM_CTRL, READ_WRITE_MODE READ_WRITE, READ_LATENCY 1";
+  attribute x_interface_parameter of clkb : signal is "XIL_INTERFACENAME BRAM_PORTB, MEM_ADDRESS_MODE BYTE_ADDRESS, MEM_SIZE 524288, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE BRAM_CTRL, READ_WRITE_MODE READ_WRITE, READ_LATENCY 1";
   attribute x_interface_info of rstb : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTB RST";
   attribute x_interface_info of enb : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTB EN";
   attribute x_interface_info of web : signal is "xilinx.com:interface:bram:1.0 BRAM_PORTB WE";

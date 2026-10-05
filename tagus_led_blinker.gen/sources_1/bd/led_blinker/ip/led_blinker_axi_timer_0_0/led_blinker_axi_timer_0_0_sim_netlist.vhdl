@@ -2,10 +2,10 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
--- Date        : Mon Jun 29 07:01:12 2026
--- Host        : capybara running 64-bit Ubuntu 24.04.3 LTS
--- Command     : write_vhdl -force -mode funcsim -rename_top led_blinker_axi_timer_0_0 -prefix
---               led_blinker_axi_timer_0_0_ led_blinker_axi_timer_0_0_sim_netlist.vhdl
+-- Date        : Sun Oct  4 10:28:22 2026
+-- Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
+-- Command     : write_vhdl -force -mode funcsim
+--               /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_timer_0_0/led_blinker_axi_timer_0_0_sim_netlist.vhdl
 -- Design      : led_blinker_axi_timer_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -96,6 +96,8 @@ entity led_blinker_axi_timer_0_0_counter_f is
     \GEN.DATA_WIDTH_GEN[8].NUM_BUSES_GEN[1].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC;
     \GEN.DATA_WIDTH_GEN[8].NUM_BUSES_GEN[1].MUXCY_GEN.MUXCY_I_1\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_axi_timer_0_0_counter_f : entity is "counter_f";
 end led_blinker_axi_timer_0_0_counter_f;
 
 architecture STRUCTURE of led_blinker_axi_timer_0_0_counter_f is
@@ -3147,6 +3149,8 @@ entity led_blinker_axi_timer_0_0_mux_onehot_f is
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC;
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[1].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_axi_timer_0_0_mux_onehot_f : entity is "mux_onehot_f";
 end led_blinker_axi_timer_0_0_mux_onehot_f;
 
 architecture STRUCTURE of led_blinker_axi_timer_0_0_mux_onehot_f is
@@ -3868,6 +3872,8 @@ entity led_blinker_axi_timer_0_0_pselect_f is
     ce_expnd_i_7 : out STD_LOGIC;
     \GEN_BKEND_CE_REGISTERS[0].ce_out_i_reg[0]\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_axi_timer_0_0_pselect_f : entity is "pselect_f";
 end led_blinker_axi_timer_0_0_pselect_f;
 
 architecture STRUCTURE of led_blinker_axi_timer_0_0_pselect_f is
@@ -4028,6 +4034,8 @@ entity led_blinker_axi_timer_0_0_xpm_cdc_single is
   attribute DEST_SYNC_FF of led_blinker_axi_timer_0_0_xpm_cdc_single : entity is 4;
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of led_blinker_axi_timer_0_0_xpm_cdc_single : entity is 0;
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_axi_timer_0_0_xpm_cdc_single : entity is "xpm_cdc_single";
   attribute SIM_ASSERT_CHK : integer;
   attribute SIM_ASSERT_CHK of led_blinker_axi_timer_0_0_xpm_cdc_single : entity is 0;
   attribute SRC_INPUT_REG : integer;
@@ -4414,6 +4422,8 @@ entity led_blinker_axi_timer_0_0_address_decoder is
     bus2ip_rnw_i : in STD_LOGIC;
     \GEN_BKEND_CE_REGISTERS[7].ce_out_i_reg[7]_0\ : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_axi_timer_0_0_address_decoder : entity is "address_decoder";
 end led_blinker_axi_timer_0_0_address_decoder;
 
 architecture STRUCTURE of led_blinker_axi_timer_0_0_address_decoder is
@@ -5966,6 +5976,8 @@ entity led_blinker_axi_timer_0_0_count_module is
     s_axi_aresetn : in STD_LOGIC;
     Q : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_axi_timer_0_0_count_module : entity is "count_module";
 end led_blinker_axi_timer_0_0_count_module;
 
 architecture STRUCTURE of led_blinker_axi_timer_0_0_count_module is
@@ -7211,6 +7223,8 @@ entity led_blinker_axi_timer_0_0_timer_control is
     counterReg_DBus_0 : in STD_LOGIC_VECTOR ( 0 to 0 );
     counterReg_DBus_32 : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_axi_timer_0_0_timer_control : entity is "timer_control";
 end led_blinker_axi_timer_0_0_timer_control;
 
 architecture STRUCTURE of led_blinker_axi_timer_0_0_timer_control is
@@ -8571,6 +8585,8 @@ entity led_blinker_axi_timer_0_0_slave_attachment is
     read_done1 : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_axi_timer_0_0_slave_attachment : entity is "slave_attachment";
 end led_blinker_axi_timer_0_0_slave_attachment;
 
 architecture STRUCTURE of led_blinker_axi_timer_0_0_slave_attachment is
@@ -9713,6 +9729,8 @@ entity led_blinker_axi_timer_0_0_tc_core is
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_0\ : in STD_LOGIC;
     \GEN.DATA_WIDTH_GEN[31].NUM_BUSES_GEN[0].MUXCY_GEN.MUXCY_I_1\ : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_axi_timer_0_0_tc_core : entity is "tc_core";
 end led_blinker_axi_timer_0_0_tc_core;
 
 architecture STRUCTURE of led_blinker_axi_timer_0_0_tc_core is
@@ -10213,6 +10231,8 @@ entity led_blinker_axi_timer_0_0_axi_lite_ipif is
     read_done1 : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_axi_timer_0_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end led_blinker_axi_timer_0_0_axi_lite_ipif;
 
 architecture STRUCTURE of led_blinker_axi_timer_0_0_axi_lite_ipif is
@@ -10460,6 +10480,8 @@ entity led_blinker_axi_timer_0_0_axi_timer is
   attribute C_TRIG0_ASSERT of led_blinker_axi_timer_0_0_axi_timer : entity is "1'b1";
   attribute C_TRIG1_ASSERT : string;
   attribute C_TRIG1_ASSERT of led_blinker_axi_timer_0_0_axi_timer : entity is "1'b1";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of led_blinker_axi_timer_0_0_axi_timer : entity is "axi_timer";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of led_blinker_axi_timer_0_0_axi_timer : entity is "yes";
 end led_blinker_axi_timer_0_0_axi_timer;

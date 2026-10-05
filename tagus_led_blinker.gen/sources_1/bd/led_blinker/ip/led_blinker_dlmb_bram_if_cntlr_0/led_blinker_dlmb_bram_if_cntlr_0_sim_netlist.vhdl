@@ -2,11 +2,11 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
--- Date        : Sat Sep 26 14:48:54 2026
+-- Date        : Sun Oct  4 10:29:39 2026
 -- Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
 -- Command     : write_vhdl -force -mode funcsim -rename_top led_blinker_dlmb_bram_if_cntlr_0 -prefix
---               led_blinker_dlmb_bram_if_cntlr_0_ led_blinker_dlmb_bram_if_cntlr_0_sim_netlist.vhdl
--- Design      : led_blinker_dlmb_bram_if_cntlr_0
+--               led_blinker_dlmb_bram_if_cntlr_0_ led_blinker_ilmb_bram_if_cntlr_0_sim_netlist.vhdl
+-- Design      : led_blinker_ilmb_bram_if_cntlr_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
 -- Device      : xc7a200tfbg484-2
@@ -679,7 +679,7 @@ entity led_blinker_dlmb_bram_if_cntlr_0 is
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of led_blinker_dlmb_bram_if_cntlr_0 : entity is true;
   attribute CHECK_LICENSE_TYPE : string;
-  attribute CHECK_LICENSE_TYPE of led_blinker_dlmb_bram_if_cntlr_0 : entity is "led_blinker_dlmb_bram_if_cntlr_0,lmb_bram_if_cntlr,{}";
+  attribute CHECK_LICENSE_TYPE of led_blinker_dlmb_bram_if_cntlr_0 : entity is "led_blinker_ilmb_bram_if_cntlr_0,lmb_bram_if_cntlr,{}";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of led_blinker_dlmb_bram_if_cntlr_0 : entity is "yes";
   attribute x_core_info : string;
