@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-| Date         : Mon Oct  5 06:58:08 2026
+| Date         : Mon Oct  5 20:58:23 2026
 | Host         : capybara running 64-bit Ubuntu 24.04.5 LTS
 | Command      : report_utilization -file led_blinker_wrapper_utilization_synth.rpt -pb led_blinker_wrapper_utilization_synth.pb
 | Design       : led_blinker_wrapper
@@ -167,7 +167,6 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +--------------------------------------+------+
 | led_blinker_xdma_0_0                 |    1 |
 | led_blinker_util_ds_buf_1            |    1 |
-| led_blinker_util_ds_buf_0_0          |    1 |
 | led_blinker_rst_mig_7series_0_100M_2 |    1 |
 | led_blinker_rst_clk_wiz_100M_0       |    1 |
 | led_blinker_mig_7series_0_0          |    1 |

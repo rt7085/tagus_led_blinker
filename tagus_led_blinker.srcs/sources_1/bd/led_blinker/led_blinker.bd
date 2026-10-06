@@ -29,7 +29,6 @@
       "axi_bram_ctrl_0_bram": "",
       "mig_7series_0": "",
       "rst_mig_7series_0_100M": "",
-      "util_ds_buf_0": "",
       "xdma_0": "",
       "util_ds_buf": "",
       "axi_intc_0": "",
@@ -849,7 +848,7 @@
             "value": "1"
           },
           "C_INTERRUPT_PRESENT": {
-            "value": "1"
+            "value": "0"
           },
           "C_IS_DUAL": {
             "value": "1"
@@ -1386,7 +1385,7 @@
             "value": "reset"
           },
           "XML_INPUT_FILE": {
-            "value": "mig_b.prj"
+            "value": "mig_a.prj"
           }
         },
         "interface_ports": {
@@ -1407,19 +1406,6 @@
         "xci_path": "ip/led_blinker_rst_mig_7series_0_100M_2/led_blinker_rst_mig_7series_0_100M_2.xci",
         "inst_hier_path": "rst_mig_7series_0_100M",
         "has_run_ip_tcl": "true"
-      },
-      "util_ds_buf_0": {
-        "vlnv": "xilinx.com:ip:util_ds_buf:2.2",
-        "ip_revision": "9",
-        "xci_name": "led_blinker_util_ds_buf_0_0",
-        "xci_path": "ip/led_blinker_util_ds_buf_0_0/led_blinker_util_ds_buf_0_0.xci",
-        "inst_hier_path": "util_ds_buf_0",
-        "has_run_ip_tcl": "true",
-        "parameters": {
-          "C_BUF_TYPE": {
-            "value": "BUFG"
-          }
-        }
       },
       "xdma_0": {
         "vlnv": "xilinx.com:ip:xdma:4.2",
@@ -1738,6 +1724,12 @@
           "ilconcat_0/In1"
         ]
       },
+      "clk_1": {
+        "ports": [
+          "clk",
+          "clk_wiz/clk_in1"
+        ]
+      },
       "clk_wiz_clk_out2": {
         "ports": [
           "clk_wiz/clk_out2",
@@ -1774,7 +1766,8 @@
           "axi_uartlite_0/s_axi_aclk",
           "axi_bram_ctrl_0/s_axi_aclk",
           "axi_intc_0/s_axi_aclk",
-          "axi_timer_0/s_axi_aclk"
+          "axi_timer_0/s_axi_aclk",
+          "mig_7series_0/sys_clk_i"
         ]
       },
       "mig_7series_0_mmcm_locked": {
@@ -1841,19 +1834,6 @@
           "mig_7series_0/aresetn"
         ]
       },
-      "sys_clock_1": {
-        "ports": [
-          "clk",
-          "clk_wiz/clk_in1",
-          "util_ds_buf_0/BUFG_I"
-        ]
-      },
-      "util_ds_buf_0_BUFG_O": {
-        "ports": [
-          "util_ds_buf_0/BUFG_O",
-          "mig_7series_0/sys_clk_i"
-        ]
-      },
       "util_ds_buf_IBUF_OUT": {
         "ports": [
           "util_ds_buf/IBUF_OUT",
@@ -1876,9 +1856,8 @@
     "comments": {
       "/": {
         "comment_0": "Sensing reset is problematic as the edge cannot be detected (as it would reset the design). Only state of reset can be confirmed!\nThe sys_clock is samples at 400 MHz while the clock itself runs at 100MHz. We should see 4 ticks per 100 Mhz cycle (which is true)",
-        "comment_2": "Must use a clock wizard on sys_clock",
         "comment_3": "May need to move SDRAM to its own SMC in the future",
-        "comment_4": "MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter ",
+        "comment_4": "MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter \nBut that causes ll sort of other contraint problems",
         "comment_5": "Must connect M_AXI_LITE port for Config BAR detection by XDMA driver"
       }
     },

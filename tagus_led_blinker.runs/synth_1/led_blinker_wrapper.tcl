@@ -56,8 +56,6 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param bd.open.in_stealth_mode 1
-set_param chipscope.maxJobs 2
 set_param general.usePosixSpawnForFork 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a200tfbg484-2
@@ -187,8 +185,6 @@ set_property used_in_implementation false [get_files -all /home/rt7085/repos/tag
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_mig_7series_0_0/led_blinker_mig_7series_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_rst_mig_7series_0_100M_2/led_blinker_rst_mig_7series_0_100M_2_board.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_rst_mig_7series_0_100M_2/led_blinker_rst_mig_7series_0_100M_2_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_util_ds_buf_0_0/led_blinker_util_ds_buf_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_util_ds_buf_0_0/led_blinker_util_ds_buf_0_0_board.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_xdma_0_0/ip_4/pcie2_fifo_generator_tgt_brdg.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_xdma_0_0/ip_3/pcie2_fifo_generator_dma_cpl.xdc]
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_xdma_0_0/ip_2/xdma_v4_2_2_blk_mem_64_noreg_be_ooc.xdc]

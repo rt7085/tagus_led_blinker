@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-| Date         : Sun Oct  4 10:26:52 2026
+| Date         : Mon Oct  5 20:29:25 2026
 | Host         : capybara running 64-bit Ubuntu 24.04.5 LTS
 | Command      : report_utilization -file led_blinker_axi_gpio_0_0_utilization_synth.rpt -pb led_blinker_axi_gpio_0_0_utilization_synth.pb
 | Design       : led_blinker_axi_gpio_0_0
@@ -31,13 +31,13 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |   82 |     0 |          0 |    134600 |  0.06 |
-|   LUT as Logic          |   82 |     0 |          0 |    134600 |  0.06 |
+| Slice LUTs*             |   43 |     0 |          0 |    134600 |  0.03 |
+|   LUT as Logic          |   43 |     0 |          0 |    134600 |  0.03 |
 |   LUT as Memory         |    0 |     0 |          0 |     46200 |  0.00 |
-| Slice Registers         |  112 |     0 |          0 |    269200 |  0.04 |
-|   Register as Flip Flop |  112 |     0 |          0 |    269200 |  0.04 |
+| Slice Registers         |   63 |     0 |          0 |    269200 |  0.02 |
+|   Register as Flip Flop |   63 |     0 |          0 |    269200 |  0.02 |
 |   Register as Latch     |    0 |     0 |          0 |    269200 |  0.00 |
-| F7 Muxes                |    0 |     0 |          0 |     67300 |  0.00 |
+| F7 Muxes                |    1 |     0 |          0 |     67300 | <0.01 |
 | F8 Muxes                |    0 |     0 |          0 |     33650 |  0.00 |
 | Unique Control Sets     |    6 |       |          0 |     33650 |  0.02 |
 +-------------------------+------+-------+------------+-----------+-------+
@@ -61,8 +61,8 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 9     |          Yes |         Set |            - |
-| 103   |          Yes |       Reset |            - |
+| 5     |          Yes |         Set |            - |
+| 58    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -154,14 +154,15 @@ Warning! For any ECO changes, please run place_design if there are unplaced inst
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  103 |        Flop & Latch |
-| LUT5     |   36 |                 LUT |
-| LUT6     |   22 |                 LUT |
-| LUT3     |   19 |                 LUT |
-| LUT4     |   13 |                 LUT |
+| FDRE     |   58 |        Flop & Latch |
+| LUT5     |   16 |                 LUT |
+| LUT6     |   13 |                 LUT |
 | LUT2     |    9 |                 LUT |
-| FDSE     |    9 |        Flop & Latch |
-| LUT1     |    5 |                 LUT |
+| LUT3     |    8 |                 LUT |
+| LUT4     |    5 |                 LUT |
+| FDSE     |    5 |        Flop & Latch |
+| LUT1     |    2 |                 LUT |
+| MUXF7    |    1 |               MuxFx |
 +----------+------+---------------------+
 
 

@@ -37,11 +37,11 @@ set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[0]]
 ## Clock timing Constraints
 
 # The clk_wiz_0 generates a clock in it clk_in1 pin automatically which causes a redefinition methodology critical warning
-create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
+#create_clock -period 10.000 -name clk -waveform {0.000 5.000} [get_ports clk]
 
 create_clock -period 10.000 -name pcie_refclk -waveform {0.000 5.000} [get_ports pcie_rxp]
 
-set_clock_groups -asynchronous -group [get_clocks clk_out2_led_blinker_clk_wiz_0] -group [get_clocks clk_pll_i]
+#set_clock_groups -asynchronous -group [get_clocks clk_out2_led_blinker_clk_wiz_0] -group [get_clocks clk_pll_i]
 
 
 # Asynchronous reset timing constraints
@@ -49,33 +49,33 @@ set_clock_groups -asynchronous -group [get_clocks clk_out2_led_blinker_clk_wiz_0
 set_false_path -from [get_ports reset]
 set_false_path -from [get_ports pcie_perstn]
 
-set_false_path -from [get_clocks clk_out1_led_blinker_clk_wiz_0] -to [get_clocks userclk1]
-set_false_path -from [get_clocks *clk_125mhz_mux_x0y0*] -to [get_clocks clk_out1_led_blinker_clk_wiz_0]
+set_false_path -from [get_clocks -filter {NAME =~ *clk_out1*}] -to [get_clocks userclk1]
+set_false_path -from [get_clocks userclk1] -to [get_clocks -filter {NAME =~ *clk_out1*}]
 
-set_false_path -from [get_clocks *clk_125mhz_mux_x0y0*] -to [get_clocks clk_out1_led_blinker_clk_wiz_0]
-set_false_path -from [get_clocks clk_out1_led_blinker_clk_wiz_0] -to [get_clocks *clk_125mhz_mux_x0y0*]
+set_false_path -from [get_clocks *clk_125mhz_mux_x0y0*] -to [get_clocks -filter {NAME =~ *clk_out1*}]
+set_false_path -from [get_clocks -filter {NAME =~ *clk_out1*}] -to [get_clocks *clk_125mhz_mux_x0y0*]
 
-set_false_path -from [get_clocks *clk_250mhz_mux_x0y0*] -to [get_clocks clk_out1_led_blinker_clk_wiz_0]
-set_false_path -from [get_clocks clk_out1_led_blinker_clk_wiz_0] -to [get_clocks *clk_250mhz_mux_x0y0*]
+set_false_path -from [get_clocks *clk_250mhz_mux_x0y0*] -to [get_clocks -filter {NAME =~ *clk_out1*}]
+set_false_path -from [get_clocks -filter {NAME =~ *clk_out1*}] -to [get_clocks *clk_250mhz_mux_x0y0*]
 
 #Main reset constraints
 
-set_input_delay -clock [get_clocks led_blinker_i/clk_wiz/inst/clk_in1] 0.000 [get_ports reset]
+set_input_delay -clock [get_clocks clk] 0.000 [get_ports reset]
 set_false_path -from [get_ports reset]
 
 
 #UART asynchronous timing contraints
 
 # 1. Define the input delay constraint (assuming a 10ns clock period as an example)
-set_input_delay -clock [get_clocks led_blinker_i/clk_wiz/inst/clk_in1] -max 2.000 [get_ports usb_uart_rxd]
-set_input_delay -clock [get_clocks led_blinker_i/clk_wiz/inst/clk_in1] -min 1.000 [get_ports usb_uart_rxd]
+set_input_delay -clock [get_clocks clk] -max 2.000 [get_ports usb_uart_rxd]
+set_input_delay -clock [get_clocks clk] -min 1.000 [get_ports usb_uart_rxd]
 
 # 2. Tell Vivado to treat it as an asynchronous path (Prevents unnecessary timing optimizations)
 set_false_path -from [get_ports usb_uart_rxd]
 
 # 2. Apply the output delay constraint to the UART TXD port
-set_output_delay -clock [get_clocks led_blinker_i/clk_wiz/inst/clk_in1] -max 2.000 [get_ports usb_uart_txd]
-set_output_delay -clock [get_clocks led_blinker_i/clk_wiz/inst/clk_in1] -min -0.500 [get_ports usb_uart_txd]
+set_output_delay -clock [get_clocks clk] -max 2.000 [get_ports usb_uart_txd]
+set_output_delay -clock [get_clocks clk] -min -0.500 [get_ports usb_uart_txd]
 
 set_false_path -to [get_ports usb_uart_txd]
 
@@ -92,12 +92,12 @@ set_false_path -from [get_ports pcie_perstn]
 
 
 # 2. Set dummy output delays to satisfy the Vivado DRC requirement
-set_output_delay -clock [get_clocks led_blinker_i/clk_wiz/inst/clk_in1] -max 2.000 [get_ports ddr3_sdram_reset_n]
-set_output_delay -clock [get_clocks led_blinker_i/clk_wiz/inst/clk_in1] -min 0.000 [get_ports ddr3_sdram_reset_n]
+set_output_delay -clock [get_clocks clk] -max 2.000 [get_ports ddr3_sdram_reset_n]
+set_output_delay -clock [get_clocks clk] -min 0.000 [get_ports ddr3_sdram_reset_n]
 
 # 3. Mark the path as a false path so Vivado skips timing optimization on this async reset
 set_false_path -to [get_ports ddr3_sdram_reset_n]
 
 #GPIO asynchronous contraints
-set_output_delay -clock [get_clocks led_blinker_i/clk_wiz/inst/clk_in1] -min 0.000 [get_ports {rgb_led_tri_o[*]}]
-set_output_delay -clock [get_clocks led_blinker_i/clk_wiz/inst/clk_in1] -max 2.000 [get_ports {rgb_led_tri_o[*]}]
+set_output_delay -clock [get_clocks clk] -min 0.000 [get_ports {rgb_led_tri_o[*]}]
+set_output_delay -clock [get_clocks clk] -max 2.000 [get_ports {rgb_led_tri_o[*]}]
