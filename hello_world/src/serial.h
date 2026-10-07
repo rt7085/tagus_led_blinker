@@ -5,6 +5,8 @@
 
 #include <xil_types.h>
 #include <stdio.h> // for printf() for floats/doubles, very memory expensive!
+#include <stdlib.h>
+#include <limits.h>
 #include "xparameters.h"
 #include "xuartlite.h"
 #include "xil_printf.h"

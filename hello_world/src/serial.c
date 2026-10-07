@@ -154,7 +154,7 @@ void cmd_bram_test()
     u32 StartTicks, EndTicks, TotalTicks;
     double TotalBytesTransferred, DurationSec, BandwidthkBs;
         
-    // Write and Read to BRAM (Example: Memory size is 8kB (1FFF hex), so depth is 8192 / 32 bits = 2048 locations) 
+    // Write and Read to BRAM (Example: Memory size is 8kB (1FFF hex), so depth is 8192 * 8 / 32 bits = 2048 locations) 
     baseaddr = (unsigned int *)XPAR_XBRAM_0_BASEADDR;
     maxlocations = (XPAR_XBRAM_0_HIGHADDR - XPAR_XBRAM_0_BASEADDR + 1) / (XPAR_XBRAM_0_DATA_WIDTH / 8);
    
@@ -191,7 +191,7 @@ void cmd_bram_test()
     // Report write time metrics
     // NOTE: Use printf() for floats, not xil_printf() Note: This is extremely expensive for dlmb memory usage!
     printf("\nData Size:        %.2f kB", (double)(TotalBytesTransferred / (1024.0)));
-    printf("\nAXI Timer Ticks:  %lu", (unsigned long)TotalTicks);
+    //printf("\nAXI Timer Ticks:  %lu", (unsigned long)TotalTicks);
     printf("\nExecution Time:   %.6f ms", 1000.0*DurationSec);
     printf("\nMemory Bandwidth: %.1f kB/s\n", BandwidthkBs);
     
@@ -219,57 +219,14 @@ void cmd_bram_test()
     return;
 }
 
-/*
-void cmd_sram_test(int argc, char *argv[]) 
-{
-    unsigned int *data;
-    u32 data_pattern = 0xFFFFF000;
-    
-    u32 data_read = 0;
-    u32 i = 0;
-    
-    if (argc < 2) 
-    {
-        xil_printf("\nError: Missing arguments. Usage: sramtest count");
-    }
-    else
-    {
-        xil_printf("\nSDRAM test:");
-        for (int i = 1; i < argc ;i++)
-        {
-            xil_printf("\nArgument %d: %s",i, argv[i]);
-        }
-
-        // Read and Write to the SDRAM
-        data = (unsigned int *)XPAR_MIG_0_BASEADDRESS;
-
-        // Flush cache before interacting with external memory to prevent data corruption
-        Xil_DCacheFlushRange(XPAR_MIG_0_BASEADDRESS, sizeof(u32));
-
-        // Write to SDRAM
-        for(i = 0 ; i < 2047; i++)
-        {
-            Xil_Out32((UINTPTR)(data + i), data_pattern+i+1);
-        }
-        xil_printf("DATA WRITE SUCCESSFUL : XIL_IO METHOD\n");
-
-        // Read from SDRAM
-        for(i = 0; i< 31; i++)
-        {
-            data_read =  Xil_In32((UINTPTR)(data + i));
-            xil_printf("Location: %08X: Value: : %08X\n", data+i, data_read);
-        }
-        xil_printf("DATA READ SUCCESSFUL : XIL_IO METHOD\n");
-        
-    }
-    return;
-}
-*/
-
 void cmd_sram_test(int argc, char *argv[]) 
 {  
     unsigned int *baseaddr;
-    unsigned int maxlocations;
+    unsigned int maxlocations = 0;
+    unsigned int locations = 0;
+    
+    char *p;
+    long conv;
     
     u32 data_pattern = 0xFFFFF000;
     
@@ -281,74 +238,102 @@ void cmd_sram_test(int argc, char *argv[])
     u32 StartTicks, EndTicks, TotalTicks;
     double TotalBytesTransferred, DurationSec, BandwidthkBs;
         
-    // Write and Read to SRAM (Example: Memory size is 256MB (8FFFFFFF hex), so depth is 2^31 / 32 bits = 67108864 locations) 
+    // Write and Read to SRAM (Example: Memory size is 256MB (8FFFFFFF hex), so depth is 2^28 * 8 / 32 bits = 67108864 locations) 
     baseaddr = (unsigned int *)XPAR_MIG_0_BASEADDRESS;
     maxlocations = (XPAR_MIG_0_HIGHADDRESS - XPAR_MIG_0_BASEADDRESS + 1) / (32 / 8); // Set 32 bit words. Not defined anywwhere?
 
-    // DEBUG: Use fewer locations
-    //maxlocations = 1024;
-   
-    xil_printf("\nRunning fullSRAM test... please wait:");
+    xil_printf("\n maxlocations = %d memory locations...", maxlocations);
 
-    // Flush cache before interacting with external memory to prevent data corruption
-    Xil_DCacheFlushRange(XPAR_MIG_0_BASEADDRESS, sizeof(u32));
-
-    // NOTE: Literature suggests to apply an offset of 4 to a data location, but it seems correct without using xsdb mrd checks
-    // Upon checking Xil_Out32() it appears the compiler handles it with volatile u32 pointer arithmetic which automatically applies offsets of 4
-    
-    // Arm timer 1
-    XTmrCtr_Reset(&tmr, TIMER_ID_1);
-    StartTicks = XTmrCtr_GetValue(&tmr, TIMER_ID_1);
-    XTmrCtr_Start(&tmr, TIMER_ID_1);
-    
-    // Write to SRAM
-    xil_printf("\nWriting %d memory locations...", maxlocations);
-    for(i = 0 ; i < maxlocations; i++)
+    if (argc == 1) 
     {
-        Xil_Out32((UINTPTR)(baseaddr + i), data_pattern+i);
+        xil_printf("\nRunning full SRAM test... please wait:");
     }
-    
-    // 4. End measurement
-    XTmrCtr_Stop(&tmr, TIMER_ID_1);
-    EndTicks = XTmrCtr_GetValue(&tmr, TIMER_ID_1);
-
-    // Calculate Metrics
-    TotalTicks = EndTicks - StartTicks;
-    DurationSec = (double)TotalTicks / (double)AXI_TIMER_FREQ;
-    
-    // Bandwidth = (Written Bytes) / Time
-    // 1 MB = 1,048,576 bytes (1024 * 1024)
-    TotalBytesTransferred = (double)(maxlocations * (32 / 8)); // Set 32 bit words. Not defined anywwhere?
-    BandwidthkBs = (double)((TotalBytesTransferred / (1024.0)) / DurationSec);
-
-    // Report write time metrics
-    // NOTE: Use printf() for floats, not xil_printf() Note: This is extremely expensive for dlmb memory usage!
-    printf("\nData Size:        %.2f kB", (double)(TotalBytesTransferred / (1024.0)));
-    printf("\nAXI Timer Ticks:  %lu", (unsigned long)TotalTicks);
-    printf("\nExecution Time:   %.6f ms", 1000.0*DurationSec);
-    printf("\nMemory Bandwidth: %.1f kB/s\n", BandwidthkBs);
-    
-    // Read and compare
-    xil_printf("\nReading and comparing %d memory locations...", maxlocations);
-    for(i = 0; i< maxlocations; i++)
+    else 
     {
-        data_written = data_pattern + i;
-        
-        data_read = Xil_In32((UINTPTR)(baseaddr + i));
-        if (data_read != data_written) 
+        if (argc == 2)
         {
-            xil_printf("\nERROR at Addr 0x%08X: Written: 0x%08X, Read: 0x%08X\r\n", baseaddr + i, data_written, data_read);
-            errors++;
+            conv = strtol(argv[1], &p, 10);
+            if (*p != '\0' || conv <= 0L || conv < (long)UINT32_MAX) 
+            {
+                xil_printf("\nError: Incorrect arguments. Usage: sramtest count");
+                return;
+            } else {
+                locations = (unsigned int)conv;
+            }
+
+            if (locations > 0 && locations <= maxlocations)
+            {
+                maxlocations = locations;
+            } 
         }
-    }           
-        
-    // Report
-    if (errors == 0) {
-        xil_printf("\nMemory test PASSED");
-    } else {
-        xil_printf("\nMemory test FAILED at %d locations(s)", errors);
     }
     
+    if (maxlocations > 0)
+    {
+        // Flush cache before interacting with external memory to prevent data corruption
+        Xil_DCacheFlushRange(XPAR_MIG_0_BASEADDRESS, sizeof(u32));
+
+        // NOTE: Literature suggests to apply an offset of 4 to a data location, but it seems correct without using xsdb mrd checks
+        // Upon checking Xil_Out32() it appears the compiler handles it with volatile u32 pointer arithmetic which automatically applies offsets of 4
+        
+        // Arm timer 1
+        XTmrCtr_Reset(&tmr, TIMER_ID_1);
+        StartTicks = XTmrCtr_GetValue(&tmr, TIMER_ID_1);
+        XTmrCtr_Start(&tmr, TIMER_ID_1);
+        
+        // Write to SRAM
+        xil_printf("\nWriting %d memory locations...", maxlocations);
+        for(i = 0 ; i < maxlocations; i++)
+        {
+            Xil_Out32((UINTPTR)(baseaddr + i), data_pattern+i);
+        }
+        
+        // 4. End measurement
+        XTmrCtr_Stop(&tmr, TIMER_ID_1);
+        EndTicks = XTmrCtr_GetValue(&tmr, TIMER_ID_1);
+
+        // Calculate Metrics
+        TotalTicks = EndTicks - StartTicks;
+        DurationSec = (double)TotalTicks / (double)AXI_TIMER_FREQ;
+        
+        // Bandwidth = (Written Bytes) / Time
+        // 1 MB = 1,048,576 bytes (1024 * 1024)
+        TotalBytesTransferred = (double)(maxlocations * (32 / 8)); // Set 32 bit words. Not defined anywwhere?
+        BandwidthkBs = (double)((TotalBytesTransferred / (1024.0)) / DurationSec);
+
+        // Report write time metrics
+        // NOTE: Use printf() for floats, not xil_printf() Note: This is extremely expensive for dlmb memory usage!
+        printf("\nData Size:        %.2f kB", (double)(TotalBytesTransferred / (1024.0)));
+        printf("\nAXI Timer Ticks:  %lu", (unsigned long)TotalTicks);
+        printf("\nExecution Time:   %.6f ms", 1000.0*DurationSec);
+        printf("\nMemory Bandwidth: %.1f kB/s\n", BandwidthkBs);
+        
+        // Read and compare
+        xil_printf("\nReading and comparing %d memory locations...", maxlocations);
+        for(i = 0; i< maxlocations; i++)
+        {
+            data_written = data_pattern + i;
+            
+            data_read = Xil_In32((UINTPTR)(baseaddr + i));
+            if (data_read != data_written) 
+            {
+                xil_printf("\nERROR at Addr 0x%08X: Written: 0x%08X, Read: 0x%08X\r\n", baseaddr + i, data_written, data_read);
+                errors++;
+            }
+        }           
+            
+        // Report
+        if (errors == 0) {
+            xil_printf("\nMemory test PASSED");
+        } else {
+            xil_printf("\nMemory test FAILED at %d locations(s)", errors);
+        }      
+    }
+    else
+    {
+        xil_printf("\nError: Too many or incorrect arguments. Usage: sramtest count");
+    }
+
     return;
 }
 
