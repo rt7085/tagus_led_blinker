@@ -337,4 +337,89 @@ void cmd_sram_test(int argc, char *argv[])
     return;
 }
 
+
+void cmd_sram_read(int argc, char *argv[]) 
+{  
+    //unsigned int *baseaddr;
+
+    unsigned int start_address = 0;
+    unsigned int locations = 0;
+    //unsigned int maxlocations = 0;
+    
+    char *p;
+    long conv;
+
+    // Write and Read to SRAM (Example: Memory size is 256MB (8FFFFFFF hex), so depth is 2^28 * 8 / 32 bits = 67108864 locations) 
+    //baseaddr = (unsigned int *)XPAR_MIG_0_BASEADDRESS;
+    //highaddr = (unsigned int *)XPAR_MIG_0_HIGHADDRESS;
+    //maxlocations = (XPAR_MIG_0_HIGHADDRESS - XPAR_MIG_0_BASEADDRESS + 1) / (32 / 8); // Set 32 bit words. Not defined anywwhere?
+
+    if (argc < 3) 
+    {
+        xil_printf("\nError: Too few arguments. Usage: sramread starting_address(hex) num_locations(dec)");
+        return;
+    }
+    else 
+    {
+        // Convert starting address
+        conv = strtoul(argv[1], &p, 16);
+        if (*p != '\0') // || conv < 0L || conv < (long)UINT32_MAX) 
+        {
+            xil_printf("\nError: Incorrect starting address hex format");
+            return;
+        } else 
+        {
+            start_address = (unsigned int)conv;
+        }
+
+        // RT_DEBUG
+        xil_printf("\nStart Address: %08X: ", start_address);
+
+        // Convert location count
+        conv = strtoul(argv[2], &p, 10);
+        if (*p != '\0') // || conv < 0L || conv < (long)UINT32_MAX) 
+        {
+            xil_printf("\nError: Incorrect 32-bit location count in decimal format");
+            return;
+        } 
+        else 
+        {
+            locations = (unsigned int)conv;
+        }
+
+        // RT_DEBUG
+        xil_printf("\nLocations: %d: ", locations);
+        
+        // Are given parameters within SRAM memory range?
+        if (start_address >= XPAR_MIG_0_BASEADDRESS) // && start_address < XPAR_MIG_0_HIGHADDRESS && ((XPAR_MIG_0_HIGHADDRESS - start_address + 1) / (32 / 8)) <= locations) 
+        {
+            // Print the memory range as 32 bit hex numbers
+            sram_print((unsigned int *)start_address, locations);
+        }
+        else
+        {
+            xil_printf("\nError: Parmeters outside SRAM memory range.");
+            xil_printf("\nSRAM base address: %08X", XPAR_MIG_0_BASEADDRESS);
+            xil_printf("\nSRAM high address: %08X", XPAR_MIG_0_HIGHADDRESS);
+            return;           
+        }
+    }
+    return;
+}
+
+
+void sram_print(unsigned int *address, unsigned int count)
+{
+    unsigned int value = 0;
+
+    // Assumes address and count are within SRAM range
+    for(unsigned int i = 0; i< count; i++)
+    {
+        value =  Xil_In32((UINTPTR)(address + i));
+        xil_printf("\nAddress: %08X: Value: : %08X", address+i, value);
+    }      
+}
+
+
+
 #endif // __MICROBLAZE__

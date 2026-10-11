@@ -26,6 +26,7 @@ typedef void (*cmd_fn_t)(int argc, char *argv[]);
 void cmd_help();
 void cmd_bram_test();
 void cmd_sram_test(int argc, char *argv[]);
+void cmd_sram_read(int argc, char *argv[]);
 
 // Command mapping structure
 typedef struct {
@@ -39,7 +40,8 @@ static const cmd_entry_t cmd_table[] =
 {
     {"help",       cmd_help,        "Displays available commands"},
     {"bramtest",   cmd_bram_test,   "Usage: bramtest"},
-    {"sramtest",   cmd_sram_test,   "Usage: sramtest"}
+    {"sramtest",   cmd_sram_test,   "Usage: sramtest num_locations"},
+    {"sramread",   cmd_sram_read,   "Usage: sramread start_address(hex) num_locations(dec) [32 bit locations]"}
 };
 #define NUM_COMMANDS (sizeof(cmd_table) / sizeof(cmd_table[0]))
 
@@ -49,6 +51,7 @@ void uartRX_intcHandler();
 void uartTX_intcHandler();
 int get_line(char *line_out, uint8_t max_len);
 void process_command(char *line); 
+void sram_print(unsigned int *address, unsigned int count);
 
 #endif // SERIAL_H
 
