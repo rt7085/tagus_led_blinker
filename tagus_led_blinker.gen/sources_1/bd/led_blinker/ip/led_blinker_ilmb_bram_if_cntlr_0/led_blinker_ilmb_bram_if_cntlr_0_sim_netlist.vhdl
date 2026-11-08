@@ -2,10 +2,10 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
--- Date        : Sun Oct  4 10:29:40 2026
+-- Date        : Sun Oct  4 10:29:39 2026
 -- Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_ilmb_bram_if_cntlr_0/led_blinker_ilmb_bram_if_cntlr_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top led_blinker_ilmb_bram_if_cntlr_0 -prefix
+--               led_blinker_ilmb_bram_if_cntlr_0_ led_blinker_ilmb_bram_if_cntlr_0_sim_netlist.vhdl
 -- Design      : led_blinker_ilmb_bram_if_cntlr_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -225,8 +225,6 @@ entity led_blinker_ilmb_bram_if_cntlr_0_lmb_bram_if_cntlr is
   attribute C_UE_FAILING_REGISTERS of led_blinker_ilmb_bram_if_cntlr_0_lmb_bram_if_cntlr : entity is 0;
   attribute C_WRITE_ACCESS : integer;
   attribute C_WRITE_ACCESS of led_blinker_ilmb_bram_if_cntlr_0_lmb_bram_if_cntlr : entity is 2;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of led_blinker_ilmb_bram_if_cntlr_0_lmb_bram_if_cntlr : entity is "lmb_bram_if_cntlr";
 end led_blinker_ilmb_bram_if_cntlr_0_lmb_bram_if_cntlr;
 
 architecture STRUCTURE of led_blinker_ilmb_bram_if_cntlr_0_lmb_bram_if_cntlr is
