@@ -372,9 +372,6 @@ void cmd_sram_read(int argc, char *argv[])
             start_address = (unsigned int)conv;
         }
 
-        // RT_DEBUG
-        xil_printf("\nStart Address: %08X: ", start_address);
-
         // Convert location count
         conv = strtoul(argv[2], &p, 10);
         if (*p != '\0') // || conv < 0L || conv < (long)UINT32_MAX) 
@@ -386,12 +383,9 @@ void cmd_sram_read(int argc, char *argv[])
         {
             locations = (unsigned int)conv;
         }
-
-        // RT_DEBUG
-        xil_printf("\nLocations: %d: ", locations);
         
         // Are given parameters within SRAM memory range?
-        if (start_address >= XPAR_MIG_0_BASEADDRESS) // && start_address < XPAR_MIG_0_HIGHADDRESS && ((XPAR_MIG_0_HIGHADDRESS - start_address + 1) / (32 / 8)) <= locations) 
+        if ((start_address >= XPAR_MIG_0_BASEADDRESS) && (start_address < XPAR_MIG_0_HIGHADDRESS) && (locations <= ((XPAR_MIG_0_HIGHADDRESS - start_address + 1) / (32 / 8)))) 
         {
             // Print the memory range as 32 bit hex numbers
             sram_print((unsigned int *)start_address, locations);

@@ -1,4 +1,4 @@
-# 2026-10-11T07:13:46.879660758
+# 2026-11-08T14:14:55.971798248
 import vitis
 
 client = vitis.create_client()
@@ -8,34 +8,6 @@ platform = client.get_component(name="tagus_led_blinker_platform")
 status = platform.build()
 
 comp = client.get_component(name="hello_world")
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
-comp.build()
-
-status = platform.build()
-
 comp.build()
 
 status = platform.build()
