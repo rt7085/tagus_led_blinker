@@ -56,8 +56,6 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param bd.open.in_stealth_mode 1
-set_param chipscope.maxJobs 2
 set_param general.usePosixSpawnForFork 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a200tfbg484-2
@@ -78,6 +76,9 @@ set_property ip_output_repo /home/rt7085/repos/tagus_led_blinker/tagus_led_blink
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+add_files /home/rt7085/repos/tagus_led_blinker/hello_world/build/hello_world.elf
+set_property SCOPED_TO_REF led_blinker [get_files -all /home/rt7085/repos/tagus_led_blinker/hello_world/build/hello_world.elf]
+set_property SCOPED_TO_CELLS microblaze_0 [get_files -all /home/rt7085/repos/tagus_led_blinker/hello_world/build/hello_world.elf]
 read_verilog -library xil_defaultlib /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/hdl/led_blinker_wrapper.v
 add_files /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.srcs/sources_1/bd/led_blinker/led_blinker.bd
 set_property used_in_implementation false [get_files -all /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_clk_wiz_0/led_blinker_clk_wiz_0_board.xdc]

@@ -2038,6 +2038,21 @@
           }
         }
       }
+    },
+    "elf_association": {
+      "file": {
+        "name": "../../../../hello_world/build/hello_world.elf",
+        "type": "ELF",
+        "checksum": "3921114537",
+        "IsVisible": "1",
+        "ScopedToRef": "led_blinker",
+        "ScopedToCell": [
+          "microblaze_0"
+        ],
+        "UsedIn": [
+          "implementation"
+        ]
+      }
     }
   }
 }
