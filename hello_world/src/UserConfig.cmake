@@ -39,6 +39,7 @@ set(USER_COMPILE_SOURCES
 "platform.c"
 "serial.c"
 "main.c"
+"i2c.c"
 )
 
 # -----------------------------------------

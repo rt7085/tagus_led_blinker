@@ -16,6 +16,7 @@
 #include "xtmrctr.h"
 #include "xuartlite.h"
 #include "serial.h"
+#include "i2c.h"
 #include "timer.h"
 #include "interrupt.h"
 
@@ -83,6 +84,7 @@ int main()
     intc_init();
     tmr_init();
     uart_init();
+    i2c_init();
     
     gpio_init();
     bram_init();
