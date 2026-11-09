@@ -79,7 +79,13 @@ COMPONENT led_blinker
     pcie_refclk_clk_p : IN STD_LOGIC;
     clk : IN STD_LOGIC;
     reset : IN STD_LOGIC;
-    pcie_perstn : IN STD_LOGIC
+    pcie_perstn : IN STD_LOGIC;
+    EEPROM_IIC_0_scl_i : IN STD_LOGIC;
+    EEPROM_IIC_0_scl_o : OUT STD_LOGIC;
+    EEPROM_IIC_0_scl_t : OUT STD_LOGIC;
+    EEPROM_IIC_0_sda_i : IN STD_LOGIC;
+    EEPROM_IIC_0_sda_o : OUT STD_LOGIC;
+    EEPROM_IIC_0_sda_t : OUT STD_LOGIC
   );
 END COMPONENT;
 -- COMP_TAG_END ------  End cut for COMPONENT Declaration  ------
@@ -116,7 +122,13 @@ your_instance_name : led_blinker
     pcie_refclk_clk_p => pcie_refclk_clk_p,
     clk => clk,
     reset => reset,
-    pcie_perstn => pcie_perstn
+    pcie_perstn => pcie_perstn,
+    EEPROM_IIC_0_scl_i => EEPROM_IIC_0_scl_i,
+    EEPROM_IIC_0_scl_o => EEPROM_IIC_0_scl_o,
+    EEPROM_IIC_0_scl_t => EEPROM_IIC_0_scl_t,
+    EEPROM_IIC_0_sda_i => EEPROM_IIC_0_sda_i,
+    EEPROM_IIC_0_sda_o => EEPROM_IIC_0_sda_o,
+    EEPROM_IIC_0_sda_t => EEPROM_IIC_0_sda_t
   );
 -- INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

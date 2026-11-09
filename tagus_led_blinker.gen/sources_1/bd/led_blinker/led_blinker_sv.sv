@@ -106,7 +106,19 @@ module led_blinker_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   input wire reset,
   (* X_INTERFACE_IGNORE = "true" *)
-  input wire pcie_perstn
+  input wire pcie_perstn,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire EEPROM_IIC_0_scl_i,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire EEPROM_IIC_0_scl_o,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire EEPROM_IIC_0_scl_t,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire EEPROM_IIC_0_sda_i,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire EEPROM_IIC_0_sda_o,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire EEPROM_IIC_0_sda_t
 );
 
   led_blinker inst (
@@ -136,7 +148,13 @@ module led_blinker_sv (
     .pcie_refclk_clk_p(pcie_refclk_clk_p),
     .clk(clk),
     .reset(reset),
-    .pcie_perstn(pcie_perstn)
+    .pcie_perstn(pcie_perstn),
+    .EEPROM_IIC_0_scl_i(EEPROM_IIC_0_scl_i),
+    .EEPROM_IIC_0_scl_o(EEPROM_IIC_0_scl_o),
+    .EEPROM_IIC_0_scl_t(EEPROM_IIC_0_scl_t),
+    .EEPROM_IIC_0_sda_i(EEPROM_IIC_0_sda_i),
+    .EEPROM_IIC_0_sda_o(EEPROM_IIC_0_sda_o),
+    .EEPROM_IIC_0_sda_t(EEPROM_IIC_0_sda_t)
   );
 
 endmodule

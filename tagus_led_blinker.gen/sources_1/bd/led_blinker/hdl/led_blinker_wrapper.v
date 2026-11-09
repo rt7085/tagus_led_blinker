@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Mon Oct  5 20:28:48 2026
+//Date        : Sun Nov  8 19:49:11 2026
 //Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
 //Command     : generate_target led_blinker_wrapper.bd
 //Design      : led_blinker_wrapper
@@ -11,7 +11,9 @@
 `timescale 1 ps / 1 ps
 
 module led_blinker_wrapper
-   (clk,
+   (EEPROM_IIC_0_scl_io,
+    EEPROM_IIC_0_sda_io,
+    clk,
     ddr3_sdram_addr,
     ddr3_sdram_ba,
     ddr3_sdram_cas_n,
@@ -38,6 +40,8 @@ module led_blinker_wrapper
     rgb_led_tri_o,
     usb_uart_rxd,
     usb_uart_txd);
+  inout EEPROM_IIC_0_scl_io;
+  inout EEPROM_IIC_0_sda_io;
   input clk;
   output [13:0]ddr3_sdram_addr;
   output [2:0]ddr3_sdram_ba;
@@ -66,6 +70,14 @@ module led_blinker_wrapper
   input usb_uart_rxd;
   output usb_uart_txd;
 
+  wire EEPROM_IIC_0_scl_i;
+  wire EEPROM_IIC_0_scl_io;
+  wire EEPROM_IIC_0_scl_o;
+  wire EEPROM_IIC_0_scl_t;
+  wire EEPROM_IIC_0_sda_i;
+  wire EEPROM_IIC_0_sda_io;
+  wire EEPROM_IIC_0_sda_o;
+  wire EEPROM_IIC_0_sda_t;
   wire clk;
   wire [13:0]ddr3_sdram_addr;
   wire [2:0]ddr3_sdram_ba;
@@ -94,8 +106,24 @@ module led_blinker_wrapper
   wire usb_uart_rxd;
   wire usb_uart_txd;
 
+  IOBUF EEPROM_IIC_0_scl_iobuf
+       (.I(EEPROM_IIC_0_scl_o),
+        .IO(EEPROM_IIC_0_scl_io),
+        .O(EEPROM_IIC_0_scl_i),
+        .T(EEPROM_IIC_0_scl_t));
+  IOBUF EEPROM_IIC_0_sda_iobuf
+       (.I(EEPROM_IIC_0_sda_o),
+        .IO(EEPROM_IIC_0_sda_io),
+        .O(EEPROM_IIC_0_sda_i),
+        .T(EEPROM_IIC_0_sda_t));
   led_blinker led_blinker_i
-       (.clk(clk),
+       (.EEPROM_IIC_0_scl_i(EEPROM_IIC_0_scl_i),
+        .EEPROM_IIC_0_scl_o(EEPROM_IIC_0_scl_o),
+        .EEPROM_IIC_0_scl_t(EEPROM_IIC_0_scl_t),
+        .EEPROM_IIC_0_sda_i(EEPROM_IIC_0_sda_i),
+        .EEPROM_IIC_0_sda_o(EEPROM_IIC_0_sda_o),
+        .EEPROM_IIC_0_sda_t(EEPROM_IIC_0_sda_t),
+        .clk(clk),
         .ddr3_sdram_addr(ddr3_sdram_addr),
         .ddr3_sdram_ba(ddr3_sdram_ba),
         .ddr3_sdram_cas_n(ddr3_sdram_cas_n),

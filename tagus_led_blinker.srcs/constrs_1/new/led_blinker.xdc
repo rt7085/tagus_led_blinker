@@ -28,10 +28,6 @@ set_property BITSTREAM.CONFIG.CONFIGRATE 66 [current_design]
 set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
 set_property BITSTREAM.CONFIG.SPI_BUSWIDTH 4 [current_design]
 
-set_property OFFCHIP_TERM NONE [get_ports usb_uart_txd]
-set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[2]]
-set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[1]]
-set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[0]]
 
 
 ## Clock timing Constraints
@@ -101,3 +97,16 @@ set_false_path -to [get_ports ddr3_sdram_reset_n]
 #GPIO asynchronous contraints
 set_output_delay -clock [get_clocks clk] -min 0.000 [get_ports {rgb_led_tri_o[*]}]
 set_output_delay -clock [get_clocks clk] -max 2.000 [get_ports {rgb_led_tri_o[*]}]
+
+set_property OFFCHIP_TERM NONE [get_ports EEPROM_IIC_0_scl_io]
+set_property OFFCHIP_TERM NONE [get_ports EEPROM_IIC_0_sda_io]
+set_property OFFCHIP_TERM NONE [get_ports usb_uart_txd]
+set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[2]]
+set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[1]]
+set_property OFFCHIP_TERM NONE [get_ports rgb_led_tri_o[0]]
+set_property PACKAGE_PIN AB20 [get_ports EEPROM_IIC_0_scl_io]
+set_property PACKAGE_PIN V17 [get_ports EEPROM_IIC_0_sda_io]
+set_property IOSTANDARD LVCMOS33 [get_ports EEPROM_IIC_0_scl_io]
+set_property IOSTANDARD LVCMOS33 [get_ports EEPROM_IIC_0_sda_io]
+set_property DRIVE 12 [get_ports EEPROM_IIC_0_sda_io]
+set_property SLEW SLOW [get_ports EEPROM_IIC_0_scl_io]

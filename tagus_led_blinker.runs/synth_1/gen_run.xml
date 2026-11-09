@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tfbg484-2" LaunchTime="1794170437" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/led_blinker_wrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a200tfbg484-2" LaunchTime="1794185877" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/led_blinker_wrapper.dcp">
   <File Type="VDS-TIMING-PB" Name="led_blinker_wrapper_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="led_blinker_wrapper_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="led_blinker_wrapper.dcp"/>
@@ -69,6 +69,7 @@
       </FileInfo>
     </File>
     <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/led_blinker.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
@@ -87,11 +88,11 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_iic_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_smc_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_dlmb_bram_if_cntlr_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_ilmb_bram_if_cntlr_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_rst_mig_7series_0_100M_2"/>

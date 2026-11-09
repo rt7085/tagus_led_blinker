@@ -63,8 +63,8 @@ os_config:
       default: axi_uartlite_0
       options:
       - None
-      - axi_uartlite_0
       - mdm_0
+      - axi_uartlite_0
       description: stdin peripheral
     standalone_stdout:
       name: standalone_stdout
@@ -74,8 +74,8 @@ os_config:
       default: axi_uartlite_0
       options:
       - None
-      - axi_uartlite_0
       - mdm_0
+      - axi_uartlite_0
       description: stdout peripheral
     standalone_ttc_select_cntr:
       name: standalone_ttc_select_cntr
@@ -160,6 +160,10 @@ drv_info:
     driver: gpio
     ip_name: axi_gpio
     path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/gpio_v4_12
+  axi_iic_0:
+    driver: iic
+    ip_name: axi_iic
+    path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/iic_v3_14
   axi_intc_0:
     driver: intc
     ip_name: axi_intc

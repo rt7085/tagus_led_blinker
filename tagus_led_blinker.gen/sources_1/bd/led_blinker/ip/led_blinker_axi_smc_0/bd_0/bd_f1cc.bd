@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x15E9CF0A2752DD49",
+      "boundary_crc": "0x15A26FB962CFFCE8",
       "design_src": "SBD",
       "device": "xc7a200tfbg484-2",
       "name": "bd_f1cc",
@@ -164,6 +164,17 @@
       },
       "m06_exit_pipeline": {
         "m06_exit": ""
+      },
+      "m07_sc2axi": "",
+      "m07_nodes": {
+        "m07_ar_node": "",
+        "m07_r_node": "",
+        "m07_aw_node": "",
+        "m07_w_node": "",
+        "m07_b_node": ""
+      },
+      "m07_exit_pipeline": {
+        "m07_exit": ""
       }
     },
     "interface_ports": {
@@ -834,7 +845,7 @@
           },
           "MAX_BURST_LENGTH": {
             "value": "1",
-            "value_src": "default"
+            "value_src": "default_prop"
           },
           "NUM_READ_OUTSTANDING": {
             "value": "1"
@@ -1811,6 +1822,136 @@
             "value_src": "default"
           }
         }
+      },
+      "M07_AXI": {
+        "mode": "Master",
+        "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+        "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+        "parameters": {
+          "ADDR_WIDTH": {
+            "value": "9",
+            "value_src": "ip_prop"
+          },
+          "ARUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "AWUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "BUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "/clk_wiz_clk_out1",
+            "value_src": "ip_prop"
+          },
+          "DATA_WIDTH": {
+            "value": "32",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "ip_prop"
+          },
+          "HAS_BRESP": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "HAS_BURST": {
+            "value": "0",
+            "value_src": "ip"
+          },
+          "HAS_CACHE": {
+            "value": "0",
+            "value_src": "ip"
+          },
+          "HAS_LOCK": {
+            "value": "0",
+            "value_src": "ip"
+          },
+          "HAS_PROT": {
+            "value": "1",
+            "value_src": "default_prop"
+          },
+          "HAS_QOS": {
+            "value": "0",
+            "value_src": "ip"
+          },
+          "HAS_REGION": {
+            "value": "0",
+            "value_src": "constant"
+          },
+          "HAS_RRESP": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "HAS_WSTRB": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "ID_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "MAX_BURST_LENGTH": {
+            "value": "1"
+          },
+          "NUM_READ_OUTSTANDING": {
+            "value": "32"
+          },
+          "NUM_READ_THREADS": {
+            "value": "1"
+          },
+          "NUM_WRITE_OUTSTANDING": {
+            "value": "32"
+          },
+          "NUM_WRITE_THREADS": {
+            "value": "1"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "ip_prop"
+          },
+          "PROTOCOL": {
+            "value": "AXI4LITE",
+            "value_src": "ip"
+          },
+          "READ_WRITE_MODE": {
+            "value": "READ_WRITE",
+            "value_src": "default"
+          },
+          "RUSER_BITS_PER_BYTE": {
+            "value": "0"
+          },
+          "RUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "SUPPORTS_NARROW_BURST": {
+            "value": "0"
+          },
+          "WUSER_BITS_PER_BYTE": {
+            "value": "0"
+          },
+          "WUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          }
+        },
+        "memory_map_ref": "M07_AXI",
+        "hdl_attributes": {
+          "LOCKED": {
+            "value": "FALSE",
+            "value_src": "default"
+          }
+        }
       }
     },
     "ports": {
@@ -1819,7 +1960,7 @@
         "direction": "I",
         "parameters": {
           "ASSOCIATED_BUSIF": {
-            "value": "M00_AXI:M01_AXI:M02_AXI:M03_AXI:M05_AXI:M06_AXI:S00_AXI:S01_AXI:S02_AXI"
+            "value": "M00_AXI:M01_AXI:M02_AXI:M03_AXI:M05_AXI:M06_AXI:M07_AXI:S00_AXI:S01_AXI:S02_AXI"
           },
           "ASSOCIATED_CLKEN": {
             "value": "m_sc_aclken",
@@ -2050,6 +2191,16 @@
             "left": "0",
             "right": "0"
           },
+          "M07_ACLK": {
+            "type": "clk",
+            "direction": "O"
+          },
+          "M07_ARESETN": {
+            "type": "rst",
+            "direction": "O",
+            "left": "0",
+            "right": "0"
+          },
           "swbd_aclk": {
             "type": "clk",
             "direction": "O"
@@ -2179,6 +2330,7 @@
               "M03_ACLK",
               "M05_ACLK",
               "M06_ACLK",
+              "M07_ACLK",
               "swbd_aclk",
               "psr_aclk/slowest_sync_clk"
             ]
@@ -2231,6 +2383,7 @@
               "M03_ARESETN",
               "M05_ARESETN",
               "M06_ARESETN",
+              "M07_ARESETN",
               "swbd_aresetn"
             ]
           }
@@ -2370,6 +2523,17 @@
               }
             }
           },
+          "M07_SC_AR": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
           "S00_SC_R": {
             "mode": "Slave",
             "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
@@ -2437,6 +2601,17 @@
             }
           },
           "S06_SC_R": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "S07_SC_R": {
             "mode": "Slave",
             "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
             "vlnv": "xilinx.com:interface:sc_rtl:1.0",
@@ -2634,6 +2809,17 @@
               }
             }
           },
+          "M07_SC_AW": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
           "S00_SC_W": {
             "mode": "Slave",
             "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
@@ -2766,6 +2952,17 @@
               }
             }
           },
+          "M07_SC_W": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
           "S00_SC_B": {
             "mode": "Slave",
             "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
@@ -2833,6 +3030,17 @@
             }
           },
           "S06_SC_B": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "S07_SC_B": {
             "mode": "Slave",
             "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
             "vlnv": "xilinx.com:interface:sc_rtl:1.0",
@@ -3023,17 +3231,32 @@
               "M06_S04_CONNECTIVITY": {
                 "value": "1"
               },
+              "M07_S00_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S01_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S02_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S03_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S04_CONNECTIVITY": {
+                "value": "1"
+              },
               "M_PIPELINES": {
                 "value": "1"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_SI": {
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S_LATENCY": {
                 "value": "0"
@@ -3046,7 +3269,7 @@
               "S00_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -3063,7 +3286,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M00_SC": {
@@ -3077,7 +3301,7 @@
               "S01_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -3094,7 +3318,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M01_SC": {
@@ -3108,7 +3333,7 @@
               "S02_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -3125,7 +3350,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M02_SC": {
@@ -3139,7 +3365,7 @@
               "S03_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -3156,7 +3382,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M03_SC": {
@@ -3170,7 +3397,7 @@
               "S04_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -3187,7 +3414,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M04_SC": {
@@ -3207,6 +3435,14 @@
                 }
               },
               "M06_SC": {
+                "bd_attributes": {
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                }
+              },
+              "M07_SC": {
                 "bd_attributes": {
                   "TYPE": {
                     "value": "interior",
@@ -3245,6 +3481,9 @@
               "M00_S06_CONNECTIVITY": {
                 "value": "1"
               },
+              "M00_S07_CONNECTIVITY": {
+                "value": "1"
+              },
               "M01_S00_CONNECTIVITY": {
                 "value": "1"
               },
@@ -3264,6 +3503,9 @@
                 "value": "1"
               },
               "M01_S06_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M01_S07_CONNECTIVITY": {
                 "value": "1"
               },
               "M02_S00_CONNECTIVITY": {
@@ -3287,6 +3529,9 @@
               "M02_S06_CONNECTIVITY": {
                 "value": "1"
               },
+              "M02_S07_CONNECTIVITY": {
+                "value": "1"
+              },
               "M03_S00_CONNECTIVITY": {
                 "value": "1"
               },
@@ -3306,6 +3551,9 @@
                 "value": "1"
               },
               "M03_S06_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M03_S07_CONNECTIVITY": {
                 "value": "1"
               },
               "M04_S00_CONNECTIVITY": {
@@ -3329,6 +3577,9 @@
               "M04_S06_CONNECTIVITY": {
                 "value": "1"
               },
+              "M04_S07_CONNECTIVITY": {
+                "value": "1"
+              },
               "M_PIPELINES": {
                 "value": "1"
               },
@@ -3336,7 +3587,7 @@
                 "value": "5"
               },
               "NUM_SI": {
-                "value": "7"
+                "value": "8"
               },
               "PAYLD_WIDTH": {
                 "value": "154"
@@ -3535,6 +3786,27 @@
                   "M03_SC",
                   "M04_SC"
                 ]
+              },
+              "S07_SC": {
+                "bd_attributes": {
+                  "BRIDGES": {
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC",
+                    "value_src": "auto"
+                  },
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                },
+                "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+                "mode": "Slave",
+                "bridges": [
+                  "M00_SC",
+                  "M01_SC",
+                  "M02_SC",
+                  "M03_SC",
+                  "M04_SC"
+                ]
               }
             }
           },
@@ -3651,17 +3923,32 @@
               "M06_S04_CONNECTIVITY": {
                 "value": "1"
               },
+              "M07_S00_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S01_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S02_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S03_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S04_CONNECTIVITY": {
+                "value": "1"
+              },
               "M_PIPELINES": {
                 "value": "1"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_SI": {
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S_LATENCY": {
                 "value": "0"
@@ -3674,7 +3961,7 @@
               "S00_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -3691,7 +3978,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M00_SC": {
@@ -3705,7 +3993,7 @@
               "S01_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -3722,7 +4010,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M01_SC": {
@@ -3736,7 +4025,7 @@
               "S02_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -3753,7 +4042,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M02_SC": {
@@ -3767,7 +4057,7 @@
               "S03_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -3784,7 +4074,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M03_SC": {
@@ -3798,7 +4089,7 @@
               "S04_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -3815,7 +4106,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M04_SC": {
@@ -3835,6 +4127,14 @@
                 }
               },
               "M06_SC": {
+                "bd_attributes": {
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                }
+              },
+              "M07_SC": {
                 "bd_attributes": {
                   "TYPE": {
                     "value": "interior",
@@ -3957,17 +4257,32 @@
               "M06_S04_CONNECTIVITY": {
                 "value": "1"
               },
+              "M07_S00_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S01_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S02_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S03_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M07_S04_CONNECTIVITY": {
+                "value": "1"
+              },
               "M_PIPELINES": {
                 "value": "1"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_SI": {
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S_LATENCY": {
                 "value": "0"
@@ -3980,7 +4295,7 @@
               "S00_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -3997,7 +4312,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M00_SC": {
@@ -4011,7 +4327,7 @@
               "S01_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -4028,7 +4344,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M01_SC": {
@@ -4042,7 +4359,7 @@
               "S02_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -4059,7 +4376,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M02_SC": {
@@ -4073,7 +4391,7 @@
               "S03_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -4090,7 +4408,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M03_SC": {
@@ -4104,7 +4423,7 @@
               "S04_SC": {
                 "bd_attributes": {
                   "BRIDGES": {
-                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC",
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC",
                     "value_src": "auto"
                   },
                   "TYPE": {
@@ -4121,7 +4440,8 @@
                   "M03_SC",
                   "M04_SC",
                   "M05_SC",
-                  "M06_SC"
+                  "M06_SC",
+                  "M07_SC"
                 ]
               },
               "M04_SC": {
@@ -4141,6 +4461,14 @@
                 }
               },
               "M06_SC": {
+                "bd_attributes": {
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                }
+              },
+              "M07_SC": {
                 "bd_attributes": {
                   "TYPE": {
                     "value": "interior",
@@ -4179,6 +4507,9 @@
               "M00_S06_CONNECTIVITY": {
                 "value": "1"
               },
+              "M00_S07_CONNECTIVITY": {
+                "value": "1"
+              },
               "M01_S00_CONNECTIVITY": {
                 "value": "1"
               },
@@ -4198,6 +4529,9 @@
                 "value": "1"
               },
               "M01_S06_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M01_S07_CONNECTIVITY": {
                 "value": "1"
               },
               "M02_S00_CONNECTIVITY": {
@@ -4221,6 +4555,9 @@
               "M02_S06_CONNECTIVITY": {
                 "value": "1"
               },
+              "M02_S07_CONNECTIVITY": {
+                "value": "1"
+              },
               "M03_S00_CONNECTIVITY": {
                 "value": "1"
               },
@@ -4240,6 +4577,9 @@
                 "value": "1"
               },
               "M03_S06_CONNECTIVITY": {
+                "value": "1"
+              },
+              "M03_S07_CONNECTIVITY": {
                 "value": "1"
               },
               "M04_S00_CONNECTIVITY": {
@@ -4263,6 +4603,9 @@
               "M04_S06_CONNECTIVITY": {
                 "value": "1"
               },
+              "M04_S07_CONNECTIVITY": {
+                "value": "1"
+              },
               "M_PIPELINES": {
                 "value": "1"
               },
@@ -4270,7 +4613,7 @@
                 "value": "5"
               },
               "NUM_SI": {
-                "value": "7"
+                "value": "8"
               },
               "PAYLD_WIDTH": {
                 "value": "12"
@@ -4469,6 +4812,27 @@
                   "M03_SC",
                   "M04_SC"
                 ]
+              },
+              "S07_SC": {
+                "bd_attributes": {
+                  "BRIDGES": {
+                    "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC",
+                    "value_src": "auto"
+                  },
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                },
+                "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+                "mode": "Slave",
+                "bridges": [
+                  "M00_SC",
+                  "M01_SC",
+                  "M02_SC",
+                  "M03_SC",
+                  "M04_SC"
+                ]
               }
             }
           }
@@ -4648,6 +5012,18 @@
               "r_switchboard/S06_SC"
             ]
           },
+          "S07_SC_B_1": {
+            "interface_ports": [
+              "S07_SC_B",
+              "b_switchboard/S07_SC"
+            ]
+          },
+          "S07_SC_R_1": {
+            "interface_ports": [
+              "S07_SC_R",
+              "r_switchboard/S07_SC"
+            ]
+          },
           "ar_switchboard_M00_SC": {
             "interface_ports": [
               "M00_SC_AR",
@@ -4690,6 +5066,12 @@
               "ar_switchboard/M06_SC"
             ]
           },
+          "ar_switchboard_M07_SC": {
+            "interface_ports": [
+              "M07_SC_AR",
+              "ar_switchboard/M07_SC"
+            ]
+          },
           "aw_switchboard_M00_SC": {
             "interface_ports": [
               "M00_SC_AW",
@@ -4730,6 +5112,12 @@
             "interface_ports": [
               "M06_SC_AW",
               "aw_switchboard/M06_SC"
+            ]
+          },
+          "aw_switchboard_M07_SC": {
+            "interface_ports": [
+              "M07_SC_AW",
+              "aw_switchboard/M07_SC"
             ]
           },
           "b_switchboard_M00_SC": {
@@ -4833,6 +5221,12 @@
               "M06_SC_W",
               "w_switchboard/M06_SC"
             ]
+          },
+          "w_switchboard_M07_SC": {
+            "interface_ports": [
+              "M07_SC_W",
+              "w_switchboard/M07_SC"
+            ]
           }
         },
         "nets": {
@@ -4899,37 +5293,40 @@
                 "value": "0"
               },
               "MSC000_ROUTE": {
-                "value": "0b0000001"
+                "value": "0b00000001"
               },
               "MSC001_ROUTE": {
-                "value": "0b0000010"
+                "value": "0b00000010"
               },
               "MSC002_ROUTE": {
-                "value": "0b0000100"
+                "value": "0b00000100"
               },
               "MSC003_ROUTE": {
-                "value": "0b0001000"
+                "value": "0b00001000"
               },
               "MSC004_ROUTE": {
-                "value": "0b0010000"
+                "value": "0b00010000"
               },
               "MSC005_ROUTE": {
-                "value": "0b0100000"
+                "value": "0b00100000"
               },
               "MSC006_ROUTE": {
-                "value": "0b1000000"
+                "value": "0b01000000"
+              },
+              "MSC007_ROUTE": {
+                "value": "0b10000000"
               },
               "MSC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "1"
               },
               "NUM_SEG": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "1"
@@ -4983,7 +5380,7 @@
                 "value": "1"
               },
               "SEG002_BASE_ADDR": {
-                "value": "0x0000000041200000"
+                "value": "0x0000000040800000"
               },
               "SEG002_SECURE_READ": {
                 "value": "0"
@@ -4992,7 +5389,7 @@
                 "value": "0"
               },
               "SEG002_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000101"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000111"
               },
               "SEG002_SIZE": {
                 "value": "16"
@@ -5004,7 +5401,7 @@
                 "value": "1"
               },
               "SEG003_BASE_ADDR": {
-                "value": "0x0000000041400000"
+                "value": "0x0000000041200000"
               },
               "SEG003_SECURE_READ": {
                 "value": "0"
@@ -5013,10 +5410,10 @@
                 "value": "0"
               },
               "SEG003_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000101"
               },
               "SEG003_SIZE": {
-                "value": "12"
+                "value": "16"
               },
               "SEG003_SUPPORTS_READ": {
                 "value": "1"
@@ -5025,7 +5422,7 @@
                 "value": "1"
               },
               "SEG004_BASE_ADDR": {
-                "value": "0x0000000041C00000"
+                "value": "0x0000000041400000"
               },
               "SEG004_SECURE_READ": {
                 "value": "0"
@@ -5034,10 +5431,10 @@
                 "value": "0"
               },
               "SEG004_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000110"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
               },
               "SEG004_SIZE": {
-                "value": "16"
+                "value": "12"
               },
               "SEG004_SUPPORTS_READ": {
                 "value": "1"
@@ -5046,7 +5443,7 @@
                 "value": "1"
               },
               "SEG005_BASE_ADDR": {
-                "value": "0x0000000080000000"
+                "value": "0x0000000041C00000"
               },
               "SEG005_SECURE_READ": {
                 "value": "0"
@@ -5055,10 +5452,10 @@
                 "value": "0"
               },
               "SEG005_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000100"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000110"
               },
               "SEG005_SIZE": {
-                "value": "28"
+                "value": "16"
               },
               "SEG005_SUPPORTS_READ": {
                 "value": "1"
@@ -5067,7 +5464,7 @@
                 "value": "1"
               },
               "SEG006_BASE_ADDR": {
-                "value": "0x00000000C0000000"
+                "value": "0x0000000080000000"
               },
               "SEG006_SECURE_READ": {
                 "value": "0"
@@ -5076,15 +5473,36 @@
                 "value": "0"
               },
               "SEG006_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000011"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000100"
               },
               "SEG006_SIZE": {
-                "value": "13"
+                "value": "28"
               },
               "SEG006_SUPPORTS_READ": {
                 "value": "1"
               },
               "SEG006_SUPPORTS_WRITE": {
+                "value": "1"
+              },
+              "SEG007_BASE_ADDR": {
+                "value": "0x00000000C0000000"
+              },
+              "SEG007_SECURE_READ": {
+                "value": "0"
+              },
+              "SEG007_SECURE_WRITE": {
+                "value": "0"
+              },
+              "SEG007_SEP_ROUTE": {
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000011"
+              },
+              "SEG007_SIZE": {
+                "value": "13"
+              },
+              "SEG007_SUPPORTS_READ": {
+                "value": "1"
+              },
+              "SEG007_SUPPORTS_WRITE": {
                 "value": "1"
               },
               "SUPPORTS_NARROW": {
@@ -5278,8 +5696,14 @@
               "MSC006_WDATA_WIDTH": {
                 "value": "32"
               },
+              "MSC007_RDATA_WIDTH": {
+                "value": "32"
+              },
+              "MSC007_WDATA_WIDTH": {
+                "value": "32"
+              },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "1"
@@ -5288,7 +5712,7 @@
                 "value": "1"
               },
               "NUM_SEG": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "1"
@@ -5348,21 +5772,30 @@
                 "value": "32"
               },
               "SEP005_PROTOCOL": {
-                "value": "AXI4"
+                "value": "AXI4LITE"
               },
               "SEP005_RDATA_WIDTH": {
-                "value": "128"
+                "value": "32"
               },
               "SEP005_WDATA_WIDTH": {
-                "value": "128"
+                "value": "32"
               },
               "SEP006_PROTOCOL": {
                 "value": "AXI4"
               },
               "SEP006_RDATA_WIDTH": {
-                "value": "32"
+                "value": "128"
               },
               "SEP006_WDATA_WIDTH": {
+                "value": "128"
+              },
+              "SEP007_PROTOCOL": {
+                "value": "AXI4"
+              },
+              "SEP007_RDATA_WIDTH": {
+                "value": "32"
+              },
+              "SEP007_WDATA_WIDTH": {
                 "value": "32"
               },
               "SPLIT_WRAP_NARROW": {
@@ -5476,7 +5909,7 @@
             "value": "32"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_WRITE"
@@ -5783,7 +6216,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "1"
@@ -5792,7 +6225,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -5843,7 +6276,7 @@
                 "value": "4"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_WIDTH": {
                 "value": "0"
@@ -5961,7 +6394,7 @@
                 "value": "1"
               },
               "NUM_SI": {
-                "value": "7"
+                "value": "8"
               },
               "PAYLD_WIDTH": {
                 "value": "154"
@@ -6130,7 +6563,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "1"
@@ -6139,7 +6572,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -6190,7 +6623,7 @@
                 "value": "4"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_WIDTH": {
                 "value": "0"
@@ -6302,7 +6735,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "1"
@@ -6311,7 +6744,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -6362,7 +6795,7 @@
                 "value": "4"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_BITS_PER_BYTE": {
                 "value": "0"
@@ -6480,7 +6913,7 @@
                 "value": "1"
               },
               "NUM_SI": {
-                "value": "7"
+                "value": "8"
               },
               "PAYLD_WIDTH": {
                 "value": "12"
@@ -6731,37 +7164,40 @@
                 "value": "0"
               },
               "MSC000_ROUTE": {
-                "value": "0b0000001"
+                "value": "0b00000001"
               },
               "MSC001_ROUTE": {
-                "value": "0b0000010"
+                "value": "0b00000010"
               },
               "MSC002_ROUTE": {
-                "value": "0b0000100"
+                "value": "0b00000100"
               },
               "MSC003_ROUTE": {
-                "value": "0b0001000"
+                "value": "0b00001000"
               },
               "MSC004_ROUTE": {
-                "value": "0b0010000"
+                "value": "0b00010000"
               },
               "MSC005_ROUTE": {
-                "value": "0b0100000"
+                "value": "0b00100000"
               },
               "MSC006_ROUTE": {
-                "value": "0b1000000"
+                "value": "0b01000000"
+              },
+              "MSC007_ROUTE": {
+                "value": "0b10000000"
               },
               "MSC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "2"
               },
               "NUM_SEG": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "32"
@@ -6815,7 +7251,7 @@
                 "value": "1"
               },
               "SEG002_BASE_ADDR": {
-                "value": "0x0000000041200000"
+                "value": "0x0000000040800000"
               },
               "SEG002_SECURE_READ": {
                 "value": "0"
@@ -6824,7 +7260,7 @@
                 "value": "0"
               },
               "SEG002_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000101"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000111"
               },
               "SEG002_SIZE": {
                 "value": "16"
@@ -6836,7 +7272,7 @@
                 "value": "1"
               },
               "SEG003_BASE_ADDR": {
-                "value": "0x0000000041400000"
+                "value": "0x0000000041200000"
               },
               "SEG003_SECURE_READ": {
                 "value": "0"
@@ -6845,10 +7281,10 @@
                 "value": "0"
               },
               "SEG003_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000101"
               },
               "SEG003_SIZE": {
-                "value": "12"
+                "value": "16"
               },
               "SEG003_SUPPORTS_READ": {
                 "value": "1"
@@ -6857,7 +7293,7 @@
                 "value": "1"
               },
               "SEG004_BASE_ADDR": {
-                "value": "0x0000000041C00000"
+                "value": "0x0000000041400000"
               },
               "SEG004_SECURE_READ": {
                 "value": "0"
@@ -6866,10 +7302,10 @@
                 "value": "0"
               },
               "SEG004_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000110"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
               },
               "SEG004_SIZE": {
-                "value": "16"
+                "value": "12"
               },
               "SEG004_SUPPORTS_READ": {
                 "value": "1"
@@ -6878,7 +7314,7 @@
                 "value": "1"
               },
               "SEG005_BASE_ADDR": {
-                "value": "0x0000000080000000"
+                "value": "0x0000000041C00000"
               },
               "SEG005_SECURE_READ": {
                 "value": "0"
@@ -6887,10 +7323,10 @@
                 "value": "0"
               },
               "SEG005_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000100"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000110"
               },
               "SEG005_SIZE": {
-                "value": "28"
+                "value": "16"
               },
               "SEG005_SUPPORTS_READ": {
                 "value": "1"
@@ -6899,7 +7335,7 @@
                 "value": "1"
               },
               "SEG006_BASE_ADDR": {
-                "value": "0x00000000C0000000"
+                "value": "0x0000000080000000"
               },
               "SEG006_SECURE_READ": {
                 "value": "0"
@@ -6908,15 +7344,36 @@
                 "value": "0"
               },
               "SEG006_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000011"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000100"
               },
               "SEG006_SIZE": {
-                "value": "13"
+                "value": "28"
               },
               "SEG006_SUPPORTS_READ": {
                 "value": "1"
               },
               "SEG006_SUPPORTS_WRITE": {
+                "value": "1"
+              },
+              "SEG007_BASE_ADDR": {
+                "value": "0x00000000C0000000"
+              },
+              "SEG007_SECURE_READ": {
+                "value": "0"
+              },
+              "SEG007_SECURE_WRITE": {
+                "value": "0"
+              },
+              "SEG007_SEP_ROUTE": {
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000011"
+              },
+              "SEG007_SIZE": {
+                "value": "13"
+              },
+              "SEG007_SUPPORTS_READ": {
+                "value": "1"
+              },
+              "SEG007_SUPPORTS_WRITE": {
                 "value": "1"
               },
               "SUPPORTS_NARROW": {
@@ -7125,8 +7582,14 @@
               "MSC006_WDATA_WIDTH": {
                 "value": "32"
               },
+              "MSC007_RDATA_WIDTH": {
+                "value": "32"
+              },
+              "MSC007_WDATA_WIDTH": {
+                "value": "32"
+              },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "2"
@@ -7135,7 +7598,7 @@
                 "value": "1"
               },
               "NUM_SEG": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "32"
@@ -7195,21 +7658,30 @@
                 "value": "32"
               },
               "SEP005_PROTOCOL": {
-                "value": "AXI4"
+                "value": "AXI4LITE"
               },
               "SEP005_RDATA_WIDTH": {
-                "value": "128"
+                "value": "32"
               },
               "SEP005_WDATA_WIDTH": {
-                "value": "128"
+                "value": "32"
               },
               "SEP006_PROTOCOL": {
                 "value": "AXI4"
               },
               "SEP006_RDATA_WIDTH": {
-                "value": "32"
+                "value": "128"
               },
               "SEP006_WDATA_WIDTH": {
+                "value": "128"
+              },
+              "SEP007_PROTOCOL": {
+                "value": "AXI4"
+              },
+              "SEP007_RDATA_WIDTH": {
+                "value": "32"
+              },
+              "SEP007_WDATA_WIDTH": {
                 "value": "32"
               },
               "SPLIT_WRAP_NARROW": {
@@ -7323,7 +7795,7 @@
             "value": "32"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_WRITE"
@@ -7630,7 +8102,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "2"
@@ -7639,7 +8111,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -7690,7 +8162,7 @@
                 "value": "4"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_WIDTH": {
                 "value": "0"
@@ -7808,7 +8280,7 @@
                 "value": "2"
               },
               "NUM_SI": {
-                "value": "7"
+                "value": "8"
               },
               "PAYLD_WIDTH": {
                 "value": "154"
@@ -7977,7 +8449,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "32"
@@ -7986,7 +8458,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -8037,7 +8509,7 @@
                 "value": "4"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_WIDTH": {
                 "value": "0"
@@ -8149,7 +8621,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "32"
@@ -8158,7 +8630,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -8209,7 +8681,7 @@
                 "value": "4"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_BITS_PER_BYTE": {
                 "value": "0"
@@ -8327,7 +8799,7 @@
                 "value": "32"
               },
               "NUM_SI": {
-                "value": "7"
+                "value": "8"
               },
               "PAYLD_WIDTH": {
                 "value": "12"
@@ -8578,37 +9050,40 @@
                 "value": "0"
               },
               "MSC000_ROUTE": {
-                "value": "0b0000001"
+                "value": "0b00000001"
               },
               "MSC001_ROUTE": {
-                "value": "0b0000010"
+                "value": "0b00000010"
               },
               "MSC002_ROUTE": {
-                "value": "0b0000100"
+                "value": "0b00000100"
               },
               "MSC003_ROUTE": {
-                "value": "0b0001000"
+                "value": "0b00001000"
               },
               "MSC004_ROUTE": {
-                "value": "0b0010000"
+                "value": "0b00010000"
               },
               "MSC005_ROUTE": {
-                "value": "0b0100000"
+                "value": "0b00100000"
               },
               "MSC006_ROUTE": {
-                "value": "0b1000000"
+                "value": "0b01000000"
+              },
+              "MSC007_ROUTE": {
+                "value": "0b10000000"
               },
               "MSC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "2"
               },
               "NUM_SEG": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "2"
@@ -8662,7 +9137,7 @@
                 "value": "1"
               },
               "SEG002_BASE_ADDR": {
-                "value": "0x0000000041200000"
+                "value": "0x0000000040800000"
               },
               "SEG002_SECURE_READ": {
                 "value": "0"
@@ -8671,7 +9146,7 @@
                 "value": "0"
               },
               "SEG002_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000101"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000111"
               },
               "SEG002_SIZE": {
                 "value": "16"
@@ -8683,7 +9158,7 @@
                 "value": "1"
               },
               "SEG003_BASE_ADDR": {
-                "value": "0x0000000041400000"
+                "value": "0x0000000041200000"
               },
               "SEG003_SECURE_READ": {
                 "value": "0"
@@ -8692,10 +9167,10 @@
                 "value": "0"
               },
               "SEG003_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000101"
               },
               "SEG003_SIZE": {
-                "value": "12"
+                "value": "16"
               },
               "SEG003_SUPPORTS_READ": {
                 "value": "1"
@@ -8704,7 +9179,7 @@
                 "value": "1"
               },
               "SEG004_BASE_ADDR": {
-                "value": "0x0000000041C00000"
+                "value": "0x0000000041400000"
               },
               "SEG004_SECURE_READ": {
                 "value": "0"
@@ -8713,10 +9188,10 @@
                 "value": "0"
               },
               "SEG004_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000110"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
               },
               "SEG004_SIZE": {
-                "value": "16"
+                "value": "12"
               },
               "SEG004_SUPPORTS_READ": {
                 "value": "1"
@@ -8725,7 +9200,7 @@
                 "value": "1"
               },
               "SEG005_BASE_ADDR": {
-                "value": "0x0000000080000000"
+                "value": "0x0000000041C00000"
               },
               "SEG005_SECURE_READ": {
                 "value": "0"
@@ -8734,10 +9209,10 @@
                 "value": "0"
               },
               "SEG005_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000100"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000110"
               },
               "SEG005_SIZE": {
-                "value": "28"
+                "value": "16"
               },
               "SEG005_SUPPORTS_READ": {
                 "value": "1"
@@ -8746,7 +9221,7 @@
                 "value": "1"
               },
               "SEG006_BASE_ADDR": {
-                "value": "0x00000000C0000000"
+                "value": "0x0000000080000000"
               },
               "SEG006_SECURE_READ": {
                 "value": "0"
@@ -8755,15 +9230,36 @@
                 "value": "0"
               },
               "SEG006_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000011"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000100"
               },
               "SEG006_SIZE": {
-                "value": "13"
+                "value": "28"
               },
               "SEG006_SUPPORTS_READ": {
                 "value": "1"
               },
               "SEG006_SUPPORTS_WRITE": {
+                "value": "1"
+              },
+              "SEG007_BASE_ADDR": {
+                "value": "0x00000000C0000000"
+              },
+              "SEG007_SECURE_READ": {
+                "value": "0"
+              },
+              "SEG007_SECURE_WRITE": {
+                "value": "0"
+              },
+              "SEG007_SEP_ROUTE": {
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000011"
+              },
+              "SEG007_SIZE": {
+                "value": "13"
+              },
+              "SEG007_SUPPORTS_READ": {
+                "value": "1"
+              },
+              "SEG007_SUPPORTS_WRITE": {
                 "value": "1"
               },
               "SUPPORTS_NARROW": {
@@ -8966,8 +9462,14 @@
               "MSC006_WDATA_WIDTH": {
                 "value": "32"
               },
+              "MSC007_RDATA_WIDTH": {
+                "value": "32"
+              },
+              "MSC007_WDATA_WIDTH": {
+                "value": "32"
+              },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "2"
@@ -8976,7 +9478,7 @@
                 "value": "1"
               },
               "NUM_SEG": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "2"
@@ -9036,21 +9538,30 @@
                 "value": "32"
               },
               "SEP005_PROTOCOL": {
-                "value": "AXI4"
+                "value": "AXI4LITE"
               },
               "SEP005_RDATA_WIDTH": {
-                "value": "128"
+                "value": "32"
               },
               "SEP005_WDATA_WIDTH": {
-                "value": "128"
+                "value": "32"
               },
               "SEP006_PROTOCOL": {
                 "value": "AXI4"
               },
               "SEP006_RDATA_WIDTH": {
-                "value": "32"
+                "value": "128"
               },
               "SEP006_WDATA_WIDTH": {
+                "value": "128"
+              },
+              "SEP007_PROTOCOL": {
+                "value": "AXI4"
+              },
+              "SEP007_RDATA_WIDTH": {
+                "value": "32"
+              },
+              "SEP007_WDATA_WIDTH": {
                 "value": "32"
               },
               "SPLIT_WRAP_NARROW": {
@@ -9164,7 +9675,7 @@
             "value": "32"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_ONLY"
@@ -9376,7 +9887,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "2"
@@ -9385,7 +9896,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -9436,7 +9947,7 @@
                 "value": "4"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_WIDTH": {
                 "value": "0"
@@ -9554,7 +10065,7 @@
                 "value": "2"
               },
               "NUM_SI": {
-                "value": "7"
+                "value": "8"
               },
               "PAYLD_WIDTH": {
                 "value": "154"
@@ -9757,37 +10268,40 @@
                 "value": "0"
               },
               "MSC000_ROUTE": {
-                "value": "0b0000001"
+                "value": "0b00000001"
               },
               "MSC001_ROUTE": {
-                "value": "0b0000010"
+                "value": "0b00000010"
               },
               "MSC002_ROUTE": {
-                "value": "0b0000100"
+                "value": "0b00000100"
               },
               "MSC003_ROUTE": {
-                "value": "0b0001000"
+                "value": "0b00001000"
               },
               "MSC004_ROUTE": {
-                "value": "0b0010000"
+                "value": "0b00010000"
               },
               "MSC005_ROUTE": {
-                "value": "0b0100000"
+                "value": "0b00100000"
               },
               "MSC006_ROUTE": {
-                "value": "0b1000000"
+                "value": "0b01000000"
+              },
+              "MSC007_ROUTE": {
+                "value": "0b10000000"
               },
               "MSC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "32"
               },
               "NUM_SEG": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "16"
@@ -9841,7 +10355,7 @@
                 "value": "1"
               },
               "SEG002_BASE_ADDR": {
-                "value": "0x0000000041200000"
+                "value": "0x0000000040800000"
               },
               "SEG002_SECURE_READ": {
                 "value": "0"
@@ -9850,7 +10364,7 @@
                 "value": "0"
               },
               "SEG002_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000101"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000111"
               },
               "SEG002_SIZE": {
                 "value": "16"
@@ -9862,7 +10376,7 @@
                 "value": "1"
               },
               "SEG003_BASE_ADDR": {
-                "value": "0x0000000041400000"
+                "value": "0x0000000041200000"
               },
               "SEG003_SECURE_READ": {
                 "value": "0"
@@ -9871,10 +10385,10 @@
                 "value": "0"
               },
               "SEG003_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000101"
               },
               "SEG003_SIZE": {
-                "value": "12"
+                "value": "16"
               },
               "SEG003_SUPPORTS_READ": {
                 "value": "1"
@@ -9883,7 +10397,7 @@
                 "value": "1"
               },
               "SEG004_BASE_ADDR": {
-                "value": "0x0000000041C00000"
+                "value": "0x0000000041400000"
               },
               "SEG004_SECURE_READ": {
                 "value": "0"
@@ -9892,10 +10406,10 @@
                 "value": "0"
               },
               "SEG004_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000110"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
               },
               "SEG004_SIZE": {
-                "value": "16"
+                "value": "12"
               },
               "SEG004_SUPPORTS_READ": {
                 "value": "1"
@@ -9904,7 +10418,7 @@
                 "value": "1"
               },
               "SEG005_BASE_ADDR": {
-                "value": "0x0000000080000000"
+                "value": "0x0000000041C00000"
               },
               "SEG005_SECURE_READ": {
                 "value": "0"
@@ -9913,10 +10427,10 @@
                 "value": "0"
               },
               "SEG005_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000100"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000110"
               },
               "SEG005_SIZE": {
-                "value": "28"
+                "value": "16"
               },
               "SEG005_SUPPORTS_READ": {
                 "value": "1"
@@ -9925,7 +10439,7 @@
                 "value": "1"
               },
               "SEG006_BASE_ADDR": {
-                "value": "0x00000000C0000000"
+                "value": "0x0000000080000000"
               },
               "SEG006_SECURE_READ": {
                 "value": "0"
@@ -9934,15 +10448,36 @@
                 "value": "0"
               },
               "SEG006_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000011"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000100"
               },
               "SEG006_SIZE": {
-                "value": "13"
+                "value": "28"
               },
               "SEG006_SUPPORTS_READ": {
                 "value": "1"
               },
               "SEG006_SUPPORTS_WRITE": {
+                "value": "1"
+              },
+              "SEG007_BASE_ADDR": {
+                "value": "0x00000000C0000000"
+              },
+              "SEG007_SECURE_READ": {
+                "value": "0"
+              },
+              "SEG007_SECURE_WRITE": {
+                "value": "0"
+              },
+              "SEG007_SEP_ROUTE": {
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000011"
+              },
+              "SEG007_SIZE": {
+                "value": "13"
+              },
+              "SEG007_SUPPORTS_READ": {
+                "value": "1"
+              },
+              "SEG007_SUPPORTS_WRITE": {
                 "value": "1"
               },
               "SUPPORTS_NARROW": {
@@ -10151,8 +10686,14 @@
               "MSC006_WDATA_WIDTH": {
                 "value": "32"
               },
+              "MSC007_RDATA_WIDTH": {
+                "value": "32"
+              },
+              "MSC007_WDATA_WIDTH": {
+                "value": "32"
+              },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "32"
@@ -10161,7 +10702,7 @@
                 "value": "2"
               },
               "NUM_SEG": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "16"
@@ -10221,21 +10762,30 @@
                 "value": "32"
               },
               "SEP005_PROTOCOL": {
-                "value": "AXI4"
+                "value": "AXI4LITE"
               },
               "SEP005_RDATA_WIDTH": {
-                "value": "128"
+                "value": "32"
               },
               "SEP005_WDATA_WIDTH": {
-                "value": "128"
+                "value": "32"
               },
               "SEP006_PROTOCOL": {
                 "value": "AXI4"
               },
               "SEP006_RDATA_WIDTH": {
-                "value": "32"
+                "value": "128"
               },
               "SEP006_WDATA_WIDTH": {
+                "value": "128"
+              },
+              "SEP007_PROTOCOL": {
+                "value": "AXI4"
+              },
+              "SEP007_RDATA_WIDTH": {
+                "value": "32"
+              },
+              "SEP007_WDATA_WIDTH": {
                 "value": "32"
               },
               "SPLIT_WRAP_NARROW": {
@@ -10349,7 +10899,7 @@
             "value": "64"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_WRITE"
@@ -10656,7 +11206,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "32"
@@ -10665,7 +11215,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "8"
@@ -10716,7 +11266,7 @@
                 "value": "8"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_WIDTH": {
                 "value": "0"
@@ -10834,7 +11384,7 @@
                 "value": "32"
               },
               "NUM_SI": {
-                "value": "7"
+                "value": "8"
               },
               "PAYLD_WIDTH": {
                 "value": "154"
@@ -11003,7 +11553,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "16"
@@ -11012,7 +11562,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "8"
@@ -11063,7 +11613,7 @@
                 "value": "8"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_WIDTH": {
                 "value": "0"
@@ -11175,7 +11725,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "16"
@@ -11184,7 +11734,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S00_NUM_BYTES": {
                 "value": "8"
@@ -11235,7 +11785,7 @@
                 "value": "8"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_BITS_PER_BYTE": {
                 "value": "0"
@@ -11353,7 +11903,7 @@
                 "value": "16"
               },
               "NUM_SI": {
-                "value": "7"
+                "value": "8"
               },
               "PAYLD_WIDTH": {
                 "value": "12"
@@ -11601,37 +12151,40 @@
                 "value": "0"
               },
               "MSC000_ROUTE": {
-                "value": "0b0000001"
+                "value": "0b00000001"
               },
               "MSC001_ROUTE": {
-                "value": "0b0000010"
+                "value": "0b00000010"
               },
               "MSC002_ROUTE": {
-                "value": "0b0000100"
+                "value": "0b00000100"
               },
               "MSC003_ROUTE": {
-                "value": "0b0001000"
+                "value": "0b00001000"
               },
               "MSC004_ROUTE": {
-                "value": "0b0010000"
+                "value": "0b00010000"
               },
               "MSC005_ROUTE": {
-                "value": "0b0100000"
+                "value": "0b00100000"
               },
               "MSC006_ROUTE": {
-                "value": "0b1000000"
+                "value": "0b01000000"
+              },
+              "MSC007_ROUTE": {
+                "value": "0b10000000"
               },
               "MSC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "1"
               },
               "NUM_SEG": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "1"
@@ -11685,7 +12238,7 @@
                 "value": "1"
               },
               "SEG002_BASE_ADDR": {
-                "value": "0x0000000041200000"
+                "value": "0x0000000040800000"
               },
               "SEG002_SECURE_READ": {
                 "value": "0"
@@ -11694,7 +12247,7 @@
                 "value": "0"
               },
               "SEG002_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000101"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000111"
               },
               "SEG002_SIZE": {
                 "value": "16"
@@ -11706,7 +12259,7 @@
                 "value": "1"
               },
               "SEG003_BASE_ADDR": {
-                "value": "0x0000000041400000"
+                "value": "0x0000000041200000"
               },
               "SEG003_SECURE_READ": {
                 "value": "0"
@@ -11715,10 +12268,10 @@
                 "value": "0"
               },
               "SEG003_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000101"
               },
               "SEG003_SIZE": {
-                "value": "12"
+                "value": "16"
               },
               "SEG003_SUPPORTS_READ": {
                 "value": "1"
@@ -11727,7 +12280,7 @@
                 "value": "1"
               },
               "SEG004_BASE_ADDR": {
-                "value": "0x0000000041C00000"
+                "value": "0x0000000041400000"
               },
               "SEG004_SECURE_READ": {
                 "value": "0"
@@ -11736,10 +12289,10 @@
                 "value": "0"
               },
               "SEG004_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000110"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000001"
               },
               "SEG004_SIZE": {
-                "value": "16"
+                "value": "12"
               },
               "SEG004_SUPPORTS_READ": {
                 "value": "1"
@@ -11748,7 +12301,7 @@
                 "value": "1"
               },
               "SEG005_BASE_ADDR": {
-                "value": "0x0000000080000000"
+                "value": "0x0000000041C00000"
               },
               "SEG005_SECURE_READ": {
                 "value": "0"
@@ -11757,10 +12310,10 @@
                 "value": "0"
               },
               "SEG005_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000100"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000110"
               },
               "SEG005_SIZE": {
-                "value": "28"
+                "value": "16"
               },
               "SEG005_SUPPORTS_READ": {
                 "value": "1"
@@ -11769,7 +12322,7 @@
                 "value": "1"
               },
               "SEG006_BASE_ADDR": {
-                "value": "0x00000000C0000000"
+                "value": "0x0000000080000000"
               },
               "SEG006_SECURE_READ": {
                 "value": "0"
@@ -11778,15 +12331,36 @@
                 "value": "0"
               },
               "SEG006_SEP_ROUTE": {
-                "value": "0b0000000000000000000000000000000000000000000000000000000000000011"
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000100"
               },
               "SEG006_SIZE": {
-                "value": "13"
+                "value": "28"
               },
               "SEG006_SUPPORTS_READ": {
                 "value": "1"
               },
               "SEG006_SUPPORTS_WRITE": {
+                "value": "1"
+              },
+              "SEG007_BASE_ADDR": {
+                "value": "0x00000000C0000000"
+              },
+              "SEG007_SECURE_READ": {
+                "value": "0"
+              },
+              "SEG007_SECURE_WRITE": {
+                "value": "0"
+              },
+              "SEG007_SEP_ROUTE": {
+                "value": "0b0000000000000000000000000000000000000000000000000000000000000011"
+              },
+              "SEG007_SIZE": {
+                "value": "13"
+              },
+              "SEG007_SUPPORTS_READ": {
+                "value": "1"
+              },
+              "SEG007_SUPPORTS_WRITE": {
                 "value": "1"
               },
               "SUPPORTS_NARROW": {
@@ -11980,8 +12554,14 @@
               "MSC006_WDATA_WIDTH": {
                 "value": "32"
               },
+              "MSC007_RDATA_WIDTH": {
+                "value": "32"
+              },
+              "MSC007_WDATA_WIDTH": {
+                "value": "32"
+              },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "1"
@@ -11990,7 +12570,7 @@
                 "value": "1"
               },
               "NUM_SEG": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_WRITE_OUTSTANDING": {
                 "value": "1"
@@ -12050,21 +12630,30 @@
                 "value": "32"
               },
               "SEP005_PROTOCOL": {
-                "value": "AXI4"
+                "value": "AXI4LITE"
               },
               "SEP005_RDATA_WIDTH": {
-                "value": "128"
+                "value": "32"
               },
               "SEP005_WDATA_WIDTH": {
-                "value": "128"
+                "value": "32"
               },
               "SEP006_PROTOCOL": {
                 "value": "AXI4"
               },
               "SEP006_RDATA_WIDTH": {
-                "value": "32"
+                "value": "128"
               },
               "SEP006_WDATA_WIDTH": {
+                "value": "128"
+              },
+              "SEP007_PROTOCOL": {
+                "value": "AXI4"
+              },
+              "SEP007_RDATA_WIDTH": {
+                "value": "32"
+              },
+              "SEP007_WDATA_WIDTH": {
                 "value": "32"
               },
               "SPLIT_WRAP_NARROW": {
@@ -12178,7 +12767,7 @@
             "value": "32"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_WRITE"
@@ -12485,7 +13074,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "1"
@@ -12494,7 +13083,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -12545,7 +13134,7 @@
                 "value": "4"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_WIDTH": {
                 "value": "0"
@@ -12663,7 +13252,7 @@
                 "value": "1"
               },
               "NUM_SI": {
-                "value": "7"
+                "value": "8"
               },
               "PAYLD_WIDTH": {
                 "value": "154"
@@ -12832,7 +13421,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "1"
@@ -12841,7 +13430,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -12892,7 +13481,7 @@
                 "value": "4"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_WIDTH": {
                 "value": "0"
@@ -13004,7 +13593,7 @@
                 "value": "0"
               },
               "NUM_MI": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_OUTSTANDING": {
                 "value": "1"
@@ -13013,7 +13602,7 @@
                 "value": "1"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S00_NUM_BYTES": {
                 "value": "4"
@@ -13064,7 +13653,7 @@
                 "value": "4"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "USER_BITS_PER_BYTE": {
                 "value": "0"
@@ -13182,7 +13771,7 @@
                 "value": "1"
               },
               "NUM_SI": {
-                "value": "7"
+                "value": "8"
               },
               "PAYLD_WIDTH": {
                 "value": "12"
@@ -13400,7 +13989,7 @@
             "value": "32"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_WRITE"
@@ -13712,7 +14301,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -13763,7 +14352,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -14056,7 +14645,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -14107,7 +14696,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -14228,7 +14817,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -14279,7 +14868,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -14663,7 +15252,7 @@
                 "value": "AXI4LITE"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "32"
@@ -14790,7 +15379,7 @@
             "value": "32"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_WRITE"
@@ -15102,7 +15691,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -15153,7 +15742,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -15446,7 +16035,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -15497,7 +16086,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -15618,7 +16207,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -15669,7 +16258,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -16053,7 +16642,7 @@
                 "value": "AXI4LITE"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "32"
@@ -16180,7 +16769,7 @@
             "value": "32"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_WRITE"
@@ -16492,7 +17081,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -16543,7 +17132,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -16836,7 +17425,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -16887,7 +17476,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -17008,7 +17597,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -17059,7 +17648,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -17443,7 +18032,7 @@
                 "value": "AXI4LITE"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "32"
@@ -17570,7 +18159,7 @@
             "value": "32"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_WRITE"
@@ -17882,7 +18471,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -17933,7 +18522,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -18226,7 +18815,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -18277,7 +18866,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -18398,7 +18987,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -18449,7 +19038,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -18866,7 +19455,7 @@
                 "value": "0"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "32"
@@ -18993,7 +19582,7 @@
             "value": "128"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_WRITE"
@@ -19305,7 +19894,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -19356,7 +19945,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -19649,7 +20238,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -19700,7 +20289,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -19821,7 +20410,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -19872,7 +20461,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -20289,7 +20878,7 @@
                 "value": "0"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "32"
@@ -20416,7 +21005,7 @@
             "value": "32"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_WRITE"
@@ -20728,7 +21317,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -20779,7 +21368,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -21072,7 +21661,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -21123,7 +21712,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -21244,7 +21833,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -21295,7 +21884,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -21679,7 +22268,7 @@
                 "value": "AXI4LITE"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "32"
@@ -21806,7 +22395,7 @@
             "value": "32"
           },
           "MSC_ROUTE_WIDTH": {
-            "value": "7"
+            "value": "8"
           },
           "READ_WRITE_MODE": {
             "value": "READ_WRITE"
@@ -22118,7 +22707,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -22169,7 +22758,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -22462,7 +23051,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "182"
+                "value": "183"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -22513,7 +23102,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -22634,7 +23223,7 @@
                 "value": "5"
               },
               "PAYLD_WIDTH": {
-                "value": "166"
+                "value": "167"
               },
               "S00_NUM_BYTES": {
                 "value": "16"
@@ -22685,7 +23274,7 @@
                 "value": "16"
               },
               "SC_ROUTE_WIDTH": {
-                "value": "7"
+                "value": "8"
               },
               "S_LATENCY": {
                 "value": "1"
@@ -23069,7 +23658,7 @@
                 "value": "AXI4LITE"
               },
               "NUM_MSC": {
-                "value": "7"
+                "value": "8"
               },
               "NUM_READ_OUTSTANDING": {
                 "value": "32"
@@ -23171,6 +23760,1396 @@
             "ports": [
               "aresetn",
               "m06_exit/aresetn"
+            ]
+          }
+        }
+      },
+      "m07_sc2axi": {
+        "vlnv": "xilinx.com:ip:sc_sc2axi:1.0",
+        "ip_revision": "11",
+        "xci_name": "bd_f1cc_m07s2a_0",
+        "xci_path": "ip/ip_101/bd_f1cc_m07s2a_0.xci",
+        "inst_hier_path": "m07_sc2axi",
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "AXI_ADDR_WIDTH": {
+            "value": "9"
+          },
+          "AXI_ID_WIDTH": {
+            "value": "4"
+          },
+          "AXI_RDATA_WIDTH": {
+            "value": "32"
+          },
+          "AXI_WDATA_WIDTH": {
+            "value": "32"
+          },
+          "MSC_ROUTE_WIDTH": {
+            "value": "8"
+          },
+          "READ_WRITE_MODE": {
+            "value": "READ_WRITE"
+          },
+          "SC_ADDR_WIDTH": {
+            "value": "64"
+          },
+          "SC_ARUSER_WIDTH": {
+            "value": "0"
+          },
+          "SC_AWUSER_WIDTH": {
+            "value": "0"
+          },
+          "SC_BUSER_WIDTH": {
+            "value": "0"
+          },
+          "SC_ID_WIDTH": {
+            "value": "4"
+          },
+          "SC_RDATA_WIDTH": {
+            "value": "128"
+          },
+          "SC_RUSER_BITS_PER_BYTE": {
+            "value": "0"
+          },
+          "SC_WDATA_WIDTH": {
+            "value": "128"
+          },
+          "SC_WUSER_BITS_PER_BYTE": {
+            "value": "0"
+          },
+          "SSC_ROUTE_WIDTH": {
+            "value": "5"
+          }
+        },
+        "interface_ports": {
+          "M_SC_R": {
+            "bd_attributes": {
+              "TYPE": {
+                "value": "interior",
+                "value_src": "default"
+              }
+            }
+          },
+          "M_SC_B": {
+            "bd_attributes": {
+              "TYPE": {
+                "value": "interior",
+                "value_src": "default"
+              }
+            }
+          },
+          "S_SC_AR": {
+            "bd_attributes": {
+              "BRIDGES": {
+                "value": "M_AXI",
+                "value_src": "auto"
+              },
+              "TYPE": {
+                "value": "interior",
+                "value_src": "default"
+              }
+            },
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "mode": "Slave",
+            "bridges": [
+              "M_AXI"
+            ]
+          },
+          "S_SC_AW": {
+            "bd_attributes": {
+              "TYPE": {
+                "value": "interior",
+                "value_src": "default"
+              }
+            }
+          },
+          "S_SC_W": {
+            "bd_attributes": {
+              "TYPE": {
+                "value": "interior",
+                "value_src": "default"
+              }
+            }
+          },
+          "M_AXI": {
+            "bd_attributes": {
+              "TYPE": {
+                "value": "interior",
+                "value_src": "default"
+              }
+            }
+          }
+        }
+      },
+      "m07_nodes": {
+        "interface_ports": {
+          "M_SC_AR": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "S_SC_AR": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "M_SC_R": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "S_SC_R": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "M_SC_AW": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "S_SC_AW": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "M_SC_W": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "S_SC_W": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "M_SC_B": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "S_SC_B": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:sc:1.0",
+            "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          }
+        },
+        "ports": {
+          "s_axi_aclk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "s_axi_aresetn": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "m_axi_aclk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "m_axi_aresetn": {
+            "type": "rst",
+            "direction": "I"
+          }
+        },
+        "components": {
+          "m07_ar_node": {
+            "vlnv": "xilinx.com:ip:sc_node:1.0",
+            "ip_revision": "19",
+            "xci_name": "bd_f1cc_m07arn_0",
+            "xci_path": "ip/ip_102/bd_f1cc_m07arn_0.xci",
+            "inst_hier_path": "m07_nodes/m07_ar_node",
+            "has_run_ip_tcl": "true",
+            "parameters": {
+              "ACLK_RELATIONSHIP": {
+                "value": "1"
+              },
+              "ADDR_WIDTH": {
+                "value": "64"
+              },
+              "CHANNEL": {
+                "value": "2"
+              },
+              "ID_WIDTH": {
+                "value": "4"
+              },
+              "M00_NUM_BYTES": {
+                "value": "4"
+              },
+              "M01_NUM_BYTES": {
+                "value": "4"
+              },
+              "M02_NUM_BYTES": {
+                "value": "4"
+              },
+              "M03_NUM_BYTES": {
+                "value": "4"
+              },
+              "M04_NUM_BYTES": {
+                "value": "4"
+              },
+              "M05_NUM_BYTES": {
+                "value": "4"
+              },
+              "M06_NUM_BYTES": {
+                "value": "4"
+              },
+              "M07_NUM_BYTES": {
+                "value": "4"
+              },
+              "M08_NUM_BYTES": {
+                "value": "4"
+              },
+              "M09_NUM_BYTES": {
+                "value": "4"
+              },
+              "M10_NUM_BYTES": {
+                "value": "4"
+              },
+              "M11_NUM_BYTES": {
+                "value": "4"
+              },
+              "M12_NUM_BYTES": {
+                "value": "4"
+              },
+              "M13_NUM_BYTES": {
+                "value": "4"
+              },
+              "M14_NUM_BYTES": {
+                "value": "4"
+              },
+              "M15_NUM_BYTES": {
+                "value": "4"
+              },
+              "MAX_PAYLD_BYTES": {
+                "value": "16"
+              },
+              "M_SEND_PIPELINE": {
+                "value": "0"
+              },
+              "NUM_MI": {
+                "value": "1"
+              },
+              "NUM_OUTSTANDING": {
+                "value": "32"
+              },
+              "NUM_SI": {
+                "value": "5"
+              },
+              "PAYLD_WIDTH": {
+                "value": "183"
+              },
+              "S00_NUM_BYTES": {
+                "value": "16"
+              },
+              "S01_NUM_BYTES": {
+                "value": "16"
+              },
+              "S02_NUM_BYTES": {
+                "value": "16"
+              },
+              "S03_NUM_BYTES": {
+                "value": "16"
+              },
+              "S04_NUM_BYTES": {
+                "value": "16"
+              },
+              "S05_NUM_BYTES": {
+                "value": "16"
+              },
+              "S06_NUM_BYTES": {
+                "value": "16"
+              },
+              "S07_NUM_BYTES": {
+                "value": "16"
+              },
+              "S08_NUM_BYTES": {
+                "value": "16"
+              },
+              "S09_NUM_BYTES": {
+                "value": "16"
+              },
+              "S10_NUM_BYTES": {
+                "value": "16"
+              },
+              "S11_NUM_BYTES": {
+                "value": "16"
+              },
+              "S12_NUM_BYTES": {
+                "value": "16"
+              },
+              "S13_NUM_BYTES": {
+                "value": "16"
+              },
+              "S14_NUM_BYTES": {
+                "value": "16"
+              },
+              "S15_NUM_BYTES": {
+                "value": "16"
+              },
+              "SC_ROUTE_WIDTH": {
+                "value": "8"
+              },
+              "S_LATENCY": {
+                "value": "1"
+              },
+              "USER_WIDTH": {
+                "value": "0"
+              }
+            },
+            "interface_ports": {
+              "S_SC": {
+                "bd_attributes": {
+                  "BRIDGES": {
+                    "value": "M_SC",
+                    "value_src": "auto"
+                  },
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                },
+                "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+                "mode": "Slave",
+                "bridges": [
+                  "M_SC"
+                ]
+              },
+              "M_SC": {
+                "bd_attributes": {
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                }
+              }
+            }
+          },
+          "m07_r_node": {
+            "vlnv": "xilinx.com:ip:sc_node:1.0",
+            "ip_revision": "19",
+            "xci_name": "bd_f1cc_m07rn_0",
+            "xci_path": "ip/ip_103/bd_f1cc_m07rn_0.xci",
+            "inst_hier_path": "m07_nodes/m07_r_node",
+            "has_run_ip_tcl": "true",
+            "parameters": {
+              "ACLK_RELATIONSHIP": {
+                "value": "1"
+              },
+              "ADDR_WIDTH": {
+                "value": "64"
+              },
+              "CHANNEL": {
+                "value": "0"
+              },
+              "ID_WIDTH": {
+                "value": "4"
+              },
+              "M00_NUM_BYTES": {
+                "value": "16"
+              },
+              "M01_NUM_BYTES": {
+                "value": "16"
+              },
+              "M02_NUM_BYTES": {
+                "value": "16"
+              },
+              "M03_NUM_BYTES": {
+                "value": "16"
+              },
+              "M04_NUM_BYTES": {
+                "value": "16"
+              },
+              "M05_NUM_BYTES": {
+                "value": "16"
+              },
+              "M06_NUM_BYTES": {
+                "value": "16"
+              },
+              "M07_NUM_BYTES": {
+                "value": "16"
+              },
+              "M08_NUM_BYTES": {
+                "value": "16"
+              },
+              "M09_NUM_BYTES": {
+                "value": "16"
+              },
+              "M10_NUM_BYTES": {
+                "value": "16"
+              },
+              "M11_NUM_BYTES": {
+                "value": "16"
+              },
+              "M12_NUM_BYTES": {
+                "value": "16"
+              },
+              "M13_NUM_BYTES": {
+                "value": "16"
+              },
+              "M14_NUM_BYTES": {
+                "value": "16"
+              },
+              "M15_NUM_BYTES": {
+                "value": "16"
+              },
+              "MAX_PAYLD_BYTES": {
+                "value": "16"
+              },
+              "M_PIPELINE": {
+                "value": "0"
+              },
+              "NUM_MI": {
+                "value": "5"
+              },
+              "NUM_OUTSTANDING": {
+                "value": "32"
+              },
+              "NUM_SI": {
+                "value": "1"
+              },
+              "PAYLD_WIDTH": {
+                "value": "154"
+              },
+              "S00_NUM_BYTES": {
+                "value": "4"
+              },
+              "S01_NUM_BYTES": {
+                "value": "4"
+              },
+              "S02_NUM_BYTES": {
+                "value": "4"
+              },
+              "S03_NUM_BYTES": {
+                "value": "4"
+              },
+              "S04_NUM_BYTES": {
+                "value": "4"
+              },
+              "S05_NUM_BYTES": {
+                "value": "4"
+              },
+              "S06_NUM_BYTES": {
+                "value": "4"
+              },
+              "S07_NUM_BYTES": {
+                "value": "4"
+              },
+              "S08_NUM_BYTES": {
+                "value": "4"
+              },
+              "S09_NUM_BYTES": {
+                "value": "4"
+              },
+              "S10_NUM_BYTES": {
+                "value": "4"
+              },
+              "S11_NUM_BYTES": {
+                "value": "4"
+              },
+              "S12_NUM_BYTES": {
+                "value": "4"
+              },
+              "S13_NUM_BYTES": {
+                "value": "4"
+              },
+              "S14_NUM_BYTES": {
+                "value": "4"
+              },
+              "S15_NUM_BYTES": {
+                "value": "4"
+              },
+              "SC_ROUTE_WIDTH": {
+                "value": "5"
+              },
+              "USER_BITS_PER_BYTE": {
+                "value": "0"
+              },
+              "USER_WIDTH": {
+                "value": "0"
+              }
+            },
+            "interface_ports": {
+              "S_SC": {
+                "bd_attributes": {
+                  "BRIDGES": {
+                    "value": "M_SC",
+                    "value_src": "auto"
+                  },
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                },
+                "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+                "mode": "Slave",
+                "bridges": [
+                  "M_SC"
+                ]
+              },
+              "M_SC": {
+                "bd_attributes": {
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                }
+              }
+            }
+          },
+          "m07_aw_node": {
+            "vlnv": "xilinx.com:ip:sc_node:1.0",
+            "ip_revision": "19",
+            "xci_name": "bd_f1cc_m07awn_0",
+            "xci_path": "ip/ip_104/bd_f1cc_m07awn_0.xci",
+            "inst_hier_path": "m07_nodes/m07_aw_node",
+            "has_run_ip_tcl": "true",
+            "parameters": {
+              "ACLK_RELATIONSHIP": {
+                "value": "1"
+              },
+              "ADDR_WIDTH": {
+                "value": "64"
+              },
+              "CHANNEL": {
+                "value": "3"
+              },
+              "ID_WIDTH": {
+                "value": "4"
+              },
+              "M00_NUM_BYTES": {
+                "value": "4"
+              },
+              "M01_NUM_BYTES": {
+                "value": "4"
+              },
+              "M02_NUM_BYTES": {
+                "value": "4"
+              },
+              "M03_NUM_BYTES": {
+                "value": "4"
+              },
+              "M04_NUM_BYTES": {
+                "value": "4"
+              },
+              "M05_NUM_BYTES": {
+                "value": "4"
+              },
+              "M06_NUM_BYTES": {
+                "value": "4"
+              },
+              "M07_NUM_BYTES": {
+                "value": "4"
+              },
+              "M08_NUM_BYTES": {
+                "value": "4"
+              },
+              "M09_NUM_BYTES": {
+                "value": "4"
+              },
+              "M10_NUM_BYTES": {
+                "value": "4"
+              },
+              "M11_NUM_BYTES": {
+                "value": "4"
+              },
+              "M12_NUM_BYTES": {
+                "value": "4"
+              },
+              "M13_NUM_BYTES": {
+                "value": "4"
+              },
+              "M14_NUM_BYTES": {
+                "value": "4"
+              },
+              "M15_NUM_BYTES": {
+                "value": "4"
+              },
+              "MAX_PAYLD_BYTES": {
+                "value": "16"
+              },
+              "M_SEND_PIPELINE": {
+                "value": "0"
+              },
+              "NUM_MI": {
+                "value": "1"
+              },
+              "NUM_OUTSTANDING": {
+                "value": "32"
+              },
+              "NUM_SI": {
+                "value": "5"
+              },
+              "PAYLD_WIDTH": {
+                "value": "183"
+              },
+              "S00_NUM_BYTES": {
+                "value": "16"
+              },
+              "S01_NUM_BYTES": {
+                "value": "16"
+              },
+              "S02_NUM_BYTES": {
+                "value": "16"
+              },
+              "S03_NUM_BYTES": {
+                "value": "16"
+              },
+              "S04_NUM_BYTES": {
+                "value": "16"
+              },
+              "S05_NUM_BYTES": {
+                "value": "16"
+              },
+              "S06_NUM_BYTES": {
+                "value": "16"
+              },
+              "S07_NUM_BYTES": {
+                "value": "16"
+              },
+              "S08_NUM_BYTES": {
+                "value": "16"
+              },
+              "S09_NUM_BYTES": {
+                "value": "16"
+              },
+              "S10_NUM_BYTES": {
+                "value": "16"
+              },
+              "S11_NUM_BYTES": {
+                "value": "16"
+              },
+              "S12_NUM_BYTES": {
+                "value": "16"
+              },
+              "S13_NUM_BYTES": {
+                "value": "16"
+              },
+              "S14_NUM_BYTES": {
+                "value": "16"
+              },
+              "S15_NUM_BYTES": {
+                "value": "16"
+              },
+              "SC_ROUTE_WIDTH": {
+                "value": "8"
+              },
+              "S_LATENCY": {
+                "value": "1"
+              },
+              "USER_WIDTH": {
+                "value": "0"
+              }
+            },
+            "interface_ports": {
+              "S_SC": {
+                "bd_attributes": {
+                  "BRIDGES": {
+                    "value": "M_SC",
+                    "value_src": "auto"
+                  },
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                },
+                "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+                "mode": "Slave",
+                "bridges": [
+                  "M_SC"
+                ]
+              },
+              "M_SC": {
+                "bd_attributes": {
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                }
+              }
+            }
+          },
+          "m07_w_node": {
+            "vlnv": "xilinx.com:ip:sc_node:1.0",
+            "ip_revision": "19",
+            "xci_name": "bd_f1cc_m07wn_0",
+            "xci_path": "ip/ip_105/bd_f1cc_m07wn_0.xci",
+            "inst_hier_path": "m07_nodes/m07_w_node",
+            "has_run_ip_tcl": "true",
+            "parameters": {
+              "ACLK_RELATIONSHIP": {
+                "value": "1"
+              },
+              "ADDR_WIDTH": {
+                "value": "64"
+              },
+              "CHANNEL": {
+                "value": "1"
+              },
+              "ID_WIDTH": {
+                "value": "4"
+              },
+              "M00_NUM_BYTES": {
+                "value": "4"
+              },
+              "M01_NUM_BYTES": {
+                "value": "4"
+              },
+              "M02_NUM_BYTES": {
+                "value": "4"
+              },
+              "M03_NUM_BYTES": {
+                "value": "4"
+              },
+              "M04_NUM_BYTES": {
+                "value": "4"
+              },
+              "M05_NUM_BYTES": {
+                "value": "4"
+              },
+              "M06_NUM_BYTES": {
+                "value": "4"
+              },
+              "M07_NUM_BYTES": {
+                "value": "4"
+              },
+              "M08_NUM_BYTES": {
+                "value": "4"
+              },
+              "M09_NUM_BYTES": {
+                "value": "4"
+              },
+              "M10_NUM_BYTES": {
+                "value": "4"
+              },
+              "M11_NUM_BYTES": {
+                "value": "4"
+              },
+              "M12_NUM_BYTES": {
+                "value": "4"
+              },
+              "M13_NUM_BYTES": {
+                "value": "4"
+              },
+              "M14_NUM_BYTES": {
+                "value": "4"
+              },
+              "M15_NUM_BYTES": {
+                "value": "4"
+              },
+              "MAX_PAYLD_BYTES": {
+                "value": "16"
+              },
+              "M_SEND_PIPELINE": {
+                "value": "0"
+              },
+              "NUM_MI": {
+                "value": "1"
+              },
+              "NUM_OUTSTANDING": {
+                "value": "32"
+              },
+              "NUM_SI": {
+                "value": "5"
+              },
+              "PAYLD_WIDTH": {
+                "value": "167"
+              },
+              "S00_NUM_BYTES": {
+                "value": "16"
+              },
+              "S01_NUM_BYTES": {
+                "value": "16"
+              },
+              "S02_NUM_BYTES": {
+                "value": "16"
+              },
+              "S03_NUM_BYTES": {
+                "value": "16"
+              },
+              "S04_NUM_BYTES": {
+                "value": "16"
+              },
+              "S05_NUM_BYTES": {
+                "value": "16"
+              },
+              "S06_NUM_BYTES": {
+                "value": "16"
+              },
+              "S07_NUM_BYTES": {
+                "value": "16"
+              },
+              "S08_NUM_BYTES": {
+                "value": "16"
+              },
+              "S09_NUM_BYTES": {
+                "value": "16"
+              },
+              "S10_NUM_BYTES": {
+                "value": "16"
+              },
+              "S11_NUM_BYTES": {
+                "value": "16"
+              },
+              "S12_NUM_BYTES": {
+                "value": "16"
+              },
+              "S13_NUM_BYTES": {
+                "value": "16"
+              },
+              "S14_NUM_BYTES": {
+                "value": "16"
+              },
+              "S15_NUM_BYTES": {
+                "value": "16"
+              },
+              "SC_ROUTE_WIDTH": {
+                "value": "8"
+              },
+              "S_LATENCY": {
+                "value": "1"
+              },
+              "USER_BITS_PER_BYTE": {
+                "value": "0"
+              },
+              "USER_WIDTH": {
+                "value": "0"
+              }
+            },
+            "interface_ports": {
+              "S_SC": {
+                "bd_attributes": {
+                  "BRIDGES": {
+                    "value": "M_SC",
+                    "value_src": "auto"
+                  },
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                },
+                "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+                "mode": "Slave",
+                "bridges": [
+                  "M_SC"
+                ]
+              },
+              "M_SC": {
+                "bd_attributes": {
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                }
+              }
+            }
+          },
+          "m07_b_node": {
+            "vlnv": "xilinx.com:ip:sc_node:1.0",
+            "ip_revision": "19",
+            "xci_name": "bd_f1cc_m07bn_0",
+            "xci_path": "ip/ip_106/bd_f1cc_m07bn_0.xci",
+            "inst_hier_path": "m07_nodes/m07_b_node",
+            "has_run_ip_tcl": "true",
+            "parameters": {
+              "ACLK_RELATIONSHIP": {
+                "value": "1"
+              },
+              "ADDR_WIDTH": {
+                "value": "64"
+              },
+              "CHANNEL": {
+                "value": "4"
+              },
+              "ID_WIDTH": {
+                "value": "4"
+              },
+              "M00_NUM_BYTES": {
+                "value": "16"
+              },
+              "M01_NUM_BYTES": {
+                "value": "16"
+              },
+              "M02_NUM_BYTES": {
+                "value": "16"
+              },
+              "M03_NUM_BYTES": {
+                "value": "16"
+              },
+              "M04_NUM_BYTES": {
+                "value": "16"
+              },
+              "M05_NUM_BYTES": {
+                "value": "16"
+              },
+              "M06_NUM_BYTES": {
+                "value": "16"
+              },
+              "M07_NUM_BYTES": {
+                "value": "16"
+              },
+              "M08_NUM_BYTES": {
+                "value": "16"
+              },
+              "M09_NUM_BYTES": {
+                "value": "16"
+              },
+              "M10_NUM_BYTES": {
+                "value": "16"
+              },
+              "M11_NUM_BYTES": {
+                "value": "16"
+              },
+              "M12_NUM_BYTES": {
+                "value": "16"
+              },
+              "M13_NUM_BYTES": {
+                "value": "16"
+              },
+              "M14_NUM_BYTES": {
+                "value": "16"
+              },
+              "M15_NUM_BYTES": {
+                "value": "16"
+              },
+              "MAX_PAYLD_BYTES": {
+                "value": "16"
+              },
+              "M_PIPELINE": {
+                "value": "0"
+              },
+              "NUM_MI": {
+                "value": "5"
+              },
+              "NUM_OUTSTANDING": {
+                "value": "32"
+              },
+              "NUM_SI": {
+                "value": "1"
+              },
+              "PAYLD_WIDTH": {
+                "value": "12"
+              },
+              "S00_NUM_BYTES": {
+                "value": "4"
+              },
+              "S01_NUM_BYTES": {
+                "value": "4"
+              },
+              "S02_NUM_BYTES": {
+                "value": "4"
+              },
+              "S03_NUM_BYTES": {
+                "value": "4"
+              },
+              "S04_NUM_BYTES": {
+                "value": "4"
+              },
+              "S05_NUM_BYTES": {
+                "value": "4"
+              },
+              "S06_NUM_BYTES": {
+                "value": "4"
+              },
+              "S07_NUM_BYTES": {
+                "value": "4"
+              },
+              "S08_NUM_BYTES": {
+                "value": "4"
+              },
+              "S09_NUM_BYTES": {
+                "value": "4"
+              },
+              "S10_NUM_BYTES": {
+                "value": "4"
+              },
+              "S11_NUM_BYTES": {
+                "value": "4"
+              },
+              "S12_NUM_BYTES": {
+                "value": "4"
+              },
+              "S13_NUM_BYTES": {
+                "value": "4"
+              },
+              "S14_NUM_BYTES": {
+                "value": "4"
+              },
+              "S15_NUM_BYTES": {
+                "value": "4"
+              },
+              "SC_ROUTE_WIDTH": {
+                "value": "5"
+              },
+              "USER_WIDTH": {
+                "value": "0"
+              }
+            },
+            "interface_ports": {
+              "S_SC": {
+                "bd_attributes": {
+                  "BRIDGES": {
+                    "value": "M_SC",
+                    "value_src": "auto"
+                  },
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                },
+                "vlnv": "xilinx.com:interface:sc_rtl:1.0",
+                "mode": "Slave",
+                "bridges": [
+                  "M_SC"
+                ]
+              },
+              "M_SC": {
+                "bd_attributes": {
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "interface_nets": {
+          "S_SC_AR_1": {
+            "interface_ports": [
+              "S_SC_AR",
+              "m07_ar_node/S_SC"
+            ]
+          },
+          "S_SC_AW_1": {
+            "interface_ports": [
+              "S_SC_AW",
+              "m07_aw_node/S_SC"
+            ]
+          },
+          "S_SC_B_1": {
+            "interface_ports": [
+              "S_SC_B",
+              "m07_b_node/S_SC"
+            ]
+          },
+          "S_SC_R_1": {
+            "interface_ports": [
+              "S_SC_R",
+              "m07_r_node/S_SC"
+            ]
+          },
+          "S_SC_W_1": {
+            "interface_ports": [
+              "S_SC_W",
+              "m07_w_node/S_SC"
+            ]
+          },
+          "m07_ar_node_M_SC": {
+            "interface_ports": [
+              "M_SC_AR",
+              "m07_ar_node/M_SC"
+            ]
+          },
+          "m07_aw_node_M_AXIS_ARB": {
+            "interface_ports": [
+              "m07_aw_node/M_AXIS_ARB",
+              "m07_w_node/S_AXIS_ARB"
+            ]
+          },
+          "m07_aw_node_M_SC": {
+            "interface_ports": [
+              "M_SC_AW",
+              "m07_aw_node/M_SC"
+            ]
+          },
+          "m07_b_node_M_SC": {
+            "interface_ports": [
+              "M_SC_B",
+              "m07_b_node/M_SC"
+            ]
+          },
+          "m07_r_node_M_SC": {
+            "interface_ports": [
+              "M_SC_R",
+              "m07_r_node/M_SC"
+            ]
+          },
+          "m07_w_node_M_SC": {
+            "interface_ports": [
+              "M_SC_W",
+              "m07_w_node/M_SC"
+            ]
+          }
+        },
+        "nets": {
+          "m_axi_aclk_1": {
+            "ports": [
+              "m_axi_aclk",
+              "m07_ar_node/m_sc_aclk",
+              "m07_aw_node/m_sc_aclk",
+              "m07_w_node/m_sc_aclk",
+              "m07_r_node/s_sc_aclk",
+              "m07_b_node/s_sc_aclk"
+            ]
+          },
+          "m_axi_aresetn_1": {
+            "ports": [
+              "m_axi_aresetn",
+              "m07_ar_node/m_sc_aresetn",
+              "m07_aw_node/m_sc_aresetn",
+              "m07_w_node/m_sc_aresetn",
+              "m07_r_node/s_sc_aresetn",
+              "m07_b_node/s_sc_aresetn"
+            ]
+          },
+          "s_axi_aclk_1": {
+            "ports": [
+              "s_axi_aclk",
+              "m07_ar_node/s_sc_aclk",
+              "m07_aw_node/s_sc_aclk",
+              "m07_w_node/s_sc_aclk",
+              "m07_r_node/m_sc_aclk",
+              "m07_b_node/m_sc_aclk"
+            ]
+          },
+          "s_axi_aresetn_1": {
+            "ports": [
+              "s_axi_aresetn",
+              "m07_ar_node/s_sc_aresetn",
+              "m07_aw_node/s_sc_aresetn",
+              "m07_w_node/s_sc_aresetn",
+              "m07_r_node/m_sc_aresetn",
+              "m07_b_node/m_sc_aresetn"
+            ]
+          }
+        }
+      },
+      "m07_exit_pipeline": {
+        "interface_ports": {
+          "s_axi": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          },
+          "m_axi": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "hdl_attributes": {
+              "LOCKED": {
+                "value": "FALSE",
+                "value_src": "default"
+              }
+            }
+          }
+        },
+        "ports": {
+          "aclk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "aresetn": {
+            "type": "rst",
+            "direction": "I"
+          }
+        },
+        "components": {
+          "m07_exit": {
+            "vlnv": "xilinx.com:ip:sc_exit:1.0",
+            "ip_revision": "18",
+            "xci_name": "bd_f1cc_m07e_0",
+            "xci_path": "ip/ip_107/bd_f1cc_m07e_0.xci",
+            "inst_hier_path": "m07_exit_pipeline/m07_exit",
+            "has_run_ip_tcl": "true",
+            "parameters": {
+              "ADDR_WIDTH": {
+                "value": "9"
+              },
+              "HAS_BURST": {
+                "value": "0"
+              },
+              "IS_CASCADED": {
+                "value": "0"
+              },
+              "MEP_IDENTIFIER_WIDTH": {
+                "value": "3"
+              },
+              "M_MAX_BURST_LENGTH": {
+                "value": "1"
+              },
+              "M_PROTOCOL": {
+                "value": "AXI4LITE"
+              },
+              "NUM_MSC": {
+                "value": "8"
+              },
+              "NUM_READ_OUTSTANDING": {
+                "value": "32"
+              },
+              "NUM_WRITE_OUTSTANDING": {
+                "value": "32"
+              },
+              "RDATA_WIDTH": {
+                "value": "32"
+              },
+              "READ_WRITE_MODE": {
+                "value": "READ_WRITE"
+              },
+              "SSC000_ROUTE": {
+                "value": "0b00000"
+              },
+              "SSC001_ROUTE": {
+                "value": "0b00001"
+              },
+              "SSC002_ROUTE": {
+                "value": "0b00010"
+              },
+              "SSC003_ROUTE": {
+                "value": "0b00100"
+              },
+              "SSC004_ROUTE": {
+                "value": "0b01000"
+              },
+              "SSC005_ROUTE": {
+                "value": "0b10000"
+              },
+              "SSC006_ROUTE": {
+                "value": "0b00000"
+              },
+              "SSC007_ROUTE": {
+                "value": "0b00000"
+              },
+              "SSC_ROUTE_WIDTH": {
+                "value": "5"
+              },
+              "S_ID_WIDTH": {
+                "value": "4"
+              },
+              "WDATA_WIDTH": {
+                "value": "32"
+              }
+            },
+            "interface_ports": {
+              "S_AXI": {
+                "bd_attributes": {
+                  "BRIDGES": {
+                    "value": "M_AXI",
+                    "value_src": "auto"
+                  },
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                },
+                "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+                "mode": "Slave",
+                "bridges": [
+                  "M_AXI"
+                ]
+              },
+              "M_AXI": {
+                "bd_attributes": {
+                  "TYPE": {
+                    "value": "interior",
+                    "value_src": "default"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "interface_nets": {
+          "m07_exit_M_AXI": {
+            "interface_ports": [
+              "m_axi",
+              "m07_exit/M_AXI"
+            ]
+          },
+          "s_axi_1": {
+            "interface_ports": [
+              "s_axi",
+              "m07_exit/S_AXI"
+            ]
+          }
+        },
+        "nets": {
+          "aclk_1": {
+            "ports": [
+              "aclk",
+              "m07_exit/aclk"
+            ]
+          },
+          "aresetn_1": {
+            "ports": [
+              "aresetn",
+              "m07_exit/aresetn"
             ]
           }
         }
@@ -23279,6 +25258,12 @@
           "switchboards/M06_SC_AR"
         ]
       },
+      "S_SC_AR_13": {
+        "interface_ports": [
+          "m07_nodes/S_SC_AR",
+          "switchboards/M07_SC_AR"
+        ]
+      },
       "S_SC_AW_1": {
         "interface_ports": [
           "s00_nodes/S_SC_AW",
@@ -23345,6 +25330,12 @@
           "switchboards/M06_SC_AW"
         ]
       },
+      "S_SC_AW_12": {
+        "interface_ports": [
+          "m07_nodes/S_SC_AW",
+          "switchboards/M07_SC_AW"
+        ]
+      },
       "S_SC_B_1": {
         "interface_ports": [
           "s00_nodes/S_SC_B",
@@ -23409,6 +25400,12 @@
         "interface_ports": [
           "m06_nodes/S_SC_B",
           "m06_sc2axi/M_SC_B"
+        ]
+      },
+      "S_SC_B_12": {
+        "interface_ports": [
+          "m07_nodes/S_SC_B",
+          "m07_sc2axi/M_SC_B"
         ]
       },
       "S_SC_R_1": {
@@ -23483,6 +25480,12 @@
           "m06_sc2axi/M_SC_R"
         ]
       },
+      "S_SC_R_13": {
+        "interface_ports": [
+          "m07_nodes/S_SC_R",
+          "m07_sc2axi/M_SC_R"
+        ]
+      },
       "S_SC_W_1": {
         "interface_ports": [
           "s00_nodes/S_SC_W",
@@ -23547,6 +25550,12 @@
         "interface_ports": [
           "m06_nodes/S_SC_W",
           "switchboards/M06_SC_W"
+        ]
+      },
+      "S_SC_W_12": {
+        "interface_ports": [
+          "m07_nodes/S_SC_W",
+          "switchboards/M07_SC_W"
         ]
       },
       "m00_exit_pipeline_m_axi": {
@@ -23841,6 +25850,48 @@
         "interface_ports": [
           "m06_sc2axi/M_AXI",
           "m06_exit_pipeline/s_axi"
+        ]
+      },
+      "m07_exit_pipeline_m_axi": {
+        "interface_ports": [
+          "M07_AXI",
+          "m07_exit_pipeline/m_axi"
+        ]
+      },
+      "m07_nodes_M_SC_AR": {
+        "interface_ports": [
+          "m07_nodes/M_SC_AR",
+          "m07_sc2axi/S_SC_AR"
+        ]
+      },
+      "m07_nodes_M_SC_AW": {
+        "interface_ports": [
+          "m07_nodes/M_SC_AW",
+          "m07_sc2axi/S_SC_AW"
+        ]
+      },
+      "m07_nodes_M_SC_B": {
+        "interface_ports": [
+          "m07_nodes/M_SC_B",
+          "switchboards/S07_SC_B"
+        ]
+      },
+      "m07_nodes_M_SC_R": {
+        "interface_ports": [
+          "m07_nodes/M_SC_R",
+          "switchboards/S07_SC_R"
+        ]
+      },
+      "m07_nodes_M_SC_W": {
+        "interface_ports": [
+          "m07_nodes/M_SC_W",
+          "m07_sc2axi/S_SC_W"
+        ]
+      },
+      "m07_sc2axi_M_AXI": {
+        "interface_ports": [
+          "m07_sc2axi/M_AXI",
+          "m07_exit_pipeline/s_axi"
         ]
       },
       "s00_entry_pipeline_m_axi": {
@@ -24167,6 +26218,14 @@
           "m06_exit_pipeline/aclk"
         ]
       },
+      "clk_map_M07_ACLK": {
+        "ports": [
+          "clk_map/M07_ACLK",
+          "m07_sc2axi/aclk",
+          "m07_nodes/m_axi_aclk",
+          "m07_exit_pipeline/aclk"
+        ]
+      },
       "m_axi_aresetn_1": {
         "ports": [
           "clk_map/M00_ARESETN",
@@ -24216,6 +26275,13 @@
           "m06_exit_pipeline/aresetn"
         ]
       },
+      "m_axi_aresetn_8": {
+        "ports": [
+          "clk_map/M07_ARESETN",
+          "m07_nodes/m_axi_aresetn",
+          "m07_exit_pipeline/aresetn"
+        ]
+      },
       "swbd_aclk_net": {
         "ports": [
           "clk_map/swbd_aclk",
@@ -24231,7 +26297,8 @@
           "m03_nodes/s_axi_aclk",
           "m04_nodes/s_axi_aclk",
           "m05_nodes/s_axi_aclk",
-          "m06_nodes/s_axi_aclk"
+          "m06_nodes/s_axi_aclk",
+          "m07_nodes/s_axi_aclk"
         ]
       },
       "swbd_aresetn_net": {
@@ -24249,7 +26316,8 @@
           "m03_nodes/s_axi_aresetn",
           "m04_nodes/s_axi_aresetn",
           "m05_nodes/s_axi_aresetn",
-          "m06_nodes/s_axi_aresetn"
+          "m06_nodes/s_axi_aresetn",
+          "m07_nodes/s_axi_aresetn"
         ]
       }
     },
@@ -24339,6 +26407,16 @@
             }
           },
           "M06_AXI": {
+            "address_blocks": {
+              "Reg": {
+                "base_address": "0",
+                "range": "64K",
+                "width": "16",
+                "usage": "register"
+              }
+            }
+          },
+          "M07_AXI": {
             "address_blocks": {
               "Reg": {
                 "base_address": "0",

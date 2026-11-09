@@ -274,6 +274,30 @@
 			xlnx,name = "axi_gpio_0";
 			xlnx,all-inputs = <0>;
 		};
+		axi_iic_0: i2c@40800000 {
+			xlnx,iic-freq-khz = <100>;
+			compatible = "xlnx,axi-iic-2.1" , "xlnx,xps-iic-2.00.a";
+			xlnx,scl-inertial-delay = <0>;
+			clock-frequency = <100000000>;
+			xlnx,ip-name = "axi_iic";
+			xlnx,disable-setup-violation-check = <0>;
+			reg = <0x40800000 0x10000>;
+			clocks = <&clk_bus_0>;
+			xlnx,gpo-width = <1>;
+			xlnx,edk-iptype = "PERIPHERAL";
+			xlnx,static-timing-reg-width = <0>;
+			xlnx,sda-level = <1>;
+			status = "okay";
+			xlnx,ten-bit-adr = <0>;
+			xlnx,default-value = <0x0>;
+			xlnx,iic-board-interface = "Custom";
+			xlnx,timing-reg-width = <32>;
+			xlnx,iic-freq = <100000>;
+			xlnx,smbus-pmbus-host = <0>;
+			xlnx,name = "axi_iic_0";
+			xlnx,axi-aclk-freq-mhz = <100>;
+			xlnx,sda-inertial-delay = <0>;
+		};
 		axi_timer_0: timer@41c00000 {
 			interrupts = < 0 2 >;
 			compatible = "xlnx,axi-timer-2.0" , "xlnx,xps-timer-1.00.a";

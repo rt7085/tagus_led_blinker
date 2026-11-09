@@ -12,7 +12,7 @@
         speed_grade = "2";
 
         cpus_microblaze_0: cpus_microblaze@0 {
-                phandle = <0xd>;
+                phandle = <0xe>;
                 #cpu-mask-cells = <0x1>;
                 compatible = "cpus,cluster";
                 #address-cells = <0x1>;
@@ -24,6 +24,7 @@
                  <0x80000000 &mig_7series_0_memory 0x80000000 0x10000000>,
                  <0x40000000 &axi_gpio_0 0x40000000 0x10000>,
                  <0x40600000 &axi_uartlite_0 0x40600000 0x10000>,
+                 <0x40800000 &axi_iic_0 0x40800000 0x10000>,
                  <0x41200000 &axi_intc_0 0x41200000 0x10000>,
                  <0x41400000 &mdm_0 0x41400000 0x1000>,
                  <0x41c00000 &axi_timer_0 0x41c00000 0x10000>;
@@ -31,7 +32,7 @@
                 #ranges-size-cells = <0x1>;
 
                 microblaze_0: cpu@0 {
-                        phandle = <0xe>;
+                        phandle = <0xf>;
                         xlnx,reset-msr-dce = <0x0>;
                         model = "microblaze,11.0";
                         xlnx,addr-tag-bits = <0x12>;
@@ -182,12 +183,12 @@
         };
 
         clock: clocks {
-                phandle = <0xf>;
+                phandle = <0x10>;
                 #address-cells = <0x1>;
                 #size-cells = <0x0>;
 
                 clk_cpu_0: clk_cpu@0 {
-                        phandle = <0x10>;
+                        phandle = <0x11>;
                         compatible = "fixed-clock";
                         reg = <0x0>;
                         clock-frequency = <0x5f5e100>;
@@ -196,7 +197,7 @@
                 };
 
                 clk_bus_0: clk_bus_0@1 {
-                        phandle = <0xc>;
+                        phandle = <0xd>;
                         compatible = "fixed-clock";
                         reg = <0x1>;
                         clock-frequency = <0x5f5e100>;
@@ -206,14 +207,14 @@
         };
 
         amba_pl: amba_pl {
-                phandle = <0xb>;
+                phandle = <0xc>;
                 ranges;
                 compatible = "simple-bus";
                 #address-cells = <0x1>;
                 #size-cells = <0x1>;
 
                 axi_intc_0: interrupt-controller@41200000 {
-                        phandle = <0x8>;
+                        phandle = <0x9>;
                         #interrupt-cells = <0x2>;
                         xlnx,sense-of-irq-edge-type = "Rising";
                         xlnx,edk-special = "INTR_CTRL";
@@ -316,8 +317,34 @@
                         xlnx,all-inputs = <0x0>;
                 };
 
+                axi_iic_0: i2c@40800000 {
+                        phandle = <0x8>;
+                        xlnx,iic-freq-khz = <0x64>;
+                        compatible = "xlnx,axi-iic-2.1", "xlnx,xps-iic-2.00.a";
+                        xlnx,scl-inertial-delay = <0x0>;
+                        clock-frequency = <0x5f5e100>;
+                        xlnx,ip-name = "axi_iic";
+                        xlnx,disable-setup-violation-check = <0x0>;
+                        reg = <0x40800000 0x10000>;
+                        clocks = <&clk_bus_0>;
+                        xlnx,gpo-width = <0x1>;
+                        xlnx,edk-iptype = "PERIPHERAL";
+                        xlnx,static-timing-reg-width = <0x0>;
+                        xlnx,sda-level = <0x1>;
+                        status = "okay";
+                        xlnx,ten-bit-adr = <0x0>;
+                        xlnx,default-value = <0x0>;
+                        xlnx,iic-board-interface = "Custom";
+                        xlnx,timing-reg-width = <0x20>;
+                        xlnx,iic-freq = <0x186a0>;
+                        xlnx,smbus-pmbus-host = <0x0>;
+                        xlnx,name = "axi_iic_0";
+                        xlnx,axi-aclk-freq-mhz = <0x64>;
+                        xlnx,sda-inertial-delay = <0x0>;
+                };
+
                 axi_timer_0: timer@41c00000 {
-                        phandle = <0xa>;
+                        phandle = <0xb>;
                         interrupts = <0x0 0x2>;
                         compatible = "xlnx,axi-timer-2.0", "xlnx,xps-timer-1.00.a";
                         xlnx,gen1-assert = <0x1>;
@@ -364,7 +391,7 @@
                 };
 
                 mdm_0: serial@41400000 {
-                        phandle = <0x9>;
+                        phandle = <0xa>;
                         xlnx,trace-async-reset = <0x0>;
                         compatible = "xlnx,mdm-3.2", "xlnx,xps-uartlite-1.00.a";
                         xlnx,data-size = <0x20>;
@@ -451,7 +478,7 @@
                 };
 
                 microblaze_0_local_memory_ilmb_bram_if_cntlr: microblaze_0_local_memory_ilmb_bram_if_cntlr@0 {
-                        phandle = <0x11>;
+                        phandle = <0x12>;
                         xlnx,edk-special = "BRAM_CTRL";
                         xlnx,write-access = <0x2>;
                         compatible = "xlnx,lmb-bram-if-cntlr-4.0", "xlnx,axi-bram-ctrl";
@@ -532,6 +559,7 @@
         aliases {
                 serial0 = "/amba_pl/serial@40600000";
                 serial1 = "/amba_pl/serial@41400000";
+                i2c0 = "/amba_pl/i2c@40800000";
         };
 
         __symbols__ {
@@ -544,6 +572,7 @@
                 axi_intc_0 = "/amba_pl/interrupt-controller@41200000";
                 axi_bram_ctrl_0 = "/amba_pl/axi_bram_ctrl_0@c0000000";
                 axi_gpio_0 = "/amba_pl/gpio@40000000";
+                axi_iic_0 = "/amba_pl/i2c@40800000";
                 axi_timer_0 = "/amba_pl/timer@41c00000";
                 axi_uartlite_0 = "/amba_pl/serial@40600000";
                 mdm_0 = "/amba_pl/serial@41400000";

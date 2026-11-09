@@ -4,6 +4,9 @@ axi_bram_ctrl_0:
 axi_gpio_0:
 - axi_gpio
 - gpio
+axi_iic_0:
+- axi_iic
+- iic
 axi_intc_0:
 - axi_intc
 - intc
