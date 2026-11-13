@@ -3,69 +3,79 @@
 #include "i2c.h"
 
 
-// Variables
-XIic i2c0;  // Instance of the IIC Device
-XIic_Config *i2c0_config;
+int EepromWritePolled(u16 MemAddr, u8 *WriteBuf, u16 ByteCount) {
+    u8 TxBuffer[ADDR_BYTE_LEN + DATA_LENGTH];
+    u8 SentCount;
 
+    /* 1. Load internal EEPROM memory address into the start of the buffer */
+#if (ADDR_BYTE_LEN == 2)
+    TxBuffer[0] = (u8)(MemAddr >> 8);   /* High byte */
+    TxBuffer[1] = (u8)(MemAddr & 0xFF); /* Low byte */
+#else
+    TxBuffer[0] = (u8)(MemAddr & 0xFF); /* Single byte */
+#endif
 
+    /* 2. Copy payload data immediately after the address bytes */
+    for (int i = 0; i < ByteCount; i++) {
+        TxBuffer[ADDR_BYTE_LEN + i] = WriteBuf[i];
+    }
 
-// Public Functions
-int i2c_init()
-{
-    u8 write_buffer[1];
-    u8 mac_address[MAC_ADDR_LEN];
-    
-    int status = XST_SUCCESS;
-    
-    i2c0_config = XIic_LookupConfig(XPAR_AXI_IIC_0_BASEADDR);
-    status = XIic_CfgInitialize(&i2c0, i2c0_config, i2c0_config->BaseAddress);
- 
-    if(status == XST_SUCCESS)
-		xil_printf("I2C0 (EEPROM) INIT SUCCESSFUL\n");
-	else
-		xil_printf("I2C0 (EEPROM) INIT FAILED\n");
+    /* 3. Blocking send: Address + Data with STOP condition (XIIC_STOP) */
+    SentCount = XIic_Send(IIC_BASE_ADDRESS,
+                          EEPROM_I2C_ADDR,
+                          TxBuffer,
+                          ADDR_BYTE_LEN + ByteCount,
+                          XIIC_STOP);
 
-    // Start the i2c peripheral
-    XIic_Start(&i2c0);
-
-    // Set the 7-bit slave address of the target EEPROM
-    status = XIic_SetAddress(&i2c0, XII_ADDR_TO_SEND_TYPE, EEPROM_I2C_ADDRESS);
-    if (status != XST_SUCCESS) {
-        xil_printf("Error: Setting I2C Address failed\r\n");
+    if (SentCount != (ADDR_BYTE_LEN + ByteCount)) {
         return XST_FAILURE;
     }
 
-    // 5. Send the internal memory pointer (offset 0xFA) to the EEPROM
-    write_buffer[0] = MAC_START_OFFSET;
-    
-    // XIic_MasterSend transmits the offset; we don't send a STOP condition yet
-    // so we can execute a repeated START for the read phase.
-    status = XIic_MasterSend(&i2c0, write_buffer, 1);
-    if (status != XST_SUCCESS) {
-        xil_printf("Error: Failed to send EEPROM memory offset\r\n");
-        return XST_FAILURE;
-    }
-
-    // 6. Read the 6-byte MAC address into our buffer
-    status = XIic_MasterRecv(&i2c0, mac_address, MAC_ADDR_LEN);
-    if (status != XST_SUCCESS) {
-        xil_printf("Error: Failed to receive MAC address bytes\r\n");
-        return XST_FAILURE;
-    }
-
-    if (status == XST_SUCCESS) {
-        xil_printf("\nMAC: ");
-        xil_printf("%02X:%02X:%02X:%02X:%02X:%02X", 
-                   mac_address[0], mac_address[1], mac_address[2], 
-                   mac_address[3], mac_address[4], mac_address[5]);
-    } else {
-        xil_printf("Failed to read MAC address from EEPROM.\r\n");
-    }
+    /* 4. Wait for internal EEPROM write cycle to complete (typically 5ms - 10ms) */
+    usleep(10000);
 
     return XST_SUCCESS;
 }
 
 
+int EepromReadPolled(u16 MemAddr, u8 *ReadBuf, u16 ByteCount) {
+    u8 AddrBuffer[ADDR_BYTE_LEN];
+    unsigned int SentCount;
+    unsigned int RecvCount;
+
+    /* 1. Prepare the internal memory address for the dummy write */
+#if (ADDR_BYTE_LEN == 2)
+    AddrBuffer[0] = (u8)(MemAddr >> 8);
+    AddrBuffer[1] = (u8)(MemAddr & 0xFF);
+#else
+    AddrBuffer[0] = (u8)(MemAddr & 0xFF);
+#endif
+
+    /* 2. Dummy Write: Send target memory address. 
+     * Use XIIC_REPEATED_START to keep bus ownership, or XIIC_STOP depending on EEPROM */
+    SentCount = XIic_Send(IIC_BASE_ADDRESS,
+                          EEPROM_I2C_ADDR,
+                          AddrBuffer,
+                          ADDR_BYTE_LEN,
+                          XIIC_STOP);
+
+    if (SentCount != ADDR_BYTE_LEN) {
+        return XST_FAILURE;
+    }
+
+    /* 3. Read Data: Clock out the requested number of bytes and issue STOP */
+    RecvCount = XIic_Recv(IIC_BASE_ADDRESS,
+                          EEPROM_I2C_ADDR,
+                          ReadBuf,
+                          ByteCount,
+                          XIIC_STOP);
+
+    if (RecvCount != ByteCount) {
+        return XST_FAILURE;
+    }
+
+    return XST_SUCCESS;
+}
 
 
 #endif // __MICROBLAZE__

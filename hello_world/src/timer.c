@@ -28,9 +28,9 @@ void tmr_init()
     u32 option = 0;
  
 	if(status == XST_SUCCESS)
-		xil_printf("TMR INIT SUCCESSFUL\n");
+		xil_printf("\nTMR INIT SUCCESSFUL");
 	else
-		xil_printf("TMR INIT FAILED\n");
+		xil_printf("\nTMR INIT FAILED");
 
     // Set up timers
     XTmrCtr_Stop(&tmr, TIMER_ID_0);

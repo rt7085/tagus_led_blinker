@@ -322,7 +322,7 @@
                         phandle = <0x8>;
                         xlnx,iic-freq-khz = <0x64>;
                         compatible = "xlnx,axi-iic-2.1", "xlnx,xps-iic-2.00.a";
-                        xlnx,scl-inertial-delay = <0x0>;
+                        xlnx,scl-inertial-delay = <0x5>;
                         clock-frequency = <0x5f5e100>;
                         xlnx,ip-name = "axi_iic";
                         xlnx,disable-setup-violation-check = <0x0>;
@@ -341,7 +341,7 @@
                         xlnx,smbus-pmbus-host = <0x0>;
                         xlnx,name = "axi_iic_0";
                         xlnx,axi-aclk-freq-mhz = <0x64>;
-                        xlnx,sda-inertial-delay = <0x0>;
+                        xlnx,sda-inertial-delay = <0x5>;
                 };
 
                 axi_timer_0: timer@41c00000 {

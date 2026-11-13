@@ -31,9 +31,9 @@ int uart_init()
 	status = XUartLite_Initialize(&uart, uart_config->RegBaseAddr);
 
     if(status == XST_SUCCESS)
-		xil_printf("UART INIT SUCCESSFUL\n");
+		xil_printf("\nUART INIT SUCCESSFUL");
 	else
-		xil_printf("UART INIT FAILED\n");
+		xil_printf("\nUART INIT FAILED");
 
     // Map application callbacks inside the UART Driver
     XUartLite_SetRecvHandler(&uart, uartRX_intcHandler, &uart);

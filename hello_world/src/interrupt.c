@@ -20,9 +20,9 @@ int intc_init()
     status = XIntc_Initialize(&intc, xintc_config->BaseAddress);
  
 	if(status == XST_SUCCESS)
-		xil_printf("INTC INIT SUCCESSFUL\n");
+		xil_printf("\nINTC INIT SUCCESSFUL");
 	else
-		xil_printf("INTC INIT FAILED\n");
+		xil_printf("\nINTC INIT FAILED");
  
     // Initialize MicroBlaze Exception Table & Register INTC
 	Xil_ExceptionInit();

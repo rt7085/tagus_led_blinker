@@ -1656,7 +1656,15 @@
         "xci_name": "led_blinker_axi_iic_0_0",
         "xci_path": "ip/led_blinker_axi_iic_0_0/led_blinker_axi_iic_0_0.xci",
         "inst_hier_path": "axi_iic_0",
-        "has_run_ip_tcl": "true"
+        "has_run_ip_tcl": "true",
+        "parameters": {
+          "C_SCL_INERTIAL_DELAY": {
+            "value": "5"
+          },
+          "C_SDA_INERTIAL_DELAY": {
+            "value": "5"
+          }
+        }
       }
     },
     "interface_nets": {
@@ -2159,21 +2167,6 @@
             }
           }
         }
-      }
-    },
-    "elf_association": {
-      "file": {
-        "name": "../../../../hello_world/build/hello_world.elf",
-        "type": "ELF",
-        "checksum": "3921114537",
-        "IsVisible": "1",
-        "ScopedToRef": "led_blinker",
-        "ScopedToCell": [
-          "microblaze_0"
-        ],
-        "UsedIn": [
-          "implementation"
-        ]
       }
     }
   }

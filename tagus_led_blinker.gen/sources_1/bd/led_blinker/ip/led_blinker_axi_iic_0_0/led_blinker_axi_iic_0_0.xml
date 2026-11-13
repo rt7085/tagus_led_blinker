@@ -1739,7 +1739,7 @@ interrupt is set.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:470e008c</spirit:value>
+            <spirit:value>9:fd2924fe</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1753,11 +1753,11 @@ interrupt is set.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 09 00:50:04 UTC 2026</spirit:value>
+            <spirit:value>Mon Nov 09 23:51:50 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:470e008c</spirit:value>
+            <spirit:value>9:fd2924fe</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1771,11 +1771,11 @@ interrupt is set.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 09 00:49:33 UTC 2026</spirit:value>
+            <spirit:value>Mon Nov 09 23:51:15 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:470e008c</spirit:value>
+            <spirit:value>9:fd2924fe</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1786,7 +1786,7 @@ interrupt is set.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:470e008c</spirit:value>
+            <spirit:value>9:fd2924fe</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1812,7 +1812,7 @@ interrupt is set.
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6bf96178</spirit:value>
+            <spirit:value>9:69494339</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1828,11 +1828,11 @@ interrupt is set.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 09 00:49:33 UTC 2026</spirit:value>
+            <spirit:value>Mon Nov 09 23:51:15 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:6bf96178</spirit:value>
+            <spirit:value>9:69494339</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1854,11 +1854,11 @@ interrupt is set.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 09 00:49:33 UTC 2026</spirit:value>
+            <spirit:value>Mon Nov 09 23:51:15 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:470e008c</spirit:value>
+            <spirit:value>9:fd2924fe</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1874,11 +1874,11 @@ interrupt is set.
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Mon Nov 09 00:49:33 UTC 2026</spirit:value>
+            <spirit:value>Mon Nov 09 23:51:15 UTC 2026</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:470e008c</spirit:value>
+            <spirit:value>9:fd2924fe</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2309,12 +2309,12 @@ interrupt is set.
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_SCL_INERTIAL_DELAY</spirit:name>
         <spirit:displayName>SCL Inertial delay filter value (in AXI clocks)</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SCL_INERTIAL_DELAY" spirit:minimum="0" spirit:maximum="255" spirit:rangeType="long">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SCL_INERTIAL_DELAY" spirit:minimum="0" spirit:maximum="255" spirit:rangeType="long">5</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_SDA_INERTIAL_DELAY</spirit:name>
         <spirit:displayName>SDA Inertial delay value (in AXI clocks)</spirit:displayName>
-        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SDA_INERTIAL_DELAY" spirit:minimum="0" spirit:maximum="255" spirit:rangeType="long">0</spirit:value>
+        <spirit:value spirit:format="long" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_SDA_INERTIAL_DELAY" spirit:minimum="0" spirit:maximum="255" spirit:rangeType="long">5</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>C_SDA_LEVEL</spirit:name>
@@ -2590,7 +2590,7 @@ interrupt is set.
       <spirit:name>C_SCL_INERTIAL_DELAY</spirit:name>
       <spirit:displayName>SCL Inertial delay (in AXI clocks)</spirit:displayName>
       <spirit:description>This parameter specifies the number of S_AXI_ACLK cycles used to define the width of the pulse rejection on SCL signals</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_SCL_INERTIAL_DELAY" spirit:order="8" spirit:minimum="0" spirit:maximum="255" spirit:rangeType="long">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_SCL_INERTIAL_DELAY" spirit:order="8" spirit:minimum="0" spirit:maximum="255" spirit:rangeType="long">5</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -2603,7 +2603,7 @@ interrupt is set.
       <spirit:name>C_SDA_INERTIAL_DELAY</spirit:name>
       <spirit:displayName>SDA Inertial delay (in AXI clocks)</spirit:displayName>
       <spirit:description>This parameter specify the number of S_AXI_ACLK cycles used to define the width of the pulse rejection on SDA signals</spirit:description>
-      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_SDA_INERTIAL_DELAY" spirit:order="9" spirit:minimum="0" spirit:maximum="255" spirit:rangeType="long">0</spirit:value>
+      <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="PARAM_VALUE.C_SDA_INERTIAL_DELAY" spirit:order="9" spirit:minimum="0" spirit:maximum="255" spirit:rangeType="long">5</spirit:value>
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
@@ -2712,6 +2712,8 @@ interrupt is set.
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_ACLK.PHASE" xilinx:valueSource="ip_propagated" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S_AXI_ARESETN.POLARITY" xilinx:valuePermission="bd"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.AXI_ACLK_FREQ_MHZ" xilinx:valueSource="propagated" xilinx:valuePermission="bd"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_SCL_INERTIAL_DELAY" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.C_SDA_INERTIAL_DELAY" xilinx:valueSource="user"/>
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>

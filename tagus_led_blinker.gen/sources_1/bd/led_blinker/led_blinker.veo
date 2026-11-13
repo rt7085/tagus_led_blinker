@@ -78,15 +78,15 @@ led_blinker your_instance_name (
   .pcie_txp(pcie_txp), // output wire pcie_txp
   .pcie_refclk_clk_n(pcie_refclk_clk_n), // input wire pcie_refclk_clk_n
   .pcie_refclk_clk_p(pcie_refclk_clk_p), // input wire pcie_refclk_clk_p
-  .clk(clk), // input wire clk
-  .reset(reset), // input wire reset
-  .pcie_perstn(pcie_perstn), // input wire pcie_perstn
   .EEPROM_IIC_0_scl_i(EEPROM_IIC_0_scl_i), // input wire EEPROM_IIC_0_scl_i
   .EEPROM_IIC_0_scl_o(EEPROM_IIC_0_scl_o), // output wire EEPROM_IIC_0_scl_o
   .EEPROM_IIC_0_scl_t(EEPROM_IIC_0_scl_t), // output wire EEPROM_IIC_0_scl_t
   .EEPROM_IIC_0_sda_i(EEPROM_IIC_0_sda_i), // input wire EEPROM_IIC_0_sda_i
   .EEPROM_IIC_0_sda_o(EEPROM_IIC_0_sda_o), // output wire EEPROM_IIC_0_sda_o
-  .EEPROM_IIC_0_sda_t(EEPROM_IIC_0_sda_t) // output wire EEPROM_IIC_0_sda_t
+  .EEPROM_IIC_0_sda_t(EEPROM_IIC_0_sda_t), // output wire EEPROM_IIC_0_sda_t
+  .clk(clk), // input wire clk
+  .reset(reset), // input wire reset
+  .pcie_perstn(pcie_perstn) // input wire pcie_perstn
 );
 // INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

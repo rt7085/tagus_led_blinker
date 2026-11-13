@@ -54,16 +54,16 @@ void bram_init()
    int status = XBram_CfgInitialize(&bram, bram_config, bram_config->CtrlBaseAddress);
  
    if(status == XST_SUCCESS)
-       xil_printf("BRAM INIT SUCCESSFUL\n");
+       xil_printf("\nBRAM INIT SUCCESSFUL");
    else
-       xil_printf("BRAM INIT FAILED\n");
+       xil_printf("\nBRAM INIT FAILED");
  
    status = XBram_SelfTest(&bram, 0);
  
    if(status == XST_SUCCESS)
-       xil_printf("BRAM SELF TEST SUCCESSFUL\n");
+       xil_printf("\nBRAM SELF TEST SUCCESSFUL");
    else
-       xil_printf("BRAM SELF TEST FAILED\n");
+       xil_printf("\nBRAM SELF TEST FAILED");
 }
 
 void gpio_init()
@@ -84,12 +84,12 @@ int main()
     intc_init();
     tmr_init();
     uart_init();
-    i2c_init();
+    // i2c_init();  // Not needed for low level polled i2c
     
     gpio_init();
     bram_init();
 
-    print("Led Blinker Applications Started...\n\r");
+    xil_printf("\nLed Blinker Applications Started...");
 
     
     u32 pci_user_lnk_up = 0;
@@ -133,6 +133,50 @@ int main()
                 // Clean up
                 break;
         }
+    }
+    
+    // DEBUG: Test I2C
+    int Status;
+    u8 WriteData[DATA_LENGTH] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66};
+    u8 ReadData[DATA_LENGTH]  = {0}; 
+
+    /* Read data back from EEPROM */
+    Status = EepromReadPolled(EEPROM_MAC_ADDR, ReadData, DATA_LENGTH);
+    if (Status != XST_SUCCESS) {
+        xil_printf("EEPROM Read Failed!\r\n");
+        return XST_FAILURE;
+    }
+
+    if (Status == XST_SUCCESS) {
+        xil_printf("\nMAC: ");
+        xil_printf("%02X:%02X:%02X:%02X:%02X:%02X", 
+                   ReadData[0], ReadData[1], ReadData[2], 
+                   ReadData[3], ReadData[4], ReadData[5]);
+    } else {
+        xil_printf("\nFailed to read MAC address from EEPROM.");
+    }
+
+    /* Write data to EEPROM */
+    Status = EepromWritePolled(0x00, WriteData, DATA_LENGTH);
+    if (Status != XST_SUCCESS) {
+        xil_printf("EEPROM Write Failed!\r\n");
+        return XST_FAILURE;
+    }
+
+    /* Read data back from EEPROM */
+    Status = EepromReadPolled(0x00, ReadData, DATA_LENGTH);
+    if (Status != XST_SUCCESS) {
+        xil_printf("EEPROM Read Failed!\r\n");
+        return XST_FAILURE;
+    }
+
+    if (Status == XST_SUCCESS) {
+        xil_printf("\nDATA: ");
+        xil_printf("%02X:%02X:%02X:%02X:%02X:%02X", 
+                   ReadData[0], ReadData[1], ReadData[2], 
+                   ReadData[3], ReadData[4], ReadData[5]);
+    } else {
+        xil_printf("\nFailed to read MAC address from EEPROM.");
     }
     
 
