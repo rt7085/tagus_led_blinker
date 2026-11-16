@@ -14,6 +14,7 @@
 #include "xil_io.h"
 #include "xil_cache.h"
 #include "timer.h"
+#include "i2c.h"
 
 // Constants / Macros
 #define BUFFER_SIZE 64
@@ -27,6 +28,8 @@ void cmd_help();
 void cmd_bram_test();
 void cmd_sram_test(int argc, char *argv[]);
 void cmd_sram_read(int argc, char *argv[]);
+void cmd_read_EEPROM();
+void cmd_write_EEPROM();
 
 // Command mapping structure
 typedef struct {
@@ -41,7 +44,9 @@ static const cmd_entry_t cmd_table[] =
     {"help",       cmd_help,        "Displays available commands"},
     {"bramtest",   cmd_bram_test,   "Usage: bramtest"},
     {"sramtest",   cmd_sram_test,   "Usage: sramtest num_locations"},
-    {"sramread",   cmd_sram_read,   "Usage: sramread start_address(hex) num_locations(dec) [32 bit locations]"}
+    {"sramread",   cmd_sram_read,   "Usage: sramread start_address(hex) num_locations(dec) [32 bit locations]"},
+    {"readEEPROM", cmd_read_EEPROM, "Usage: readEEPROM"},  // For now: Reads the MAC address out of EEPROM
+    {"writeEEPROM",cmd_write_EEPROM,"Usage: writeEEPROM"}  // For now: Write 6 bytes to EEPROM
 };
 #define NUM_COMMANDS (sizeof(cmd_table) / sizeof(cmd_table[0]))
 
@@ -52,6 +57,7 @@ void uartTX_intcHandler();
 int get_line(char *line_out, uint8_t max_len);
 void process_command(char *line); 
 void sram_print(unsigned int *address, unsigned int count);
+
 
 #endif // SERIAL_H
 

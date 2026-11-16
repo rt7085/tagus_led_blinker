@@ -412,8 +412,48 @@ void sram_print(unsigned int *address, unsigned int count)
         value =  Xil_In32((UINTPTR)(address + i));
         xil_printf("\nAddress: %08X: Value: : %08X", address+i, value);
     }      
+
+    return;
 }
 
 
+void cmd_read_EEPROM(void)
+{
+    ReadMACAddress();
+
+    return;
+}
+
+void cmd_write_EEPROM(void)
+{
+    int status;
+    u8 WriteData[DATA_LENGTH] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66};
+    u8 ReadData[MAC_SIZE]  = {0}; 
+
+    // Write data to EEPROM
+    status = EepromWritePolled(0x00, WriteData, DATA_LENGTH);
+    if (status != XST_SUCCESS) {
+        xil_printf("EEPROM Write Failed!\r\n");
+        return;
+    }
+
+    // Read data back from EEPROM
+    status = EepromReadPolled(0x00, ReadData, DATA_LENGTH);
+    if (status != XST_SUCCESS) {
+        xil_printf("EEPROM Read Failed!\r\n");
+        return;
+    }
+
+    if (status == XST_SUCCESS) {
+        xil_printf("\nDATA: ");
+        xil_printf("%02X:%02X:%02X:%02X:%02X:%02X", 
+                   ReadData[0], ReadData[1], ReadData[2], 
+                   ReadData[3], ReadData[4], ReadData[5]);
+    } else {
+        xil_printf("\nFailed to read MAC address from EEPROM.");
+    }
+
+    return;
+}
 
 #endif // __MICROBLAZE__

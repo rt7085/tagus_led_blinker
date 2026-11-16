@@ -77,5 +77,23 @@ int EepromReadPolled(u16 MemAddr, u8 *ReadBuf, u16 ByteCount) {
     return XST_SUCCESS;
 }
 
+int ReadMACAddress(void)
+{
+    int status;
+    u8 ReadBytes[MAC_SIZE]  = {0}; 
+
+    /* Read data back from EEPROM */
+    status = EepromReadPolled(EEPROM_MAC_ADDR, ReadBytes, MAC_SIZE);
+    if (status != XST_SUCCESS) {
+        xil_printf("\nEEPROM MAC Read Failed!");
+        return XST_FAILURE;
+    }
+
+    xil_printf("\nMAC: %02X:%02X:%02X:%02X:%02X:%02X", 
+                ReadBytes[0], ReadBytes[1], ReadBytes[2], 
+                ReadBytes[3], ReadBytes[4], ReadBytes[5]);
+
+    return XST_SUCCESS;
+}
 
 #endif // __MICROBLAZE__

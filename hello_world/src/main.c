@@ -135,53 +135,12 @@ int main()
         }
     }
     
-    // DEBUG: Test I2C
-    int Status;
-    u8 WriteData[DATA_LENGTH] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66};
-    u8 ReadData[DATA_LENGTH]  = {0}; 
-
-    /* Read data back from EEPROM */
-    Status = EepromReadPolled(EEPROM_MAC_ADDR, ReadData, DATA_LENGTH);
-    if (Status != XST_SUCCESS) {
-        xil_printf("EEPROM Read Failed!\r\n");
-        return XST_FAILURE;
-    }
-
-    if (Status == XST_SUCCESS) {
-        xil_printf("\nMAC: ");
-        xil_printf("%02X:%02X:%02X:%02X:%02X:%02X", 
-                   ReadData[0], ReadData[1], ReadData[2], 
-                   ReadData[3], ReadData[4], ReadData[5]);
-    } else {
-        xil_printf("\nFailed to read MAC address from EEPROM.");
-    }
-
-    /* Write data to EEPROM */
-    Status = EepromWritePolled(0x00, WriteData, DATA_LENGTH);
-    if (Status != XST_SUCCESS) {
-        xil_printf("EEPROM Write Failed!\r\n");
-        return XST_FAILURE;
-    }
-
-    /* Read data back from EEPROM */
-    Status = EepromReadPolled(0x00, ReadData, DATA_LENGTH);
-    if (Status != XST_SUCCESS) {
-        xil_printf("EEPROM Read Failed!\r\n");
-        return XST_FAILURE;
-    }
-
-    if (Status == XST_SUCCESS) {
-        xil_printf("\nDATA: ");
-        xil_printf("%02X:%02X:%02X:%02X:%02X:%02X", 
-                   ReadData[0], ReadData[1], ReadData[2], 
-                   ReadData[3], ReadData[4], ReadData[5]);
-    } else {
-        xil_printf("\nFailed to read MAC address from EEPROM.");
-    }
+    // StartUp Functions
+    ReadMACAddress();
     
 
     // drop a cursor arrow to start interface
-    xil_printf(">");
+    xil_printf("\n>");
     char input_line[BUFFER_SIZE];
     
     // Main loop
