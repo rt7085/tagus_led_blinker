@@ -86,7 +86,17 @@ led_blinker your_instance_name (
   .EEPROM_IIC_0_sda_t(EEPROM_IIC_0_sda_t), // output wire EEPROM_IIC_0_sda_t
   .clk(clk), // input wire clk
   .reset(reset), // input wire reset
-  .pcie_perstn(pcie_perstn) // input wire pcie_perstn
+  .pcie_perstn(pcie_perstn), // input wire pcie_perstn
+  .SFP1_IIC_scl_i(SFP1_IIC_scl_i), // input wire SFP1_IIC_scl_i
+  .SFP1_IIC_scl_o(SFP1_IIC_scl_o), // output wire SFP1_IIC_scl_o
+  .SFP1_IIC_scl_t(SFP1_IIC_scl_t), // output wire SFP1_IIC_scl_t
+  .SFP1_IIC_sda_i(SFP1_IIC_sda_i), // input wire SFP1_IIC_sda_i
+  .SFP1_IIC_sda_o(SFP1_IIC_sda_o), // output wire SFP1_IIC_sda_o
+  .SFP1_IIC_sda_t(SFP1_IIC_sda_t), // output wire SFP1_IIC_sda_t
+  .SFP1_TX_DSBL(SFP1_TX_DSBL), // output wire [0:0] SFP1_TX_DSBL
+  .SFP1_RX_LOS(SFP1_RX_LOS), // input wire [0:0] SFP1_RX_LOS
+  .SFP1_TX_FLT(SFP1_TX_FLT), // input wire [0:0] SFP1_TX_FLT
+  .SFP1_MOD_ABS(SFP1_MOD_ABS) // input wire [0:0] SFP1_MOD_ABS
 );
 // INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

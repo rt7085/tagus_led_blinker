@@ -47,7 +47,7 @@
 #define XPAR_XBRAM_1_UE_FAILING_REGISTERS 0x0
 #define XPAR_XBRAM_1_WRITE_ACCESS 0x2
 
-#define XPAR_XGPIO_NUM_INSTANCES 1
+#define XPAR_XGPIO_NUM_INSTANCES 2
 
 /* Definitions for peripheral AXI_GPIO_0 */
 #define XPAR_AXI_GPIO_0_COMPATIBLE "xlnx,axi-gpio-2.0"
@@ -65,7 +65,23 @@
 #define XPAR_XGPIO_0_INTERRUPT_PRESENT 0x0
 #define XPAR_XGPIO_0_IS_DUAL 0x1
 
-#define XPAR_XIIC_NUM_INSTANCES 1
+/* Definitions for peripheral AXI_GPIO_1 */
+#define XPAR_AXI_GPIO_1_COMPATIBLE "xlnx,axi-gpio-2.0"
+#define XPAR_AXI_GPIO_1_BASEADDR 0x40010000
+#define XPAR_AXI_GPIO_1_HIGHADDR 0x4001ffff
+#define XPAR_AXI_GPIO_1_INTERRUPT_PRESENT 0x0
+#define XPAR_AXI_GPIO_1_IS_DUAL 0x1
+#define XPAR_AXI_GPIO_1_GPIO_WIDTH 0x1
+
+/* Canonical definitions for peripheral AXI_GPIO_1 */
+#define XPAR_XGPIO_1_BASEADDR 0x40010000
+#define XPAR_XGPIO_1_HIGHADDR 0x4001ffff
+#define XPAR_XGPIO_1_COMPATIBLE "xlnx,axi-gpio-2.0"
+#define XPAR_XGPIO_1_GPIO_WIDTH 0x1
+#define XPAR_XGPIO_1_INTERRUPT_PRESENT 0x0
+#define XPAR_XGPIO_1_IS_DUAL 0x1
+
+#define XPAR_XIIC_NUM_INSTANCES 2
 
 /* Definitions for peripheral AXI_IIC_0 */
 #define XPAR_AXI_IIC_0_COMPATIBLE "xlnx,axi-iic-2.1"
@@ -80,6 +96,20 @@
 #define XPAR_XIIC_0_COMPATIBLE "xlnx,axi-iic-2.1"
 #define XPAR_XIIC_0_GPO_WIDTH 0x1
 #define XPAR_XIIC_0_TEN_BIT_ADR 0x0
+
+/* Definitions for peripheral AXI_IIC_1 */
+#define XPAR_AXI_IIC_1_COMPATIBLE "xlnx,axi-iic-2.1"
+#define XPAR_AXI_IIC_1_BASEADDR 0x40810000
+#define XPAR_AXI_IIC_1_HIGHADDR 0x4081ffff
+#define XPAR_AXI_IIC_1_TEN_BIT_ADR 0x0
+#define XPAR_AXI_IIC_1_GPO_WIDTH 0x1
+
+/* Canonical definitions for peripheral AXI_IIC_1 */
+#define XPAR_XIIC_1_BASEADDR 0x40810000
+#define XPAR_XIIC_1_HIGHADDR 0x4081ffff
+#define XPAR_XIIC_1_COMPATIBLE "xlnx,axi-iic-2.1"
+#define XPAR_XIIC_1_GPO_WIDTH 0x1
+#define XPAR_XIIC_1_TEN_BIT_ADR 0x0
 
 #define XPAR_XINTC_NUM_INSTANCES 1
 

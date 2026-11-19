@@ -160,7 +160,15 @@ drv_info:
     driver: gpio
     ip_name: axi_gpio
     path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/gpio_v4_12
+  axi_gpio_1:
+    driver: gpio
+    ip_name: axi_gpio
+    path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/gpio_v4_12
   axi_iic_0:
+    driver: iic
+    ip_name: axi_iic
+    path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/iic_v3_14
+  axi_iic_1:
     driver: iic
     ip_name: axi_iic
     path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/iic_v3_14

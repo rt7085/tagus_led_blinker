@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Mon Nov  9 18:53:34 2026
+//Date        : Wed Nov 18 22:23:58 2026
 //Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
 //Command     : generate_target led_blinker.bd
 //Design      : led_blinker
@@ -16,7 +16,7 @@ May need to move SDRAM to its own SMC in the future
 MIG7 Sys clock must be connected to 100 MHz clock directly for low jitter 
 But that causes ll sort of other contraint problems
 Must connect M_AXI_LITE port for Config BAR detection by XDMA driver */
-(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=23,numReposBlks=22,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_bram_cntlr_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=7,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_xdma_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=2,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
+(* CORE_GENERATION_INFO = "led_blinker,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=led_blinker,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=26,numReposBlks=25,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=4,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_mb_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_bram_cntlr_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=2,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=7,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_clkrst_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_board_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_xdma_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=1,\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"da_axi4_cnt\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"=2,synth_mode=Hierarchical}" *) (* HW_HANDOFF = "led_blinker.hwdef" *) 
 module led_blinker
    (EEPROM_IIC_0_scl_i,
     EEPROM_IIC_0_scl_o,
@@ -24,6 +24,16 @@ module led_blinker
     EEPROM_IIC_0_sda_i,
     EEPROM_IIC_0_sda_o,
     EEPROM_IIC_0_sda_t,
+    SFP1_IIC_scl_i,
+    SFP1_IIC_scl_o,
+    SFP1_IIC_scl_t,
+    SFP1_IIC_sda_i,
+    SFP1_IIC_sda_o,
+    SFP1_IIC_sda_t,
+    SFP1_MOD_ABS,
+    SFP1_RX_LOS,
+    SFP1_TX_DSBL,
+    SFP1_TX_FLT,
     clk,
     ddr3_sdram_addr,
     ddr3_sdram_ba,
@@ -57,6 +67,16 @@ module led_blinker
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 EEPROM_IIC_0 SDA_I" *) input EEPROM_IIC_0_sda_i;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 EEPROM_IIC_0 SDA_O" *) output EEPROM_IIC_0_sda_o;
   (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 EEPROM_IIC_0 SDA_T" *) output EEPROM_IIC_0_sda_t;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 SFP1_IIC SCL_I" *) (* X_INTERFACE_MODE = "Master" *) input SFP1_IIC_scl_i;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 SFP1_IIC SCL_O" *) output SFP1_IIC_scl_o;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 SFP1_IIC SCL_T" *) output SFP1_IIC_scl_t;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 SFP1_IIC SDA_I" *) input SFP1_IIC_sda_i;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 SFP1_IIC SDA_O" *) output SFP1_IIC_sda_o;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:iic:1.0 SFP1_IIC SDA_T" *) output SFP1_IIC_sda_t;
+  input [0:0]SFP1_MOD_ABS;
+  input [0:0]SFP1_RX_LOS;
+  output [0:0]SFP1_TX_DSBL;
+  input [0:0]SFP1_TX_FLT;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, CLK_DOMAIN led_blinker_clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, INSERT_VIP 0, PHASE 0.0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 ddr3_sdram ADDR" *) (* X_INTERFACE_MODE = "Master" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ddr3_sdram, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) output [13:0]ddr3_sdram_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 ddr3_sdram BA" *) output [2:0]ddr3_sdram_ba;
@@ -91,6 +111,16 @@ module led_blinker
   wire EEPROM_IIC_0_sda_i;
   wire EEPROM_IIC_0_sda_o;
   wire EEPROM_IIC_0_sda_t;
+  wire SFP1_IIC_scl_i;
+  wire SFP1_IIC_scl_o;
+  wire SFP1_IIC_scl_t;
+  wire SFP1_IIC_sda_i;
+  wire SFP1_IIC_sda_o;
+  wire SFP1_IIC_sda_t;
+  wire [0:0]SFP1_MOD_ABS;
+  wire [0:0]SFP1_RX_LOS;
+  wire [0:0]SFP1_TX_DSBL;
+  wire [0:0]SFP1_TX_FLT;
   wire [12:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
   wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
   wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DIN;
@@ -272,6 +302,40 @@ module led_blinker
   wire axi_smc_M07_AXI_WREADY;
   wire [3:0]axi_smc_M07_AXI_WSTRB;
   wire axi_smc_M07_AXI_WVALID;
+  wire [8:0]axi_smc_M08_AXI_ARADDR;
+  wire axi_smc_M08_AXI_ARREADY;
+  wire axi_smc_M08_AXI_ARVALID;
+  wire [8:0]axi_smc_M08_AXI_AWADDR;
+  wire axi_smc_M08_AXI_AWREADY;
+  wire axi_smc_M08_AXI_AWVALID;
+  wire axi_smc_M08_AXI_BREADY;
+  wire [1:0]axi_smc_M08_AXI_BRESP;
+  wire axi_smc_M08_AXI_BVALID;
+  wire [31:0]axi_smc_M08_AXI_RDATA;
+  wire axi_smc_M08_AXI_RREADY;
+  wire [1:0]axi_smc_M08_AXI_RRESP;
+  wire axi_smc_M08_AXI_RVALID;
+  wire [31:0]axi_smc_M08_AXI_WDATA;
+  wire axi_smc_M08_AXI_WREADY;
+  wire [3:0]axi_smc_M08_AXI_WSTRB;
+  wire axi_smc_M08_AXI_WVALID;
+  wire [8:0]axi_smc_M09_AXI_ARADDR;
+  wire axi_smc_M09_AXI_ARREADY;
+  wire axi_smc_M09_AXI_ARVALID;
+  wire [8:0]axi_smc_M09_AXI_AWADDR;
+  wire axi_smc_M09_AXI_AWREADY;
+  wire axi_smc_M09_AXI_AWVALID;
+  wire axi_smc_M09_AXI_BREADY;
+  wire [1:0]axi_smc_M09_AXI_BRESP;
+  wire axi_smc_M09_AXI_BVALID;
+  wire [31:0]axi_smc_M09_AXI_RDATA;
+  wire axi_smc_M09_AXI_RREADY;
+  wire [1:0]axi_smc_M09_AXI_RRESP;
+  wire axi_smc_M09_AXI_RVALID;
+  wire [31:0]axi_smc_M09_AXI_WDATA;
+  wire axi_smc_M09_AXI_WREADY;
+  wire [3:0]axi_smc_M09_AXI_WSTRB;
+  wire axi_smc_M09_AXI_WVALID;
   wire axi_timer_0_interrupt;
   wire axi_uartlite_0_interrupt;
   wire clk;
@@ -293,6 +357,7 @@ module led_blinker
   wire ddr3_sdram_reset_n;
   wire ddr3_sdram_we_n;
   wire [1:0]ilconcat_0_dout;
+  wire [2:0]ilconcat_1_dout;
   wire mdm_1_debug_sys_rst;
   wire microblaze_0_Clk;
   wire [31:0]microblaze_0_M_AXI_DC_ARADDR;
@@ -555,6 +620,28 @@ module led_blinker
         .s_axi_wready(axi_smc_M00_AXI_WREADY),
         .s_axi_wstrb(axi_smc_M00_AXI_WSTRB),
         .s_axi_wvalid(axi_smc_M00_AXI_WVALID));
+  led_blinker_axi_gpio_1_0 axi_gpio_1
+       (.gpio2_io_i(ilconcat_1_dout),
+        .gpio_io_o(SFP1_TX_DSBL),
+        .s_axi_aclk(microblaze_0_Clk),
+        .s_axi_araddr(axi_smc_M09_AXI_ARADDR),
+        .s_axi_aresetn(rst_clk_wiz_100M_peripheral_aresetn),
+        .s_axi_arready(axi_smc_M09_AXI_ARREADY),
+        .s_axi_arvalid(axi_smc_M09_AXI_ARVALID),
+        .s_axi_awaddr(axi_smc_M09_AXI_AWADDR),
+        .s_axi_awready(axi_smc_M09_AXI_AWREADY),
+        .s_axi_awvalid(axi_smc_M09_AXI_AWVALID),
+        .s_axi_bready(axi_smc_M09_AXI_BREADY),
+        .s_axi_bresp(axi_smc_M09_AXI_BRESP),
+        .s_axi_bvalid(axi_smc_M09_AXI_BVALID),
+        .s_axi_rdata(axi_smc_M09_AXI_RDATA),
+        .s_axi_rready(axi_smc_M09_AXI_RREADY),
+        .s_axi_rresp(axi_smc_M09_AXI_RRESP),
+        .s_axi_rvalid(axi_smc_M09_AXI_RVALID),
+        .s_axi_wdata(axi_smc_M09_AXI_WDATA),
+        .s_axi_wready(axi_smc_M09_AXI_WREADY),
+        .s_axi_wstrb(axi_smc_M09_AXI_WSTRB),
+        .s_axi_wvalid(axi_smc_M09_AXI_WVALID));
   led_blinker_axi_iic_0_0 axi_iic_0
        (.s_axi_aclk(microblaze_0_Clk),
         .s_axi_araddr(axi_smc_M07_AXI_ARADDR),
@@ -581,6 +668,32 @@ module led_blinker
         .sda_i(EEPROM_IIC_0_sda_i),
         .sda_o(EEPROM_IIC_0_sda_o),
         .sda_t(EEPROM_IIC_0_sda_t));
+  led_blinker_axi_iic_1_0 axi_iic_1
+       (.s_axi_aclk(microblaze_0_Clk),
+        .s_axi_araddr(axi_smc_M08_AXI_ARADDR),
+        .s_axi_aresetn(rst_clk_wiz_100M_peripheral_aresetn),
+        .s_axi_arready(axi_smc_M08_AXI_ARREADY),
+        .s_axi_arvalid(axi_smc_M08_AXI_ARVALID),
+        .s_axi_awaddr(axi_smc_M08_AXI_AWADDR),
+        .s_axi_awready(axi_smc_M08_AXI_AWREADY),
+        .s_axi_awvalid(axi_smc_M08_AXI_AWVALID),
+        .s_axi_bready(axi_smc_M08_AXI_BREADY),
+        .s_axi_bresp(axi_smc_M08_AXI_BRESP),
+        .s_axi_bvalid(axi_smc_M08_AXI_BVALID),
+        .s_axi_rdata(axi_smc_M08_AXI_RDATA),
+        .s_axi_rready(axi_smc_M08_AXI_RREADY),
+        .s_axi_rresp(axi_smc_M08_AXI_RRESP),
+        .s_axi_rvalid(axi_smc_M08_AXI_RVALID),
+        .s_axi_wdata(axi_smc_M08_AXI_WDATA),
+        .s_axi_wready(axi_smc_M08_AXI_WREADY),
+        .s_axi_wstrb(axi_smc_M08_AXI_WSTRB),
+        .s_axi_wvalid(axi_smc_M08_AXI_WVALID),
+        .scl_i(SFP1_IIC_scl_i),
+        .scl_o(SFP1_IIC_scl_o),
+        .scl_t(SFP1_IIC_scl_t),
+        .sda_i(SFP1_IIC_sda_i),
+        .sda_o(SFP1_IIC_sda_o),
+        .sda_t(SFP1_IIC_sda_t));
   led_blinker_axi_intc_0_0 axi_intc_0
        (.intr(ilconcat_0_dout),
         .irq(axi_intc_0_interrupt_INTERRUPT),
@@ -770,6 +883,40 @@ module led_blinker
         .M07_AXI_wready(axi_smc_M07_AXI_WREADY),
         .M07_AXI_wstrb(axi_smc_M07_AXI_WSTRB),
         .M07_AXI_wvalid(axi_smc_M07_AXI_WVALID),
+        .M08_AXI_araddr(axi_smc_M08_AXI_ARADDR),
+        .M08_AXI_arready(axi_smc_M08_AXI_ARREADY),
+        .M08_AXI_arvalid(axi_smc_M08_AXI_ARVALID),
+        .M08_AXI_awaddr(axi_smc_M08_AXI_AWADDR),
+        .M08_AXI_awready(axi_smc_M08_AXI_AWREADY),
+        .M08_AXI_awvalid(axi_smc_M08_AXI_AWVALID),
+        .M08_AXI_bready(axi_smc_M08_AXI_BREADY),
+        .M08_AXI_bresp(axi_smc_M08_AXI_BRESP),
+        .M08_AXI_bvalid(axi_smc_M08_AXI_BVALID),
+        .M08_AXI_rdata(axi_smc_M08_AXI_RDATA),
+        .M08_AXI_rready(axi_smc_M08_AXI_RREADY),
+        .M08_AXI_rresp(axi_smc_M08_AXI_RRESP),
+        .M08_AXI_rvalid(axi_smc_M08_AXI_RVALID),
+        .M08_AXI_wdata(axi_smc_M08_AXI_WDATA),
+        .M08_AXI_wready(axi_smc_M08_AXI_WREADY),
+        .M08_AXI_wstrb(axi_smc_M08_AXI_WSTRB),
+        .M08_AXI_wvalid(axi_smc_M08_AXI_WVALID),
+        .M09_AXI_araddr(axi_smc_M09_AXI_ARADDR),
+        .M09_AXI_arready(axi_smc_M09_AXI_ARREADY),
+        .M09_AXI_arvalid(axi_smc_M09_AXI_ARVALID),
+        .M09_AXI_awaddr(axi_smc_M09_AXI_AWADDR),
+        .M09_AXI_awready(axi_smc_M09_AXI_AWREADY),
+        .M09_AXI_awvalid(axi_smc_M09_AXI_AWVALID),
+        .M09_AXI_bready(axi_smc_M09_AXI_BREADY),
+        .M09_AXI_bresp(axi_smc_M09_AXI_BRESP),
+        .M09_AXI_bvalid(axi_smc_M09_AXI_BVALID),
+        .M09_AXI_rdata(axi_smc_M09_AXI_RDATA),
+        .M09_AXI_rready(axi_smc_M09_AXI_RREADY),
+        .M09_AXI_rresp(axi_smc_M09_AXI_RRESP),
+        .M09_AXI_rvalid(axi_smc_M09_AXI_RVALID),
+        .M09_AXI_wdata(axi_smc_M09_AXI_WDATA),
+        .M09_AXI_wready(axi_smc_M09_AXI_WREADY),
+        .M09_AXI_wstrb(axi_smc_M09_AXI_WSTRB),
+        .M09_AXI_wvalid(axi_smc_M09_AXI_WVALID),
         .S00_AXI_araddr(microblaze_0_M_AXI_DP_ARADDR),
         .S00_AXI_arprot(microblaze_0_M_AXI_DP_ARPROT),
         .S00_AXI_arready(microblaze_0_M_AXI_DP_ARREADY),
@@ -951,6 +1098,7 @@ module led_blinker
         .locked(clk_wiz_locked),
         .reset(reset));
   assign ilconcat_0_dout = {axi_uartlite_0_interrupt, axi_timer_0_interrupt};
+  assign ilconcat_1_dout = {SFP1_MOD_ABS, SFP1_RX_LOS, SFP1_TX_FLT};
   led_blinker_mdm_0_0 mdm_0
        (.Dbg_Capture_0(microblaze_0_debug_CAPTURE),
         .Dbg_Clk_0(microblaze_0_debug_CLK),

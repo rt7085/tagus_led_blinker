@@ -333,7 +333,7 @@ output wire m_axi_rready;
     .C_NUM_WRITE_THREADS(2),
     .C_MEP_IDENTIFIER_WIDTH(3),
     .C_MEP_IDENTIFIER(4),
-    .C_SEP_ROUTE_WIDTH(3),
+    .C_SEP_ROUTE_WIDTH(4),
     .C_RDATA_WIDTH(64),
     .C_WDATA_WIDTH(64),
     .C_S_ID_WIDTH(4),

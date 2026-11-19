@@ -118,7 +118,27 @@ module led_blinker_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   input wire reset,
   (* X_INTERFACE_IGNORE = "true" *)
-  input wire pcie_perstn
+  input wire pcie_perstn,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire SFP1_IIC_scl_i,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire SFP1_IIC_scl_o,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire SFP1_IIC_scl_t,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire SFP1_IIC_sda_i,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire SFP1_IIC_sda_o,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire SFP1_IIC_sda_t,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [0:0] SFP1_TX_DSBL,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire [0:0] SFP1_RX_LOS,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire [0:0] SFP1_TX_FLT,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire [0:0] SFP1_MOD_ABS
 );
 
   led_blinker inst (
@@ -154,7 +174,17 @@ module led_blinker_sv (
     .EEPROM_IIC_0_sda_t(EEPROM_IIC_0_sda_t),
     .clk(clk),
     .reset(reset),
-    .pcie_perstn(pcie_perstn)
+    .pcie_perstn(pcie_perstn),
+    .SFP1_IIC_scl_i(SFP1_IIC_scl_i),
+    .SFP1_IIC_scl_o(SFP1_IIC_scl_o),
+    .SFP1_IIC_scl_t(SFP1_IIC_scl_t),
+    .SFP1_IIC_sda_i(SFP1_IIC_sda_i),
+    .SFP1_IIC_sda_o(SFP1_IIC_sda_o),
+    .SFP1_IIC_sda_t(SFP1_IIC_sda_t),
+    .SFP1_TX_DSBL(SFP1_TX_DSBL),
+    .SFP1_RX_LOS(SFP1_RX_LOS),
+    .SFP1_TX_FLT(SFP1_TX_FLT),
+    .SFP1_MOD_ABS(SFP1_MOD_ABS)
   );
 
 endmodule

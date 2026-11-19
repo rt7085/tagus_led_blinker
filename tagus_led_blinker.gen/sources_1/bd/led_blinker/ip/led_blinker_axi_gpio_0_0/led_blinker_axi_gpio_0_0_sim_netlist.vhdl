@@ -2,10 +2,10 @@
 -- Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
--- Date        : Mon Oct  5 20:29:26 2026
+-- Date        : Mon Oct  5 20:29:25 2026
 -- Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
--- Command     : write_vhdl -force -mode funcsim
---               /home/rt7085/repos/tagus_led_blinker/tagus_led_blinker.gen/sources_1/bd/led_blinker/ip/led_blinker_axi_gpio_0_0/led_blinker_axi_gpio_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top led_blinker_axi_gpio_0_0 -prefix
+--               led_blinker_axi_gpio_0_0_ led_blinker_axi_gpio_0_0_sim_netlist.vhdl
 -- Design      : led_blinker_axi_gpio_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -41,8 +41,6 @@ entity led_blinker_axi_gpio_0_0_address_decoder is
     \Dual.ALLOUT0_ND_G1.READ_REG_GEN[1].reg1_reg\ : in STD_LOGIC;
     \Dual.ALLOUT0_ND_G1.READ_REG_GEN[0].reg1_reg\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of led_blinker_axi_gpio_0_0_address_decoder : entity is "address_decoder";
 end led_blinker_axi_gpio_0_0_address_decoder;
 
 architecture STRUCTURE of led_blinker_axi_gpio_0_0_address_decoder is
@@ -351,8 +349,6 @@ entity led_blinker_axi_gpio_0_0_xpm_cdc_array_single is
   attribute DEST_SYNC_FF of led_blinker_axi_gpio_0_0_xpm_cdc_array_single : entity is 4;
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of led_blinker_axi_gpio_0_0_xpm_cdc_array_single : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of led_blinker_axi_gpio_0_0_xpm_cdc_array_single : entity is "xpm_cdc_array_single";
   attribute SIM_ASSERT_CHK : integer;
   attribute SIM_ASSERT_CHK of led_blinker_axi_gpio_0_0_xpm_cdc_array_single : entity is 0;
   attribute SRC_INPUT_REG : integer;
@@ -655,8 +651,6 @@ entity led_blinker_axi_gpio_0_0_GPIO_Core is
     s_axi_wdata : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \Dual.gpio_Data_Out_reg[0]_0\ : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of led_blinker_axi_gpio_0_0_GPIO_Core : entity is "GPIO_Core";
 end led_blinker_axi_gpio_0_0_GPIO_Core;
 
 architecture STRUCTURE of led_blinker_axi_gpio_0_0_GPIO_Core is
@@ -991,8 +985,6 @@ entity led_blinker_axi_gpio_0_0_slave_attachment is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of led_blinker_axi_gpio_0_0_slave_attachment : entity is "slave_attachment";
 end led_blinker_axi_gpio_0_0_slave_attachment;
 
 architecture STRUCTURE of led_blinker_axi_gpio_0_0_slave_attachment is
@@ -1612,8 +1604,6 @@ entity led_blinker_axi_gpio_0_0_axi_lite_ipif is
     s_axi_araddr : in STD_LOGIC_VECTOR ( 2 downto 0 );
     s_axi_awaddr : in STD_LOGIC_VECTOR ( 2 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of led_blinker_axi_gpio_0_0_axi_lite_ipif : entity is "axi_lite_ipif";
 end led_blinker_axi_gpio_0_0_axi_lite_ipif;
 
 architecture STRUCTURE of led_blinker_axi_gpio_0_0_axi_lite_ipif is
@@ -1715,8 +1705,6 @@ entity led_blinker_axi_gpio_0_0_axi_gpio is
   attribute C_TRI_DEFAULT of led_blinker_axi_gpio_0_0_axi_gpio : entity is "32'b11111111111111111111111111111111";
   attribute C_TRI_DEFAULT_2 : string;
   attribute C_TRI_DEFAULT_2 of led_blinker_axi_gpio_0_0_axi_gpio : entity is "32'b11111111111111111111111111111111";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of led_blinker_axi_gpio_0_0_axi_gpio : entity is "axi_gpio";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of led_blinker_axi_gpio_0_0_axi_gpio : entity is "yes";
   attribute ip_group : string;

@@ -10,13 +10,13 @@
       "component_parameters": {
         "C_TRI_DEFAULT": [ { "value": "0xFFFFFFFF", "resolve_type": "user", "format": "bitString", "enabled": false, "usage": "all" } ],
         "C_GPIO_WIDTH": [ { "value": "3", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
-        "C_GPIO2_WIDTH": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "C_GPIO2_WIDTH": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_IS_DUAL": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_ALL_INPUTS": [ { "value": "0", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
         "C_TRI_DEFAULT_2": [ { "value": "0xFFFFFFFF", "resolve_type": "user", "format": "bitString", "enabled": false, "usage": "all" } ],
         "C_DOUT_DEFAULT_2": [ { "value": "0x00000000", "resolve_type": "user", "format": "bitString", "enabled": false, "usage": "all" } ],
         "C_DOUT_DEFAULT": [ { "value": "0xFFFFFFFF", "value_src": "user", "resolve_type": "user", "format": "bitString", "usage": "all" } ],
-        "C_ALL_INPUTS_2": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "C_ALL_INPUTS_2": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "C_INTERRUPT_PRESENT": [ { "value": "0", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "led_blinker_axi_gpio_0_0", "resolve_type": "user", "usage": "all" } ],
         "USE_BOARD_FLOW": [ { "value": "true", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
@@ -371,5 +371,5 @@
       }
     }
   },
-  "checksum": "af155770"
+  "checksum": "db8b0184"
 }
