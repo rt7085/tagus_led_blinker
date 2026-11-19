@@ -96,4 +96,45 @@ int ReadMACAddress(void)
     return XST_SUCCESS;
 }
 
+
+// Read a block of data from SFP EEPROM
+int SFP1ReadPolled(u16 MemAddr, u8 *ReadBuf, u16 ByteCount) {
+    u8 AddrBuffer[ADDR_BYTE_LEN];
+    unsigned int SentCount;
+    unsigned int RecvCount;
+
+    /* 1. Prepare the internal memory address for the dummy write */
+#if (ADDR_BYTE_LEN == 2)
+    AddrBuffer[0] = (u8)(MemAddr >> 8);
+    AddrBuffer[1] = (u8)(MemAddr & 0xFF);
+#else
+    AddrBuffer[0] = (u8)(MemAddr & 0xFF);
+#endif
+
+    /* 2. Dummy Write: Send target memory address. 
+     * Use XIIC_REPEATED_START to keep bus ownership, or XIIC_STOP depending on EEPROM */
+    SentCount = XIic_Send(XPAR_AXI_IIC_1_BASEADDR,
+                          SFP1_EEPROM_ADDR,
+                          AddrBuffer,
+                          ADDR_BYTE_LEN,
+                          XIIC_STOP);
+
+    if (SentCount != ADDR_BYTE_LEN) {
+        return XST_FAILURE;
+    }
+
+    /* 3. Read Data: Clock out the requested number of bytes and issue STOP */
+    RecvCount = XIic_Recv(XPAR_AXI_IIC_1_BASEADDR,
+                          SFP1_EEPROM_ADDR,
+                          ReadBuf,
+                          ByteCount,
+                          XIIC_STOP);
+
+    if (RecvCount != ByteCount) {
+        return XST_FAILURE;
+    }
+
+    return XST_SUCCESS;
+}
+
 #endif // __MICROBLAZE__
