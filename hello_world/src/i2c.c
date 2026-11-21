@@ -2,6 +2,7 @@
 
 #include "i2c.h"
 
+// Functions
 
 int I2CWritePolled(UINTPTR AXIBusAddress, u8 IICAddress, u16 MemAddr, u8 *WriteBuf, u16 ByteCount) {
     u8 TxBuffer[ADDR_BYTE_LEN + DATA_LENGTH];

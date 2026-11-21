@@ -40,6 +40,7 @@ set(USER_COMPILE_SOURCES
 "serial.c"
 "main.c"
 "i2c.c"
+"gpio.c"
 )
 
 # -----------------------------------------
