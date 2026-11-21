@@ -3,7 +3,7 @@
 #include "i2c.h"
 
 
-int EepromWritePolled(u16 MemAddr, u8 *WriteBuf, u16 ByteCount) {
+int I2CWritePolled(UINTPTR AXIBusAddress, u8 IICAddress, u16 MemAddr, u8 *WriteBuf, u16 ByteCount) {
     u8 TxBuffer[ADDR_BYTE_LEN + DATA_LENGTH];
     u8 SentCount;
 
@@ -21,8 +21,8 @@ int EepromWritePolled(u16 MemAddr, u8 *WriteBuf, u16 ByteCount) {
     }
 
     /* 3. Blocking send: Address + Data with STOP condition (XIIC_STOP) */
-    SentCount = XIic_Send(IIC_BASE_ADDRESS,
-                          EEPROM_I2C_ADDR,
+    SentCount = XIic_Send(AXIBusAddress,
+                          IICAddress,
                           TxBuffer,
                           ADDR_BYTE_LEN + ByteCount,
                           XIIC_STOP);
@@ -38,7 +38,7 @@ int EepromWritePolled(u16 MemAddr, u8 *WriteBuf, u16 ByteCount) {
 }
 
 
-int EepromReadPolled(u16 MemAddr, u8 *ReadBuf, u16 ByteCount) {
+int I2CReadPolled(UINTPTR AXIBusAddress, u8 IICAddress, u16 MemAddr, u8 *ReadBuf, u16 ByteCount) {
     u8 AddrBuffer[ADDR_BYTE_LEN];
     unsigned int SentCount;
     unsigned int RecvCount;
@@ -53,8 +53,8 @@ int EepromReadPolled(u16 MemAddr, u8 *ReadBuf, u16 ByteCount) {
 
     /* 2. Dummy Write: Send target memory address. 
      * Use XIIC_REPEATED_START to keep bus ownership, or XIIC_STOP depending on EEPROM */
-    SentCount = XIic_Send(IIC_BASE_ADDRESS,
-                          EEPROM_I2C_ADDR,
+    SentCount = XIic_Send(AXIBusAddress,
+                          IICAddress,
                           AddrBuffer,
                           ADDR_BYTE_LEN,
                           XIIC_STOP);
@@ -64,8 +64,8 @@ int EepromReadPolled(u16 MemAddr, u8 *ReadBuf, u16 ByteCount) {
     }
 
     /* 3. Read Data: Clock out the requested number of bytes and issue STOP */
-    RecvCount = XIic_Recv(IIC_BASE_ADDRESS,
-                          EEPROM_I2C_ADDR,
+    RecvCount = XIic_Recv(AXIBusAddress,
+                          IICAddress,
                           ReadBuf,
                           ByteCount,
                           XIIC_STOP);
@@ -77,13 +77,14 @@ int EepromReadPolled(u16 MemAddr, u8 *ReadBuf, u16 ByteCount) {
     return XST_SUCCESS;
 }
 
+
 int ReadMACAddress(void)
 {
     int status;
     u8 ReadBytes[MAC_SIZE]  = {0}; 
 
     /* Read data back from EEPROM */
-    status = EepromReadPolled(EEPROM_MAC_ADDR, ReadBytes, MAC_SIZE);
+    status = I2CReadPolled(XPAR_AXI_IIC_0_BASEADDR, EEPROM_I2C_ADDR, EEPROM_MAC_ADDR, ReadBytes, MAC_SIZE);
     if (status != XST_SUCCESS) {
         xil_printf("\nEEPROM MAC Read Failed!");
         return XST_FAILURE;
@@ -97,44 +98,5 @@ int ReadMACAddress(void)
 }
 
 
-// Read a block of data from SFP EEPROM
-int SFP1ReadPolled(u16 MemAddr, u8 *ReadBuf, u16 ByteCount) {
-    u8 AddrBuffer[ADDR_BYTE_LEN];
-    unsigned int SentCount;
-    unsigned int RecvCount;
-
-    /* 1. Prepare the internal memory address for the dummy write */
-#if (ADDR_BYTE_LEN == 2)
-    AddrBuffer[0] = (u8)(MemAddr >> 8);
-    AddrBuffer[1] = (u8)(MemAddr & 0xFF);
-#else
-    AddrBuffer[0] = (u8)(MemAddr & 0xFF);
-#endif
-
-    /* 2. Dummy Write: Send target memory address. 
-     * Use XIIC_REPEATED_START to keep bus ownership, or XIIC_STOP depending on EEPROM */
-    SentCount = XIic_Send(XPAR_AXI_IIC_1_BASEADDR,
-                          SFP1_EEPROM_ADDR,
-                          AddrBuffer,
-                          ADDR_BYTE_LEN,
-                          XIIC_STOP);
-
-    if (SentCount != ADDR_BYTE_LEN) {
-        return XST_FAILURE;
-    }
-
-    /* 3. Read Data: Clock out the requested number of bytes and issue STOP */
-    RecvCount = XIic_Recv(XPAR_AXI_IIC_1_BASEADDR,
-                          SFP1_EEPROM_ADDR,
-                          ReadBuf,
-                          ByteCount,
-                          XIIC_STOP);
-
-    if (RecvCount != ByteCount) {
-        return XST_FAILURE;
-    }
-
-    return XST_SUCCESS;
-}
 
 #endif // __MICROBLAZE__

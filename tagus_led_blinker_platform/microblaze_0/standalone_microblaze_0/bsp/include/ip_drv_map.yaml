@@ -13,6 +13,9 @@ axi_iic_0:
 axi_iic_1:
 - axi_iic
 - iic
+axi_iic_2:
+- axi_iic
+- iic
 axi_intc_0:
 - axi_intc
 - intc

@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Wed Nov 18 22:23:58 2026
+//Date        : Fri Nov 20 08:22:03 2026
 //Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
 //Command     : generate_target led_blinker_wrapper.bd
 //Design      : led_blinker_wrapper
@@ -19,6 +19,12 @@ module led_blinker_wrapper
     SFP1_RX_LOS,
     SFP1_TX_DSBL,
     SFP1_TX_FLT,
+    SFP2_IIC_scl_io,
+    SFP2_IIC_sda_io,
+    SFP2_MOD_ABS,
+    SFP2_RX_LOS,
+    SFP2_TX_DSBL,
+    SFP2_TX_FLT,
     clk,
     ddr3_sdram_addr,
     ddr3_sdram_ba,
@@ -54,6 +60,12 @@ module led_blinker_wrapper
   input [0:0]SFP1_RX_LOS;
   output [0:0]SFP1_TX_DSBL;
   input [0:0]SFP1_TX_FLT;
+  inout SFP2_IIC_scl_io;
+  inout SFP2_IIC_sda_io;
+  input [0:0]SFP2_MOD_ABS;
+  input [0:0]SFP2_RX_LOS;
+  output [0:0]SFP2_TX_DSBL;
+  input [0:0]SFP2_TX_FLT;
   input clk;
   output [13:0]ddr3_sdram_addr;
   output [2:0]ddr3_sdram_ba;
@@ -102,6 +114,18 @@ module led_blinker_wrapper
   wire [0:0]SFP1_RX_LOS;
   wire [0:0]SFP1_TX_DSBL;
   wire [0:0]SFP1_TX_FLT;
+  wire SFP2_IIC_scl_i;
+  wire SFP2_IIC_scl_io;
+  wire SFP2_IIC_scl_o;
+  wire SFP2_IIC_scl_t;
+  wire SFP2_IIC_sda_i;
+  wire SFP2_IIC_sda_io;
+  wire SFP2_IIC_sda_o;
+  wire SFP2_IIC_sda_t;
+  wire [0:0]SFP2_MOD_ABS;
+  wire [0:0]SFP2_RX_LOS;
+  wire [0:0]SFP2_TX_DSBL;
+  wire [0:0]SFP2_TX_FLT;
   wire clk;
   wire [13:0]ddr3_sdram_addr;
   wire [2:0]ddr3_sdram_ba;
@@ -150,6 +174,16 @@ module led_blinker_wrapper
         .IO(SFP1_IIC_sda_io),
         .O(SFP1_IIC_sda_i),
         .T(SFP1_IIC_sda_t));
+  IOBUF SFP2_IIC_scl_iobuf
+       (.I(SFP2_IIC_scl_o),
+        .IO(SFP2_IIC_scl_io),
+        .O(SFP2_IIC_scl_i),
+        .T(SFP2_IIC_scl_t));
+  IOBUF SFP2_IIC_sda_iobuf
+       (.I(SFP2_IIC_sda_o),
+        .IO(SFP2_IIC_sda_io),
+        .O(SFP2_IIC_sda_i),
+        .T(SFP2_IIC_sda_t));
   led_blinker led_blinker_i
        (.EEPROM_IIC_0_scl_i(EEPROM_IIC_0_scl_i),
         .EEPROM_IIC_0_scl_o(EEPROM_IIC_0_scl_o),
@@ -167,6 +201,16 @@ module led_blinker_wrapper
         .SFP1_RX_LOS(SFP1_RX_LOS),
         .SFP1_TX_DSBL(SFP1_TX_DSBL),
         .SFP1_TX_FLT(SFP1_TX_FLT),
+        .SFP2_IIC_scl_i(SFP2_IIC_scl_i),
+        .SFP2_IIC_scl_o(SFP2_IIC_scl_o),
+        .SFP2_IIC_scl_t(SFP2_IIC_scl_t),
+        .SFP2_IIC_sda_i(SFP2_IIC_sda_i),
+        .SFP2_IIC_sda_o(SFP2_IIC_sda_o),
+        .SFP2_IIC_sda_t(SFP2_IIC_sda_t),
+        .SFP2_MOD_ABS(SFP2_MOD_ABS),
+        .SFP2_RX_LOS(SFP2_RX_LOS),
+        .SFP2_TX_DSBL(SFP2_TX_DSBL),
+        .SFP2_TX_FLT(SFP2_TX_FLT),
         .clk(clk),
         .ddr3_sdram_addr(ddr3_sdram_addr),
         .ddr3_sdram_ba(ddr3_sdram_ba),

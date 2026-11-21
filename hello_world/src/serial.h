@@ -30,6 +30,7 @@ void cmd_sram_test(int argc, char *argv[]);
 void cmd_sram_read(int argc, char *argv[]);
 void cmd_read_EEPROM();
 void cmd_write_EEPROM();
+void cmd_read_SFP();
 
 // Command mapping structure
 typedef struct {
@@ -46,7 +47,8 @@ static const cmd_entry_t cmd_table[] =
     {"sramtest",   cmd_sram_test,   "Usage: sramtest num_locations"},
     {"sramread",   cmd_sram_read,   "Usage: sramread start_address(hex) num_locations(dec) [32 bit locations]"},
     {"readEEPROM", cmd_read_EEPROM, "Usage: readEEPROM"},  // For now: Reads the MAC address out of EEPROM
-    {"writeEEPROM",cmd_write_EEPROM,"Usage: writeEEPROM"}  // For now: Write 6 bytes to EEPROM
+    {"writeEEPROM",cmd_write_EEPROM,"Usage: writeEEPROM"}, // For now: Write 6 bytes to EEPROM
+    {"readSFP"    ,cmd_read_SFP,    "Usage: readSFP"}      // read some SFP information
 };
 #define NUM_COMMANDS (sizeof(cmd_table) / sizeof(cmd_table[0]))
 

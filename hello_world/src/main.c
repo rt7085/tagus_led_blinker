@@ -38,9 +38,15 @@
 
 // GPIO_1 Bitmasks (SFP1)
 #define SFP1_TX_DISABLE_PIN     0x01   // Channel 1 (Output)
-#define SFP1_TX_FAULT_PIN       0x01   // Channel 1 (Input)
+#define SFP1_TX_FAULT_PIN       0x01   // Channel 2 (Input)
 #define SFP1_RX_LOS_PIN         0x02   // Channel 2 (Input)
-#define SFP1_MOD_ABS            0x04   // Channel 3 (Input)
+#define SFP1_MOD_ABS_PIN        0x04   // Channel 2 (Input)
+
+// GPIO_1 Bitmasks (SFP2)
+#define SFP2_TX_DISABLE_PIN     0x02   // Channel 1 (Output)
+#define SFP2_TX_FAULT_PIN       0x10   // Channel 2 (Input)
+#define SFP2_RX_LOS_PIN         0x20   // Channel 2 (Input)
+#define SFP2_MOD_ABS_PIN        0x40   // Channel 2 (Input)
 
 extern XIntc intc;
 extern XIntc_Config *xintc_config;
@@ -111,38 +117,61 @@ void gpio_init()
     XGpio_SetDataDirection(&Gpio0, GPIO_CHANNEL2, PCIE_USER_LINK_UP_PIN);
 
     // Set GPIO_1 Channel 1 as output (0 mask = output)
-    XGpio_SetDataDirection(&Gpio1, GPIO_CHANNEL1, ~SFP1_TX_DISABLE_PIN);
+    XGpio_SetDataDirection(&Gpio1, GPIO_CHANNEL1, ~(SFP1_TX_DISABLE_PIN | SFP2_TX_DISABLE_PIN));
     // Set GPIO channel 2 as input 
-    XGpio_SetDataDirection(&Gpio0, GPIO_CHANNEL2, (SFP1_TX_FAULT_PIN | SFP1_RX_LOS_PIN  | SFP1_MOD_ABS));
+    XGpio_SetDataDirection(&Gpio0, GPIO_CHANNEL2, (SFP1_TX_FAULT_PIN | SFP1_RX_LOS_PIN  | SFP1_MOD_ABS_PIN | SFP2_TX_FAULT_PIN | SFP2_RX_LOS_PIN  | SFP2_MOD_ABS_PIN));
 
 }
 
 // Enable or disable SFP Transmitter Laser
-void set_sfp1_laser(u8 enable) {
+void set_sfp_lasers(u8 enable) {
     u32 current_gpio = XGpio_DiscreteRead(&Gpio1, GPIO_CHANNEL1);
+    
     if (enable) {
         // TX_DISABLE is active-high; clear pin to enable laser
-        XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL1, current_gpio & ~SFP1_TX_DISABLE_PIN);
-        print("\nSFP1 Laser Enabled.");
+        XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL1, current_gpio & ~(SFP1_TX_DISABLE_PIN | SFP2_TX_DISABLE_PIN));
+        xil_printf("\nSFP1 & SFP 2 Lasers Enabled.");
     } else {
         // Set pin high to disable laser
-        XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL1, current_gpio | SFP1_TX_DISABLE_PIN);
-        print("\nSFP1 Laser Disabled.");
+        XGpio_DiscreteWrite(&Gpio1, GPIO_CHANNEL1, current_gpio | (SFP1_TX_DISABLE_PIN | SFP2_TX_DISABLE_PIN));
+        xil_printf("\nSFP1 Laser Disabled.");
     }
 }
 
 // Read SFP Status Pins
 void check_sfp_status() {
     u32 inputs = XGpio_DiscreteRead(&Gpio1, GPIO_CHANNEL2);
-    
-    if (inputs & SFP1_RX_LOS_PIN) {
-        print("\nWarning: SFP1 RX Loss of Signal (LOS) detected!");
+
+    if (inputs & SFP1_MOD_ABS_PIN) {
+        xil_printf("\nError: SFP1 module not present!");
     } else {
-        print("\nSFP1 RX Signal OK.");
+        xil_printf("\nSFP1 module present.");
+    }
+
+    if (inputs & SFP2_MOD_ABS_PIN) {
+        xil_printf("\nError: SFP2 module not present!");
+    } else {
+        xil_printf("\nSFP2 module present.");
+    }
+   
+    if (inputs & SFP1_RX_LOS_PIN) {
+        xil_printf("\nError: SFP1 RX Loss of Signal (LOS) detected!");
+    } else {
+        xil_printf("\nSFP1 RX Signal OK.");
+    }
+    
+    if (inputs & SFP2_RX_LOS_PIN) {
+        xil_printf("\nError: SFP2 RX Loss of Signal (LOS) detected!");
+    } else {
+        xil_printf("\nSFP2 RX Signal OK.");
     }
 
     if (inputs & SFP1_TX_FAULT_PIN) {
-        print("\nError: SFP1 TX Fault detected!");
+        xil_printf("\nError: SFP1 TX Fault detected!");
+    }
+
+    if (inputs & SFP2_TX_FAULT_PIN) {
+        xil_printf("\nError: SFP2 TX Fault detected!");
     }
 }
 
@@ -206,17 +235,9 @@ int main()
     // StartUp Functions
     ReadMACAddress();
 
-    set_sfp1_laser(1);
+    set_sfp_lasers(1);
     check_sfp_status();
 
-    // Read SFP1 Vendor Name (Bytes 20 to 35 in SFP1 EEPROM)
-    u8 eeprom_buffer[20];
-    if (SFP1ReadPolled(SPF1_VENDOR_ADDR, eeprom_buffer, SPF1_VENDOR_LENGTH) == XST_SUCCESS) {
-        eeprom_buffer[16] = '\0'; // Null-terminate string
-        xil_printf("\nSFP1 Vendor Name: %s", eeprom_buffer);
-    } else {
-        print("\nFailed to read SFP1 EEPROM");
-    }
     
 
     // drop a cursor arrow to start interface

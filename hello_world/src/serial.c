@@ -424,21 +424,24 @@ void cmd_read_EEPROM(void)
     return;
 }
 
+
 void cmd_write_EEPROM(void)
 {
     int status;
-    u8 WriteData[DATA_LENGTH] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66};
+    u8 WriteData[DATA_LENGTH] = {0xAA, 0x22, 0x33, 0x44, 0x55, 0xBB};
     u8 ReadData[MAC_SIZE]  = {0}; 
 
     // Write data to EEPROM
-    status = EepromWritePolled(0x00, WriteData, DATA_LENGTH);
+    status = I2CWritePolled(EEPROM_AXI_ADDR, EEPROM_I2C_ADDR, 0x00, WriteData, DATA_LENGTH);
+    
     if (status != XST_SUCCESS) {
         xil_printf("EEPROM Write Failed!\r\n");
         return;
     }
 
     // Read data back from EEPROM
-    status = EepromReadPolled(0x00, ReadData, DATA_LENGTH);
+    //status = EepromReadPolled(0x00, ReadData, DATA_LENGTH);
+    status = I2CReadPolled(EEPROM_AXI_ADDR , EEPROM_I2C_ADDR, 0x00, ReadData, DATA_LENGTH);
     if (status != XST_SUCCESS) {
         xil_printf("EEPROM Read Failed!\r\n");
         return;
@@ -455,5 +458,30 @@ void cmd_write_EEPROM(void)
 
     return;
 }
+
+void cmd_read_SFP(void)
+{
+    // Read SFP1 Vendor Name 
+    u8 eeprom1_buffer[20];
+    if (I2CReadPolled(SFP1_AXI_ADDR, SFP_STATIC_ADDR, SPF_VENDOR_ADDR, eeprom1_buffer, SPF_VENDOR_LENGTH)== XST_SUCCESS) {
+        eeprom1_buffer[SPF_VENDOR_LENGTH] = '\0'; // Null-terminate string
+        xil_printf("\nSFP1 Vendor Name: %s", eeprom1_buffer);
+    } else {
+        xil_printf("\nFailed to read SFP1 EEPROM");
+    }
+    u8 eeprom2_buffer[20];
+    if (I2CReadPolled(SFP2_AXI_ADDR, SFP_STATIC_ADDR, SPF_VENDOR_ADDR, eeprom2_buffer, SPF_VENDOR_LENGTH)== XST_SUCCESS) {       
+        eeprom2_buffer[SPF_VENDOR_LENGTH] = '\0'; // Null-terminate string
+        xil_printf("\nSFP2 Vendor Name: %s", eeprom2_buffer);
+    } else {
+        xil_printf("\nFailed to read SFP2 EEPROM");
+    }    
+    
+    return;
+}
+
+
+
+
 
 #endif // __MICROBLAZE__

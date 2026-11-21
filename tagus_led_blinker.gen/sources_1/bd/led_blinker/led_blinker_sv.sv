@@ -114,12 +114,6 @@ module led_blinker_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   output wire EEPROM_IIC_0_sda_t,
   (* X_INTERFACE_IGNORE = "true" *)
-  input wire clk,
-  (* X_INTERFACE_IGNORE = "true" *)
-  input wire reset,
-  (* X_INTERFACE_IGNORE = "true" *)
-  input wire pcie_perstn,
-  (* X_INTERFACE_IGNORE = "true" *)
   input wire SFP1_IIC_scl_i,
   (* X_INTERFACE_IGNORE = "true" *)
   output wire SFP1_IIC_scl_o,
@@ -132,13 +126,39 @@ module led_blinker_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   output wire SFP1_IIC_sda_t,
   (* X_INTERFACE_IGNORE = "true" *)
+  input wire SFP2_IIC_scl_i,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire SFP2_IIC_scl_o,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire SFP2_IIC_scl_t,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire SFP2_IIC_sda_i,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire SFP2_IIC_sda_o,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire SFP2_IIC_sda_t,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire clk,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire reset,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire pcie_perstn,
+  (* X_INTERFACE_IGNORE = "true" *)
   output wire [0:0] SFP1_TX_DSBL,
   (* X_INTERFACE_IGNORE = "true" *)
   input wire [0:0] SFP1_RX_LOS,
   (* X_INTERFACE_IGNORE = "true" *)
   input wire [0:0] SFP1_TX_FLT,
   (* X_INTERFACE_IGNORE = "true" *)
-  input wire [0:0] SFP1_MOD_ABS
+  input wire [0:0] SFP1_MOD_ABS,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire [0:0] SFP2_TX_DSBL,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire [0:0] SFP2_TX_FLT,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire [0:0] SFP2_RX_LOS,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire [0:0] SFP2_MOD_ABS
 );
 
   led_blinker inst (
@@ -172,19 +192,29 @@ module led_blinker_sv (
     .EEPROM_IIC_0_sda_i(EEPROM_IIC_0_sda_i),
     .EEPROM_IIC_0_sda_o(EEPROM_IIC_0_sda_o),
     .EEPROM_IIC_0_sda_t(EEPROM_IIC_0_sda_t),
-    .clk(clk),
-    .reset(reset),
-    .pcie_perstn(pcie_perstn),
     .SFP1_IIC_scl_i(SFP1_IIC_scl_i),
     .SFP1_IIC_scl_o(SFP1_IIC_scl_o),
     .SFP1_IIC_scl_t(SFP1_IIC_scl_t),
     .SFP1_IIC_sda_i(SFP1_IIC_sda_i),
     .SFP1_IIC_sda_o(SFP1_IIC_sda_o),
     .SFP1_IIC_sda_t(SFP1_IIC_sda_t),
+    .SFP2_IIC_scl_i(SFP2_IIC_scl_i),
+    .SFP2_IIC_scl_o(SFP2_IIC_scl_o),
+    .SFP2_IIC_scl_t(SFP2_IIC_scl_t),
+    .SFP2_IIC_sda_i(SFP2_IIC_sda_i),
+    .SFP2_IIC_sda_o(SFP2_IIC_sda_o),
+    .SFP2_IIC_sda_t(SFP2_IIC_sda_t),
+    .clk(clk),
+    .reset(reset),
+    .pcie_perstn(pcie_perstn),
     .SFP1_TX_DSBL(SFP1_TX_DSBL),
     .SFP1_RX_LOS(SFP1_RX_LOS),
     .SFP1_TX_FLT(SFP1_TX_FLT),
-    .SFP1_MOD_ABS(SFP1_MOD_ABS)
+    .SFP1_MOD_ABS(SFP1_MOD_ABS),
+    .SFP2_TX_DSBL(SFP2_TX_DSBL),
+    .SFP2_TX_FLT(SFP2_TX_FLT),
+    .SFP2_RX_LOS(SFP2_RX_LOS),
+    .SFP2_MOD_ABS(SFP2_MOD_ABS)
   );
 
 endmodule
