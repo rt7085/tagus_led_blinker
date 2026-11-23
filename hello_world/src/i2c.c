@@ -98,6 +98,21 @@ int ReadMACAddress(void)
     return XST_SUCCESS;
 }
 
+int cs2000_init(void)
+{
+    int status;
+    u8 ReadBytes[4]  = {0}; 
+    
+    status = I2CReadPolled(XPAR_AXI_IIC_3_BASEADDR , CS2000_I2C_ADDR, CS2000_DEVICE_ID , ReadBytes, 1);
+    if (status != XST_SUCCESS) {
+        xil_printf("\nCS2000 Read Failed!");
+        return XST_FAILURE;
+    }
+
+    xil_printf("\nCS2000 Device ID: %02X", ReadBytes[0]);
+
+    return XST_SUCCESS;
+}
 
 
 #endif // __MICROBLAZE__

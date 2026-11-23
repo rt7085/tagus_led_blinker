@@ -2,7 +2,7 @@
 //Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
-//Date        : Fri Nov 20 08:22:03 2026
+//Date        : Sun Nov 22 12:57:44 2026
 //Host        : capybara running 64-bit Ubuntu 24.04.5 LTS
 //Command     : generate_target led_blinker_wrapper.bd
 //Design      : led_blinker_wrapper
@@ -11,8 +11,11 @@
 `timescale 1 ps / 1 ps
 
 module led_blinker_wrapper
-   (EEPROM_IIC_0_scl_io,
+   (CS2000_LOCK,
+    EEPROM_IIC_0_scl_io,
     EEPROM_IIC_0_sda_io,
+    FMC_IIC_scl_io,
+    FMC_IIC_sda_io,
     SFP1_IIC_scl_io,
     SFP1_IIC_sda_io,
     SFP1_MOD_ABS,
@@ -52,8 +55,11 @@ module led_blinker_wrapper
     rgb_led_tri_o,
     usb_uart_rxd,
     usb_uart_txd);
+  input [0:0]CS2000_LOCK;
   inout EEPROM_IIC_0_scl_io;
   inout EEPROM_IIC_0_sda_io;
+  inout FMC_IIC_scl_io;
+  inout FMC_IIC_sda_io;
   inout SFP1_IIC_scl_io;
   inout SFP1_IIC_sda_io;
   input [0:0]SFP1_MOD_ABS;
@@ -94,6 +100,7 @@ module led_blinker_wrapper
   input usb_uart_rxd;
   output usb_uart_txd;
 
+  wire [0:0]CS2000_LOCK;
   wire EEPROM_IIC_0_scl_i;
   wire EEPROM_IIC_0_scl_io;
   wire EEPROM_IIC_0_scl_o;
@@ -102,6 +109,14 @@ module led_blinker_wrapper
   wire EEPROM_IIC_0_sda_io;
   wire EEPROM_IIC_0_sda_o;
   wire EEPROM_IIC_0_sda_t;
+  wire FMC_IIC_scl_i;
+  wire FMC_IIC_scl_io;
+  wire FMC_IIC_scl_o;
+  wire FMC_IIC_scl_t;
+  wire FMC_IIC_sda_i;
+  wire FMC_IIC_sda_io;
+  wire FMC_IIC_sda_o;
+  wire FMC_IIC_sda_t;
   wire SFP1_IIC_scl_i;
   wire SFP1_IIC_scl_io;
   wire SFP1_IIC_scl_o;
@@ -164,6 +179,16 @@ module led_blinker_wrapper
         .IO(EEPROM_IIC_0_sda_io),
         .O(EEPROM_IIC_0_sda_i),
         .T(EEPROM_IIC_0_sda_t));
+  IOBUF FMC_IIC_scl_iobuf
+       (.I(FMC_IIC_scl_o),
+        .IO(FMC_IIC_scl_io),
+        .O(FMC_IIC_scl_i),
+        .T(FMC_IIC_scl_t));
+  IOBUF FMC_IIC_sda_iobuf
+       (.I(FMC_IIC_sda_o),
+        .IO(FMC_IIC_sda_io),
+        .O(FMC_IIC_sda_i),
+        .T(FMC_IIC_sda_t));
   IOBUF SFP1_IIC_scl_iobuf
        (.I(SFP1_IIC_scl_o),
         .IO(SFP1_IIC_scl_io),
@@ -185,12 +210,19 @@ module led_blinker_wrapper
         .O(SFP2_IIC_sda_i),
         .T(SFP2_IIC_sda_t));
   led_blinker led_blinker_i
-       (.EEPROM_IIC_0_scl_i(EEPROM_IIC_0_scl_i),
+       (.CS2000_LOCK(CS2000_LOCK),
+        .EEPROM_IIC_0_scl_i(EEPROM_IIC_0_scl_i),
         .EEPROM_IIC_0_scl_o(EEPROM_IIC_0_scl_o),
         .EEPROM_IIC_0_scl_t(EEPROM_IIC_0_scl_t),
         .EEPROM_IIC_0_sda_i(EEPROM_IIC_0_sda_i),
         .EEPROM_IIC_0_sda_o(EEPROM_IIC_0_sda_o),
         .EEPROM_IIC_0_sda_t(EEPROM_IIC_0_sda_t),
+        .FMC_IIC_scl_i(FMC_IIC_scl_i),
+        .FMC_IIC_scl_o(FMC_IIC_scl_o),
+        .FMC_IIC_scl_t(FMC_IIC_scl_t),
+        .FMC_IIC_sda_i(FMC_IIC_sda_i),
+        .FMC_IIC_sda_o(FMC_IIC_sda_o),
+        .FMC_IIC_sda_t(FMC_IIC_sda_t),
         .SFP1_IIC_scl_i(SFP1_IIC_scl_i),
         .SFP1_IIC_scl_o(SFP1_IIC_scl_o),
         .SFP1_IIC_scl_t(SFP1_IIC_scl_t),

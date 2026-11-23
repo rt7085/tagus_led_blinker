@@ -176,6 +176,10 @@ drv_info:
     driver: iic
     ip_name: axi_iic
     path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/iic_v3_14
+  axi_iic_3:
+    driver: iic
+    ip_name: axi_iic
+    path: /home/rt7085/tools/xilinx/2025.2/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/iic_v3_14
   axi_intc_0:
     driver: intc
     ip_name: axi_intc

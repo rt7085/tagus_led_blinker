@@ -106,7 +106,14 @@ led_blinker your_instance_name (
   .SFP2_TX_DSBL(SFP2_TX_DSBL), // output wire [0:0] SFP2_TX_DSBL
   .SFP2_TX_FLT(SFP2_TX_FLT), // input wire [0:0] SFP2_TX_FLT
   .SFP2_RX_LOS(SFP2_RX_LOS), // input wire [0:0] SFP2_RX_LOS
-  .SFP2_MOD_ABS(SFP2_MOD_ABS) // input wire [0:0] SFP2_MOD_ABS
+  .SFP2_MOD_ABS(SFP2_MOD_ABS), // input wire [0:0] SFP2_MOD_ABS
+  .CS2000_LOCK(CS2000_LOCK), // input wire [0:0] CS2000_LOCK
+  .FMC_IIC_scl_i(FMC_IIC_scl_i), // input wire FMC_IIC_scl_i
+  .FMC_IIC_scl_o(FMC_IIC_scl_o), // output wire FMC_IIC_scl_o
+  .FMC_IIC_scl_t(FMC_IIC_scl_t), // output wire FMC_IIC_scl_t
+  .FMC_IIC_sda_i(FMC_IIC_sda_i), // input wire FMC_IIC_sda_i
+  .FMC_IIC_sda_o(FMC_IIC_sda_o), // output wire FMC_IIC_sda_o
+  .FMC_IIC_sda_t(FMC_IIC_sda_t) // output wire FMC_IIC_sda_t
 );
 // INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

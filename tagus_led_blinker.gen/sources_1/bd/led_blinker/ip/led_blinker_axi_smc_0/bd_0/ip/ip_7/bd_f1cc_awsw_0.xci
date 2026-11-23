@@ -12,9 +12,9 @@
         "M_PIPELINES": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "S_LATENCY": [ { "value": "0", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "NUM_SI": [ { "value": "5", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "NUM_MI": [ { "value": "11", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "NUM_MI": [ { "value": "12", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "TESTING_MODE": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "PAYLD_WIDTH": [ { "value": "186", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "PAYLD_WIDTH": [ { "value": "187", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M00_S00_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M00_S01_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M00_S02_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -191,11 +191,11 @@
         "M10_S13_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M10_S14_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M10_S15_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "M11_S00_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "M11_S01_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "M11_S02_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "M11_S03_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "M11_S04_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "M11_S00_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "M11_S01_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "M11_S02_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "M11_S03_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "M11_S04_CONNECTIVITY": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M11_S05_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M11_S06_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "M11_S07_CONNECTIVITY": [ { "value": "1", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -274,15 +274,15 @@
         "Component_Name": [ { "value": "bd_f1cc_awsw_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
-        "C_PAYLD_WIDTH": [ { "value": "186", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_PAYLD_WIDTH": [ { "value": "187", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "K_MAX_INFO_WIDTH": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_S_PIPELINES": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_M_PIPELINES": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_S_LATENCY": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_NUM_SI": [ { "value": "5", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_NUM_MI": [ { "value": "11", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+        "C_NUM_MI": [ { "value": "12", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_TESTING_MODE": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_CONNECTIVITY": [ { "value": "0b1111111111111111111111111111111111111111111111111111111", "resolve_type": "generated", "format": "bitString", "enabled": false, "usage": "all" } ]
+        "C_CONNECTIVITY": [ { "value": "0b111111111111111111111111111111111111111111111111111111111111", "resolve_type": "generated", "format": "bitString", "enabled": false, "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "artix7", "resolve_type": "generated", "usage": "all" } ],
@@ -312,16 +312,16 @@
       "ports": {
         "aclk": [ { "direction": "in" } ],
         "aclken": [ { "direction": "in", "driver_value": "1" } ],
-        "s_sc_send": [ { "direction": "in", "size_left": "54", "size_right": "0" } ],
-        "s_sc_req": [ { "direction": "in", "size_left": "54", "size_right": "0" } ],
-        "s_sc_info": [ { "direction": "in", "size_left": "54", "size_right": "0" } ],
-        "s_sc_payld": [ { "direction": "in", "size_left": "929", "size_right": "0" } ],
-        "s_sc_recv": [ { "direction": "out", "size_left": "54", "size_right": "0" } ],
-        "m_sc_recv": [ { "direction": "in", "size_left": "54", "size_right": "0" } ],
-        "m_sc_send": [ { "direction": "out", "size_left": "54", "size_right": "0" } ],
-        "m_sc_req": [ { "direction": "out", "size_left": "54", "size_right": "0" } ],
-        "m_sc_info": [ { "direction": "out", "size_left": "54", "size_right": "0" } ],
-        "m_sc_payld": [ { "direction": "out", "size_left": "2045", "size_right": "0" } ]
+        "s_sc_send": [ { "direction": "in", "size_left": "59", "size_right": "0" } ],
+        "s_sc_req": [ { "direction": "in", "size_left": "59", "size_right": "0" } ],
+        "s_sc_info": [ { "direction": "in", "size_left": "59", "size_right": "0" } ],
+        "s_sc_payld": [ { "direction": "in", "size_left": "934", "size_right": "0" } ],
+        "s_sc_recv": [ { "direction": "out", "size_left": "59", "size_right": "0" } ],
+        "m_sc_recv": [ { "direction": "in", "size_left": "59", "size_right": "0" } ],
+        "m_sc_send": [ { "direction": "out", "size_left": "59", "size_right": "0" } ],
+        "m_sc_req": [ { "direction": "out", "size_left": "59", "size_right": "0" } ],
+        "m_sc_info": [ { "direction": "out", "size_left": "59", "size_right": "0" } ],
+        "m_sc_payld": [ { "direction": "out", "size_left": "2243", "size_right": "0" } ]
       },
       "interfaces": {
         "aclk": {
@@ -361,11 +361,11 @@
             "BRIDGES": [ { "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC:M08_SC:M09_SC:M10_SC:M11_SC:M12_SC:M13_SC:M14_SC:M15_SC", "value_src": "constant", "value_permission": "bd", "usage": "all" } ]
           },
           "port_maps": {
-            "SEND": [ { "physical_name": "s_sc_send", "physical_left": "10", "physical_right": "0" } ],
-            "REQ": [ { "physical_name": "s_sc_req", "physical_left": "10", "physical_right": "0" } ],
-            "INFO": [ { "physical_name": "s_sc_info", "physical_left": "10", "physical_right": "0" } ],
-            "PAYLD": [ { "physical_name": "s_sc_payld", "physical_left": "185", "physical_right": "0" } ],
-            "RECV": [ { "physical_name": "s_sc_recv", "physical_left": "10", "physical_right": "0" } ]
+            "SEND": [ { "physical_name": "s_sc_send", "physical_left": "11", "physical_right": "0" } ],
+            "REQ": [ { "physical_name": "s_sc_req", "physical_left": "11", "physical_right": "0" } ],
+            "INFO": [ { "physical_name": "s_sc_info", "physical_left": "11", "physical_right": "0" } ],
+            "PAYLD": [ { "physical_name": "s_sc_payld", "physical_left": "186", "physical_right": "0" } ],
+            "RECV": [ { "physical_name": "s_sc_recv", "physical_left": "11", "physical_right": "0" } ]
           }
         },
         "M00_SC": {
@@ -377,7 +377,7 @@
             "SEND": [ { "physical_name": "m_sc_send", "physical_left": "4", "physical_right": "0" } ],
             "REQ": [ { "physical_name": "m_sc_req", "physical_left": "4", "physical_right": "0" } ],
             "INFO": [ { "physical_name": "m_sc_info", "physical_left": "4", "physical_right": "0" } ],
-            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "185", "physical_right": "0" } ]
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "186", "physical_right": "0" } ]
           }
         },
         "S01_SC": {
@@ -388,11 +388,11 @@
             "BRIDGES": [ { "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC:M08_SC:M09_SC:M10_SC:M11_SC:M12_SC:M13_SC:M14_SC:M15_SC", "value_src": "constant", "value_permission": "bd", "usage": "all" } ]
           },
           "port_maps": {
-            "SEND": [ { "physical_name": "s_sc_send", "physical_left": "21", "physical_right": "11" } ],
-            "REQ": [ { "physical_name": "s_sc_req", "physical_left": "21", "physical_right": "11" } ],
-            "INFO": [ { "physical_name": "s_sc_info", "physical_left": "21", "physical_right": "11" } ],
-            "PAYLD": [ { "physical_name": "s_sc_payld", "physical_left": "371", "physical_right": "186" } ],
-            "RECV": [ { "physical_name": "s_sc_recv", "physical_left": "21", "physical_right": "11" } ]
+            "SEND": [ { "physical_name": "s_sc_send", "physical_left": "23", "physical_right": "12" } ],
+            "REQ": [ { "physical_name": "s_sc_req", "physical_left": "23", "physical_right": "12" } ],
+            "INFO": [ { "physical_name": "s_sc_info", "physical_left": "23", "physical_right": "12" } ],
+            "PAYLD": [ { "physical_name": "s_sc_payld", "physical_left": "373", "physical_right": "187" } ],
+            "RECV": [ { "physical_name": "s_sc_recv", "physical_left": "23", "physical_right": "12" } ]
           }
         },
         "M01_SC": {
@@ -404,7 +404,7 @@
             "SEND": [ { "physical_name": "m_sc_send", "physical_left": "9", "physical_right": "5" } ],
             "REQ": [ { "physical_name": "m_sc_req", "physical_left": "9", "physical_right": "5" } ],
             "INFO": [ { "physical_name": "m_sc_info", "physical_left": "9", "physical_right": "5" } ],
-            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "371", "physical_right": "186" } ]
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "373", "physical_right": "187" } ]
           }
         },
         "S02_SC": {
@@ -415,11 +415,11 @@
             "BRIDGES": [ { "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC:M08_SC:M09_SC:M10_SC:M11_SC:M12_SC:M13_SC:M14_SC:M15_SC", "value_src": "constant", "value_permission": "bd", "usage": "all" } ]
           },
           "port_maps": {
-            "SEND": [ { "physical_name": "s_sc_send", "physical_left": "32", "physical_right": "22" } ],
-            "REQ": [ { "physical_name": "s_sc_req", "physical_left": "32", "physical_right": "22" } ],
-            "INFO": [ { "physical_name": "s_sc_info", "physical_left": "32", "physical_right": "22" } ],
-            "PAYLD": [ { "physical_name": "s_sc_payld", "physical_left": "557", "physical_right": "372" } ],
-            "RECV": [ { "physical_name": "s_sc_recv", "physical_left": "32", "physical_right": "22" } ]
+            "SEND": [ { "physical_name": "s_sc_send", "physical_left": "35", "physical_right": "24" } ],
+            "REQ": [ { "physical_name": "s_sc_req", "physical_left": "35", "physical_right": "24" } ],
+            "INFO": [ { "physical_name": "s_sc_info", "physical_left": "35", "physical_right": "24" } ],
+            "PAYLD": [ { "physical_name": "s_sc_payld", "physical_left": "560", "physical_right": "374" } ],
+            "RECV": [ { "physical_name": "s_sc_recv", "physical_left": "35", "physical_right": "24" } ]
           }
         },
         "M02_SC": {
@@ -431,7 +431,7 @@
             "SEND": [ { "physical_name": "m_sc_send", "physical_left": "14", "physical_right": "10" } ],
             "REQ": [ { "physical_name": "m_sc_req", "physical_left": "14", "physical_right": "10" } ],
             "INFO": [ { "physical_name": "m_sc_info", "physical_left": "14", "physical_right": "10" } ],
-            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "557", "physical_right": "372" } ]
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "560", "physical_right": "374" } ]
           }
         },
         "S03_SC": {
@@ -442,11 +442,11 @@
             "BRIDGES": [ { "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC:M08_SC:M09_SC:M10_SC:M11_SC:M12_SC:M13_SC:M14_SC:M15_SC", "value_src": "constant", "value_permission": "bd", "usage": "all" } ]
           },
           "port_maps": {
-            "SEND": [ { "physical_name": "s_sc_send", "physical_left": "43", "physical_right": "33" } ],
-            "REQ": [ { "physical_name": "s_sc_req", "physical_left": "43", "physical_right": "33" } ],
-            "INFO": [ { "physical_name": "s_sc_info", "physical_left": "43", "physical_right": "33" } ],
-            "PAYLD": [ { "physical_name": "s_sc_payld", "physical_left": "743", "physical_right": "558" } ],
-            "RECV": [ { "physical_name": "s_sc_recv", "physical_left": "43", "physical_right": "33" } ]
+            "SEND": [ { "physical_name": "s_sc_send", "physical_left": "47", "physical_right": "36" } ],
+            "REQ": [ { "physical_name": "s_sc_req", "physical_left": "47", "physical_right": "36" } ],
+            "INFO": [ { "physical_name": "s_sc_info", "physical_left": "47", "physical_right": "36" } ],
+            "PAYLD": [ { "physical_name": "s_sc_payld", "physical_left": "747", "physical_right": "561" } ],
+            "RECV": [ { "physical_name": "s_sc_recv", "physical_left": "47", "physical_right": "36" } ]
           }
         },
         "M03_SC": {
@@ -458,7 +458,7 @@
             "SEND": [ { "physical_name": "m_sc_send", "physical_left": "19", "physical_right": "15" } ],
             "REQ": [ { "physical_name": "m_sc_req", "physical_left": "19", "physical_right": "15" } ],
             "INFO": [ { "physical_name": "m_sc_info", "physical_left": "19", "physical_right": "15" } ],
-            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "743", "physical_right": "558" } ]
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "747", "physical_right": "561" } ]
           }
         },
         "S04_SC": {
@@ -469,11 +469,11 @@
             "BRIDGES": [ { "value": "M00_SC:M01_SC:M02_SC:M03_SC:M04_SC:M05_SC:M06_SC:M07_SC:M08_SC:M09_SC:M10_SC:M11_SC:M12_SC:M13_SC:M14_SC:M15_SC", "value_src": "constant", "value_permission": "bd", "usage": "all" } ]
           },
           "port_maps": {
-            "SEND": [ { "physical_name": "s_sc_send", "physical_left": "54", "physical_right": "44" } ],
-            "REQ": [ { "physical_name": "s_sc_req", "physical_left": "54", "physical_right": "44" } ],
-            "INFO": [ { "physical_name": "s_sc_info", "physical_left": "54", "physical_right": "44" } ],
-            "PAYLD": [ { "physical_name": "s_sc_payld", "physical_left": "929", "physical_right": "744" } ],
-            "RECV": [ { "physical_name": "s_sc_recv", "physical_left": "54", "physical_right": "44" } ]
+            "SEND": [ { "physical_name": "s_sc_send", "physical_left": "59", "physical_right": "48" } ],
+            "REQ": [ { "physical_name": "s_sc_req", "physical_left": "59", "physical_right": "48" } ],
+            "INFO": [ { "physical_name": "s_sc_info", "physical_left": "59", "physical_right": "48" } ],
+            "PAYLD": [ { "physical_name": "s_sc_payld", "physical_left": "934", "physical_right": "748" } ],
+            "RECV": [ { "physical_name": "s_sc_recv", "physical_left": "59", "physical_right": "48" } ]
           }
         },
         "M04_SC": {
@@ -485,7 +485,7 @@
             "SEND": [ { "physical_name": "m_sc_send", "physical_left": "24", "physical_right": "20" } ],
             "REQ": [ { "physical_name": "m_sc_req", "physical_left": "24", "physical_right": "20" } ],
             "INFO": [ { "physical_name": "m_sc_info", "physical_left": "24", "physical_right": "20" } ],
-            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "929", "physical_right": "744" } ]
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "934", "physical_right": "748" } ]
           }
         },
         "M05_SC": {
@@ -497,7 +497,7 @@
             "SEND": [ { "physical_name": "m_sc_send", "physical_left": "29", "physical_right": "25" } ],
             "REQ": [ { "physical_name": "m_sc_req", "physical_left": "29", "physical_right": "25" } ],
             "INFO": [ { "physical_name": "m_sc_info", "physical_left": "29", "physical_right": "25" } ],
-            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "1115", "physical_right": "930" } ]
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "1121", "physical_right": "935" } ]
           }
         },
         "M06_SC": {
@@ -509,7 +509,7 @@
             "SEND": [ { "physical_name": "m_sc_send", "physical_left": "34", "physical_right": "30" } ],
             "REQ": [ { "physical_name": "m_sc_req", "physical_left": "34", "physical_right": "30" } ],
             "INFO": [ { "physical_name": "m_sc_info", "physical_left": "34", "physical_right": "30" } ],
-            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "1301", "physical_right": "1116" } ]
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "1308", "physical_right": "1122" } ]
           }
         },
         "M07_SC": {
@@ -521,7 +521,7 @@
             "SEND": [ { "physical_name": "m_sc_send", "physical_left": "39", "physical_right": "35" } ],
             "REQ": [ { "physical_name": "m_sc_req", "physical_left": "39", "physical_right": "35" } ],
             "INFO": [ { "physical_name": "m_sc_info", "physical_left": "39", "physical_right": "35" } ],
-            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "1487", "physical_right": "1302" } ]
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "1495", "physical_right": "1309" } ]
           }
         },
         "M08_SC": {
@@ -533,7 +533,7 @@
             "SEND": [ { "physical_name": "m_sc_send", "physical_left": "44", "physical_right": "40" } ],
             "REQ": [ { "physical_name": "m_sc_req", "physical_left": "44", "physical_right": "40" } ],
             "INFO": [ { "physical_name": "m_sc_info", "physical_left": "44", "physical_right": "40" } ],
-            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "1673", "physical_right": "1488" } ]
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "1682", "physical_right": "1496" } ]
           }
         },
         "M09_SC": {
@@ -545,7 +545,7 @@
             "SEND": [ { "physical_name": "m_sc_send", "physical_left": "49", "physical_right": "45" } ],
             "REQ": [ { "physical_name": "m_sc_req", "physical_left": "49", "physical_right": "45" } ],
             "INFO": [ { "physical_name": "m_sc_info", "physical_left": "49", "physical_right": "45" } ],
-            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "1859", "physical_right": "1674" } ]
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "1869", "physical_right": "1683" } ]
           }
         },
         "M10_SC": {
@@ -557,11 +557,23 @@
             "SEND": [ { "physical_name": "m_sc_send", "physical_left": "54", "physical_right": "50" } ],
             "REQ": [ { "physical_name": "m_sc_req", "physical_left": "54", "physical_right": "50" } ],
             "INFO": [ { "physical_name": "m_sc_info", "physical_left": "54", "physical_right": "50" } ],
-            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "2045", "physical_right": "1860" } ]
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "2056", "physical_right": "1870" } ]
+          }
+        },
+        "M11_SC": {
+          "vlnv": "xilinx.com:interface:sc:1.0",
+          "abstraction_type": "xilinx.com:interface:sc_rtl:1.0",
+          "mode": "master",
+          "port_maps": {
+            "RECV": [ { "physical_name": "m_sc_recv", "physical_left": "59", "physical_right": "55" } ],
+            "SEND": [ { "physical_name": "m_sc_send", "physical_left": "59", "physical_right": "55" } ],
+            "REQ": [ { "physical_name": "m_sc_req", "physical_left": "59", "physical_right": "55" } ],
+            "INFO": [ { "physical_name": "m_sc_info", "physical_left": "59", "physical_right": "55" } ],
+            "PAYLD": [ { "physical_name": "m_sc_payld", "physical_left": "2243", "physical_right": "2057" } ]
           }
         }
       }
     }
   },
-  "checksum": "3cb64a47"
+  "checksum": "80310332"
 }

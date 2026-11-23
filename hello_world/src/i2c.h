@@ -57,7 +57,21 @@
 #define SPF_WARNING_ADDR        0x74  // Warning register offset
 #define SPF_WARNING_LENGTH      2     // Warning length
 
-
+// CS2000 address
+#define CS2000_I2C_ADDR     0x4E
+//CS2000 Registers       
+#define CS2000_DEVICE_ID    0x01         
+#define CS2000_DEVICE_CTRL	0x02  
+#define CS2000_DEVICE_CFG1	0x03   
+#define CS2000_DEVICE_CFG2	0x04   
+#define CS2000_GLOBAL_CFG	0x05   
+#define CS2000_RATIO0		0x06  
+#define CS2000_RATIO1		0x0A  
+#define CS2000_RATIO2		0x0E 
+#define CS2000_RATIO3		0x12   
+#define CS2000_FUNCT_CFG1	0x16  
+#define CS2000_FUNCT_CFG2	0x17  
+#define CS2000_FUNCT_CFG3	0x1E 
 
 /* Set to 2 for larger EEPROMs (e.g., 24LC32, 24LC64), or 1 for <= 16Kb (e.g., 24LC02) */
 #define ADDR_BYTE_LEN       1
@@ -69,6 +83,7 @@
 int I2CWritePolled(UINTPTR AXIBusAddress, u8 IICAddress, u16 MemAddr, u8 *WriteBuf, u16 ByteCount);
 int I2CReadPolled(UINTPTR AXIBusAddress, u8 IICAddress, u16 MemAddr, u8 *ReadBuf, u16 ByteCount);
 int ReadMACAddress(void);
+int cs2000_init(void);
 
 #endif // I2C_H
 

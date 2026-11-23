@@ -81,7 +81,7 @@
 #define XPAR_XGPIO_1_INTERRUPT_PRESENT 0x0
 #define XPAR_XGPIO_1_IS_DUAL 0x1
 
-#define XPAR_XIIC_NUM_INSTANCES 3
+#define XPAR_XIIC_NUM_INSTANCES 4
 
 /* Definitions for peripheral AXI_IIC_0 */
 #define XPAR_AXI_IIC_0_COMPATIBLE "xlnx,axi-iic-2.1"
@@ -124,6 +124,20 @@
 #define XPAR_XIIC_2_COMPATIBLE "xlnx,axi-iic-2.1"
 #define XPAR_XIIC_2_GPO_WIDTH 0x1
 #define XPAR_XIIC_2_TEN_BIT_ADR 0x0
+
+/* Definitions for peripheral AXI_IIC_3 */
+#define XPAR_AXI_IIC_3_COMPATIBLE "xlnx,axi-iic-2.1"
+#define XPAR_AXI_IIC_3_BASEADDR 0x40830000
+#define XPAR_AXI_IIC_3_HIGHADDR 0x4083ffff
+#define XPAR_AXI_IIC_3_TEN_BIT_ADR 0x0
+#define XPAR_AXI_IIC_3_GPO_WIDTH 0x1
+
+/* Canonical definitions for peripheral AXI_IIC_3 */
+#define XPAR_XIIC_3_BASEADDR 0x40830000
+#define XPAR_XIIC_3_HIGHADDR 0x4083ffff
+#define XPAR_XIIC_3_COMPATIBLE "xlnx,axi-iic-2.1"
+#define XPAR_XIIC_3_GPO_WIDTH 0x1
+#define XPAR_XIIC_3_TEN_BIT_ADR 0x0
 
 #define XPAR_XINTC_NUM_INSTANCES 1
 

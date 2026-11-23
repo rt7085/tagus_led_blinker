@@ -418,12 +418,31 @@ module led_blinker_axi_smc_0 (
   M10_AXI_rdata,
   M10_AXI_rresp,
   M10_AXI_rvalid,
-  M10_AXI_rready
+  M10_AXI_rready,
+  M11_AXI_awaddr,
+  M11_AXI_awprot,
+  M11_AXI_awvalid,
+  M11_AXI_awready,
+  M11_AXI_wdata,
+  M11_AXI_wstrb,
+  M11_AXI_wvalid,
+  M11_AXI_wready,
+  M11_AXI_bresp,
+  M11_AXI_bvalid,
+  M11_AXI_bready,
+  M11_AXI_araddr,
+  M11_AXI_arprot,
+  M11_AXI_arvalid,
+  M11_AXI_arready,
+  M11_AXI_rdata,
+  M11_AXI_rresp,
+  M11_AXI_rvalid,
+  M11_AXI_rready
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.aclk CLK" *)
 (* X_INTERFACE_MODE = "slave" *)
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.aclk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_clk_out1, ASSOCIATED_BUSIF M00_AXI:M01_AXI:M02_AXI:M03_AXI:M05_AXI:M06_AXI:M07_AXI:M08_AXI:M09_AXI:M10_AXI:S00_AXI:S01_AXI:S02_AXI, INSERT_VIP 0, ASSOCIATED_CLKEN m_sc_aclken" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.aclk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /clk_wiz_clk_out1, ASSOCIATED_BUSIF M00_AXI:M01_AXI:M02_AXI:M03_AXI:M05_AXI:M06_AXI:M07_AXI:M08_AXI:M09_AXI:M10_AXI:M11_AXI:S00_AXI:S01_AXI:S02_AXI, INSERT_VIP 0, ASSOCIATED_CLKEN m_sc_aclken" *)
 input wire aclk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.aclk1 CLK" *)
 (* X_INTERFACE_MODE = "slave" *)
@@ -1205,6 +1224,47 @@ input wire [1 : 0] M10_AXI_rresp;
 input wire M10_AXI_rvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M10_AXI RREADY" *)
 output wire M10_AXI_rready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI AWADDR" *)
+(* X_INTERFACE_MODE = "master" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME M11_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 9, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 32, NUM_WRITE_OUTSTANDING 32, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN /clk_wiz_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS \
+1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *)
+output wire [8 : 0] M11_AXI_awaddr;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI AWPROT" *)
+output wire [2 : 0] M11_AXI_awprot;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI AWVALID" *)
+output wire M11_AXI_awvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI AWREADY" *)
+input wire M11_AXI_awready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI WDATA" *)
+output wire [31 : 0] M11_AXI_wdata;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI WSTRB" *)
+output wire [3 : 0] M11_AXI_wstrb;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI WVALID" *)
+output wire M11_AXI_wvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI WREADY" *)
+input wire M11_AXI_wready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI BRESP" *)
+input wire [1 : 0] M11_AXI_bresp;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI BVALID" *)
+input wire M11_AXI_bvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI BREADY" *)
+output wire M11_AXI_bready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI ARADDR" *)
+output wire [8 : 0] M11_AXI_araddr;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI ARPROT" *)
+output wire [2 : 0] M11_AXI_arprot;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI ARVALID" *)
+output wire M11_AXI_arvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI ARREADY" *)
+input wire M11_AXI_arready;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI RDATA" *)
+input wire [31 : 0] M11_AXI_rdata;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI RRESP" *)
+input wire [1 : 0] M11_AXI_rresp;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI RVALID" *)
+input wire M11_AXI_rvalid;
+(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 M11_AXI RREADY" *)
+output wire M11_AXI_rready;
 
   bd_f1cc inst (
     .aclk(aclk),
@@ -1570,6 +1630,25 @@ output wire M10_AXI_rready;
     .M10_AXI_rdata(M10_AXI_rdata),
     .M10_AXI_rresp(M10_AXI_rresp),
     .M10_AXI_rvalid(M10_AXI_rvalid),
-    .M10_AXI_rready(M10_AXI_rready)
+    .M10_AXI_rready(M10_AXI_rready),
+    .M11_AXI_awaddr(M11_AXI_awaddr),
+    .M11_AXI_awprot(M11_AXI_awprot),
+    .M11_AXI_awvalid(M11_AXI_awvalid),
+    .M11_AXI_awready(M11_AXI_awready),
+    .M11_AXI_wdata(M11_AXI_wdata),
+    .M11_AXI_wstrb(M11_AXI_wstrb),
+    .M11_AXI_wvalid(M11_AXI_wvalid),
+    .M11_AXI_wready(M11_AXI_wready),
+    .M11_AXI_bresp(M11_AXI_bresp),
+    .M11_AXI_bvalid(M11_AXI_bvalid),
+    .M11_AXI_bready(M11_AXI_bready),
+    .M11_AXI_araddr(M11_AXI_araddr),
+    .M11_AXI_arprot(M11_AXI_arprot),
+    .M11_AXI_arvalid(M11_AXI_arvalid),
+    .M11_AXI_arready(M11_AXI_arready),
+    .M11_AXI_rdata(M11_AXI_rdata),
+    .M11_AXI_rresp(M11_AXI_rresp),
+    .M11_AXI_rvalid(M11_AXI_rvalid),
+    .M11_AXI_rready(M11_AXI_rready)
   );
 endmodule
