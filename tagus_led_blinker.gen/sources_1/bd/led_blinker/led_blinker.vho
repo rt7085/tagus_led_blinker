@@ -95,6 +95,12 @@ COMPONENT led_blinker
     SFP2_IIC_sda_i : IN STD_LOGIC;
     SFP2_IIC_sda_o : OUT STD_LOGIC;
     SFP2_IIC_sda_t : OUT STD_LOGIC;
+    FMC_IIC_scl_i : IN STD_LOGIC;
+    FMC_IIC_scl_o : OUT STD_LOGIC;
+    FMC_IIC_scl_t : OUT STD_LOGIC;
+    FMC_IIC_sda_i : IN STD_LOGIC;
+    FMC_IIC_sda_o : OUT STD_LOGIC;
+    FMC_IIC_sda_t : OUT STD_LOGIC;
     clk : IN STD_LOGIC;
     reset : IN STD_LOGIC;
     pcie_perstn : IN STD_LOGIC;
@@ -106,13 +112,7 @@ COMPONENT led_blinker
     SFP2_TX_FLT : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     SFP2_RX_LOS : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
     SFP2_MOD_ABS : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    CS2000_LOCK : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    FMC_IIC_scl_i : IN STD_LOGIC;
-    FMC_IIC_scl_o : OUT STD_LOGIC;
-    FMC_IIC_scl_t : OUT STD_LOGIC;
-    FMC_IIC_sda_i : IN STD_LOGIC;
-    FMC_IIC_sda_o : OUT STD_LOGIC;
-    FMC_IIC_sda_t : OUT STD_LOGIC
+    CS2000_LOCK : IN STD_LOGIC_VECTOR(0 DOWNTO 0)
   );
 END COMPONENT;
 -- COMP_TAG_END ------  End cut for COMPONENT Declaration  ------
@@ -165,6 +165,12 @@ your_instance_name : led_blinker
     SFP2_IIC_sda_i => SFP2_IIC_sda_i,
     SFP2_IIC_sda_o => SFP2_IIC_sda_o,
     SFP2_IIC_sda_t => SFP2_IIC_sda_t,
+    FMC_IIC_scl_i => FMC_IIC_scl_i,
+    FMC_IIC_scl_o => FMC_IIC_scl_o,
+    FMC_IIC_scl_t => FMC_IIC_scl_t,
+    FMC_IIC_sda_i => FMC_IIC_sda_i,
+    FMC_IIC_sda_o => FMC_IIC_sda_o,
+    FMC_IIC_sda_t => FMC_IIC_sda_t,
     clk => clk,
     reset => reset,
     pcie_perstn => pcie_perstn,
@@ -176,13 +182,7 @@ your_instance_name : led_blinker
     SFP2_TX_FLT => SFP2_TX_FLT,
     SFP2_RX_LOS => SFP2_RX_LOS,
     SFP2_MOD_ABS => SFP2_MOD_ABS,
-    CS2000_LOCK => CS2000_LOCK,
-    FMC_IIC_scl_i => FMC_IIC_scl_i,
-    FMC_IIC_scl_o => FMC_IIC_scl_o,
-    FMC_IIC_scl_t => FMC_IIC_scl_t,
-    FMC_IIC_sda_i => FMC_IIC_sda_i,
-    FMC_IIC_sda_o => FMC_IIC_sda_o,
-    FMC_IIC_sda_t => FMC_IIC_sda_t
+    CS2000_LOCK => CS2000_LOCK
   );
 -- INST_TAG_END ------  End cut for INSTANTIATION Template  ------
 

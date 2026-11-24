@@ -1,4 +1,4 @@
-# 2026-11-22T20:41:36.073049868
+# 2026-11-23T20:50:11.578154386
 import vitis
 
 client = vitis.create_client()
@@ -12,8 +12,6 @@ comp.build()
 
 status = platform.build()
 
-status = platform.build()
-
 comp.build()
 
 status = platform.build()
@@ -36,9 +34,9 @@ status = platform.build()
 
 comp.build()
 
-status = platform.update_hw(hw_design = "$COMPONENT_LOCATION/../led_blinker_wrapper.xsa")
-
 status = platform.build()
+
+comp.build()
 
 status = platform.build()
 

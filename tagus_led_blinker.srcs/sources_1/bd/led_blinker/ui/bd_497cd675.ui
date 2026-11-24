@@ -1,7 +1,7 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"0.533422",
-   "Default View_TopLeft":"-546,-221",
+   "Default View_TopLeft":"-546,-390",
    "ExpandedHierarchyInLayout":"",
    "HierExpandStatus_comment_0":"false",
    "HierExpandStatus_comment_1":"false",
@@ -74,6 +74,7 @@ preplace netloc In2_0_1 1 0 5 NJ 1520 NJ 1520 NJ 1520 NJ 1520 1790J
 preplace netloc In3_0_1 1 0 5 NJ 1600 NJ 1600 NJ 1600 NJ 1600 1770J
 preplace netloc In4_0_1 1 0 5 NJ 1640 NJ 1640 NJ 1640 NJ 1640 1750J
 preplace netloc In5_0_1 1 0 5 NJ 1680 NJ 1680 NJ 1680 NJ 1680 1730J
+preplace netloc In6_0_1 1 0 5 NJ 1770 NJ 1770 NJ 1770 NJ 1770 NJ
 preplace netloc axi_gpio_1_gpio_io_o 1 6 1 2810 1610n
 preplace netloc axi_timer_0_interrupt 1 1 6 560 220 NJ 220 NJ 220 NJ 220 NJ 220 2790
 preplace netloc axi_uartlite_0_interrupt 1 1 6 570 790 NJ 790 1240J 690 NJ 690 NJ 690 2780
@@ -98,13 +99,13 @@ preplace netloc rst_mig_7series_0_100M_peripheral_aresetn 1 5 1 2500 150n
 preplace netloc util_ds_buf_IBUF_OUT 1 3 1 NJ 430
 preplace netloc xdma_0_axi_aclk 1 4 1 1790 440n
 preplace netloc xdma_0_user_lnk_up 1 4 3 1740 280 2500J 390 2780
-preplace netloc In6_0_1 1 0 5 NJ 1770 NJ 1770 NJ 1770 NJ 1770 NJ
 preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 6 1 2810 460n
 preplace netloc axi_bram_ctrl_0_BRAM_PORTB 1 6 1 2800 480n
 preplace netloc axi_gpio_0_GPIO 1 6 2 NJ 290 3030J
 preplace netloc axi_iic_0_IIC 1 6 2 NJ 950 NJ
 preplace netloc axi_iic_1_IIC 1 6 2 NJ 1090 NJ
 preplace netloc axi_iic_2_IIC 1 6 2 NJ 1230 NJ
+preplace netloc axi_iic_3_IIC 1 6 2 NJ 1380 NJ
 preplace netloc axi_intc_0_interrupt 1 3 1 1270 810n
 preplace netloc axi_smc_M00_AXI 1 5 1 2230 290n
 preplace netloc axi_smc_M01_AXI 1 2 4 930 620 NJ 620 NJ 620 2170
@@ -117,6 +118,7 @@ preplace netloc axi_smc_M07_AXI 1 5 1 2220 480n
 preplace netloc axi_smc_M08_AXI 1 5 1 2210 500n
 preplace netloc axi_smc_M09_AXI 1 5 1 2190 520n
 preplace netloc axi_smc_M10_AXI 1 5 1 2200 540n
+preplace netloc axi_smc_M11_AXI 1 5 1 2180 560n
 preplace netloc axi_uartlite_0_UART 1 6 2 NJ 600 3030J
 preplace netloc microblaze_0_M_AXI_DC 1 4 1 1760 390n
 preplace netloc microblaze_0_M_AXI_DP 1 4 1 1750 370n
@@ -129,8 +131,6 @@ preplace netloc pcie_refclk_1 1 0 3 NJ 440 NJ 440 NJ
 preplace netloc xdma_0_M_AXI 1 4 1 1810 360n
 preplace netloc xdma_0_M_AXI_LITE 1 4 1 1800 380n
 preplace netloc xdma_0_pcie_mgt 1 4 4 1730J 230 NJ 230 2810J 250 NJ
-preplace netloc axi_smc_M11_AXI 1 5 1 2180 560n
-preplace netloc axi_iic_3_IIC 1 6 2 NJ 1380 NJ
 preplace cgraphic comment_3 place top 2219 -90 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_1 place top 1804 -90 textcolor 4 linecolor 3 linewidth 2
 preplace cgraphic comment_0 place bot 4 129 textcolor 4 linecolor 3 linewidth 2
@@ -142,22 +142,22 @@ pagesize -pg 1 -db -bbox -sgen -550 -100 3480 1910
    "textcolor_comment_3":""
 }
 {
-   """""""""""""""""""""""""""""""""""da_axi4_cnt""""""""""""""""""""""""""""""""""":"1",
-   """""""""""""""""""""""""""""""""""da_board_cnt""""""""""""""""""""""""""""""""""":"4",
-   """""""""""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""""""""":"4",
+   """"""""""""""""""""""""""""""""""""da_axi4_cnt"""""""""""""""""""""""""""""""""""":"1",
+   """"""""""""""""""""""""""""""""""""da_board_cnt"""""""""""""""""""""""""""""""""""":"4",
+   """"""""""""""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""""""""""":"4",
+   """"""""""""""""""""""""""""""""""""da_mb_cnt"""""""""""""""""""""""""""""""""""":"1",
+   """""""""""""""""""""""""""""""""""da_axi4_cnt""""""""""""""""""""""""""""""""""":"2",
+   """""""""""""""""""""""""""""""""""da_board_cnt""""""""""""""""""""""""""""""""""":"1",
    """""""""""""""""""""""""""""""""""da_mb_cnt""""""""""""""""""""""""""""""""""":"1",
-   """"""""""""""""""""""""""""""""""da_axi4_cnt"""""""""""""""""""""""""""""""""":"2",
-   """"""""""""""""""""""""""""""""""da_board_cnt"""""""""""""""""""""""""""""""""":"1",
-   """"""""""""""""""""""""""""""""""da_mb_cnt"""""""""""""""""""""""""""""""""":"1",
-   """"""""""""""""""""""""""""""da_axi4_cnt"""""""""""""""""""""""""""""":"1",
+   """""""""""""""""""""""""""""""da_axi4_cnt""""""""""""""""""""""""""""""":"1",
+   """""""""""""""""""""""""""""""da_board_cnt""""""""""""""""""""""""""""""":"1",
+   """""""""""""""""""""""""""""""da_bram_cntlr_cnt""""""""""""""""""""""""""""""":"2",
+   """"""""""""""""""""""""""""""da_axi4_cnt"""""""""""""""""""""""""""""":"7",
    """"""""""""""""""""""""""""""da_board_cnt"""""""""""""""""""""""""""""":"1",
-   """"""""""""""""""""""""""""""da_bram_cntlr_cnt"""""""""""""""""""""""""""""":"2",
-   """""""""""""""""""""""""""""da_axi4_cnt""""""""""""""""""""""""""""":"7",
-   """""""""""""""""""""""""""""da_board_cnt""""""""""""""""""""""""""""":"1",
-   """"""""""""""""""""""""""""da_clkrst_cnt"""""""""""""""""""""""""""":"1",
-   """""""""""""""""""""""""""da_board_cnt""""""""""""""""""""""""""":"1",
-   """""""""""""""""""""""""""da_xdma_cnt""""""""""""""""""""""""""":"1",
-   """"""""""""""""""""""da_axi4_cnt"""""""""""""""""""""":"2"
+   """""""""""""""""""""""""""""da_clkrst_cnt""""""""""""""""""""""""""""":"1",
+   """"""""""""""""""""""""""""da_board_cnt"""""""""""""""""""""""""""":"1",
+   """"""""""""""""""""""""""""da_xdma_cnt"""""""""""""""""""""""""""":"1",
+   """""""""""""""""""""""da_axi4_cnt""""""""""""""""""""""":"2"
 }
 {
    "/comment_0":"comment_0",

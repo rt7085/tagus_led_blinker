@@ -2152,7 +2152,7 @@
             "value": "5"
           },
           "IIC_FREQ_KHZ": {
-            "value": "400"
+            "value": "100"
           }
         }
       }

@@ -1,6 +1,7 @@
 #ifdef __MICROBLAZE__
 
 #include "i2c.h"
+#include "sleep.h"
 
 // Functions
 
@@ -98,21 +99,54 @@ int ReadMACAddress(void)
     return XST_SUCCESS;
 }
 
-int cs2000_init(void)
+int cs2000_init(u8 mode)
 {
     int status;
-    u8 ReadBytes[4]  = {0}; 
+    u8 WriteData[5] = {0};
+    u8 ReadBytes[5] = {0}; 
     
     status = I2CReadPolled(XPAR_AXI_IIC_3_BASEADDR , CS2000_I2C_ADDR, CS2000_DEVICE_ID , ReadBytes, 1);
     if (status != XST_SUCCESS) {
-        xil_printf("\nCS2000 Read Failed!");
+        xil_printf("\nCS2000 read failed!");
         return XST_FAILURE;
     }
-
     xil_printf("\nCS2000 Device ID: %02X", ReadBytes[0]);
+
+    // Reset the CS2000
+    WriteData[0] = 0x00; 
+    status = I2CWritePolled(XPAR_AXI_IIC_3_BASEADDR , CS2000_I2C_ADDR, CS2000_GLOBAL_CFG, WriteData, 1);
+    if (status != XST_SUCCESS) {
+        xil_printf("\nCS2000 reset failed!\r\n");
+        return XST_FAILURE;
+    }
+    usleep(100000); //100ms delay
+    xil_printf("\nCS2000 device reset done");
+
+    if (mode == 0) // master mode
+    {
+        WriteData[0] = 0x09; // Set Freeze, EnDevCfg2
+        status = I2CWritePolled(XPAR_AXI_IIC_3_BASEADDR , CS2000_I2C_ADDR, CS2000_GLOBAL_CFG, WriteData, 1);
+        if (status != XST_SUCCESS) {
+            xil_printf("\nCS2000 freeze failed!\r\n");
+            return XST_FAILURE;
+        }
+    }   
+//    else // subordinate mode
+//    {
+//       
+//    }
 
     return XST_SUCCESS;
 }
+
+int cs2000_set_master(void)
+{
+
+    
+    
+    return XST_SUCCESS;
+}
+
 
 
 #endif // __MICROBLAZE__

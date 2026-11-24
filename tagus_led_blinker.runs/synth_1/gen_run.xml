@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a200tfbg484-2" LaunchTime="1795371240" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/led_blinker_wrapper.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a200tfbg484-2" LaunchTime="1795435367" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/led_blinker_wrapper.dcp">
   <File Type="VDS-TIMING-PB" Name="led_blinker_wrapper_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="led_blinker_wrapper_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="led_blinker_wrapper.dcp"/>
@@ -89,7 +89,6 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2025"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_smc_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_gpio_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_axi_iic_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="led_blinker_dlmb_bram_if_cntlr_0"/>

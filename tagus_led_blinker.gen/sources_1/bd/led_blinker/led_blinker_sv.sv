@@ -138,6 +138,18 @@ module led_blinker_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   output wire SFP2_IIC_sda_t,
   (* X_INTERFACE_IGNORE = "true" *)
+  input wire FMC_IIC_scl_i,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire FMC_IIC_scl_o,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire FMC_IIC_scl_t,
+  (* X_INTERFACE_IGNORE = "true" *)
+  input wire FMC_IIC_sda_i,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire FMC_IIC_sda_o,
+  (* X_INTERFACE_IGNORE = "true" *)
+  output wire FMC_IIC_sda_t,
+  (* X_INTERFACE_IGNORE = "true" *)
   input wire clk,
   (* X_INTERFACE_IGNORE = "true" *)
   input wire reset,
@@ -160,19 +172,7 @@ module led_blinker_sv (
   (* X_INTERFACE_IGNORE = "true" *)
   input wire [0:0] SFP2_MOD_ABS,
   (* X_INTERFACE_IGNORE = "true" *)
-  input wire [0:0] CS2000_LOCK,
-  (* X_INTERFACE_IGNORE = "true" *)
-  input wire FMC_IIC_scl_i,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire FMC_IIC_scl_o,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire FMC_IIC_scl_t,
-  (* X_INTERFACE_IGNORE = "true" *)
-  input wire FMC_IIC_sda_i,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire FMC_IIC_sda_o,
-  (* X_INTERFACE_IGNORE = "true" *)
-  output wire FMC_IIC_sda_t
+  input wire [0:0] CS2000_LOCK
 );
 
   led_blinker inst (
@@ -218,6 +218,12 @@ module led_blinker_sv (
     .SFP2_IIC_sda_i(SFP2_IIC_sda_i),
     .SFP2_IIC_sda_o(SFP2_IIC_sda_o),
     .SFP2_IIC_sda_t(SFP2_IIC_sda_t),
+    .FMC_IIC_scl_i(FMC_IIC_scl_i),
+    .FMC_IIC_scl_o(FMC_IIC_scl_o),
+    .FMC_IIC_scl_t(FMC_IIC_scl_t),
+    .FMC_IIC_sda_i(FMC_IIC_sda_i),
+    .FMC_IIC_sda_o(FMC_IIC_sda_o),
+    .FMC_IIC_sda_t(FMC_IIC_sda_t),
     .clk(clk),
     .reset(reset),
     .pcie_perstn(pcie_perstn),
@@ -229,13 +235,7 @@ module led_blinker_sv (
     .SFP2_TX_FLT(SFP2_TX_FLT),
     .SFP2_RX_LOS(SFP2_RX_LOS),
     .SFP2_MOD_ABS(SFP2_MOD_ABS),
-    .CS2000_LOCK(CS2000_LOCK),
-    .FMC_IIC_scl_i(FMC_IIC_scl_i),
-    .FMC_IIC_scl_o(FMC_IIC_scl_o),
-    .FMC_IIC_scl_t(FMC_IIC_scl_t),
-    .FMC_IIC_sda_i(FMC_IIC_sda_i),
-    .FMC_IIC_sda_o(FMC_IIC_sda_o),
-    .FMC_IIC_sda_t(FMC_IIC_sda_t)
+    .CS2000_LOCK(CS2000_LOCK)
   );
 
 endmodule

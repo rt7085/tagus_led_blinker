@@ -431,7 +431,7 @@
 
                 axi_iic_3: i2c@40830000 {
                         phandle = <0xc>;
-                        xlnx,iic-freq-khz = <0x190>;
+                        xlnx,iic-freq-khz = <0x64>;
                         compatible = "xlnx,axi-iic-2.1", "xlnx,xps-iic-2.00.a";
                         xlnx,scl-inertial-delay = <0x5>;
                         clock-frequency = <0x5f5e100>;
@@ -448,7 +448,7 @@
                         xlnx,default-value = <0x0>;
                         xlnx,iic-board-interface = "Custom";
                         xlnx,timing-reg-width = <0x20>;
-                        xlnx,iic-freq = <0x61a80>;
+                        xlnx,iic-freq = <0x186a0>;
                         xlnx,smbus-pmbus-host = <0x0>;
                         xlnx,name = "axi_iic_3";
                         xlnx,axi-aclk-freq-mhz = <0x64>;

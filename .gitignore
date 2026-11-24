@@ -15,6 +15,10 @@
 *.dmp
 *.rpx
 *.rpt
+*_sim_netlist.vhdl
+*_sim_netlist.v
+*_stub.vhdl
+*_stub.v
 vivado_pid*
 
 # Ignore specific Vivado build/run directories

@@ -77,7 +77,7 @@ int main()
     
     gpio_init();
     bram_init();
-    cs2000_init();
+    cs2000_init(0); // master mode
 
     xil_printf("\nLed Blinker Applications Started...");
 

@@ -374,7 +374,7 @@
 			xlnx,sda-inertial-delay = <5>;
 		};
 		axi_iic_3: i2c@40830000 {
-			xlnx,iic-freq-khz = <400>;
+			xlnx,iic-freq-khz = <100>;
 			compatible = "xlnx,axi-iic-2.1" , "xlnx,xps-iic-2.00.a";
 			xlnx,scl-inertial-delay = <5>;
 			clock-frequency = <100000000>;
@@ -391,7 +391,7 @@
 			xlnx,default-value = <0x0>;
 			xlnx,iic-board-interface = "Custom";
 			xlnx,timing-reg-width = <32>;
-			xlnx,iic-freq = <400000>;
+			xlnx,iic-freq = <100000>;
 			xlnx,smbus-pmbus-host = <0>;
 			xlnx,name = "axi_iic_3";
 			xlnx,axi-aclk-freq-mhz = <100>;
