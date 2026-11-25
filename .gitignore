@@ -65,6 +65,7 @@ vivado_pid*
 .settings/
 RemoteSystemsTempFiles/
 webtalk/
+_ide/workspace_journal*.py
 
 # ==========================================
 # General / OS
