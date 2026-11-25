@@ -72,6 +72,7 @@
 #define CS2000_FUNCT_CFG1	0x16
 #define CS2000_FUNCT_CFG2	0x17
 #define CS2000_FUNCT_CFG3	0x1E
+#define CS2000_REF_CLK      25000000.0f
 
 /* Set to 2 for larger EEPROMs (e.g., 24LC32, 24LC64), or 1 for <= 16Kb (e.g., 24LC02) */
 #define ADDR_BYTE_LEN       1
@@ -83,7 +84,7 @@
 int I2CWritePolled(UINTPTR AXIBusAddress, u8 IICAddress, u16 MemAddr, u8 *WriteBuf, u16 ByteCount);
 int I2CReadPolled(UINTPTR AXIBusAddress, u8 IICAddress, u16 MemAddr, u8 *ReadBuf, u16 ByteCount);
 int ReadMACAddress(void);
-int cs2000_init(u8 mode);
+int cs2000_init(u8 mode, u32 samplerate);
 
 #endif // I2C_H
 
